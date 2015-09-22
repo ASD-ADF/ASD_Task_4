@@ -1,0 +1,64 @@
+# depslib dependency file v1.0
+1442857059 source:c:\users\undeed\documents\cpp\musicplayer\main.cpp
+	<iostream>
+	"list.h"
+	<conio.h>
+
+1442856308 source:c:\users\undeed\documents\cpp\musicplayer\list.cpp
+	<iostream>
+	<string>
+	<windows.h>
+	"list.h"
+
+1442856316 c:\users\undeed\documents\cpp\musicplayer\list.h
+	<string>
+	<windows.h>
+
+1442895478 source:f:\musicplayer\list.cpp
+	<iostream>
+	"list.h"
+
+1442905068 f:\musicplayer\list.h
+	<string>
+	<windows.h>
+
+1442897104 source:f:\musicplayer\main.cpp
+	<iostream>
+	"list.h"
+	"player.h"
+	<conio.h>
+
+1442911714 f:\musicplayer\player.h
+	"list.h"
+
+1442905454 source:f:\musicplayer\player.cpp
+	<iostream>
+	<string>
+	<windows.h>
+	"list.h"
+	"player.h"
+
+1442895478 source:c:\users\dee\documents\github\task_4\list.cpp
+	<iostream>
+	"list.h"
+
+1442905068 c:\users\dee\documents\github\task_4\list.h
+	<string>
+	<windows.h>
+
+1442906110 source:c:\users\dee\documents\github\task_4\main.cpp
+	<iostream>
+	"list.h"
+	"player.h"
+	<conio.h>
+
+1442911714 c:\users\dee\documents\github\task_4\player.h
+	"list.h"
+
+1442905454 source:c:\users\dee\documents\github\task_4\player.cpp
+	<iostream>
+	<string>
+	<windows.h>
+	"list.h"
+	"player.h"
+
