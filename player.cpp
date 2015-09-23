@@ -17,12 +17,12 @@ void inputNewSong(infotype &x){
 void printInfo(List L)
 {
     address Q = First(L);
-    while(Q != NULL)
+    do
     {
         cout<<"name : "<<Info(Q).name<<endl
             <<"location: "<<Info(Q).location<<endl;
         Q = Next(Q);
-    }
+    }while(Q!= First(L));
 }
 
 void playSong(address P){
@@ -37,3 +37,28 @@ void playNext(address &P){
     playSong(P);
 }
 
+void playPrev(address &P)
+{
+    P = Prev(P);
+    playSong(P);
+}
+
+void playRepeat(List &L, int n)
+{
+    int x = 0,v = n;
+    address P = First(L);
+
+    do
+    {
+        system("cls");
+        cout<<"Repeat "<<v<<" times"<<endl;
+        playSong(P);
+        P=Next(P);
+        if (P == First(L))
+        {
+            x++;
+            v--;
+        }
+    }while (x<n);
+
+}
