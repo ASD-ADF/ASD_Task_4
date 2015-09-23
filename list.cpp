@@ -6,6 +6,7 @@ using namespace std;
 void createList(List &L)
 {
     First(L) = NULL;
+    Last(L) = NULL;
 }
 
 address alokasi(infotype x)
@@ -13,6 +14,7 @@ address alokasi(infotype x)
     address P = new elemenList;
     Info(P) = x;
     Next(P) = NULL;
+    Prev(P) = NULL;
     return P;
 }
 
@@ -21,7 +23,7 @@ void dealokasi(address &P)
     delete P;
 }
 
-void insertFirst(List &L, address P)
+/*void insertFirst(List &L, address P)
 {
     Next(P) = First(L);
     First(L) = P;
@@ -97,4 +99,66 @@ address findElm(List L, infotype x){
         Q = Next(Q);
     }
     return NULL;
+}*/
+
+void insertFirst(List &L, address P)
+{
+    if (First(L) == NULL)
+    {
+        First(L) = P;
+        Next(P) = First(L);
+        Prev(P) = First(L);
+        Last(L) = First(L);
+    }
+    else
+    {
+        Next(P) = First(L);
+        Prev(P) = Last(L);
+        Next(Last(L)) = P;
+        Prev(First(L)) = P;
+        First(L) = P;
+    }
+}
+
+void insertLast(List &L, address P)
+{
+    if (First(L) == NULL)
+    {
+        First(L) = P;
+        Next(P) = First(L);
+        Prev(P) = First(L);
+        Last(L) = First(L);
+    }
+    else
+    {
+        Next(P) = First(L);
+        Prev(P) = Last(L);
+        Next(Last(L)) = P;
+        Prev(First(L)) = P;
+        Last(L) = P;
+    }
+}
+
+void insertAfter(List &L, address P, address Prec)
+{
+    if (First(L) == NULL)
+    {
+        insertFirst(L,P);
+    }
+    else if (Last(L) == Prec)
+    {
+       Next(P) = First(L);
+       Next(Prec) = P;
+       Prev(P) = Prec;
+       Prev(First(L)) = P;
+       Last(L) = P;
+    }
+    else
+    {
+        Next(P) = Next(Prec);
+        Next(Prec) = P;
+        Prev(Next(P)) = P;
+        Prev(P) = Prec;
+    }
+
 }
