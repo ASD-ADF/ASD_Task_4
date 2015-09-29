@@ -62,28 +62,3 @@
 	"list.h"
 	"player.h"
 
-1443544940 source:c:\users\adamgeraldy\documents\asd\task4\task_4-master\list.cpp
-	<iostream>
-	"list.h"
-	"player.h"
-
-1443545762 c:\users\adamgeraldy\documents\asd\task4\task_4-master\list.h
-	<string>
-	<windows.h>
-
-1443541712 source:c:\users\adamgeraldy\documents\asd\task4\task_4-master\main.cpp
-	<iostream>
-	"list.h"
-	"player.h"
-	<conio.h>
-
-1443533491 c:\users\adamgeraldy\documents\asd\task4\task_4-master\player.h
-	"list.h"
-
-1443536844 source:c:\users\adamgeraldy\documents\asd\task4\task_4-master\player.cpp
-	<iostream>
-	<string>
-	<windows.h>
-	"list.h"
-	"player.h"
-
