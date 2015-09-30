@@ -17,12 +17,22 @@ void inputNewSong(infotype &x){
 void printInfo(List L)
 {
     address Q = First(L);
-    while(Q != NULL)
-    {
-        cout<<"name : "<<Info(Q).name<<endl
-            <<"location: "<<Info(Q).location<<endl;
-        Q = Next(Q);
+    if(First(L) != NULL && Last(L) != NULL) {
+        do {
+            cout << "Name: " << Info(Q).name << " (" << Info(Q).ID << ") - " << Q << endl;
+            if(First(L) == Q)
+                cout << "FIRST IN THE LIST!" << endl;
+            if(Last(L) == Q) {
+                cout << "Last IN THE LIST!" << endl;
+            }
+            cout << "Previous: " << Info(Prev(Q)).name << endl
+                << "Next: " << Info(Next(Q)).name << endl
+                << "PrevA: " << Prev(Q) << endl
+                << "NextA: " << Next(Q) << endl << endl;
+            Q = Next(Q);
+        } while(First(L) != Q);
     }
+    else cout << "List empty!" << endl;
 }
 
 void playSong(address P){
