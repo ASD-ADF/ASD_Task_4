@@ -20,6 +20,7 @@ void dealokasi(address &P)
     delete P;
 }
 
+//procedure insert first by M. Ricky J
 void insertFirst(List &L, address P){
     if (First(L) == NULL){
         First(L) = P;
@@ -37,6 +38,7 @@ void insertFirst(List &L, address P){
     }
 }
 
+//procedure Insert last by M. Ricky J
 void insertLast(List &L, address P){
     if (First(L) == NULL){
         First(L) = P;
@@ -53,6 +55,7 @@ void insertLast(List &L, address P){
     }
 }
 
+//Procedure Insert after by M. Ricky J
 void insertAfter(List &L, address P, address Prec){
     if (First(L) == NULL){
         insertFirst(L,P);
