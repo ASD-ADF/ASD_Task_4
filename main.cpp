@@ -1,7 +1,5 @@
-#include <iostream>
 #include "list.h"
 #include "player.h"
-#include <conio.h>
 
 using namespace std;
 
@@ -14,18 +12,17 @@ void displayMenu();
 void runMenu(int menu);
 
 int main() {
-    cout << "Hello world!" << endl;
 
     createList(L);
     // example of data initialization
     x.ID = 1;
-    x.location = "";
+    x.location = "-";
     x.name = "clapping.wav";
     P = alokasi(x);
     insertFirst(L,P);
 
     x.ID = 2;
-    x.location = "";
+    x.location = "-";
     x.name = "airpump2.wav";
     P = alokasi(x);
     insertFirst(L,P);
@@ -40,16 +37,23 @@ void menu() {
         displayMenu();
         cin>>pil;
         runMenu(pil);
-    } while (pil!=5);
+    } while (pil!=12);
 }
 
 void displayMenu() {
-    cout<<"1. input new "<<endl
-        <<"2. view list"<<endl
-        <<"3. play first song"<<endl
-        <<"4. play next "<<endl
-        <<"5. exit"<<endl;
-    cout<<"choose menu : ";
+    cout<<"1.  Input New Song"<<endl
+        <<"2.  View List Song"<<endl
+        <<"3.  Play First Song"<<endl
+        <<"4.  Play Last Song"<<endl
+        <<"5.  Play Previous Song"<<endl
+        <<"6.  Play Next Song"<<endl
+        <<"7.  Play Again This Song (the last played song)"<<endl
+        <<"8.  Play Repeat All Song"<<endl
+        <<"9.  Search Song"<<endl
+        <<"10. Shuffle The Song List"<<endl
+        <<"11. Sort The Song List"<<endl
+        <<"12. Exit"<<endl;
+    cout<<"\n choose menu : ";
 }
 
 void runMenu(int menu) {
@@ -68,9 +72,24 @@ void runMenu(int menu) {
         playSong(P);
         break;
     case 4:
+        P= Last (L);
         playNext(P);
         break;
     case 5:
+        break;
+    case 6:
+        break;
+    case 7:
+        break;
+    case 8:
+        break;
+    case 9:
+        break;
+    case 10:
+        break;
+    case 11:
+        break;
+    case 12:
         cout<<"thank you"<<endl;
         break;
     default :
