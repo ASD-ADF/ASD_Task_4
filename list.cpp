@@ -1,4 +1,3 @@
-#include <iostream>
 #include "list.h"
 
 using namespace std;
@@ -21,38 +20,55 @@ void dealokasi(address &P)
     delete P;
 }
 
-void insertFirst(List &L, address P)
-{
-    Next(P) = First(L);
-    First(L) = P;
+void insertFirst(List &L, address P){
+    if (First(L) == NULL){
+        First(L) = P;
+        Next(P) = First(L);
+        Prev(P) = First(L);
+        Last(L) = First(L);
+    }
+    else
+    {
+        Next(P) = First(L);
+        Prev(P) = Last(L);
+        Next(Last(L)) = P;
+        Prev(First(L)) = P;
+        First(L) = P;
+    }
 }
 
-void insertLast(List &L, address P)
-{
-    if(First(L) == NULL)
-    {
-        insertFirst(L,P);
+void insertLast(List &L, address P){
+    if (First(L) == NULL){
+        First(L) = P;
+        Next(P) = First(L);
+        Prev(P) = First(L);
+        Last(L) = First(L);
     }
-    else
-    {
-        address Q = First(L);
-        while(Next(Q) != NULL)
-        {
-            Q = Next(Q);
-        }
-        Next(Q) = P;
+    else{
+        Next(P) = First(L);
+        Prev(P) = Last(L);
+        Next(Last(L)) = P;
+        Prev(First(L)) = P;
+        Last(L) = P;
     }
 }
-void insertAfter(List &L, address P, address Prec)
-{
-    if(First(L) == NULL)
-    {
+
+void insertAfter(List &L, address P, address Prec){
+    if (First(L) == NULL){
         insertFirst(L,P);
     }
-    else
-    {
+    else if (Last(L) == Prec){
+        Next(P) = First(L);
+        Next(Prec) = P;
+        Prev(P) = Prec;
+        Prev(First(L)) = P;
+        Last(L) = P;
+    }
+    else{
         Next(P) = Next(Prec);
         Next(Prec) = P;
+        Prev(Next(P)) = P;
+        Prev(P) = Prec;
     }
 }
 
