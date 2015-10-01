@@ -1,100 +1,177 @@
 #include <iostream>
 #include "list.h"
-
 using namespace std;
 
-void createList(List &L)
+address allocate (infotype x)
 {
-    First(L) = NULL;
-}
+    address P;
 
-address alokasi(infotype x)
-{
-    address P = new elemenList;
-    Info(P) = x;
-    Next(P) = NULL;
+    P=new element_list;
+    info(P)=x;
+    next(P)=NULL;
+    prev(P)=NULL;
     return P;
 }
 
-void dealokasi(address &P)
+void deallocate (address &P)
 {
     delete P;
 }
 
-void insertFirst(List &L, address P)
+void create_list (list &L)
 {
-    Next(P) = First(L);
-    First(L) = P;
+    first(L)=NULL;
+    last(L)=NULL;
 }
 
-void insertLast(List &L, address P)
+void insert_first (list &L, address P)
 {
-    if(First(L) == NULL)
+    if (first(L)!=NULL and last(L)!=NULL)
     {
-        insertFirst(L,P);
+        next(P)=first(L);
+        prev(P)=last(L);
+        next(last(L))=P;
+        prev(first(L))=P;
+        first(L)=P;
     }
     else
     {
-        address Q = First(L);
-        while(Next(Q) != NULL)
+        first(L)=P;
+        next(P)=first(L);
+        prev(P)=first(L);
+        last(L)=P;
+    }
+}
+
+void insert_after (list &L, address P, address Prec)
+{
+    prev(P)=Prec;
+    next(P)=next(Prec);
+    prev(next(Prec))=P;
+    next(Prec)=P;
+}
+
+void insert_last (list &L, address P)
+{
+    next(P)=first(L);
+    prev(P)=last(L);
+    next(last(L))=P;
+    last(L)=P;
+}
+
+void delete_first (list &L, address &P)
+{
+    P=first(L);
+    if (first(L)!=last(L))
+    {
+        first(L)=next(P);
+        next(P)=NULL;
+        prev(P)=NULL;
+        prev(first(L))=last(L);
+        next(last(L))=first(L);
+    }
+    else
+    {
+        next(P)=NULL;
+        prev(P)=NULL;
+        first(L)=NULL;
+        last(L)=NULL;
+    }
+    deallocate(P);
+}
+
+void delete_after (list &L, address &P, address &Prec)
+{
+    P=next(Prec);
+    next(Prec)=next(P);
+    prev(next(P))=Prec;
+    prev(P)=NULL;
+    next(P)=NULL;
+    deallocate(P);
+}
+
+void delete_last (list &L, address &P)
+{
+    P=last(L);
+    if (first(L)!=last(L))
+    {
+        last(L)=prev(last(L));
+        next(P)=NULL;
+        prev(P)=NULL;
+        prev(first(L))=last(L);
+        next(last(L))=first(L);
+    }
+    else
+    {
+        next(P)=NULL;
+        prev(P)=NULL;
+        first(L)=NULL;
+        last(L)=NULL;
+    }
+    deallocate(P);
+}
+
+address find_elm (list L, infotype x)
+{
+    address Q;
+
+    Q=first(L);
+    while(Q!=last(L))
+    {
+        if(info(Q).name==x.name)
         {
-            Q = Next(Q);
-        }
-        Next(Q) = P;
-    }
-}
-void insertAfter(List &L, address P, address Prec)
-{
-    if(First(L) == NULL)
-    {
-        insertFirst(L,P);
-    }
-    else
-    {
-        Next(P) = Next(Prec);
-        Next(Prec) = P;
-    }
-}
-
-void deleteFirst(List &L, address &P)
-{
-    P = First(L);
-    First(L) = Next(P);
-    Next(P) = NULL;
-}
-
-void deleteLast(List &L, address &P)
-{
-    if(Next(First(L)) == NULL)
-    {
-        deleteFirst(L,P);
-    }
-    else
-    {
-        address Q = First(L);
-        while(Next(Next(Q)) != NULL)
-        {
-            Q = Next(Q);
-        }
-        P = Next(Q);
-        Next(Q) = NULL;
-    }
-}
-
-void deleteAfter(List &L, address &P, address &Prec)
-{
-    P = Next(Prec);
-    Next(Prec) = Next(P);
-    Next(P) = NULL;
-}
-
-address findElm(List L, infotype x){
-    address Q = First(L);
-    while(Q != NULL){
-        if(Info(Q).ID == x.ID){
             return Q;
         }
-        Q = Next(Q);
+        Q=next(Q);
     }
     return NULL;
+}
+
+void search_data (list L, address P)
+{
+    address Q;
+    infotype cari;
+
+    cout<<"=====SEARCH MUSIC====="<<endl;
+    cout<<"Masukkan nama music : ";
+    cin>>cari.name;
+    cout<<"====================="<<endl;
+    Q=find_elm(L,cari);
+    P=Q;
+    if (Q!=NULL)
+    {
+        cout<<info(Q).id<<" "<<info(Q).name<<endl;
+        cout<<"===================="<<endl;
+    }
+    else
+    {
+        cout<<"Music tidak ditemukan !!";
+    }
+}
+
+void sorting (list &L, int temp1)
+{
+    address P;
+    infotype temp;
+
+    P=first(L);
+    for (int i=1; i<=temp1-1; i++)
+    {
+        P=first(L);
+        for (int j=1 ; j<=(temp1-i); j++)
+        {
+            if (info(P).name > info(next(P)).name)
+            {
+                temp=info(next(P));
+                info(next(P))=info(P);
+                info(P)=temp;
+                P=next(P);
+            }
+            else
+            {
+                P=next(P);
+            }
+
+        }
+    }
 }

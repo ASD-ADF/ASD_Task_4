@@ -1,39 +1,108 @@
 #include <iostream>
 #include <string>
+#include <conio.h>
 #include <windows.h>
 #include "list.h"
 #include "player.h"
-
 using namespace std;
 
-void inputNewSong(infotype &x){
-    cout<<"input name song (.wav) : ";
+void input_music (infotype &x)
+{
+    cout<<"=====IMPORT MUSIC====="<<endl;
+    cout<<"Input music name (.wav) : ";
     cin>>x.name;
-    cout<<"input song location "<<endl<<"(write - for default location) :";
+    cout<<"Input music location (write - for default location) : ";
     cin>>x.location;
-    if(x.location=="-"){x.location="";}
+    cout<<"======================"<<endl;
+    if(x.location=="-")
+        x.location="";
 }
 
-void printInfo(List L)
+void print_info (list L)
 {
-    address Q = First(L);
-    while(Q != NULL)
+    address Q;
+
+    Q=first(L);
+    if (Q!=NULL)
     {
-        cout<<"name : "<<Info(Q).name<<endl
-            <<"location: "<<Info(Q).location<<endl;
-        Q = Next(Q);
+        cout<<"=====VIEW PLAYLIST====="<<endl;
+        cout<<info(Q).id<<" "<<info(Q).name<<endl;
+        Q=next(Q);
+        while(Q!=first(L))
+        {
+            cout<<info(Q).id<<" "<<info(Q).name<<endl;
+            Q=next(Q);
+        }
+    }
+    else
+    {
+        cout<<"=====VIEW PLAYLIST====="<<endl;
+        cout<<"No music"<<endl;
     }
 }
 
-void playSong(address P){
-    string filename = Info(P).location+Info(P).name;
-    cout<<"playing "<<filename<<endl;
+void play_music (address P)
+{
+    string filename;
+
+    filename=info(P).name;
+    cout<<"Playing "<<filename<<endl;
     PlaySound(TEXT(filename.c_str()), NULL, SND_FILENAME);
     _sleep(1000); //delay 1 second
 }
 
-void playNext(address &P){
-    P = Next(P);
-    playSong(P);
+void play_next (address &P)
+{
+    P=next(P);
+    play_music(P);
 }
 
+void play_prev (address &P)
+{
+    P=prev(P);
+    play_music(P);
+}
+
+void play_last_played (address &P)
+{
+    play_music(P);
+}
+
+void play_repeat (list &L, address P)
+{
+    int n;
+
+    cout<<"Repeat untuk : ";
+    cin>>n;
+    while (n>0)
+    {
+        P=first(L);
+        play_music(P);
+        play_next(P);
+        while (P!=last(L))
+        {
+            play_next(P);
+        }
+        n--;
+    }
+}
+
+void play_shuffle (list &L, int temp, address &P)
+{
+    cout<<"=====SHUFFLE MUSIC====="<<endl;
+    P=first(L);
+    if (P!=NULL)
+    {
+        int shuff=rand() % temp+1;
+        for(int i=1; i<=shuff; i++)
+        {
+            P=next(P);
+        }
+        play_music(P);
+    }
+    else
+    {
+        cout<<"No music, press any key"<<endl;
+        getch();
+    }
+}
