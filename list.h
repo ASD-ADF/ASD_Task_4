@@ -42,6 +42,9 @@ void dealokasi(address &);
 void insertFirst(List &, address );
 void insertLast(List &, address );
 void insertAfter(List &, address, address );
+void deleteFirst(List &, address &);
+void deleteLast(List &, address &);
+void deleteAfter(List &, address &, address &);
 
 address findElm(List, infotype );
 int countElm(List L);
