@@ -93,6 +93,23 @@ void deleteFirst(List &L, address &P)
     }
 }
 
+void deleteAfter(List &L, address &P, address &Prec)
+{
+    address S = L.first;
+    for (int i = 1; i <= countElm(L); i++){
+        if (Prec->info.ID == S->info.ID) {
+            break;
+        }
+        S = S->next;
+    }
+    Prec = S;
+
+    P = Prec->next;
+    Prec->next = P->next;
+    P->next = NULL;
+    P->prev = NULL;
+    dealokasi(P);
+}
 
 void deleteLast(List &L, address &P)
 {
@@ -131,4 +148,15 @@ address findElm(List L, infotype x){
         Q = Next(Q);
     }
     return NULL;
+}
+
+int countElm(List L) {
+    int num = 0;
+    if (L.first == NULL) return 0;
+    address Q = First(L);
+    do{
+        num++;
+        Q = Next(Q);
+    }while(Q != L.first);
+    return num;
 }
