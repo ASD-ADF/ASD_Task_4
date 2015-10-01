@@ -101,13 +101,12 @@ void deleteLast(List &L, address &P)
     }
     else
     {
-        address Q = First(L);
-        while(Next(Next(Q)) != L.frist)
-        {
-            Q = Next(Q);
-        }
-        P = Next(Q);
-        Next(Q) = L.first;
+        P = L.last;
+        L.last = P->prev;
+        P->next= NULL;
+        P->prev= NULL;
+        L.last->next= L.first;
+        L.first->prev= L.last;
     }
 }
 
