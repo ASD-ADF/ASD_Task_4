@@ -1,100 +1,60 @@
 #include <iostream>
 #include "list.h"
-
 using namespace std;
 
-void createList(List &L)
+address allocate (infotype x)
 {
-    First(L) = NULL;
-}
+    address P;
 
-address alokasi(infotype x)
-{
-    address P = new elemenList;
-    Info(P) = x;
-    Next(P) = NULL;
+    P=new element_list;
+    info(P)=x;
+    next(P)=NULL;
+    prev(P)=NULL;
     return P;
 }
 
-void dealokasi(address &P)
+void deallocate (address &P)
 {
     delete P;
 }
 
-void insertFirst(List &L, address P)
+void create_list (list &L)
 {
-    Next(P) = First(L);
-    First(L) = P;
+    first(L)=NULL;
+    last(L)=NULL;
 }
 
-void insertLast(List &L, address P)
+void insert_after (list &L, address P, address Prec)
 {
-    if(First(L) == NULL)
+    prev(P)=Prec;
+    next(P)=next(Prec);
+    prev(next(Prec))=P;
+    next(Prec)=P;
+}
+
+void sorting (list &L, int temp1)
+{
+    address P;
+    infotype temp;
+
+    P=first(L);
+    for (int i=1; i<=temp1-1; i++)
     {
-        insertFirst(L,P);
-    }
-    else
-    {
-        address Q = First(L);
-        while(Next(Q) != NULL)
+        P=first(L);
+        for (int j=1 ; j<=(temp1-i); j++)
         {
-            Q = Next(Q);
+            if (info(P).name > info(next(P)).name)
+            {
+                temp=info(next(P));
+                info(next(P))=info(P);
+                info(P)=temp;
+                P=next(P);
+            }
+            else
+            {
+                P=next(P);
+            }
+
         }
-        Next(Q) = P;
     }
-}
-void insertAfter(List &L, address P, address Prec)
-{
-    if(First(L) == NULL)
-    {
-        insertFirst(L,P);
-    }
-    else
-    {
-        Next(P) = Next(Prec);
-        Next(Prec) = P;
-    }
-}
-
-void deleteFirst(List &L, address &P)
-{
-    P = First(L);
-    First(L) = Next(P);
-    Next(P) = NULL;
-}
-
-void deleteLast(List &L, address &P)
-{
-    if(Next(First(L)) == NULL)
-    {
-        deleteFirst(L,P);
-    }
-    else
-    {
-        address Q = First(L);
-        while(Next(Next(Q)) != NULL)
-        {
-            Q = Next(Q);
-        }
-        P = Next(Q);
-        Next(Q) = NULL;
-    }
-}
-
-void deleteAfter(List &L, address &P, address &Prec)
-{
-    P = Next(Prec);
-    Next(Prec) = Next(P);
-    Next(P) = NULL;
-}
-
-address findElm(List L, infotype x){
-    address Q = First(L);
-    while(Q != NULL){
-        if(Info(Q).ID == x.ID){
-            return Q;
-        }
-        Q = Next(Q);
-    }
-    return NULL;
 }
