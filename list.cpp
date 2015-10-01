@@ -48,14 +48,14 @@ void insertLast(List &L, address P)
     }
     else
     {
-        address Q = First(L);
-        while(Next(Q) != NULL)
-        {
-            Q = Next(Q);
-        }
-        Next(Q) = P;
+        L.last->next = P;
+        P->prev = L.last;
+        L.last = P;
+        L.last->next = L.first;
+        L.first->prev = L.last;
     }
 }
+
 void insertAfter(List &L, address P, address Prec)
 {
     if(First(L) == NULL)
@@ -96,19 +96,22 @@ void deleteFirst(List &L, address &P)
 
 void deleteLast(List &L, address &P)
 {
-    if(Next(First(L)) == NULL)
+    if(L.first == NULL)
+    {
+        cout << "List Kosong"<<endl;
+    }
+    else if (L.first->next == NULL)
     {
         deleteFirst(L,P);
     }
-    else
-    {
-        address Q = First(L);
-        while(Next(Next(Q)) != NULL)
-        {
-            Q = Next(Q);
-        }
-        P = Next(Q);
-        Next(Q) = NULL;
+    else {
+        P = L.last;
+        L.last = P->prev;
+        L.last->next = L.first;
+        L.first->prev = L.last;
+        P->prev = NULL;
+        P->next = NULL;
+        dealokasi(P);
     }
 }
 
