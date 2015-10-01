@@ -31,6 +31,7 @@ void playRepeat(List &, int n);
 // play the song list from the first song
 // and repeat the list n times
 
-
+int countElm(List L);
+// count all song of list
 
 #endif // PLAYER_H_INCLUDED
