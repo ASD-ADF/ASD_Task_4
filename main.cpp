@@ -7,34 +7,17 @@ using namespace std;
 
 List L;
 address P;
+address Prec;
 infotype x;
-int id;
+int pilihan;
+int number;
 
 void menu();
 void displayMenu();
 void runMenu(int menu);
 
 int main() {
-    id = 1;
-    cout << "Hello world!" << endl;
-
     createList(L);
-    // example of data initialization
-//    x.ID = 1;
-//    x.location = "";
-//    x.name = "clapping.wav";
-//    P = alokasi(x);
-//    insertFirst(L,P);
-
-    x.ID = id;
-    id++;
-    x.location = "";
-    x.name = "airpump2.wav";
-    P = alokasi(x);
-    insertFirst(L,P);
-
-  //  clearList(L);
-
     menu();
     return 0;
 }
@@ -45,75 +28,165 @@ void menu() {
         displayMenu();
         cin>>pil;
         runMenu(pil);
-    } while (pil!=5);
+    } while (pil<10);
 }
 
 void displayMenu() {
-    cout<<"1. input new "<<endl
-        <<"2. view list"<<endl
-        <<"3. play first song"<<endl
-        <<"4. play next "<<endl
-        <<"5. exit"<<endl
-        <<"6. Clear"<<endl
-        <<"7. Delete After"<<endl
-        <<"8. Count nodes"<<endl;
-    cout<<"choose menu : ";
+    cout << endl << "======= MENU ========= " << endl;
+    cout<< "1. Input New Song" <<endl;
+    cout<< "2. View List" <<endl;
+    cout<< "3. Play Songs" <<endl;
+    cout<< "4. Delete song" <<endl;
+    cout<< "5. Shuffle Songs" <<endl;
+    cout<< "6. Sort Songs" << endl;
+    cout<<"Choose menu: ";
 }
 
 void runMenu(int menu) {
     switch(menu) {
-        case 0:
-            cout<<"input new song : "<<endl;
+    case 1 :
+        cout<<"[INPUT] NEW SONG "<<endl;
+        cout<<"Berikut adalah pilihan untuk posisi input data yang baru:"<<endl;
+        cout<<"1. Insert First"<<endl;
+        cout<<"2. Insert Last"<<endl;
+        cout<<"3. Insert After"<<endl;
+        cout<<"Masukkan nomor menu yang anda inginkan: ";
+        cin>>pilihan;
+        if (pilihan==1)
+        {
             inputNewSong(x);
-            x.ID = id;
-            id++;
             P = alokasi(x);
             insertFirst(L,P);
             break;
-        case 1 :
-            cout<<"input new song : "<<endl;
+        }
+        else if (pilihan==2)
+        {
             inputNewSong(x);
-            x.ID = id;
-            id++;
             P = alokasi(x);
-            insertLast(L,P);
+            insertLast(L, P);
             break;
-        case 2:
-            printInfo(L);
+        }
+        else if (pilihan==3)
+        {
+            infotype x, y;
+            cout<<"Masukkan ID lagu yang ingin Anda inputkan dengan data baru setelahnya: ";
+            cin>>x.ID;
+            if(findElm(L, x) != NULL) {
+                inputNewSong(y);
+                P = alokasi(y);
+                insertAfter(L, P, findElm(L, x));
+            }
+            else {
+                cout << "Data yang anda cari tidak ada!" << endl;
+            }
             break;
-        case 3 :
+        }
+        break;
+    case 2:
+        printInfo(L);
+        break;
+    case 3:
+        cout<<"[PLAY] A SONG "<<endl;
+        cout<<"Berikut adalah pilihan untuk memutar lagu:"<<endl;
+        cout<<"1. Play First Song"<<endl;
+        cout<<"2. Play Next "<<endl;
+        cout<<"3. Play Previous"<<endl;
+        cout<<"4. Play Last Song"<<endl;
+        cout<<"5. Repeat Songs (repeat list)"<<endl;
+        cout<<"6. Search by name and play"<<endl;
+        cout<<"Masukkan nomor menu yang anda inginkan: ";
+        cin>>pilihan;
+        if(pilihan == 1) {
             P = First(L);
             playSong(P);
             break;
-        case 4:
+        }
+        else if(pilihan == 2) {
             playNext(P);
             break;
-        case 5:
-            cout<<"thank you"<<endl;
-            break;
-        case 6:
-            clearList(L); break;
-        case 7: {
-            infotype a;
-            address Pr;
-            cout << "Ingin menghapus node setelah..." << endl
-                << "Masukkan nama lagu: ";
-            cin >> a.name;
-            Pr = findElm(L, a);
-            if(Pr != NULL)
-                deleteAfter(L, P, Pr);
+        }
+        else if(pilihan == 3) {
+            playPrev(P);
             break;
         }
-        case 8:
-            cout << countNodes(L) << endl;
+        else if(pilihan == 4) {
+            playSong(P);
             break;
-        case 9:
-            sortByID(L);
+        }
+        else if(pilihan == 5) {
+            int in;
+            cout << "Play Repeat: Akan memutar seluruh lagu dalam list dan diulang sebanyak N kali." << endl
+                << "Berapa kali Anda ingin mengulang list? ";
+            cin >> in;
+            playRepeat(L, in);
             break;
-        case 10:
-            sortByName(L);
+        }
+        else if(pilihan == 6) {
+            string song;
+            cout << "Masukkan nama lagu yang ingin diputar: ";
+            cin >> song;
+            if(findElm(L, song) != NULL) {
+                playSong(findElm(L, song));
+            }
+        }
+        break;
+    case 4:
+        {
+        cout<<"[DELETE] SONGS"<<endl;
+        cout<<"Berikut adalah pilihan untuk delete song: "<<endl;
+        cout<<"1. Delete First"<<endl;
+        cout<<"2. Delete Last"<<endl;
+        cout<<"3. Delete After"<<endl;
+        cout<<"Masukkan nomor menu yang anda inginkan: ";
+        cin>>number;
+        if (number==1)
+        {
+            deleteFirst(L,P);
+            dealokasi(P);
             break;
-        default:
-            cout<<"wrong input"<<endl;
+        }
+        else if (number==2)
+        {
+            deleteLast(L,P);
+            dealokasi(P);
+            break;
+        }
+        else if (number==3)
+        {
+            infotype x;
+            cout<<"Masukkan ID lagu sebelum lagu yang ingin Anda hapus: ";
+            cin>>x.ID;
+            if(findElm(L, x) != NULL) {
+                address addr_hps = findElm(L, x);
+                deleteAfter(L, P, addr_hps);
+                dealokasi(P);
+            }
+            else {
+                cout << "Data yang anda cari tidak ada!" << endl;
+            }
+            break;
+        }
+        break;
+    }
+    case 5: {
+        shuffleList(L);
+        cout << "List tershuffle." << endl << endl;
+        break;
+    }
+    case 6: {
+        int num;
+        do {
+            cout << "Masukkan tipe sort yang ingin Anda lakukan:" << endl
+                << "1. Sort By ID" << endl
+                << "2. Sort By Name" << endl
+                << "Pilihan: ";
+            cin >> num;
+            cout << endl;
+        } while (num < 1 && num > 2);
+        sortList(L, num);
+        break;
+    }
+    default :
+        cout<<"Nomor menu tidak ditemukan. Silahkan masukkan kembali"<<endl;
     }
 }

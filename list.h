@@ -1,9 +1,21 @@
 #ifndef LIST_H_INCLUDED
 #define LIST_H_INCLUDED
-
-#include <string>
+#include <iostream>
+#include <conio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <windows.h>
-
+// -----------------
+#include <string>
+//#include "player.h"
+#define nil NULL
+#define info(P) (P)->info
+#define next(P) (P)->next
+#define prev(P) (P)->prev
+#define first(L) L.first
+#define last(L) ((L).last)
+// ------- Merged ------------
 #define First(L) L.first
 #define Last(L) L.last
 #define Next(P) P->next
@@ -12,13 +24,14 @@
 
 using namespace std;
 
-struct infotype
+struct data
 {
     int ID;
     string name;
     string location;
 };
 
+typedef data infotype;
 typedef struct elemenList *address;
 struct elemenList
 {
@@ -49,6 +62,7 @@ void deleteAfter(List &, address &, address &);
 void clearList(List &);
 
 address findElm(List, infotype);
+address findElm(List, string);
 
 int countNodes(List);
 void sortByID(List &);
