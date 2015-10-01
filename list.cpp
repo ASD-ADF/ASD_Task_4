@@ -43,14 +43,25 @@ void insertLast(List &L, address P)
         Next(Q) = P;
     }
 }
+
 void insertAfter(List &L, address P, address Prec)
 {
+    cout<<"Input Setelah Data ke : ";
+    int j,i;
+    cin>>j;
+    //p = (*l).first;
+    Prec = First(L);
     if(First(L) == NULL)
     {
         insertFirst(L,P);
     }
     else
     {
+        for (i=1;i<j;i++)
+        {
+            Prec=Next(Prec);
+            break;
+        }
         Next(P) = Next(Prec);
         Next(Prec) = P;
     }
@@ -83,10 +94,23 @@ void deleteLast(List &L, address &P)
 
 void deleteAfter(List &L, address &P, address &Prec)
 {
+    cout<<"Hapus Setelah Data ke : ";
+    int j,i;
+    cin>>j;
+    Prec = First(L);
+    for (i=1;i<j;i++)
+    {
+        Prec=Next(Prec);
+        break;
+    }
     P = Next(Prec);
     Next(Prec) = Next(P);
+    Prev(Next(P)) = Prec;
     Next(P) = NULL;
+    Prev(P) = NULL;
+    dealokasi(P);
 }
+
 void deleteLast(List &L, address &P)
 {
     if((Next(First(L)) == NULL))
