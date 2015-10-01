@@ -1,6 +1,12 @@
 #ifndef PLAYER_H_INCLUDED
 #define PLAYER_H_INCLUDED
 #include "list.h"
+void inputNewSong(infotype &);
+// input new song into the list
+// procedure receive input from user
+
+void playSong(address P);
+// play song from element P
 
 
 void shuffleList(List &);
