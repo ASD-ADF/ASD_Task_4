@@ -121,16 +121,13 @@ void sortList(List &L, int condition) {
 }
 
 
-void playRepeat(List L,address *P){
+void playRepeat(List L,int n){
     if (L.first == NULL) {
         cout<<"Tidak dapat mencari lagu yang ingin diulang";
-    }else{
-
     }
-        int repeat;
-        cout<<"Ulang Lagu Sebanyak : ";
-        cin>>repeat;cout<<endl;
-        if(repeat >=0 ){
+    else{
+        address P;
+        if(n >=0 ){
             P = L.first;
             int i = 0;
             do{
@@ -139,7 +136,7 @@ void playRepeat(List L,address *P){
                 if(P == L.first){
                     i++;
                 }
-            }while (i != repeat);
+            }while (i != n);
         }
     }
 }
