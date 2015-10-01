@@ -2,20 +2,34 @@
 #include "list.h"
 #include "player.h"
 
+//single link list ubah ke double circular link list
+
 using namespace std;
 
 void createList(List &L)
 {
+<<<<<<< HEAD
+    (*L).first=NULL;
+    (*L).last=NULL;
+=======
     First(L) = NULL;
     Last(L) = NULL;
+>>>>>>> fcc968103c85a503525044154016c90cd42284ea
 }
 
 address alokasi(infotype x)
 {
+<<<<<<< HEAD
+    address P=new elmlist;
+    info(P)=x;
+    next(P)=NULL;
+    prev(P)=NULL;
+=======
     address P = new elemenList;
     Info(P) = x;
     Next(P) = NULL;
     Prev(P) = NULL;
+>>>>>>> fcc968103c85a503525044154016c90cd42284ea
     return P;
 }
 
@@ -24,6 +38,9 @@ void dealokasi(address &P)
     delete P;
 }
 
+<<<<<<< HEAD
+void insertFirst(list &L, address P)
+=======
 void insertFirst(List &L, address P)
 {
     if(First(L) == NULL) {
@@ -44,13 +61,29 @@ void insertFirst(List &L, address P)
 }
 
 void insertLast(List &L, address P)
+>>>>>>> fcc968103c85a503525044154016c90cd42284ea
 {
-    if(First(L) == NULL)
+    infotype x;
+    if ((L).first==NULL)
     {
-        insertFirst(L,P);
+        L.first=P;
+        next(P)=L.first;
+        prev(P)=L.first;
+        L.last=P;
     }
     else
     {
+<<<<<<< HEAD
+        next(P)=first(L);
+        prev(P)=last(L);
+        next(last(L))=P;
+        prev(first(L))=P
+        first(L)=P;
+    }
+}
+
+void insertLast(list &L, address P)
+=======
         address Q = First(L);
         while(Next(Q) != First(L))
         {
@@ -64,21 +97,39 @@ void insertLast(List &L, address P)
 }
 
 void insertAfter(List &L, address P, address Prec)
+>>>>>>> fcc968103c85a503525044154016c90cd42284ea
 {
-    if(First(L) == NULL)
+    infotype x;
+    if((L).first == NULL)
     {
-        insertFirst(L,P);
+        insertFirst(L,P)
     }
     else
     {
-        Next(P) = Next(Prec);
-        Next(Prec) = P;
+        next(P)=L.first;
+        prev(P)=L.last;
+        next(last(L))=P;
+        prev(first(L))=P;
+        last(L)=P;
     }
+}
+
+void insertAfter(List &L, address P, address Prec)
+{
+
 }
 
 void deleteFirst(List &L, address &P)
 {
+<<<<<<< HEAD
+     void deleteFirst(List &L, address &P)
+ {
+     P = First(L);
+    First(L) = Next(P);
+    Next(P) = NULL;
+=======
     P = First(L);
+>>>>>>> fcc968103c85a503525044154016c90cd42284ea
     if (P == NULL)
     {
         cout<<"Data NULL\n";
@@ -98,6 +149,10 @@ void deleteFirst(List &L, address &P)
         }
         dealokasi(P);
     }
+<<<<<<< HEAD
+ }
+=======
+>>>>>>> fcc968103c85a503525044154016c90cd42284ea
 }
 
 void deleteLast(List &L, address &P)
@@ -160,6 +215,8 @@ void sortList(List &L, int condition) {
     }
 }
 
+<<<<<<< HEAD
+=======
 void sortByName(List &L) {
     if(First(L) != Last(L)) {
         bool swapped = true;
@@ -178,6 +235,7 @@ void sortByName(List &L) {
     }
 }
 
+>>>>>>> fcc968103c85a503525044154016c90cd42284ea
 void sortByID(List &L) {
     if(First(L) != Last(L)) {
         bool swapped = true;
@@ -194,6 +252,8 @@ void sortByID(List &L) {
             }
         }
     }
+<<<<<<< HEAD
+=======
 }
 
 int countNodes(List L) {
@@ -209,6 +269,7 @@ int countNodes(List L) {
         return total;
     }
     return 0;
+>>>>>>> fcc968103c85a503525044154016c90cd42284ea
 }
 
 address findElm(List L, infotype x){
@@ -220,4 +281,19 @@ address findElm(List L, infotype x){
         Q = Next(Q);
     } while(Q != First(L));
     return NULL;
+}
+
+int countNodes(List L) {
+    if(First(L) == Last(L) && First(L) != NULL)
+        return 1;
+    else {
+        int total = 0;
+        address cur = First(L);
+        do {
+            if(!Info(cur).name.empty()) total++;
+            cur = Next(cur);
+        } while(cur != First(L));
+        return total;
+    }
+    return 0;
 }

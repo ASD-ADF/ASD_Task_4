@@ -38,7 +38,7 @@ void printInfo(List L)
 void playSong(address P){
     string filename = Info(P).location+Info(P).name;
     cout<<"playing "<<filename<<endl;
-    PlaySound(TEXT(filename.c_str()), NULL, SND_ASYNC|SND_FILENAME);
+    PlaySound(TEXT(filename.c_str()), NULL, SND_FILENAME);
     _sleep(1000); //delay 1 second
 }
 
@@ -47,8 +47,19 @@ void playNext(address &P){
     playSong(P);
 }
 
+<<<<<<< HEAD
+void playPrev(address &P)
+{
+    P = Prev(P);
+    playSong(P);
+}
+
+
+
+=======
 void playPrev(address &P){
 //Di tambahin #define Prev(P) P->prev di list.h sama tambahin address prev di struct elemenlist fir!, mohon dicoba
     P = Prev(P);
     playSong(P);
 }
+>>>>>>> fcc968103c85a503525044154016c90cd42284ea
