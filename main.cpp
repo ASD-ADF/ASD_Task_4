@@ -43,7 +43,7 @@ void menu() {
         displayMenu();
         cin>>pil;
         runMenu(pil);
-    } while (pil!=9);
+    } while (pil!=0);
 }
 
 void displayMenu() {
@@ -53,9 +53,10 @@ void displayMenu() {
         <<"4. play shuffle"<<endl
         <<"5. play first song"<<endl
         <<"6. play next "<<endl
-        <<"7. play repeat"<<endl
-        <<"8. sort song list"<<endl
-        <<"9. exit"<<endl;
+        <<"7. play previous"<<endl
+        <<"8. play repeat"<<endl
+        <<"9. sort song list"<<endl
+        <<"0. exit"<<endl;
     cout<<"choose menu : ";
 }
 
@@ -78,10 +79,13 @@ void runMenu(int menu) {
     case 6:
         break;
     case 7:
+        playPrev(P);
         break;
     case 8:
         break;
     case 9:
+        break;
+    case 0:
         break;
     default :
         cout<<"wrong input"<<endl;
