@@ -1,39 +1,37 @@
 #include <iostream>
 #include <string>
+#include <conio.h>
 #include <windows.h>
 #include "list.h"
 #include "player.h"
-
 using namespace std;
 
-void inputNewSong(infotype &x){
-    cout<<"input name song (.wav) : ";
-    cin>>x.name;
-    cout<<"input song location "<<endl<<"(write - for default location) :";
-    cin>>x.location;
-    if(x.location=="-"){x.location="";}
+void play_prev (address &P)
+{
+    P=prev(P);
+    play_music(P);
 }
 
-void printInfo(List L)
+void play_last_played (address &P)
 {
-    address Q = First(L);
-    while(Q != NULL)
+    play_music(P);
+}
+
+void play_repeat (list &L, address P)
+{
+    int n;
+
+    cout<<"Repeat untuk : ";
+    cin>>n;
+    while (n>0)
     {
-        cout<<"name : "<<Info(Q).name<<endl
-            <<"location: "<<Info(Q).location<<endl;
-        Q = Next(Q);
+        P=first(L);
+        play_music(P);
+        play_next(P);
+        while (P!=last(L))
+        {
+            play_next(P);
+        }
+        n--;
     }
 }
-
-void playSong(address P){
-    string filename = Info(P).location+Info(P).name;
-    cout<<"playing "<<filename<<endl;
-    PlaySound(TEXT(filename.c_str()), NULL, SND_FILENAME);
-    _sleep(1000); //delay 1 second
-}
-
-void playNext(address &P){
-    P = Next(P);
-    playSong(P);
-}
-
