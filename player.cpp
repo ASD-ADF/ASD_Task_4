@@ -17,12 +17,12 @@ void inputNewSong(infotype &x){
 void printInfo(List L)
 {
     address Q = First(L);
-    while(Q != NULL)
+    do
     {
-        cout<<"name : "<<Info(Q).name<<endl
-            <<"location: "<<Info(Q).location<<endl;
+        cout<<"name : "<<Info(Q).name<<endl;
+        cout<<"location: "<<Info(Q).location<<endl;
         Q = Next(Q);
-    }
+    }while(Q != First(L));
 }
 
 void playSong(address P){
@@ -37,3 +37,52 @@ void playNext(address &P){
     playSong(P);
 }
 
+void playPrev(address &P){
+    P = Prev(P);
+    playSong(P);
+}
+
+void shuffleList(List &L){
+    address Q = First(L);
+    if(Next(Q) == NULL){
+        playSong(Q);
+    }else{
+        int id;
+        do{
+            Q = Next(Q);
+            id = Info(Q).ID;
+        }while(Next(Q) != First(L));
+
+        int random = rand() % id + 1;
+
+        Q = First(L);
+        while(Info(Q).ID != random){
+            Q = Next(Q);
+        }
+        playSong(Q);
+    }
+}
+
+
+void sortList(List &, int condition);
+// sort song List by some condition
+// example if condition = 1, then sort by ID
+//          if condition = 2, then sort by name
+
+void playRepeat(List &L, int n){
+// play the song list from the first song
+// and repeat the list n times
+    address P;
+    int times;
+    cout<<"How many times? "; cin>>times;
+
+    for(int i=0; i<times; i++){
+        P = First(L);
+        playSong(P);
+        P = Next(P);
+        while(Last(L) != First(L) and P != First(L)){
+            playSong(P);
+            P = Next(P);
+        }
+    }
+}
