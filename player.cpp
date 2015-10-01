@@ -42,3 +42,14 @@ void playPrev(address &P)
     P = Prev(P);
     playSong(P);
 }
+
+void playRepeat(List &L, int n)
+{
+    address P = L.first;
+    int totData = countElm(L);
+    playSong(P);
+    for(int i=1; i < totData*n; i++)
+    {
+        playNext(P);
+    }
+}
