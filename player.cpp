@@ -19,9 +19,14 @@ void printInfo(List L)
     address Q = First(L);
     while(Q != NULL)
     {
-        cout<<"name : "<<Info(Q).name<<endl
+        cout<<"ID   : "<<Info(Q).ID<<endl
+            <<"name : "<<Info(Q).name<<endl
             <<"location: "<<Info(Q).location<<endl;
         Q = Next(Q);
+        if (Q == Next(Last(L)))
+        {
+            break;
+        }
     }
 }
 
@@ -108,5 +113,40 @@ void sortList(List &L, int condition)
 
             }
         }
+    }
+}
+
+void playRepeat(List &L, int n)
+{
+    address P;
+    cout<<"Masukan jumlah repeat :";
+    cin>>n;
+    while(n>0)
+    {
+        P = First(L);
+        playSong(P);
+        while (P != Last(L))
+        {
+            playNext(P);
+        }
+        n--;
+    }
+}
+
+void shuffleList(List &L)
+{
+    int jum;
+    address P = First(L);
+    cout<<"Suffle berapa lagu :";
+    cin>>jum;
+    while(jum>0)
+    {
+        int numRand = rand() % 10 + 1;
+        for(int i=1; i <= numRand; i++)
+        {
+            P = Next(P);
+        }
+        playSong(P);
+        jum--;
     }
 }
