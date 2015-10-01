@@ -7,21 +7,25 @@ using namespace std;
 
 void createList(List &L)
 {
-    
+    First(L) = NULL;
+    Last(L)=NULL;
 }
 
 
 address alokasi(infotype x)
 {
-  
+    address P = new elemenList;
+    Info(P) = x;
+    Next(P) = NULL;
+    Prev(P) = NULL;
+    return P;
 }
 
 
 void dealokasi(address &P)
 {
-    
+    delete P;
 }
-
 
 void insertFirst(List &L, address P)
 {
