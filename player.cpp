@@ -6,14 +6,6 @@
 #include "player.h"
 using namespace std;
 
-#include <iostream>
-#include <string>
-#include <conio.h>
-#include <windows.h>
-#include "list.h"
-#include "player.h"
-using namespace std;
-
 void input_music (infotype &x)
 {
     cout<<"=====IMPORT MUSIC====="<<endl;
