@@ -23,8 +23,18 @@ void dealokasi(address &P)
 
 void insertFirst(List &L, address P)
 {
-    Next(P) = First(L);
-    First(L) = P;
+    if ((L.first != NULL) && (L.last != NULL)) {
+        P->next = L.first;
+        L.first->prev = P;
+        L.first = P;
+        L.first->prev= L.last;
+    }
+    else {
+        L.first = P;
+        L.last  = P;
+        Prev(P) = L.last;
+        Next(P) = L.first;
+    }
 }
 
 void insertLast(List &L, address P)
@@ -58,26 +68,46 @@ void insertAfter(List &L, address P, address Prec)
 
 void deleteFirst(List &L, address &P)
 {
-    P = First(L);
-    First(L) = Next(P);
-    Next(P) = NULL;
+    if (L.first != NULL) {
+        if (L.first->next == NULL) {
+            P = L.first;
+            P->next = NULL;
+            P->prev = NULL;
+            L.first = NULL;
+            L.last  = NULL;
+            dealokas(P);
+        }
+        else {
+            P = First(L);
+            First(L) = Next(P);
+            Next(P) = NULL;
+            L.first->prev=L.last;
+            dealokasi(P);
+        }
+    }
+    else {
+        cout<<"List Kosong"<<endl;
+    }
 }
 
 void deleteLast(List &L, address &P)
 {
-    if(Next(First(L)) == NULL)
+    if (L.first == NULL) {
+        cout<<"list kosong"<<endl;
+    }
+    else if(Next(First(L)) == NULL)
     {
         deleteFirst(L,P);
     }
     else
     {
         address Q = First(L);
-        while(Next(Next(Q)) != NULL)
+        while(Next(Next(Q)) != L.frist)
         {
             Q = Next(Q);
         }
         P = Next(Q);
-        Next(Q) = NULL;
+        Next(Q) = L.first;
     }
 }
 
