@@ -45,24 +45,28 @@ void insertLast(List &L, address P)
     }
     else
     {
-        address Q = First(L);
-        while(Next(Q) != NULL)
-        {
-            Q = Next(Q);
-        }
-        Next(Q) = P;
+        L.last->next = P;
+        P->prev = L.last;
+        L.last = P;
+        L.last->next = L.first;
+        L.first->prev = L.last;
     }
 }
 void insertAfter(List &L, address P, address Prec)
 {
+
     if(First(L) == NULL)
     {
         insertFirst(L,P);
     }
     else
     {
+        infotype x;
+        P = findElm(L,x);
         Next(P) = Next(Prec);
-        Next(Prec) = P;
+        Prec->prev= P;
+        prev(next(P))=Prec;
+        Next(P) = Prec;
     }
 }
 
