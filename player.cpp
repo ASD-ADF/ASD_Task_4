@@ -12,12 +12,21 @@ void inputNewSong(infotype &x)
 }
 void SearchSong(infotype &x)
 {
-    
+    cout<<"input Name Song (.wav) : ";
+    cin>>x.name;
 }
 
 void printInfo(List L)
 {
-  
+    address Q = First(L);
+    if ( Q== NULL)
+        cout<<"List Kosong"<<endl;
+    do
+    {
+        cout<<"name : "<<Info(Q).name<<endl
+                <<"location: "<<Info(Q).location<<endl;
+        Q = Next(Q);
+    }while(Q != First(L));
 }
 
 
