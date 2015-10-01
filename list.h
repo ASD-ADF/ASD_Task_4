@@ -6,23 +6,21 @@
 #include <stdlib.h>
 #include <string.h>
 #include <windows.h>
-<<<<<<< HEAD
+// -----------------
 #include <string>
-#include "player.h"
+//#include "player.h"
 #define nil NULL
 #define info(P) (P)->info
 #define next(P) (P)->next
 #define prev(P) (P)->prev
-#define first(L) ((L).first)
+#define first(L) L.first
 #define last(L) ((L).last)
-=======
-
+// ------- Merged ------------
 #define First(L) L.first
 #define Last(L) L.last
 #define Next(P) P->next
 #define Prev(P) P->prev
 #define Info(P) P->info
->>>>>>> fcc968103c85a503525044154016c90cd42284ea
 
 using namespace std;
 
@@ -35,33 +33,19 @@ struct data
 
 typedef data infotype;
 typedef struct elemenList *address;
-struct elmlist
+struct elemenList
 {
     infotype info;
     address next;
     address prev;
 };
 
-struct list
+struct List
 {
     address first;
     address last;
 };
 
-<<<<<<< HEAD
-address alokasi (infotype x);
-address findElm (list L, string x);
-void dealokasi(address P);
-void insertFirst(list &L, address P);
-void insertLast(list &L, address P);
-void insertAfter(List &, address P, address Prec);
-void deleteFirst(list &L, address &P);
-void deleteLast(list &L, address &P);
-void deleteAfter(List &L, address &P, address &Prec);
-void sortByID(List &);
-void sortByName(List &);
-int countNodes(List);
-=======
 void createList(List &);
 
 address alokasi(infotype);
@@ -78,10 +62,10 @@ void deleteAfter(List &, address &, address &);
 void clearList(List &);
 
 address findElm(List, infotype);
+address findElm(List, string);
 
 int countNodes(List);
 void sortByID(List &);
 void sortByName(List &);
->>>>>>> fcc968103c85a503525044154016c90cd42284ea
 
 #endif // LIST_H_INCLUDED
