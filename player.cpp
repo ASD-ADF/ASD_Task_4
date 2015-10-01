@@ -37,3 +37,8 @@ void playNext(address &P){
     playSong(P);
 }
 
+void playPrev(address &P)
+{
+    P = Prev(P);
+    playSong(P);
+}
