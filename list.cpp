@@ -79,7 +79,7 @@ void deleteFirst(List &L, address &P)
             P->prev = NULL;
             L.first = NULL;
             L.last  = NULL;
-            dealokas(P);
+            dealokasi(P);
         }
         else {
             P = First(L);
@@ -133,4 +133,20 @@ address findElm(List L, infotype x){
         Q = Next(Q);
     }
     return NULL;
+}
+
+int countList(List &L, address P) {
+    int i=0;
+    if (L.first == NULL)
+    {
+        return 0;
+    }
+    else {
+        P = L.first;
+        do {
+            i++;
+            P = P->next;
+        } while (P!=L.first);
+    return i;
+    }
 }
