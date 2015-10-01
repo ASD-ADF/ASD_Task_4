@@ -53,3 +53,58 @@ void playRepeat(List &L, int n)
         playNext(P);
     }
 }
+
+//void sortList(List &, int condition);
+void sortList(List &L, int condition)
+{
+    infotype temp;
+    int i,j,k;
+    if (condition == 1)
+    {
+        address P;
+        P = L.first;
+        for (i = 1; i <= countElm(L)-1; i++)
+        {
+            P = L.first;
+            for (j = 1 ; j <= (countElm(L) - i) ; j++)
+            {
+                if (P->info.ID > P->next->info.ID)
+                {
+                    temp = P->next->info;
+                    P->next->info = P->info;
+                    P->info = temp;
+                    P = P->next;
+                }
+                else
+                {
+                    P = P->next;
+                }
+
+            }
+        }
+    }
+    else if (condition == 2)
+    {
+        address P;
+        P = L.first;
+        for (i = 1; i <= countElm(L)-1; i++)
+        {
+            P = L.first;
+            for (j = 1 ; j <= (countElm(L) - i) ; j++)
+            {
+                if (P->info.name > P->next->info.name)
+                {
+                    temp = P->next->info;
+                    P->next->info = P->info;
+                    P->info = temp;
+                    P = P->next;
+                }
+                else
+                {
+                    P = P->next;
+                }
+
+            }
+        }
+    }
+}
