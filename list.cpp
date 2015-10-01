@@ -32,6 +32,54 @@ void insert_after (list &L, address P, address Prec)
     next(Prec)=P;
 }
 
+void delete_after (list &L, address &P, address &Prec)
+{
+    P=next(Prec);
+    next(Prec)=next(P);
+    prev(next(P))=Prec;
+    prev(P)=NULL;
+    next(P)=NULL;
+    deallocate(P);
+}
+
+address find_elm (list L, infotype x)
+{
+    address Q;
+
+    Q=first(L);
+    while(Q!=last(L))
+    {
+        if(info(Q).name==x.name)
+        {
+            return Q;
+        }
+        Q=next(Q);
+    }
+    return NULL;
+}
+
+void search_data (list L, address P)
+{
+    address Q;
+    infotype cari;
+
+    cout<<"=====SEARCH MUSIC====="<<endl;
+    cout<<"Masukkan nama music : ";
+    cin>>cari.name;
+    cout<<"====================="<<endl;
+    Q=find_elm(L,cari);
+    P=Q;
+    if (Q!=NULL)
+    {
+        cout<<info(Q).id<<" "<<info(Q).name<<endl;
+        cout<<"===================="<<endl;
+    }
+    else
+    {
+        cout<<"Music tidak ditemukan !!";
+    }
+}
+
 void sorting (list &L, int temp1)
 {
     address P;
