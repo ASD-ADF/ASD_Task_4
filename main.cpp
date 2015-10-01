@@ -2,12 +2,15 @@
 #include "list.h"
 #include "player.h"
 #include <conio.h>
+#include <stdlib.h>
+#include <windows.h>
 
 using namespace std;
 
 List L;
-address P;
+address P,Prec;
 infotype x;
+int n;
 
 void menu();
 void displayMenu();
@@ -40,15 +43,20 @@ void menu() {
         displayMenu();
         cin>>pil;
         runMenu(pil);
-    } while (pil!=5);
+    } while (pil!=0);
 }
 
 void displayMenu() {
     cout<<"1. input new "<<endl
-        <<"2. view list"<<endl
-        <<"3. play first song"<<endl
-        <<"4. play next "<<endl
-        <<"5. exit"<<endl;
+        <<"2. delete song"<<endl
+        <<"3. view list"<<endl
+        <<"4. play shuffle"<<endl
+        <<"5. play first song"<<endl
+        <<"6. play next "<<endl
+        <<"7. play previous"<<endl
+        <<"8. play repeat"<<endl
+        <<"9. sort song list"<<endl
+        <<"0. exit"<<endl;
     cout<<"choose menu : ";
 }
 
@@ -61,16 +69,63 @@ void runMenu(int menu) {
         insertFirst(L,P);
         break;
     case 2:
-        printInfo(L);
+        cout<<"delete song : "<<endl;
+        cout<<"1. Delete First"<<endl
+            <<"2. Delete Last"<<endl
+            <<"3. Delete After"<<endl
+            <<"Pilihan : ";
+        int pilins;
+        cin>>pilins;
+        switch(pilins)
+        {
+            case 1 :
+                deleteFirst(L,P);
+                break;
+            case 2 :
+                deleteLast(L,P);
+                break;
+            case 3 :
+                deleteAfter(L,P,Prec);
+                break;
+            default : "Pilihan Tidak Tersedia";
+        }
         break;
     case 3 :
+        printInfo(L);
+        getch();
+        break;
+    case 4:
+        shuffleList(L);
+        break;
+    case 5:
         P = First(L);
         playSong(P);
         break;
-    case 4:
+    case 6:
         playNext(P);
         break;
-    case 5:
+    case 7:
+        playPrev(P);
+        break;
+    case 8:
+        playRepeat(L,n);
+        break;
+    case 9:
+        int kondisi;
+        do
+        {
+                cout<<"Sort Song List by : "<<endl
+                <<"1. ID"<<endl
+                <<"2. Song name"<<endl
+                <<"Pilihan : ";
+            cin>>kondisi;
+            sortList(L,kondisi);
+        }
+
+        while(kondisi=0);
+        
+        break;
+    case 0:
         cout<<"thank you"<<endl;
         break;
     default :
