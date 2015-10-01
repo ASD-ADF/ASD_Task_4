@@ -3,34 +3,31 @@
 
 #include "list.h"
 
-void inputNewSong(infotype &);
+void input_song(music &m);
 // input new song into the list
 // procedure receive input from user
 
-void printInfo(List);
+void current_song(element *m);
+// output the current song played
+
+void view_music_list(List L);
 // output the songs in the list
 
-void playSong(address P);
-// play song from element P
+void play_song(element *m);
+// play song from element p
 
-void playNext(address &P);
+void play_next(element *&m);
 // play the next song from element P
 
-void playPrev(address &P);
+void play_prev(element *&m);
 // play the previous song from element P
 
-void shuffleList(List &);
+void shuffle_list(List &L);
 // shuffle the song list
 
-void sortList(List &, int condition);
-// sort song List by some condition
-// example if condition = 1, then sort by ID
-//          if condition = 2, then sort by name
+void sort_list(List &L, int condition);
+//sort list by ID or Name
 
-void playRepeat(List &, int n);
-// play the song list from the first song
-// and repeat the list n times
-
-
+void repeat_all_song(List L,element *m);
 
 #endif // PLAYER_H_INCLUDED

@@ -1,48 +1,60 @@
 #ifndef LIST_H_INCLUDED
 #define LIST_H_INCLUDED
 
+#include <iostream>
+#include <conio.h>
 #include <string>
 #include <windows.h>
-
-#define First(L) L.first
-#define Next(P) P->next
-#define Info(P) P->info
-
 using namespace std;
 
-struct infotype
+struct music
 {
-    int ID;
+    int id;
     string name;
     string location;
 };
 
-typedef struct elemenList *address;
-struct elemenList
+struct element
 {
-    infotype info;
-    address next;
+    music info;
+    element *next;
+    element *prev;
 };
 
 struct List
 {
-    address first;
+    element *head;
+    element *tail;
 };
 
-void createList(List &);
+//Create List
+void create_list(List &L);
 
-address alokasi(infotype );
-void dealokasi(address &);
+//Empty List Checker
+bool EmptyData(List L);
 
-void insertFirst(List &, address );
-void insertLast(List &, address );
-void insertAfter(List &, address , address );
+//Menu
+void menu(List &L, element *m);
+void insert_menu();
+void delete_menu();
 
-void deleteFirst(List &, address &);
-void deleteLast(List &, address &);
-void deleteAfter(List &, address &, address &);
+//Allocate / Deallocate
+element *allocate(music m);
+void deallocate(element *p);
 
-address findElm(List, infotype );
+//Inserts
+void insert_first(List &L, element *p);
+void insert_last(List &L, element *p);
+void insert_after(List &L);
+
+//Deletes
+void delete_first(List &L, element *p);
+void delete_last(List &L, element *p);
+void delete_after(List &L);
+
+//Other
+element *find_element(List L, string name);
+void searching(List L,element *&m);
 
 
 #endif // LIST_H_INCLUDED
