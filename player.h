@@ -2,7 +2,9 @@
 #define PLAYER_H_INCLUDED
 #include "list.h"
 
-
+void SearchSong(infotype &x);
+void printInfo(List);
+// output the songs in the list
 void shuffleList(List &);
 // shuffle the song list
 
