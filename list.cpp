@@ -32,6 +32,35 @@ void insert_after (list &L, address P, address Prec)
     next(Prec)=P;
 }
 
+void insert_last (list &L, address P)
+{
+    next(P)=first(L);
+    prev(P)=last(L);
+    next(last(L))=P;
+    last(L)=P;
+}
+
+void delete_first (list &L, address &P)
+{
+    P=first(L);
+    if (first(L)!=last(L))
+    {
+        first(L)=next(P);
+        next(P)=NULL;
+        prev(P)=NULL;
+        prev(first(L))=last(L);
+        next(last(L))=first(L);
+    }
+    else
+    {
+        next(P)=NULL;
+        prev(P)=NULL;
+        first(L)=NULL;
+        last(L)=NULL;
+    }
+    deallocate(P);
+}
+
 void delete_after (list &L, address &P, address &Prec)
 {
     P=next(Prec);
