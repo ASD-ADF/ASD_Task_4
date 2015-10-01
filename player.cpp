@@ -37,3 +37,23 @@ void playNext(address &P){
     playSong(P);
 }
 
+void shuffleList(List &L)
+{
+    address P = L.first;
+    int numRand = rand() % 10 + 1;
+    for(int i=1; i <= numRand; i++)
+    {
+        P = Next(P);
+    }
+    playSong(P);
+}
+void playRepeat(List &L, int n)
+{
+    address P = L.first;
+    int totData = countElm(L);
+    playSong(P);
+    for(int i=1; i < totData*n; i++)
+    {
+        playNext(P);
+    }
+}
