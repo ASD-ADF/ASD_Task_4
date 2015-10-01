@@ -79,8 +79,25 @@ void insertAfter(List &L, address P, address Prec)
 void deleteFirst(List &L, address &P)
 {
     P = First(L);
-    First(L) = Next(P);
-    Next(P) = NULL;
+    if (P == NULL)
+    {
+        cout<<"Data NULL\n";
+    }
+    else
+    {
+        if (First(L) == Last(L))
+        {
+            First(L) = NULL;
+            Last(L) = NULL;
+        }
+        else
+        {
+            First(L) = Next(P);
+            Next(P) = NULL;
+            Prev(First(L)) = NULL;
+        }
+        dealokasi(P);
+    }
 }
 
 void deleteLast(List &L, address &P)
