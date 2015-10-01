@@ -34,7 +34,10 @@ struct List
 {
     address first,last;
 };
+void createList(List &);
 
+address alokasi(infotype );
+void dealokasi(address &);
 
 void insertFirst(List &, address );
 void insertLast(List &, address );
