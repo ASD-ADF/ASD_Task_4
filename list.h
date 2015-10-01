@@ -1,48 +1,47 @@
 #ifndef LIST_H_INCLUDED
 #define LIST_H_INCLUDED
-
+#define first(L) ((L).first)
+#define last(L) ((L).last)
+#define next(P) (P)->next
+#define prev(P) (P)->prev
+#define info(P) (P)->info
 #include <string>
 #include <windows.h>
-
-#define First(L) L.first
-#define Next(P) P->next
-#define Info(P) P->info
-
 using namespace std;
 
-struct infotype
+struct MUSIC
 {
-    int ID;
+    int id;
     string name;
     string location;
 };
+typedef MUSIC infotype;
 
-typedef struct elemenList *address;
-struct elemenList
+typedef struct element_list *address;
+struct element_list
 {
     infotype info;
     address next;
+    address prev;
 };
 
-struct List
+struct list
 {
     address first;
+    address last;
 };
 
-void createList(List &);
-
-address alokasi(infotype );
-void dealokasi(address &);
-
-void insertFirst(List &, address );
-void insertLast(List &, address );
-void insertAfter(List &, address , address );
-
-void deleteFirst(List &, address &);
-void deleteLast(List &, address &);
-void deleteAfter(List &, address &, address &);
-
-address findElm(List, infotype );
-
+address allocate(infotype x);
+void deallocate(address &P);
+void create_list(list &L);
+void insert_first(list &L, address P);
+void insert_after(list &L, address P, address Prec);
+void insert_last(list &L, address P);
+void delete_first(list &L, address &P);
+void delete_after (list &L, address &P, address &Prec);
+void delete_last(list &L, address &P);
+address find_elm(list L, infotype x);
+void search_data (list L, address P);
+void sorting (list &L, int temp1);
 
 #endif // LIST_H_INCLUDED
