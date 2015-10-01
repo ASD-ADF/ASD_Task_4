@@ -70,7 +70,10 @@ void runMenu(int menu)
     {
     case 1 :
         system("cls");
-       
+        cout<<"Input New Song : "<<endl;
+        inputNewSong(x);
+        P = alokasi(x);
+        insertFirst(L,P);
         break;
     case 2:
         system("cls");
@@ -82,7 +85,9 @@ void runMenu(int menu)
         break;
     case 4 :
         system("cls");
-       
+        P = First(L);
+        playSong(P);
+        getch();
         break;
     case 5:
         system("cls");
