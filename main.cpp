@@ -69,23 +69,64 @@ void runMenu(int menu) {
         insertFirst(L,P);
         break;
     case 2:
+        cout<<"delete song : "<<endl;
+        cout<<"1. Delete First"<<endl
+            <<"2. Delete Last"<<endl
+            <<"3. Delete After"<<endl
+            <<"Pilihan : ";
+        int pilins;
+        cin>>pilins;
+        switch(pilins)
+        {
+            case 1 :
+                deleteFirst(L,P);
+                break;
+            case 2 :
+                deleteLast(L,P);
+                break;
+            case 3 :
+                deleteAfter(L,P,Prec);
+                break;
+            default : "Pilihan Tidak Tersedia";
+        }
         break;
     case 3 :
+        printInfo(L);
+        getch();
         break;
     case 4:
+        shuffleList(L);
         break;
     case 5:
+        P = First(L);
+        playSong(P);
         break;
     case 6:
+        playNext(P);
         break;
     case 7:
         playPrev(P);
         break;
     case 8:
+        playRepeat(L,n);
         break;
     case 9:
+        int kondisi;
+        do
+        {
+                cout<<"Sort Song List by : "<<endl
+                <<"1. ID"<<endl
+                <<"2. Song name"<<endl
+                <<"Pilihan : ";
+            cin>>kondisi;
+            sortList(L,kondisi);
+        }
+
+        while(kondisi=0);
+        
         break;
     case 0:
+        cout<<"thank you"<<endl;
         break;
     default :
         cout<<"wrong input"<<endl;
