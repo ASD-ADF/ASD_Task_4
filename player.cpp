@@ -11,6 +11,8 @@ void inputNewSong(infotype &x){
     cin>>x.name;
     cout<<"input song location "<<endl<<"(write - for default location) :";
     cin>>x.location;
+    cout<<"input song ID : ";
+    cin>>x.ID;
     if(x.location=="-"){x.location="";}
 }
 
