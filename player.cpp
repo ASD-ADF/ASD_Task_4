@@ -21,15 +21,16 @@ void printInfo(List L)
 }
 
 
-void playSong(address P)
-{
-    
-}
-
-
 void playNext(address &P)
 {
-    
+    P = Next(P);
+    playSong(P);
+}
+void playPrev(address &P)
+// play the previous song from element P
+{
+    P =Prev(P);
+    playSong(P);
 }
 void playPrev(address &P)
 // play the previous song from element P
