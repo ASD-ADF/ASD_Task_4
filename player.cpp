@@ -60,6 +60,67 @@ void playPrev(address &P){
         P = P->prev;
         playSong(P);
 }
+
+void shuffleList(List &L) {
+    int random;
+    address P;
+    P= L.first;
+    random = rand() % 10 + 1;
+    for (int i=0; i<=random; i++) {
+        P = Next(P);
+    }
+    playSong(P);
+}
+
+void sortList(List &L, int condition) {
+    infotype temp;
+    int i,j,k;
+    if (condition == 1) {
+        address P;
+        P = L.first;
+        for (i = 1; i <= countList(L,P)-1; i++) {
+            P = L.first;
+            for (j = 1 ; j <= (countList(L,P) - i) ; j++) {
+                if (P->info.ID > P->next->info.ID) {
+                    temp = P->next->info;
+                    P->next->info = P->info;
+                    P->info = temp;
+                    P = P->next;
+                } else {
+                    P = P->next;
+                }
+
+            }
+        }
+    }
+    else {
+        address P;
+        P = L.first;
+        for (i = 1; i <= countList(L,P)-1; i++) {
+            P = L.first;
+            for (j = 1 ; j <= (countList(L,P) - i) ; j++) {
+                char* ptr;
+                char* next_ptr;
+                string S = P->info.name;
+                string T = P->next->info.name;
+                ptr = &S.at(0);
+                next_ptr = &T.at(0);
+                int a = *ptr-48;
+                int b = *next_ptr-48;
+                if (a > b) {
+                    temp = P->next->info;
+                    P->next->info = P->info;
+                    P->info = temp;
+                    P = P->next;
+                } else {
+                    P = P->next;
+                }
+            }
+        }
+    }
+}
+
+
 void playRepeat(List L,address *P){
     if (L.first == NULL) {
         cout<<"Tidak dapat mencari lagu yang ingin diulang";
