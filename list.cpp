@@ -35,12 +35,11 @@ void insertLast(List &L, address P)
     }
     else
     {
-        address Q = First(L);
-        while(Next(Q) != NULL)
-        {
-            Q = Next(Q);
-        }
-        Next(Q) = P;
+        Next(P) = First(L);
+        Prev(P) = Last(L);
+        Next(Last(L)) = P;
+        Prev(First(L)) = P;
+        Last(L) = P;
     }
 }
 
