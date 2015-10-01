@@ -116,9 +116,12 @@ void deleteLast(List &L, address &P)
 
 void deleteAfter(List &L, address &P, address &Prec)
 {
-    P = Next(Prec);
-    Next(Prec) = Next(P);
-    Next(P) = NULL;
+    infotype x;
+    P = findElm(L,x);
+    Prec = Next(P);
+    Next(P) = Next(Prec);
+    Next(Prec) = NULL;
+    Prev(next(Prec)) = P;
 }
 
 address findElm(List L, infotype x){
