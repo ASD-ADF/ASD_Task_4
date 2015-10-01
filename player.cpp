@@ -8,7 +8,16 @@ using namespace std;
 
 void inputNewSong(infotype &x)
 {
-  
+    cout<<"ID : ";
+    cin>>x.ID;
+    cout<<"Input Name Song (.wav) : ";
+    cin>>x.name;
+    cout<<"Input Song Location "<<endl<<"(write - for default location) :";
+    cin>>x.location;
+    if(x.location=="-")
+    {
+        x.location="";
+    }
 }
 void SearchSong(infotype &x)
 {
@@ -30,16 +39,17 @@ void printInfo(List L)
 }
 
 
+void playSong(address P)
+{
+    string filename = Info(P).location+Info(P).name;
+    cout<<"Playing Now : "<<filename<<endl;
+    PlaySound(TEXT(filename.c_str()), NULL, SND_FILENAME);
+    _sleep(1000); //delay 1 second
+}
+
 void playNext(address &P)
 {
-    P = Next(P);
-    playSong(P);
-}
-void playPrev(address &P)
-// play the previous song from element P
-{
-    P =Prev(P);
-    playSong(P);
+    
 }
 void playPrev(address &P)
 // play the previous song from element P
