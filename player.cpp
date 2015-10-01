@@ -47,3 +47,8 @@ void playNext(address &P){
     playSong(P);
 }
 
+void playPrev(address &P){
+//Di tambahin #define Prev(P) P->prev di list.h sama tambahin address prev di struct elemenlist fir!, mohon dicoba
+    P = Prev(P);
+    playSong(P);
+}
