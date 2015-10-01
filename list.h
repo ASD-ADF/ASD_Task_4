@@ -36,6 +36,9 @@ struct List
 };
 
 
+void insertFirst(List &, address );
+void insertLast(List &, address );
+void insertAfter(List &, address, address );
 
 address findElm(List, infotype );
 int countElm(List L);
