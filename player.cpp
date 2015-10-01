@@ -37,3 +37,15 @@ void playNext(address &P){
     playSong(P);
 }
 
+//Procedure PlayRepeat by M. Ricky J
+void playRepeat(List &, int n){
+    int loop,n;
+    address P=First(L);
+    do{
+        playSong(P);
+        P=Next(P);
+        if (P==First(L)){
+            loop++;
+        }
+    }while(loop<n)
+};
