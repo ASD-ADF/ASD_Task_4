@@ -77,11 +77,20 @@ void runMenu(int menu)
         break;
     case 2:
         system("cls");
-       
+        printInfo(L);
+        getch();
         break;
     case 3 :
         system("cls");
-        
+        cout<<"Search Song : "<<endl;
+        SearchSong(x);
+        s=findElm(L,x);
+        if(s!=NULL)
+            cout<< "Lagu yang dicari dengan nama "<<Info(s).name<< " mempunyai id "<<Info(s).ID<<endl;
+            else
+                cout<<"Data tidak ada"<<endl;
+            cout<<endl;
+            getch();
         break;
     case 4 :
         system("cls");
@@ -100,8 +109,7 @@ void runMenu(int menu)
         getch();
         break;
     case 7:
-        system("cls");
-      
+        playSong(P);
         break;
     case 8 :
         system("cls");
