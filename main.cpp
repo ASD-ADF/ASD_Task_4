@@ -91,11 +91,13 @@ void runMenu(int menu)
         break;
     case 5:
         system("cls");
-        
+        playNext(P);
+        getch();
         break;
     case 6:
         system("cls");
-       
+        playPrev(P);
+        getch();
         break;
     case 7:
         system("cls");
