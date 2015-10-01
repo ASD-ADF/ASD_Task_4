@@ -6,6 +6,7 @@ using namespace std;
 void createList(List &L)
 {
     First(L) = NULL;
+    Last(L) = NULL;
 }
 
 address alokasi(infotype x)
@@ -23,9 +24,21 @@ void dealokasi(address &P)
 
 void insertFirst(List &L, address P)
 {
-    Next(P) = First(L);
-    First(L) = P;
+    if (L.first == NULL) {
+        L.first = P;
+        L.last = P;
+        P->prev = L.last;
+        P->next = L.first;
+    }
+    else {
+        P->next = L.first;
+        L.first->prev = P;
+        L.first = P;
+        L.first->prev = L.last;
+        L.last->next = L.first;
+    }
 }
+
 
 void insertLast(List &L, address P)
 {
@@ -58,10 +71,28 @@ void insertAfter(List &L, address P, address Prec)
 
 void deleteFirst(List &L, address &P)
 {
-    P = First(L);
-    First(L) = Next(P);
-    Next(P) = NULL;
+    if (L.first == NULL) {
+        cout << "List Kosong" <<endl;
+    }
+    else if (L.first->next == NULL) {
+        P = L.first;
+        P->prev = NULL;
+        P->next = NULL;
+        L.first = NULL;
+        L.last = NULL;
+        dealokasi(P);
+    }
+    else {
+        P = L.first;
+        L.first = P->next;
+        L.last->next = L.first;
+        L.first->prev = L.last;
+        P->next = NULL;
+        P->prev = NULL;
+        dealokasi(P);
+    }
 }
+
 
 void deleteLast(List &L, address &P)
 {
