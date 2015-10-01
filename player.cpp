@@ -6,6 +6,8 @@
 
 using namespace std;
 
+
+// infotype x di main.cpp masukkan data x di main.cpp
 void inputNewSong(infotype &x){
     cout<<"input name song (.wav) : ";
     cin>>x.name;
@@ -14,14 +16,28 @@ void inputNewSong(infotype &x){
     if(x.location=="-"){x.location="";}
 }
 
-void printInfo(List L)
-{
-    address Q = First(L);
-    while(Q != NULL)
-    {
-        cout<<"name : "<<Info(Q).name<<endl
-            <<"location: "<<Info(Q).location<<endl;
-        Q = Next(Q);
+void printInfo(List L){
+    cout<<"     Music Play      "<<endl;
+    cout<<endl;
+    address *P = L->first;
+
+    if(L.first  == NULL){
+        cout<<"  Kosong "<<endl;
+    }else if(L.first != NULL){
+        cout<<"name : "<<Info(P).name<<endl
+            <<"location: "<<Info(P).location<<endl;
+        if (P ->next !=P){
+            P = P->next;
+        }while(P!=L.first){
+            cout<<"  name     : "<<p->info.name<<endl
+                <<"  location : ";
+                if(p->info.location == "")
+                {
+                    cout<<"Default Location"<<endl<<endl;
+                }
+            P = P->next;
+        }
+
     }
 }
 
@@ -33,7 +49,36 @@ void playSong(address P){
 }
 
 void playNext(address &P){
-    P = Next(P);
-    playSong(P);
+    if (P != NULL){
+        P = P->next;
+        playSong(P);
+    }
 }
 
+void playPrev(address &P){
+    if (P != NULL){
+        P = P->prev;
+        playSong(P);
+}
+void playRepeat(List L,address *P){
+    if (L.first == NULL) {
+        cout<<"Tidak dapat mencari lagu yang ingin diulang";
+    }else{
+
+    }
+        int repeat;
+        cout<<"Ulang Lagu Sebanyak : ";
+        cin>>repeat;cout<<endl;
+        if(repeat >=0 ){
+            P = L.first;
+            int i = 0;
+            do{
+                playSong(P);
+                P = P->next;
+                if(P == L.first){
+                    i++;
+                }
+            }while (i != repeat);
+        }
+    }
+}
