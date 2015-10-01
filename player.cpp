@@ -35,3 +35,23 @@ void play_repeat (list &L, address P)
         n--;
     }
 }
+
+void play_shuffle (list &L, int temp, address &P)
+{
+    cout<<"=====SHUFFLE MUSIC====="<<endl;
+    P=first(L);
+    if (P!=NULL)
+    {
+        int shuff=rand() % temp+1;
+        for(int i=1; i<=shuff; i++)
+        {
+            P=next(P);
+        }
+        play_music(P);
+    }
+    else
+    {
+        cout<<"No music, press any key"<<endl;
+        getch();
+    }
+}
