@@ -65,19 +65,19 @@ void deleteFirst(List &L, address &P)
 
 void deleteLast(List &L, address &P)
 {
-    if(Next(First(L)) == NULL)
+    if((Next(First(L)) == NULL))
     {
         deleteFirst(L,P);
     }
     else
     {
-        address Q = First(L);
-        while(Next(Next(Q)) != NULL)
-        {
-            Q = Next(Q);
-        }
-        P = Next(Q);
-        Next(Q) = NULL;
+        P = Last(L);
+        Last(L) = Prev(Last(L));
+        Prev(P) = NULL;
+        Next(P) = NULL;
+        Next(Last(L)) = First(L);
+        Prev(First(L)) = Last(L);
+        dealokasi(P);
     }
 }
 
@@ -87,7 +87,23 @@ void deleteAfter(List &L, address &P, address &Prec)
     Next(Prec) = Next(P);
     Next(P) = NULL;
 }
-
+void deleteLast(List &L, address &P)
+{
+    if((Next(First(L)) == NULL))
+    {
+        deleteFirst(L,P);
+    }
+    else
+    {
+        P = Last(L);
+        Last(L) = Prev(Last(L));
+        Prev(P) = NULL;
+        Next(P) = NULL;
+        Next(Last(L)) = First(L);
+        Prev(First(L)) = Last(L);
+        dealokasi(P);
+    }
+}
 address findElm(List L, infotype x){
     address Q = First(L);
     while(Q != NULL){
