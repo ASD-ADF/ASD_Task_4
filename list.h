@@ -24,8 +24,15 @@ struct elemenList
 {
     infotype info;
     address next;
-    
+    address prev;
 };
+
+struct List
+{
+    address first;
+    address last;
+};
+
 
 struct List
 {
