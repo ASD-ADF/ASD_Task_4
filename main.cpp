@@ -2,12 +2,15 @@
 #include "list.h"
 #include "player.h"
 #include <conio.h>
+#include <stdlib.h>
+#include <windows.h>
 
 using namespace std;
 
 List L;
-address P;
+address P,Prec;
 infotype x;
+int n;
 
 void menu();
 void displayMenu();
@@ -40,15 +43,19 @@ void menu() {
         displayMenu();
         cin>>pil;
         runMenu(pil);
-    } while (pil!=5);
+    } while (pil!=9);
 }
 
 void displayMenu() {
     cout<<"1. input new "<<endl
-        <<"2. view list"<<endl
-        <<"3. play first song"<<endl
-        <<"4. play next "<<endl
-        <<"5. exit"<<endl;
+        <<"2. delete song"<<endl
+        <<"3. view list"<<endl
+        <<"4. play shuffle"<<endl
+        <<"5. play first song"<<endl
+        <<"6. play next "<<endl
+        <<"7. play repeat"<<endl
+        <<"8. sort song list"<<endl
+        <<"9. exit"<<endl;
     cout<<"choose menu : ";
 }
 
@@ -61,17 +68,20 @@ void runMenu(int menu) {
         insertFirst(L,P);
         break;
     case 2:
-        printInfo(L);
         break;
     case 3 :
-        P = First(L);
-        playSong(P);
         break;
     case 4:
-        playNext(P);
         break;
     case 5:
-        cout<<"thank you"<<endl;
+        break;
+    case 6:
+        break;
+    case 7:
+        break;
+    case 8:
+        break;
+    case 9:
         break;
     default :
         cout<<"wrong input"<<endl;
