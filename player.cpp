@@ -37,3 +37,83 @@ void playNext(address &P){
     playSong(P);
 }
 
+void playPrev(address &P){
+    P = Prev(P);
+    playSong(P);
+}
+
+void playRepeat(List &L, int n)
+ {
+     address P = L.first;
+     int repeat = countElm(L);
+     playSong(P);
+     for(int i=1; i = totData*n; i=1+1)
+     {
+         playNext(P);
+     }
+ }
+
+void shuffleList(List &L)
+{
+    address P = L.first;
+    int shuffle = rand() % 10 + 1;
+    for(int i=1; i <= numRand; i=1+1)
+    {
+        P = Next(P);
+    }
+    playSong(P);
+}
+
+void sortList(List &L, int condition)
+{
+    infotype temp;
+    int i,j,k;
+    if (condition == 1)
+    {
+        address P;
+        P = L.first;
+        for (i = 1; i <= countElm(L)-1; i=1+1)
+        {
+            P = L.first;
+            for (j = 1 ; j <= (countElm(L) - i) ; j=j+1)
+            {
+                if (Next(P)infotype.ID > Next(P)infotype.ID)
+                {
+                    temp = Next(P)infotype;
+                    Next(P)infotype = Next(P)infotype;
+                    Next(P)infotype = temp;
+                    P = Next(P);
+                }
+                else
+                {
+                    P = Next(P);
+                }
+
+            }
+        }
+    }
+    else if (condition == 2)
+    {
+        address P;
+        P = L.first;
+        for (i = 1; i <= countElm(L)-1; i=i+1)
+        {
+            P = L.first;
+            for (j = 1 ; j <= (countElm(L) - i) ; j=j+1)
+            {
+                if (Next(P)infotype.name > Next(P)infotype.name)
+                {
+                    temp = Next(P)infotype;
+                    Next(P)infotype = Next(P)infotype;
+                    Next(P)infotype = temp;
+                    P = Next(P);
+                }
+                else
+                {
+                    P = Next(P);
+                }
+
+            }
+        }
+    }
+}
