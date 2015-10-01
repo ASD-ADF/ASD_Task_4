@@ -22,11 +22,13 @@ struct elemenList
 {
     infotype info;
     address next;
+    address prev;
 };
 
 struct List
 {
-    address first;
+    address First;
+    address Last;
 };
 
 void createList(List &);
@@ -43,6 +45,17 @@ void deleteLast(List &, address &);
 void deleteAfter(List &, address &, address &);
 
 address findElm(List, infotype );
+int countElm(List L)
+{
+     int num = 0;
+     if (L.first == NULL) return 0;
+     address Q = First(L);
+     do{
+         num++;
+         Q = Next(Q);
+     }while(Q != L.first);
+     return num;
+}
 
 
 #endif // LIST_H_INCLUDED

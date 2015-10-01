@@ -1,3 +1,7 @@
+//Nama:
+//Fachri UL Albab (1301140151)
+//Alfian Pamungkas S (1301144411)
+//Ezekiel Manurung (1301140261)
 #include <iostream>
 #include "list.h"
 #include "player.h"
@@ -44,12 +48,17 @@ void menu() {
 }
 
 void displayMenu() {
-    cout<<"1. input new "<<endl
-        <<"2. view list"<<endl
-        <<"3. play first song"<<endl
-        <<"4. play next "<<endl
-        <<"5. exit"<<endl;
+    cout<<"1. input new "<<endl;
+        <<"2. view list"<<endl;
+        <<"3. play first song"<<endl;
+        <<"4. play next "<<endl;
+        <<"5. play previous"<<endl;
+        <<"6. play repeat"<<endl;
+        <<"7. shuffle song"<<endl;
+        <<"8. sort list"<<endl;
+        <<"9. exit"<<endl;
     cout<<"choose menu : ";
+    system("CLS");
 }
 
 void runMenu(int menu) {
@@ -71,6 +80,16 @@ void runMenu(int menu) {
         playNext(P);
         break;
     case 5:
+        PlayPrev(P);
+    case 6:
+        PlayRepeat(P);
+        break;
+    case 7:
+        ShuffleList(P);
+        break;
+    case 8:
+        sortList(P);
+    case 9:
         cout<<"thank you"<<endl;
         break;
     default :
