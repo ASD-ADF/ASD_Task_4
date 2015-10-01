@@ -58,15 +58,22 @@ void insertLast(List &L, address P)
 
 void insertAfter(List &L, address P, address Prec)
 {
-    if(First(L) == NULL)
-    {
-        insertFirst(L,P);
+    // P tuh Element Baru yang akan diinsert,
+    // Sesudah Elemen Prec
+    address S = L.first;
+    for (int i = 1; i <= countElm(L); i++){
+        if (Prec->info.ID == S->info.ID) {
+            break;
+        }
+        S = S->next;
     }
-    else
-    {
-        Next(P) = Next(Prec);
-        Next(Prec) = P;
-    }
+    Prec = S;
+
+    P->next = Prec->next;
+    P->prev = Prec;
+
+    P->next->prev = P;
+    Prec->next = P;
 }
 
 void deleteFirst(List &L, address &P)
