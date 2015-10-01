@@ -141,3 +141,167 @@ void insert_after(List &L)
         }
     }
 }
+
+void delete_first(List &L, element *p)
+{
+    cout<<"Delete Music on First List"<<endl<<endl;
+    p = L.head;
+    if (EmptyData(L))
+    {
+        cout<<"No Music to Delete from List!";
+    }
+    else if(p->next == p)
+    {
+        L.head = NULL;
+        L.tail = NULL;
+        cout<<"Deleted Music"<<endl<<endl;
+        cout<<"ID       : "<<p->info.id<<endl;
+        cout<<"Name     : "<<p->info.name<<endl;
+        cout<<"Location : "<<p->info.location<<endl<<endl;
+        deallocate(p);
+        cout<<"Delete Success!";
+    }
+    else
+    {
+        p = L.head;
+        L.head = p->next;
+        (p->next)->prev = L.tail;
+        (p->prev)->next = p->next;
+        if ((p->next)->next == p)
+        {
+            (p->next)->next = p->next;
+        }
+        p->next = NULL;
+        p->prev = NULL;
+        cout<<"Deleted Music"<<endl<<endl;
+        cout<<"ID       : "<<p->info.id<<endl;
+        cout<<"Name       : "<<p->info.name<<endl;
+        cout<<"Location : "<<p->info.location<<endl<<endl;
+        deallocate(p);
+        cout<<"Delete Success!";
+    }
+    _getch();
+}
+
+void delete_last(List &L, element *p)
+{
+    cout<<"Delete Music on Last List"<<endl<<endl;
+    p = L.head;
+    if(EmptyData(L))
+    {
+        cout<<"No Music to Delete from List!";
+    }
+    else if(p->next == p)
+    {
+        L.head = NULL;
+        L.tail = NULL;
+        cout<<"Deleted Music"<<endl;
+        cout<<"ID       : "<<p->info.id<<endl;
+        cout<<"Name     : "<<p->info.name<<endl;
+        cout<<"Location : "<<p->info.location<<endl<<endl;
+        deallocate(p);
+        cout<<"Delete Success!";
+    }
+    else
+    {
+        p = L.tail;
+        L.tail = p->prev;
+        (p->prev)->next = L.head;
+        (p->next)->prev = p->prev;
+        if ((p->prev)->prev == p)
+        {
+            (p->prev)->prev = p->prev;
+        }
+        p->prev = NULL;
+        p->next = NULL;
+        cout<<"Deleted Music"<<endl;
+        cout<<"ID       : "<<p->info.id<<endl;
+        cout<<"Name     : "<<p->info.name<<endl;
+        cout<<"Location : "<<p->info.location<<endl<<endl;
+        deallocate(p);
+        cout<<"Delete Success!";
+    }
+    _getch();
+}
+
+void delete_after(List &L)
+{
+    cout<<"Delete After"<<endl<<endl;
+    if(EmptyData(L))
+    {
+        cout<<"No Music to Delete from List!";
+    }
+    else
+    {
+        string name;
+        element *p, *prec;
+        cout<<"Delete Music after Music Name : "; cin>>name;
+        prec = find_element(L,name);
+        if(prec == NULL)
+        {
+            cout<<"Music not Found!";
+        }
+        else
+        {
+            p = prec->next;
+            prec->next = p->next;
+            p->next->prev = prec;
+            p->next = NULL;
+            p->prev = NULL;
+            cout<<"Deleted Music"<<endl;
+            cout<<"ID       : "<<p->info.id<<endl;
+            cout<<"Name     : "<<p->info.name<<endl;
+            cout<<"Location : "<<p->info.location<<endl<<endl;
+            deallocate(p);
+        }
+        cout<<"Delete Success!";
+    }
+    _getch();
+}
+
+element *find_element(List L, string name)
+{
+    if(L.head == NULL)
+    {
+        return NULL;
+    }
+    else
+    {
+        element *p, *q;
+        p = L.head;
+        q = L.head;
+        bool loop = true;
+        while(loop)
+        {
+            if(p->info.name == name)
+            {
+                return p;
+            }
+            if(p->next == q)
+            {
+                return NULL;
+            }
+            else
+            {
+                p = p->next;
+            }
+        }
+    }
+}
+
+void searching(List L,element *&m)
+{
+    element *p; string name;
+    cout<<"Search Music"<<endl<<endl;
+    cout<<"Input Music Name to Play : "; cin>>name;
+    p = find_element(L,name);
+    if(p == NULL)
+    {
+        cout<<endl<<"Music not found!";
+    }
+    else
+    {
+        m = p;
+        play_song(m);
+    }
+}
