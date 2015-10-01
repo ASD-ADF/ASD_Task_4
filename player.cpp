@@ -38,7 +38,7 @@ void printInfo(List L)
 void playSong(address P){
     string filename = Info(P).location+Info(P).name;
     cout<<"playing "<<filename<<endl;
-    PlaySound(TEXT(filename.c_str()), NULL, SND_FILENAME);
+    PlaySound(TEXT(filename.c_str()), NULL, SND_ASYNC|SND_FILENAME);
     _sleep(1000); //delay 1 second
 }
 
@@ -47,3 +47,7 @@ void playNext(address &P){
     playSong(P);
 }
 
+void playPrev(address &P) {
+    P = Prev(P);
+    playSong(P);
+}
