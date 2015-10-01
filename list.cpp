@@ -23,8 +23,21 @@ void dealokasi(address &P)
 
 void insertFirst(List &L, address P)
 {
-    Next(P) = First(L);
-    First(L) = P;
+    if (First(L) == NULL)
+    {
+        First(L) = P;
+        Next(P) = First(L);
+        Prev(P) = First(L);
+        Last(L) = P;
+    }
+    else
+    {
+        Next(P) = First(L);
+        Prev(P) = Last(L);
+        Next(Last(L)) = P;
+        Prev(First(L)) = P;
+        First(L) = P;
+    }
 }
 
 void insertLast(List &L, address P)
@@ -69,9 +82,27 @@ void insertAfter(List &L, address P, address Prec)
 void deleteFirst(List &L, address &P)
 {
     P = First(L);
-    First(L) = Next(P);
-    Next(P) = NULL;
+    if (P == NULL)
+    {
+        cout << "Masih Kosong" << endl;
+    }
+    else if (Next(P) == NULL)
+    {
+        Next(P) = NULL;
+        Prev(P) = NULL;
+        dealokasi(P);
+    }
+    else
+    {
+        First(L) = Next(P);
+        Next(P) = NULL;
+        Prev(P) = NULL;
+        Prev(First(L)) = Last(L);
+        Next(Last(L)) = First(L);
+        dealokasi(P);
+    }
 }
+
 
 void deleteLast(List &L, address &P)
 {
@@ -110,27 +141,17 @@ void deleteAfter(List &L, address &P, address &Prec)
     dealokasi(P);
 }
 
-void deleteLast(List &L, address &P)
-{
-    if((Next(First(L)) == NULL))
-    {
-        deleteFirst(L,P);
-    }
-    else
-    {
-        P = Last(L);
-        Last(L) = Prev(Last(L));
-        Prev(P) = NULL;
-        Next(P) = NULL;
-        Next(Last(L)) = First(L);
-        Prev(First(L)) = Last(L);
-        dealokasi(P);
-    }
-}
+
 address findElm(List L, infotype x){
     address Q = First(L);
-    while(Q != NULL){
-        if(Info(Q).ID == x.ID){
+    if (Q == NULL)
+    {
+        cout << "Data Kosong!" << endl;
+    }
+    while (Q != NULL)
+    {
+        if(Info(Q).name == x.name)
+        {
             return Q;
         }
         Q = Next(Q);
