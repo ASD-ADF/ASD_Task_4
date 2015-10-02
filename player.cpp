@@ -6,23 +6,42 @@
 
 using namespace std;
 
-void inputNewSong(infotype &x){
+void inputNewSong(infotype &x)
+{
+    cout<<"Input ID song : ";
+    cin>>x.ID;
     cout<<"input name song (.wav) : ";
     cin>>x.name;
     cout<<"input song location "<<endl<<"(write - for default location) :";
     cin>>x.location;
-    if(x.location=="-"){x.location="";}
+    if(x.location=="-")
+    {
+        x.location="";
+    }
 }
 
 void printInfo(List L)
 {
     address Q = First(L);
-    while(Q != NULL)
+    while(Next(Q)!=First(L))
     {
-        cout<<"name : "<<Info(Q).name<<endl
+        cout<<"ID : "<<Info(Q).ID<<endl
+            <<"name : "<<Info(Q).name<<endl
             <<"location: "<<Info(Q).location<<endl;
         Q = Next(Q);
     }
+    if(Next(Q)==First(L))
+    {
+        cout<<"ID : "<<Info(Q).ID<<endl
+            <<"name : "<<Info(Q).name<<endl
+            <<"location: "<<Info(Q).location<<endl;
+    }
+}
+
+void playNext(address &P)
+{
+    P = Next(P);
+    playSong(P);
 }
 
 void playSong(address P){
@@ -32,10 +51,7 @@ void playSong(address P){
     _sleep(1000); //delay 1 second
 }
 
-void playNext(address &P){
-    P = Next(P);
-    playSong(P);
-}
+
 void sortList(List &L, int condition) {
     switch(condition) {
         case 1: {
