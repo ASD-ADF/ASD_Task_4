@@ -43,24 +43,42 @@ void playPrev(address &P){
 }
 
 void shuffleList(List &L){
-    address Q = First(L);
-    if(Next(Q) == NULL){
-        playSong(Q);
-    }else{
-        int id;
-        do{
-            Q = Next(Q);
-            id = Info(Q).ID;
-        }while(Next(Q) != First(L));
+    List L2;
+	address arrList[20];
+	address arrList2[20];
+	int i = 0;
+	int k = 0;
+	address P;
+	P = First(L);
+	bool value = false;
 
-        int random = rand() % id + 1;
+	createList(L2);
+	do{
+		arrList[i] = P;
+		P = Next(P);
+	}while(P != First(L));
 
-        Q = First(L);
-        while(Info(Q).ID != random){
-            Q = Next(Q);
-        }
-        playSong(Q);
-    }
+	int random = rand() % i;
+
+	while(arrList2[20] != NULL){
+		value = false;
+		k = 0;
+		while(k<=20 and !value and arrList2[k] != NULL){
+			if(arrList[random] == arrList2[k]){
+				value = true;
+			}else{
+				k++;
+			}
+		}
+
+		if(arrList2[k] == NULL){
+			arrList2[k] = arrList[random];
+			P = alokasi(Info(arrList[random]));
+			insertFirst(L2, P);
+		}
+	}
+
+	L = L2;
 }
 
 
@@ -73,16 +91,15 @@ void playRepeat(List &L, int n){
 // play the song list from the first song
 // and repeat the list n times
     address P;
-    int times;
-    cout<<"How many times? "; cin>>times;
-
-    for(int i=0; i<times; i++){
+    for(int i=0; i<n; i++){
         P = First(L);
         playSong(P);
-        P = Next(P);
-        while(Last(L) != First(L) and P != First(L)){
-            playSong(P);
+        if(Next(First(L)) != First(L)){
             P = Next(P);
+            while(P != First(L)){
+                playSong(P);
+                P = Next(P);
+            }
         }
     }
 }
