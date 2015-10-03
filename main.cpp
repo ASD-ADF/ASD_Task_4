@@ -8,6 +8,7 @@ using namespace std;
 List L;
 address P;
 infotype x;
+int n;
 
 void menu();
 void displayMenu();
@@ -40,7 +41,7 @@ void menu() {
         displayMenu();
         cin>>pil;
         runMenu(pil);
-    } while (pil!=5);
+    } while (pil!=8);
 }
 
 void displayMenu() {
@@ -48,7 +49,10 @@ void displayMenu() {
         <<"2. view list"<<endl
         <<"3. play first song"<<endl
         <<"4. play next "<<endl
-        <<"5. exit"<<endl;
+        <<"5. play prev "<<endl
+        <<"6. play shuffle"<<endl
+        <<"7. play repeat"<<endl
+        <<"8. exit"<<endl;
     cout<<"choose menu : ";
 }
 
@@ -71,6 +75,14 @@ void runMenu(int menu) {
         playNext(P);
         break;
     case 5:
+        playPrev(P);
+        break;
+    case 6:
+        shuffleList(L);
+    case 7:
+        cout<<"How many times? "; cin>>n;
+        playRepeat(L, n);
+    case 8:
         cout<<"thank you"<<endl;
         break;
     default :
