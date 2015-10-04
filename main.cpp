@@ -6,7 +6,7 @@
 
 using namespace std;
 
-List L;
+List L,L2;
 address P;
 infotype x;
 
@@ -21,13 +21,13 @@ int main() {
     // example of data initialization
     x.ID = 1;
     x.location = "";
-    x.name = "clapping.wav";
+    x.name = "bombdef.wav";
     P = alokasi(x);
     insertFirst(L,P);
 
     x.ID = 2;
     x.location = "";
-    x.name = "airpump2.wav";
+    x.name = "clear.wav";
     P = alokasi(x);
     insertLast(L,P);
     P = NULL;
@@ -62,14 +62,14 @@ void displayMenu() {
 }
 
 void runMenu(int menu) {
-    int much;
+    int much,pil;
     switch(menu) {
     case 1 :
         system("cls");
         cout<<"input new song : "<<endl;
-        inputNewSong(x);
+        inputNewSong(x,L);
         P = alokasi(x);
-        insertFirst(L,P);
+        insertLast(L,P);
         P = NULL;
         break;
     case 2:
@@ -137,17 +137,40 @@ void runMenu(int menu) {
         break;
     case 9:
         system("cls");
-        cout<<"Under Construction";
-        getch();
+        cout<<"Input The Song name : ";
+        cin>>x.name;
+        P = findElm(L,x);
+        if (P != NULL)
+        {
+            playSong(P);
+        }
+        else
+        {
+            cout<<"The song is not availabe in the list";
+            getch();
+        }
         break;
     case 10:
         system("cls");
-        cout<<"Under Construction";
+        shuffleList(L);
+        cout<<"Shuffle Success";
         getch();
         break;
     case 11:
         system("cls");
-        cout<<"Under Construction";
+        cout<<"1. Sort by ID"<<endl
+            <<"2. Sort by Name"<<endl;
+        cout<<"\nchoose menu : ";
+        cin>>pil;
+        if (pil < 0 || pil > 2)
+        {
+            cout<<"Wrong Input";
+        }
+        else
+        {
+            sortList(L,pil);
+            cout<<"Sort Sukses";
+        }
         getch();
         break;
     case 12:
