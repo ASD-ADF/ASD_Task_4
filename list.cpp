@@ -58,28 +58,48 @@ void insertAfter(List &L, address P, address Prec)
 
 void deleteFirst(List &L, address &P)
 {
-    P = First(L);
-    First(L) = Next(P);
-    Next(P) = NULL;
+    if(First(L)==NULL) {
+        cout<<"Data Kosong";
+    }
+    else if (First(L)==Last(L)) {
+            P=First(L);
+            Next(P)=NULL;
+            Prev(First(L))=NULL;
+    }
+    else{
+        P = First(L);
+        First(L) = Next(P);
+        Next(P) = NULL;
+        Prev(P) = NULL;
+        Next(Last(L))=First(L);
+        Prev(First(L))=Last(L);
+
+    }
+
 }
 
 void deleteLast(List &L, address &P)
 {
-    if(Next(First(L)) == NULL)
+    if(Last(L)==NULL)
     {
-        deleteFirst(L,P);
+        cout<<"Data Kosong"<<endl;
+    }
+    else if(Last(L)==First(L)) {
+        P=First(L);
+        Next(P)=NULL;
+        Prev(First(L))=NULL;
     }
     else
     {
-        address Q = First(L);
-        while(Next(Next(Q)) != NULL)
-        {
-            Q = Next(Q);
-        }
-        P = Next(Q);
-        Next(Q) = NULL;
+        P=Last(L);
+        Last(L)=Prev(Last(L));
+        Prev(P)=NULL;
+        Next(P)=NULL;
+        Prev(First(L))=Last(L);
+        Next(Last(L))=First(L);
     }
 }
+
 
 void deleteAfter(List &L, address &P, address &Prec)
 {
@@ -97,4 +117,48 @@ address findElm(List L, infotype x){
         Q = Next(Q);
     }
     return NULL;
+}
+// DeleteFirst By Rizky Fadhillah
+void deleteFirst(List &L, address &P)
+{
+    if(First(L)==NULL) {
+        cout<<"Data Kosong";
+    }
+    else if (First(L)==Last(L)) {
+            P=First(L);
+            Next(P)=NULL;
+            Prev(First(L))=NULL;
+    }
+    else{
+        P = First(L);
+        First(L) = Next(P);
+        Next(P) = NULL;
+        Prev(P) = NULL;
+        Next(Last(L))=First(L);
+        Prev(First(L))=Last(L);
+
+    }
+
+}
+//DeleteLast by RizkyFadhillah
+void deleteLast(List &L, address &P)
+{
+    if(Last(L)==NULL)
+    {
+        cout<<"Data Kosong"<<endl;
+    }
+    else if(Last(L)==First(L)) {
+        P=First(L);
+        Next(P)=NULL;
+        Prev(First(L))=NULL;
+    }
+    else
+    {
+        P=Last(L);
+        Last(L)=Prev(Last(L));
+        Prev(P)=NULL;
+        Next(P)=NULL;
+        Prev(First(L))=Last(L);
+        Next(Last(L))=First(L);
+    }
 }
