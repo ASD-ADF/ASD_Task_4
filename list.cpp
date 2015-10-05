@@ -3,16 +3,18 @@
 
 using namespace std;
 
-void createList(List &L) //KOMANGWIDYAPUTRA
+void createList(List &L)
 {
     First(L) = NULL;
+    Last(L) = NULL;
 }
 
-address alokasi(infotype x) //KOMANGWIDYAPUTRA
+address alokasi(infotype x) 
 {
     address P = new elemenList;
     Info(P) = x;
     Next(P) = NULL;
+    Prev(P) = NULL;
     return P;
 }
 
@@ -21,26 +23,34 @@ void dealokasi(address &P)
     delete P;
 }
 
-void insertFirst(List &L, address P) //KOMANGWIDYAPUTRA
+void insertFirst(List &L, address P)
 {
-    Next(P) = First(L);
-    First(L) = P;
+    if(First(L)==NULL) {
+        First(L)=P;
+        Next(P)=First(L);
+        Prev(P)=First(L);
+        Last(L)=P;
+    }
+    else {
+        Next(P) = First(L);
+        Prev(P) = Last(L);
+        Next(Last(L))=P;
+        Prev(Last(L)) = P;
+        First(L) = P;
+    }
 }
 
-void insertLast(List &L, address P) //KOMANGWIDYAPUTRA
+void insertLast(List &L, address P)
 {
-    if(First(L) == NULL)
-    {
+    if(First(L)==NULL){
         insertFirst(L,P);
     }
-    else
-    {
-        address Q = First(L);
-        while(Next(Q) != NULL)
-        {
-            Q = Next(Q);
-        }
-        Next(Q) = P;
+    else {
+        Next(P) = First(L);
+        Prev(P) = Last(L);
+        Next(Last(L))=P;
+        Prev(Last(L)) = P;
+        Last(L) = P;
     }
 }
 void insertAfter(List &L, address P, address Prec)
@@ -139,9 +149,20 @@ void insertID (List &L2, address P) {
     }
 }
 
-void insertName (List &L2, address P) //KOMANGWIDYAPUTRA
+void insertName (List &L2, address P)
 {
-    
+    address Q;
+    Q=First(L2);
+    if(Q==NULL) {
+        insertFirst(L2,P);
+    }
+     else if(Info(P).name < Info(Q).name) {
+        insertFirst(L2,P);
+    }
+    else {
+        while (Info(P).name > Info(Q).name && Next(Q)!= First(L2)) {
+            if (Info(Next(Q)).name > Info(P).name) {
+                break;
 }
 
 address findElm(List L, infotype x){
