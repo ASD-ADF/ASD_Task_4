@@ -6,6 +6,7 @@ using namespace std;
 List L;
 address P;
 infotype x;
+int n;
 
 void menu();
 void displayMenu();
@@ -82,8 +83,12 @@ void runMenu(int menu) {
         playNext(P);
         break;
     case 7:
+        playSong(P);
         break;
     case 8:
+        cout<<"jumlah loop : ";
+        cin>>n;
+        playRepeat(L,n);
         break;
     case 9:
         break;
