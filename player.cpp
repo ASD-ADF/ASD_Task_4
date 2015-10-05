@@ -1,8 +1,10 @@
 #include <iostream>
 #include <string>
+#include<conio.h>
 #include <windows.h>
 #include "list.h"
 #include "player.h"
+#include <mmsystem.h>
 
 using namespace std;
 
@@ -157,3 +159,4 @@ void sortList(List &L, int condition)
          }
      }
 }
+
