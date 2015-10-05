@@ -45,14 +45,16 @@ void insertLast(List &L, address P) //KOMANGWIDYAPUTRA
 }
 void insertAfter(List &L, address P, address Prec) //NAUFALDZAKYANWARI
 {
-    if(First(L) == NULL)
+   if(Prec == Last(L))
     {
-        insertFirst(L,P);
+        insertLast(L,P);
     }
     else
     {
         Next(P) = Next(Prec);
+        Prev(P) = Prec;
         Next(Prec) = P;
+        Prev(Next(Prec)) = P;
     }
 }
 
