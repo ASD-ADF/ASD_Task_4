@@ -58,6 +58,7 @@ void insertAfter(List &L, address P, address Prec)
     }
 }
 
+
 void deleteFirst(List &L, address &P)
 {
     P = First(L);
