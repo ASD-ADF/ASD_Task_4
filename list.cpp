@@ -109,7 +109,7 @@ void deleteAfter(List &L, address &P, address &Prec)
 
 address findElm(List L, infotype x){
     address Q = First(L);
-    while(Q != NULL){
+    while(next(Q) != first(L)){
         if(Info(Q).ID == x.ID){
             return Q;
         }
