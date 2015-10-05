@@ -124,7 +124,7 @@ void deleteLast(List &L, address &P)
     }
 }
 
-//Procedure DeleteLast by Rizky Fadhillah
+//Procedure DeleteAfter by Rizky Fadhillah
 void deleteAfter(List &L, address &P, address &Prec)
 {
     if(Prec==NULL) {
