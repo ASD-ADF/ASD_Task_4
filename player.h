@@ -31,6 +31,8 @@ void playRepeat(List &, int n);
 // play the song list from the first song
 // and repeat the list n times
 
+void shuffle(List &l);
+//to shuffle song with rand() mechanism
 
 
 #endif // PLAYER_H_INCLUDED
