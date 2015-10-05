@@ -4,6 +4,7 @@
 #include <string>
 #include <windows.h>
 
+#define nil NULL
 #define First(L) ((L).First)
 #define Last(L) ((L).Last)
 #define Next(P) P->next
