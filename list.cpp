@@ -59,6 +59,7 @@ void insertLast(List &L, address P)
         Last(L)=P;
     }
 }
+
 void insertAfter(List &L, address P, address Prec)
 {
     if(Last(L)==Prec)
