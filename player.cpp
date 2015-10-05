@@ -6,13 +6,18 @@
 
 using namespace std;
 
-void inputNewSong(infotype &x){
+void inputNewSong(infotype &x)
+{
     cout<<"input name song (.wav) : ";
     cin>>x.name;
     cout<<"input song location "<<endl<<"(write - for default location) :";
     cin>>x.location;
-    if(x.location=="-"){x.location="";}
+    if(x.location=="-")
+    {
+        x.location="";
+    }
 }
+
 
 void printInfo(List L)
 {
@@ -25,7 +30,8 @@ void printInfo(List L)
     }
 }
 
-void playSong(address P){
+void playSong(address P)
+{
     string filename = Info(P).location+Info(P).name;
     cout<<"playing "<<filename<<endl;
     PlaySound(TEXT(filename.c_str()), NULL, SND_FILENAME);
