@@ -6,8 +6,11 @@
 #include <windows.h>
 
 #define First(L) L.first
+#define Last(P) L.last
 #define Next(P) P->next
+#define Prev(P) P->prev
 #define Info(P) P->info
+
 
 using namespace std;
 
@@ -23,11 +26,13 @@ struct elemenList
 {
     infotype info;
     address next;
+    address prev;
 };
 
 struct List
 {
     address first;
+    address last;
 };
 
 void createList(List &);
