@@ -3,10 +3,13 @@
 
 #include <string>
 #include <windows.h>
+#include <conio.h>
 
-#define First(L) L.first
-#define Next(P) P->next
-#define Info(P) P->info
+#define First(L) L.First
+#define Next(P) P->Next
+#define Info(P) P->Info
+#define Last(L) L.Last
+#define Prev(P) P->Prev
 
 using namespace std;
 
@@ -20,13 +23,15 @@ struct infotype
 typedef struct elemenList *address;
 struct elemenList
 {
-    infotype info;
-    address next;
+    infotype Info;
+    address Next;
+    address Prev;
 };
 
 struct List
 {
-    address first;
+    address First;
+    address Last;
 };
 
 void createList(List &);
@@ -41,8 +46,10 @@ void insertAfter(List &, address , address );
 void deleteFirst(List &, address &);
 void deleteLast(List &, address &);
 void deleteAfter(List &, address &, address &);
-
 address findElm(List, infotype );
+address findElm1(List, infotype );
+void insertID (List &, address );
+void insertNM (List &, address );
 
 
 #endif // LIST_H_INCLUDED
