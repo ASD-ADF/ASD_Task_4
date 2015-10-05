@@ -6,6 +6,8 @@ using namespace std;
 void createList(List &L)
 {
     First(L) = NULL;
+    Last(L) = NULL;
+    
 }
 
 address alokasi(infotype x)
@@ -60,14 +62,16 @@ void insertLast(List &L, address P)
 }
 void insertAfter(List &L, address P, address Prec)
 {
-    if(First(L) == NULL)
+    if(Last(L)==Prec)
     {
         insertFirst(L,P);
     }
     else
     {
         Next(P) = Next(Prec);
-        Next(Prec) = P;
+        Prev(P)=Prec;
+        Prev(Next(Prec)) = P;
+        Next(Prec)=P;
     }
 }
 
@@ -99,19 +103,26 @@ void deleteFirst(List &L, address &P)
 
 void deleteLast(List &L, address &P)
 {
-    if(Next(First(L)) == NULL)
+    if (First(L)==NULL)
     {
-        deleteFirst(L,P);
+        cout << "Data Tidak Ada. . . \n";
+    }
+    else if(First(L) == Last(L))
+    {
+        P=Last(L);
+        Next(P)=NULL;
+        Prev(P)=NULL;
+        First(L)=NULL;
+        Last(L)=NULL;
     }
     else
     {
-        address Q = First(L);
-        while(Next(Next(Q)) != NULL)
-        {
-            Q = Next(Q);
-        }
-        P = Next(Q);
-        Next(Q) = NULL;
+        P=Last(L);
+        Last(L)=Prev(Last(L));
+        Prev(P)=NULL;
+        Next(P)=NULL;
+        Prev(First(L))=Last(L);
+        Next(Last(L))=First(L);
     }
 }
 
@@ -123,12 +134,21 @@ void deleteAfter(List &L, address &P, address &Prec)
 }
 
 address findElm(List L, infotype x){
-    address Q = First(L);
-    while(Q != NULL){
-        if(Info(Q).ID == x.ID){
+   address Q = First(L);
+    while(Next(Q) != First(L))
+    {
+        if(Info(Q).name == x.name)
+        {
             return Q;
         }
         Q = Next(Q);
     }
-    return NULL;
+    if (Info(Q).name == x.name)
+    {
+        return Q;
+    }
+    else
+    {
+        return NULL;
+    }
 }
