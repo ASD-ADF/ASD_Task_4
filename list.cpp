@@ -83,51 +83,26 @@ void insertAfter(List &L, address P, address Prec)
 
 void deleteFirst(List &L, address &P)
 {
-   if (First(L) == NULL)
-    {
-        cout<<"List Tidak Berisi";
-    }
-    else if (First(L) == Last(L))
-    {
-        P = First(L);
-        Next(P) = NULL;
-        Prev(P) = NULL;
-        First(L) = NULL;
-        Last(L) = NULL;
-    }
-    else
-    {
-        P = First(L);
-        First(L) = Next(P);
-        Next(Last(L)) = First(L);
-        Prev(First(L)) = Last(L);
-        Next(P) = NULL;
-        Prev(P) = NULL;
-    }
+    P = First(L);
+    First(L) = Next(P);
+    Next(P) = NULL;
 }
 
 void deleteLast(List &L, address &P)
 {
-    if (First(L) == NULL)
+    if(Next(First(L)) == NULL)
     {
-        cout<<"List Tidak Berisi";
-    }
-    else if (First(L) == Last(L))
-    {
-        P = Last(L);
-        Next(P) = NULL;
-        Prev(P) = NULL;
-        First(L) = NULL;
-        Last(L) = NULL;
+        deleteFirst(L,P);
     }
     else
     {
-        P = Last(L);
-        Last(L) = Prev(P);
-        Next(Last(L)) = First(L);
-        Prev(First(L)) = Last(L);
-        Next(P) = NULL;
-        Prev(P) = NULL;
+        address Q = First(L);
+        while(Next(Next(Q)) != NULL)
+        {
+            Q = Next(Q);
+        }
+        P = Next(Q);
+        Next(Q) = NULL;
     }
 }
 
@@ -150,15 +125,11 @@ void deleteAfter(List &L, address &P, address &Prec)
 
 address findElm(List L, infotype x){
     address Q = First(L);
-    do
-    {
-        if(Info(Q).name == x.name)
-        {
+    while(Q != NULL){
+        if(Info(Q).ID == x.ID){
             return Q;
-            break;
         }
         Q = Next(Q);
     }
-    while(Q!= First(L));
     return NULL;
 }
