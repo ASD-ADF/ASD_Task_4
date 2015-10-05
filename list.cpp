@@ -43,7 +43,7 @@ void insertLast(List &L, address P) //KOMANGWIDYAPUTRA
         Next(Q) = P;
     }
 }
-void insertAfter(List &L, address P, address Prec) //KOMANGWIDYAPUTRA
+void insertAfter(List &L, address P, address Prec) //NAUFALDZAKYANWARI
 {
     if(First(L) == NULL)
     {
@@ -81,7 +81,7 @@ void deleteLast(List &L, address &P) //ANDINIULYA
     }
 }
 
-void deleteAfter(List &L, address &P, address &Prec) //ANDINIULYA
+void deleteAfter(List &L, address &P, address &Prec) //NAUFALDZAKYANWARI
 {
     P = Next(Prec);
     Next(Prec) = Next(P);
