@@ -44,8 +44,6 @@ void deleteFirst(List &, address &);
 void deleteLast(List &, address &);
 void deleteAfter(List &, address &, address &);
 
-void deletes(List &, address &);
-
 address findElm(List, infotype );
 
 #endif // LIST_H_INCLUDED
