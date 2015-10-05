@@ -1,7 +1,7 @@
 #ifndef PLAYER_H_INCLUDED
 #define PLAYER_H_INCLUDED
 
-#include "list.h"
+#include "DoubleCircularH.h"
 
 void inputNewSong(infotype &);
 // input new song into the list
@@ -30,7 +30,5 @@ void sortList(List &, int condition);
 void playRepeat(List &, int n);
 // play the song list from the first song
 // and repeat the list n times
-
-
 
 #endif // PLAYER_H_INCLUDED
