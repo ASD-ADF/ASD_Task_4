@@ -76,8 +76,10 @@ void runMenu(int menu) {
         playNext(P);
         break;
     case 5:
+        playPrev(P);
         break;
     case 6:
+        playNext(P);
         break;
     case 7:
         break;
