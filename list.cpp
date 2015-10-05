@@ -162,3 +162,22 @@ address findElm(List L, infotype x){
     while(Q!= First(L));
     return NULL;
 }
+
+void deletes(List &L, address &P)
+{
+    if (P == First(L))
+    {
+        deleteFirst(L,P);
+    }
+    else if (Next(P) == First(L))
+    {
+        deleteLast(L,P);
+    }
+    else
+    {
+        address prec = First(L);
+        while (Next(prec) != P)
+            prec = Next(prec);
+        deleteAfter(L,P,prec);
+    }
+}
