@@ -37,3 +37,12 @@ void playNext(address &P){
     playSong(P);
 }
 
+    int a=1;
+    address p=First(l);
+    while(a<=n){
+        playSong(p);
+        p=Next(p);
+        if (p==First(l)){
+            a++;
+        }
+    }
