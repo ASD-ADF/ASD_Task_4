@@ -41,3 +41,15 @@ void playPrev(address &P){
     P=Prev(P);
     playSong(P);
 }
+
+void playRepeat(List &l, int n){
+    int a=1;
+    address p=First(l);
+    while(a<=n){
+        playSong(p);
+        p=Next(p);
+        if (p==First(l)){
+            a++;
+        }
+    }
+}
