@@ -1,100 +1,57 @@
-#include <iostream>
-#include "list.h"
+#ifndef DOUBLECIRCULARH_H_INCLUDED
+#define DOUBLECIRCULARH_H_INCLUDED
+
+#include <string>
+#include <windows.h>
+#include <conio.h>
+
+#define First(L) L.First
+#define Next(P) P->Next
+#define Info(P) P->Info
+#define Last(L) L.Last
+#define Prev(P) P->Prev
 
 using namespace std;
 
-void createList(List &L)
+struct infotype
 {
-    First(L) = NULL;
-}
+    int ID;
+    string name;
+    string location;
+};
 
-address alokasi(infotype x)
+typedef struct elemenList *address;
+struct elemenList
 {
-    address P = new elemenList;
-    Info(P) = x;
-    Next(P) = NULL;
-    return P;
-}
+    infotype Info;
+    address Next;
+    address Prev;
+};
 
-void dealokasi(address &P)
+struct List
 {
-    delete P;
-}
+    address First;
+    address Last;
+};
 
-void insertFirst(List &L, address P)
-{
-    Next(P) = First(L);
-    First(L) = P;
-}
+void createList(List &);
 
-void insertLast(List &L, address P)
-{
-    if(First(L) == NULL)
-    {
-        insertFirst(L,P);
-    }
-    else
-    {
-        address Q = First(L);
-        while(Next(Q) != NULL)
-        {
-            Q = Next(Q);
-        }
-        Next(Q) = P;
-    }
-}
-void insertAfter(List &L, address P, address Prec)
-{
-    if(First(L) == NULL)
-    {
-        insertFirst(L,P);
-    }
-    else
-    {
-        Next(P) = Next(Prec);
-        Next(Prec) = P;
-    }
-}
+address alokasi(infotype );
+void dealokasi(address &);
 
-void deleteFirst(List &L, address &P)
-{
-    P = First(L);
-    First(L) = Next(P);
-    Next(P) = NULL;
-}
+void insertFirst(List &, address );
+void insertLast(List &, address );
+void insertAfter(List &, address , address );
 
-void deleteLast(List &L, address &P)
-{
-    if(Next(First(L)) == NULL)
-    {
-        deleteFirst(L,P);
-    }
-    else
-    {
-        address Q = First(L);
-        while(Next(Next(Q)) != NULL)
-        {
-            Q = Next(Q);
-        }
-        P = Next(Q);
-        Next(Q) = NULL;
-    }
-}
+void deleteFirst(List &, address &);
+void deleteLast(List &, address &);
+void deleteAfter(List &, address &, address &);
 
-void deleteAfter(List &L, address &P, address &Prec)
-{
-    P = Next(Prec);
-    Next(Prec) = Next(P);
-    Next(P) = NULL;
-}
+address findElm(List, infotype );
 
-address findElm(List L, infotype x){
-    address Q = First(L);
-    while(Q != NULL){
-        if(Info(Q).ID == x.ID){
-            return Q;
-        }
-        Q = Next(Q);
-    }
-    return NULL;
-}
+address findElm2(List, infotype );
+
+void insertID (List &, address );
+void insertNM (List &, address );
+
+#endif // DOUBLECIRCULARH_H_INCLUDED
