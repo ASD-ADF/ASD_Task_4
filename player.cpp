@@ -14,16 +14,19 @@ void inputNewSong(infotype &x){
     if(x.location=="-"){x.location="";}
 }
 
+
 void printInfo(List L)
 {
     address Q = First(L);
-    while(Q != NULL)
+    do
     {
         cout<<"name : "<<Info(Q).name<<endl
+            <<"id : "<<Info(Q).ID<<endl
             <<"location: "<<Info(Q).location<<endl;
         Q = Next(Q);
-    }
+    }while(Q != First(L));
 }
+
 
 void playSong(address P){
     string filename = Info(P).location+Info(P).name;
@@ -67,3 +70,12 @@ void sortList (List &L, int condition) {
         }
     }
 }
+
+void playRepeat(List &L, int n) //NAUFALDZAKYANWARI
+{
+}
+
+void playPrev(address &P) //NAUFALDZAKYANWARI
+{
+}
+
