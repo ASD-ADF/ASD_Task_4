@@ -60,14 +60,24 @@ void insertLast(List &L, address P)
 }
 void insertAfter(List &L, address P, address Prec)
 {
-    if(First(L) == NULL)
+    if (First(L) == NULL)
     {
         insertFirst(L,P);
+    }
+    else if (Last(L) == Prec)
+    {
+        Next(P) = First(L);
+        Next(Prec) = P;
+        Prev(P) = Prec;
+        Prev(First(L)) = P;
+        Last(L) = P;
     }
     else
     {
         Next(P) = Next(Prec);
         Next(Prec) = P;
+        Prev(Next(P)) = P;
+        Prev(P) = Prec;
     }
 }
 
@@ -123,9 +133,19 @@ void deleteLast(List &L, address &P)
 
 void deleteAfter(List &L, address &P, address &Prec)
 {
-    P = Next(Prec);
-    Next(Prec) = Next(P);
-    Next(P) = NULL;
+    if (First(L) == NULL || First(L) == Last(L))
+    {
+        cout<<"Hanya ada satu / tidak ada data";
+        //getch();
+    }
+    else
+    {
+        P = Next(Prec);
+        Next(Prec) = Next(P);
+        Prev(Next(P)) = Prec;
+        Next(P) = NULL;
+        Prev(P) = NULL;
+    }
 }
 
 address findElm(List L, infotype x){
