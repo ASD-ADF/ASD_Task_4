@@ -54,3 +54,57 @@ void playRepeat(List &l, int n){
     }
 }
 
+void sortList(List &l, int condition){
+    if (condition==1){
+        address p,q;
+        List l2;
+        createList(l2);
+        p=First(l);
+        while (First(l)!=NULL){
+            deleteFirst(l,p);
+            insertid(l2,p);
+        }
+        while (First(l2)!=NULL){
+            deleteFirst(l2,p);
+            insertLast(l,p);
+        }
+    }
+    else{
+        address p,q;
+        List l2;
+        createList(l2);
+        p=First(l);
+        while (First(l)!= NULL){
+            deleteFirst(l,p);
+            insertname(l2,p);
+        }
+        while (First(l2)!=NULL){
+            deleteFirst(l2,p);
+            insertLast(l,p);
+        }
+    }
+}
+
+void shuffleList(List &l){
+    address p,q;
+    List l2;
+    int a;
+    a=0;
+    createList(l2);
+    p=First(l);
+    while(First(l)!=NULL){
+        deleteFirst(l,p);
+        if(a%2==0){
+            insertLast(l2,p);
+            a=a+1;
+        }
+        else{
+            insertFirst(l2,p);
+            a=a+1;
+        }
+    }
+    while(First(l2)!=NULL){
+        deleteFirst(l2,p);
+        insertLast(l,p);
+    }
+}
