@@ -21,13 +21,16 @@ void inputNewSong(infotype &x)
 
 void printInfo(List L)
 {
-    address Q = First(L);
-    while(Q != NULL)
+    address P = First(L);
+    do
     {
-        cout<<"name : "<<Info(Q).name<<endl
-            <<"location: "<<Info(Q).location<<endl;
-        Q = Next(Q);
+        cout << "nama: "<< Info(P).name << endl
+             << "Location: " << Info(P).location << endl
+             << "ID: " << Info(P).ID << endl;
+        P=Next(P);
     }
+    while(P!=First(L));
+
 }
 
 void playSong(address P)
@@ -43,45 +46,18 @@ void playNext(address &P){
     playSong(P);
 }
 
-void playPrev(address &P)
+void playRepeat(List &l, int n)
 {
-    P = Prev(P);
-    playSong(P);
-}
-void sortList(List &l, int condition)
-{
-    if (condition==1)
+    int a=1;
+    address p=First(l);
+    while (a<=n)
     {
-        address p;
-        address q;
-        List l2;
-        createList(l2);
-        while (First(l)!=NULL)
+        playSong(p);
+        p=Next(p);
+        if (p==First(l))
         {
-            deleteFirst(l,p);
-            insertID(l2,p);
-        }
-        while (First(l2)!= NULL)
-        {
-            deleteFirst(l2,p);
-            insertLast(l,p);
-        }
-    }
-    else
-    {
-        address p;
-        address q;
-        List l2;
-        createList(l2);
-        while (First(l)!=NULL)
-        {
-            deleteFirst(l,p);
-            insertNM(l2,p);
-        }
-        while (First(l2)!= NULL)
-        {
-            deleteFirst(l2,p);
-            insertLast(l,p);
+            a++;
         }
     }
 };
+
