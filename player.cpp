@@ -71,7 +71,7 @@ void sortList (List &L, int condition) {
     }
 }
 
-void playRepeat(List &L, int n) //NAUFALDZAKYANWARI
+void playRepeat(List &L, int n) 
 {
     int a=1;
     address P=First(L);
@@ -84,7 +84,7 @@ void playRepeat(List &L, int n) //NAUFALDZAKYANWARI
     }
 }
 
-void playPrev(address &P) //NAUFALDZAKYANWARI
+void playPrev(address &P) 
 {
     P=Prev(P);
     playSong(P);
