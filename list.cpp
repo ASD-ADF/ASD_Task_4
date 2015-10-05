@@ -43,7 +43,7 @@ void insertLast(List &L, address P) //KOMANGWIDYAPUTRA
         Next(Q) = P;
     }
 }
-void insertAfter(List &L, address P, address Prec) //NAUFALDZAKYANWARI
+void insertAfter(List &L, address P, address Prec)
 {
    if(Prec == Last(L))
     {
@@ -83,11 +83,21 @@ void deleteLast(List &L, address &P) //ANDINIULYA
     }
 }
 
-void deleteAfter(List &L, address &P, address &Prec) //NAUFALDZAKYANWARI
+void deleteAfter(List &L, address &P, address &Prec)
 {
-    P = Next(Prec);
-    Next(Prec) = Next(P);
-    Next(P) = NULL;
+   if(Prec==NULL) {
+        cout<<"Data Kosong"<<endl;
+    }
+    else if (Prec==First(L)) {
+        deleteFirst(L,P);
+    }
+    else {
+     P = Next(Prec);
+     Next(Prec) = Next(P);
+     Prev(Next(P))=Prec;
+     Next(P) = NULL;
+     Prev(P) = NULL;
+    }
 }
 
 void insertID (List &L2, address P) //ANDINIULYA
