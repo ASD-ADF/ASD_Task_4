@@ -1,10 +1,5 @@
-#include <iostream>
-#include <string>
-#include <windows.h>
 #include "list.h"
 #include "player.h"
-
-using namespace std;
 
 void inputNewSong(infotype &x){
     cout<<"input name song (.wav) : ";
@@ -20,6 +15,7 @@ void printInfo(List L)
     while(Q != NULL)
     {
         cout<<"name : "<<Info(Q).name<<endl
+            <<"id : "<<Info(Q).ID<<endl
             <<"location: "<<Info(Q).location<<endl;
         Q = Next(Q);
     }
@@ -34,6 +30,11 @@ void playSong(address P){
 
 void playNext(address &P){
     P = Next(P);
+    playSong(P);
+}
+
+void playPrev(address &P){
+    P=Prev(P);
     playSong(P);
 }
 

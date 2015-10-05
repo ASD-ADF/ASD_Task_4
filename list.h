@@ -3,9 +3,15 @@
 
 #include <string>
 #include <windows.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <iostream>
 
 #define First(L) L.first
+#define Last(L) L.Last
 #define Next(P) P->next
+#define prev(P) P->prev
 #define Info(P) P->info
 
 using namespace std;
@@ -21,28 +27,32 @@ typedef struct elemenList *address;
 struct elemenList
 {
     infotype info;
+    address prev;
     address next;
 };
 
 struct List
 {
     address first;
+    address last;
 };
 
-void createList(List &);
+void createList(List &L);
 
-address alokasi(infotype );
-void dealokasi(address &);
+address alokasi(infotype x);
+void dealokasi(address &P);
 
-void insertFirst(List &, address );
-void insertLast(List &, address );
-void insertAfter(List &, address , address );
+void insertFirst(List &L, address P);
+void insertLast(List &L, address P);
+void insertAfter(List &L, address P, address Prec);
 
-void deleteFirst(List &, address &);
-void deleteLast(List &, address &);
-void deleteAfter(List &, address &, address &);
+void deleteFirst(List &L, address &P);
+void deleteLast(List &L, address &P);
+void deleteAfter(List &L, address &P, address &Prec);
+void insertID (List &L2, address P);
+void insertName (List &L2, address P);
 
-address findElm(List, infotype );
+address findElm(List L, infotype x);
 
 
 #endif // LIST_H_INCLUDED
