@@ -23,24 +23,39 @@ void dealokasi(address &P)
 
 void insertFirst(List &L, address P)
 {
-    Next(P) = First(L);
-    First(L) = P;
+    if (First(L) == NULL)
+    {
+        First(L) = P;
+        Next(P) = First(L);
+        Prev(P) = First(L);
+        Last(L) = First(L);
+    }
+    else
+    {
+        Next(P) = First(L);
+        Prev(P) = Last(L);
+        Next(Last(L)) = P;
+        Prev(First(L)) = P;
+        First(L) = P;
+    }
 }
 
 void insertLast(List &L, address P)
 {
-    if(First(L) == NULL)
+    if (First(L) == NULL)
     {
-        insertFirst(L,P);
+        First(L) = P;
+        Next(P) = First(L);
+        Prev(P) = First(L);
+        Last(L) = First(L);
     }
     else
     {
-        address Q = First(L);
-        while(Next(Q) != NULL)
-        {
-            Q = Next(Q);
-        }
-        Next(Q) = P;
+        Next(P) = First(L);
+        Prev(P) = Last(L);
+        Next(Last(L)) = P;
+        Prev(First(L)) = P;
+        Last(L) = P;
     }
 }
 void insertAfter(List &L, address P, address Prec)
