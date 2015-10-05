@@ -2,7 +2,6 @@
 #include "list.h"
 #include "player.h"
 #include <conio.h>
-#include <stdlib.h>
 
 using namespace std;
 
