@@ -3,9 +3,12 @@
 
 #include <string>
 #include <windows.h>
+#include <stdlib.h>
 
 #define First(L) L.first
+#define Last(L) L.last
 #define Next(P) P->next
+#define Prev(P) P->prev
 #define Info(P) P->info
 
 using namespace std;
@@ -21,12 +24,12 @@ typedef struct elemenList *address;
 struct elemenList
 {
     infotype info;
-    address next;
+    address next,prev;
 };
 
 struct List
 {
-    address first;
+    address first,last;
 };
 
 void createList(List &);
@@ -43,6 +46,9 @@ void deleteLast(List &, address &);
 void deleteAfter(List &, address &, address &);
 
 address findElm(List, infotype );
+void insertname(List &, address );
+void insertid(List &, address );
 
+address findElm(List , infotype );
 
 #endif // LIST_H_INCLUDED
