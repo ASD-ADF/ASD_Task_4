@@ -3,7 +3,7 @@
 
 #include "list.h"
 
-void inputNewSong(infotype &);
+void inputNewSong(infotype &, List &);
 // input new song into the list
 // procedure receive input from user
 
