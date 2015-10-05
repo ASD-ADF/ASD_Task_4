@@ -17,12 +17,13 @@ void inputNewSong(infotype &x){
 void printInfo(List L)
 {
     address Q = First(L);
-    while(Q != NULL)
+    do
     {
         cout<<"name : "<<Info(Q).name<<endl
             <<"location: "<<Info(Q).location<<endl;
         Q = Next(Q);
     }
+     while(Q != First(L));
 }
 
 void playSong(address P){
