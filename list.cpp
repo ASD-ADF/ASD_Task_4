@@ -45,14 +45,16 @@ void insertLast(List &L, address P)
 }
 void insertAfter(List &L, address P, address Prec)
 {
-    if(First(L) == NULL)
+    if(Prec == Last(L))
     {
-        insertFirst(L,P);
+        insertLast(L,P);
     }
     else
     {
         Next(P) = Next(Prec);
+        Prev(P) = Prec;
         Next(Prec) = P;
+        Prev(Next(Prec)) = P;
     }
 }
 
@@ -83,18 +85,20 @@ void deleteLast(List &L, address &P)
 
 void deleteAfter(List &L, address &P, address &Prec)
 {
-    P = Next(Prec);
-    Next(Prec) = Next(P);
-    Next(P) = NULL;
-}
-
-address findElm(List L, infotype x){
-    address Q = First(L);
-    while(Q != NULL){
-        if(Info(Q).ID == x.ID){
-            return Q;
-        }
-        Q = Next(Q);
+    if (Prec == NULL)
+    {
+        cout << "Data Kosong" << endl;
     }
-    return NULL;
+    else if (Prec == First(L))
+    {
+        deleteFirst(L,P);
+    }
+    else
+    {
+        P = Next(Prec);
+        Next(Prec) = Next(P);
+        Prev(Next(P))=Prec;
+        Next(P)=NULL;
+        Prev(P)=NULL;
+    }
 }
