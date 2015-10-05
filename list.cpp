@@ -83,26 +83,53 @@ void insertAfter(List &L, address P, address Prec)
 
 void deleteFirst(List &L, address &P)
 {
-    P = First(L);
-    First(L) = Next(P);
-    Next(P) = NULL;
+    if (First(L) == NULL)
+    {
+        cout<<"List Kosong";
+        //getch();
+    }
+    else if (First(L) == Last(L))
+    {
+        P = First(L);
+        Next(P) = NULL;
+        Prev(P) = NULL;
+        First(L) = NULL;
+        Last(L) = NULL;
+    }
+    else
+    {
+        P = First(L);
+        First(L) = Next(P);
+        Next(Last(L)) = First(L);
+        Prev(First(L)) = Last(L);
+        Next(P) = NULL;
+        Prev(P) = NULL;
+    }
 }
 
 void deleteLast(List &L, address &P)
 {
-    if(Next(First(L)) == NULL)
+    if (First(L) == NULL)
     {
-        deleteFirst(L,P);
+        cout<<"List Kosong";
+        //getch();
+    }
+    else if (First(L) == Last(L))
+    {
+        P = Last(L);
+        Next(P) = NULL;
+        Prev(P) = NULL;
+        First(L) = NULL;
+        Last(L) = NULL;
     }
     else
     {
-        address Q = First(L);
-        while(Next(Next(Q)) != NULL)
-        {
-            Q = Next(Q);
-        }
-        P = Next(Q);
-        Next(Q) = NULL;
+        P = Last(L);
+        Last(L) = Prev(P);
+        Next(Last(L)) = First(L);
+        Prev(First(L)) = Last(L);
+        Next(P) = NULL;
+        Prev(P) = NULL;
     }
 }
 
