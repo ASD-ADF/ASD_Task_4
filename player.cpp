@@ -56,3 +56,47 @@ void playPrev(address &P)
     P=Prev(P);
     playSong(P);
 }
+
+//procedure sortlist by M.Ricky J
+void sortList(List &L, int cond){
+    address X,XX,Y,Z;
+    List LL;
+    createList(LL);
+
+    do{
+        deleteFirst(L,X);
+        insertFirst(LL,X);
+    }while (First(L) != NULL);
+    if (cond == 1){
+         do{
+             X=First(LL);
+             Z=X;
+             Y=Next(X);
+             do{
+                 if (Info(Y).ID<Info(Z).ID){
+                     Z=Y;
+                 }
+                 Y = Next(Y);
+             }while (Y!=First(LL));
+             insertLast(L,Z);
+         }while (First(LL)!=NULL);
+     }
+     else if (cond==2){
+          do{
+             X=First(LL);
+             Z=X;
+             Y=Next(X);
+             do{
+                 if (Info(Y).name<Info(Z).name){
+                     Z=Y;
+                 }
+                 Y=Next(Y);
+             }while (Y!=First(LL));
+             insertLast(L,Z);
+         }while (First(LL)!=NULL);
+     }
+     do{
+        deleteFirst(LL,XX);
+     }while (next(XX)!=NULL)
+}
+
