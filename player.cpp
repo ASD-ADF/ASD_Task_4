@@ -37,3 +37,45 @@ void playNext(address &P){
     playSong(P);
 }
 
+void playPrev(address &P)
+{
+    P = Prev(P);
+    playSong(P);
+}
+void sortList(List &l, int condition)
+{
+    if (condition==1)
+    {
+        address p;
+        address q;
+        List l2;
+        createList(l2);
+        while (First(l)!=NULL)
+        {
+            deleteFirst(l,p);
+            insertID(l2,p);
+        }
+        while (First(l2)!= NULL)
+        {
+            deleteFirst(l2,p);
+            insertLast(l,p);
+        }
+    }
+    else
+    {
+        address p;
+        address q;
+        List l2;
+        createList(l2);
+        while (First(l)!=NULL)
+        {
+            deleteFirst(l,p);
+            insertNM(l2,p);
+        }
+        while (First(l2)!= NULL)
+        {
+            deleteFirst(l2,p);
+            insertLast(l,p);
+        }
+    }
+};
