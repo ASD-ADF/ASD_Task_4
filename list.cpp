@@ -13,6 +13,7 @@ address alokasi(infotype x)
     address P = new elemenList;
     Info(P) = x;
     Next(P) = NULL;
+    Prev(P) = NULL;
     return P;
 }
 
@@ -23,8 +24,22 @@ void dealokasi(address &P)
 
 void insertFirst(List &L, address P)
 {
-    Next(P) = First(L);
-    First(L) = P;
+    if (First(L)==NULL)
+    {
+        First(L)=P;
+        Next(P)=First(L);
+        Prev(P)=First(L);
+        Last(L)=P;
+    }
+    else
+    {
+        Next(P)=First(L);
+        Prev(P)=Last(L);
+        Next(Last(L))=P;
+        Prev(First(L))=P;
+        First(L)=P;
+    }
+
 }
 
 void insertLast(List &L, address P)
@@ -58,9 +73,28 @@ void insertAfter(List &L, address P, address Prec)
 
 void deleteFirst(List &L, address &P)
 {
-    P = First(L);
-    First(L) = Next(P);
-    Next(P) = NULL;
+    if (First(L)==NULL)
+    {
+        cout << "Data Tidak ada. . . \n";
+    }
+    else if (First(L)==(Last(L)))
+    {
+        P=First(L);
+        Next(P)=NULL;
+        Prev(P)=NULL;
+        First(L)=NULL;
+        Last(L)=NULL;
+    }
+    else
+    {
+        P = First(L);
+        First(L) = Next(P);
+        Next(P) = NULL;
+        Prev(P) = NULL;
+        Prev(First(L))=Last(L);
+        Next(Last(L))=First(L);
+    }
+
 }
 
 void deleteLast(List &L, address &P)
