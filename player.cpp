@@ -73,9 +73,20 @@ void sortList (List &L, int condition) {
 
 void playRepeat(List &L, int n) //NAUFALDZAKYANWARI
 {
+    int a=1;
+    address P=First(L);
+    while(a<=n) {
+        playSong(P);
+        P=Next(P);
+        if (P==First(L)){
+            a++;
+        }
+    }
 }
 
 void playPrev(address &P) //NAUFALDZAKYANWARI
 {
+    P=Prev(P);
+    playSong(P);
 }
 
