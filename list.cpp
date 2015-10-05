@@ -165,3 +165,66 @@ address findElm(List L, infotype x){
         return NULL;
     }
 }
+
+void insertid(List &l2, address p)
+{
+    address q;
+    q=First(l2);
+    if (q==NULL)
+    {
+        insertFirst(l2,p);
+    }
+    else if(Info(p).ID < Info(q).ID)
+    {
+        insertFirst(l2,p);
+    }
+    else
+    {
+        while(Info(p).ID > Info(q).ID && Next(q)!=First(l2))
+        {
+            if (Info(Next(q)).ID > Info(p).ID)
+            {
+                break;
+            }
+            q=Next(q);
+        }
+        if (q==Last(l2)){
+            insertLast(l2,p);
+        }
+        else{
+            insertAfter(l2,p,q);
+        }
+    }
+}
+
+void insertname(List &l2, address p)
+{
+    address q;
+    q=First(l2);
+    if (q==NULL)
+    {
+        insertFirst(l2,p);
+    }
+    else if(Info(p).name < Info(q).name)
+    {
+        insertFirst(l2,p);
+    }
+    else
+    {
+        while(Info(p).name > Info(q).name && Next(q)!=First(l2))
+        {
+            if (Info(Next(q)).name > Info(p).name)
+            {
+                break;
+            }
+            q=Next(q);
+        }
+        if (q==Last(l2)){
+            insertLast(l2,p);
+        }
+        else{
+            insertAfter(l2,p,q);
+        }
+    }
+}
+
