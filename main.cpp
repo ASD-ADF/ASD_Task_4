@@ -1,3 +1,15 @@
+/*
+modify the main prorgam, add these menus into the main program
+
+menu to search song by name and play it
+( you can create a new function to search or modify the findElm function )
+menu play the previous song on the list
+menu play again this song (the last played song)
+menu shuffle the song list
+menu sort the song list
+menu play repeat all songs
+*/
+
 #include <iostream>
 #include "list.h"
 #include "player.h"
