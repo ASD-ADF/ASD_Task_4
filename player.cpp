@@ -49,3 +49,10 @@ void playRepeat(List &, int n){
         }
     }while(loop<n)
 };
+
+//Procedure PlayPrev by S. Christian Adi P.
+void playPrev(address &P) 
+{
+    P=Prev(P);
+    playSong(P);
+}
