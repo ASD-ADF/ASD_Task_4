@@ -6,13 +6,15 @@ using namespace std;
 void createList(List &L)
 {
     First(L) = NULL;
+    Last (L) = NULL;
 }
 
 address alokasi(infotype x)
 {
     address P = new elemenList;
-    Info(P) = x;
-    Next(P) = NULL;
+    Info(P)   = x;
+    Next(P)   = NULL;
+    Prev(P)   = NULL;
     return P;
 }
 
@@ -23,9 +25,18 @@ void dealokasi(address &P)
 
 void insertFirst(List &L, address P)
 {
-    Next(P) = First(L);
-    First(L) = P;
+    if (First(L)==NULL){
+        First(L) = P;
+        Last(L)  = P;
+    } else {
+        Next(P)         = First(L);
+        Prev(First(L))  = P;
+        Next(Last(L))   = P;
+        Prev(L)         = Last(L);
+        First(L) = P;
+    }
 }
+
 
 void insertLast(List &L, address P)
 {
@@ -35,24 +46,29 @@ void insertLast(List &L, address P)
     }
     else
     {
-        address Q = First(L);
-        while(Next(Q) != NULL)
-        {
-            Q = Next(Q);
+        if (First(L) == NULL){
+            insertFirst(L,P);
+        } else {
+            Next(Last(L)) = P;
+            Prev(P) = Last(L);
+            Next(P) = First(L);
+            Prev(First(L)) = P;
         }
-        Next(Q) = P;
     }
 }
 void insertAfter(List &L, address P, address Prec)
 {
-    if(First(L) == NULL)
-    {
+    if(First(L) == NULL){
         insertFirst(L,P);
-    }
-    else
-    {
+    } else if(Prec == Last(L)){
+        insertLast(L, P);
+    } else {
+        address Q = Prec;
+        Q = Next(Q);
         Next(P) = Next(Prec);
         Next(Prec) = P;
+        Prev(P) = Prec;
+        Prev(Q) = P;
     }
 }
 

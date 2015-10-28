@@ -48,7 +48,10 @@ void displayMenu() {
         <<"2. view list"<<endl
         <<"3. play first song"<<endl
         <<"4. play next "<<endl
-        <<"5. exit"<<endl;
+        <<"5. play prev "<<endl
+        <<"6. play repeat "<<endl
+        <<"7. play shuffle "<<endl
+        <<"8. exit"<<endl;
     cout<<"choose menu : ";
 }
 
@@ -70,7 +73,19 @@ void runMenu(int menu) {
     case 4:
         playNext(P);
         break;
+    case 4:
+        playNext(P);
+        break;
     case 5:
+        playPrev(P);
+        break;
+    case 6:
+        cout<<"How many times repeat this song?";
+        cin>>n;
+        playRepeat(L,n);
+    case 7:
+        shuffleList(L);
+    case 8:
         cout<<"thank you"<<endl;
         break;
     default :

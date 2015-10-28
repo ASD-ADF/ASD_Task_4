@@ -37,3 +37,19 @@ void playNext(address &P){
     playSong(P);
 }
 
+void shuffleList(List &L){
+
+}
+
+void playRepeat(List &L, int n){
+
+}
+
+void playPrev(address &P){
+    P = Prev(P);
+    playSong(P);
+}
+
+void sortList(List &, int condition){
+
+}
