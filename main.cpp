@@ -1,23 +1,22 @@
-#include <iostream>
-#include "list.h"
 #include "player.h"
-#include <conio.h>
-
-using namespace std;
 
 List L;
 address P;
 infotype x;
+int index_ID;
 
 void menu();
 void displayMenu();
 void runMenu(int menu);
 
 int main() {
-    cout << "Hello world!" << endl;
 
+    index_ID = 0;
     createList(L);
+
+	//-----------------------------------------
     // example of data initialization
+	//-----------------------------------------
     x.ID = 1;
     x.location = "";
     x.name = "clapping.wav";
@@ -30,11 +29,20 @@ int main() {
     P = alokasi(x);
     insertFirst(L,P);
 
+	//-----------------------------------------
+	// memanggil menu utama
+	//-----------------------------------------
     menu();
+
+
     return 0;
 }
 
+
 void menu() {
+	/**
+	* prosedur menu utama
+	*/
     int pil;
     do {
         displayMenu();
@@ -43,20 +51,52 @@ void menu() {
     } while (pil!=5);
 }
 
+
 void displayMenu() {
+	/**
+	* prosedur menampilkan pilihan menu
+	* TODO : modifikasi menu sehingga juga menampilkan menu:
+	*        - search song
+	*        - play previous
+	*        - play again the last song played
+	*        - shuffle list
+	*        - sort the song
+	*        - play repeat all
+	*/
+
+    //-------------your code here-------------
+
     cout<<"1. input new "<<endl
         <<"2. view list"<<endl
         <<"3. play first song"<<endl
         <<"4. play next "<<endl
         <<"5. exit"<<endl;
     cout<<"choose menu : ";
+
+
+
+    //----------------------------------------
 }
 
 void runMenu(int menu) {
+	/**
+	* prosedur memproses input pilihan menu dari user
+	* TODO : modifikasi menu sehingga juga memproses menu:
+	*        - search song
+	*        - play previous
+	*        - play again the last song played
+	*        - shuffle list
+	*        - sort the song
+	*        - play repeat all
+	*/
+
+    //-------------your code here-------------
+
     switch(menu) {
     case 1 :
         cout<<"input new song : "<<endl;
         inputNewSong(x);
+        x.ID = index_ID++;
         P = alokasi(x);
         insertFirst(L,P);
         break;
@@ -76,4 +116,7 @@ void runMenu(int menu) {
     default :
         cout<<"wrong input"<<endl;
     }
+
+
+    //----------------------------------------
 }

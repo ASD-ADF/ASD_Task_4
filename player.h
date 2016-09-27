@@ -4,7 +4,7 @@
 #include "list.h"
 
 void inputNewSong(infotype &);
-// input new song into the list
+// user input for song name and location
 // procedure receive input from user
 
 void printInfo(List);
@@ -30,6 +30,10 @@ void sortList(List &, int condition);
 void playRepeat(List &, int n);
 // play the song list from the first song
 // and repeat the list n times
+
+void deleteSong(List &);
+// user input song ID
+// remove the song from the list
 
 
 

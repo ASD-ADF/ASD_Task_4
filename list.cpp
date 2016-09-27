@@ -1,100 +1,120 @@
-#include <iostream>
 #include "list.h"
 
-using namespace std;
+void createList(List &L) {
+    /**
+    * FS : first(L) diset Nil
+    */
+    //-------------your code here-------------
+    
 
-void createList(List &L)
-{
-    First(L) = NULL;
+    //----------------------------------------
 }
 
-address alokasi(infotype x)
-{
-    address P = new elemenList;
-    Info(P) = x;
-    Next(P) = NULL;
+address alokasi(infotype x) {
+    /**
+    * FS : mengembalikan elemen list baru dengan info = x, next elemen = Nil
+    */
+
+    address P;
+    //-------------your code here-------------
+
+
+    //----------------------------------------
     return P;
 }
 
-void dealokasi(address &P)
-{
-    delete P;
+void dealokasi(address &P) {
+    /**
+    * FS : menghapus elemen yang ditunjuk oleh P (delete)
+    */
+    //-------------your code here-------------
+
+	
+    //----------------------------------------
 }
 
-void insertFirst(List &L, address P)
-{
-    Next(P) = First(L);
-    First(L) = P;
+void insertFirst(List &L, address P) {
+    /**
+    * IS : List L mungkin kosong
+    * FS : elemen yang ditunjuk P menjadi elemen pertama pada List L
+    */
+    //-------------your code here-------------
+	
+
+    //----------------------------------------
 }
 
-void insertLast(List &L, address P)
-{
-    if(First(L) == NULL)
-    {
-        insertFirst(L,P);
-    }
-    else
-    {
-        address Q = First(L);
-        while(Next(Q) != NULL)
-        {
-            Q = Next(Q);
-        }
-        Next(Q) = P;
-    }
-}
-void insertAfter(List &L, address P, address Prec)
-{
-    if(First(L) == NULL)
-    {
-        insertFirst(L,P);
-    }
-    else
-    {
-        Next(P) = Next(Prec);
-        Next(Prec) = P;
-    }
+void insertLast(List &L, address P) {
+    /**
+    * IS : List L mungkin kosong
+    * FS : elemen yang ditunjuk P menjadi elemen terakhir pada List L
+    */
+    //-------------your code here-------------
+    
+	
+    //----------------------------------------
 }
 
-void deleteFirst(List &L, address &P)
-{
-    P = First(L);
-    First(L) = Next(P);
-    Next(P) = NULL;
+address findElm(List L, infotype x) {
+    /**
+    * IS : List L mungkin kosong
+    * FS : mengembalikan elemen dengan info.ID = x.ID,
+           mengembalikan Nil jika tidak ditemukan
+    */
+
+    address P;
+    //-------------your code here-------------
+    
+	
+    //----------------------------------------
+    return P;
 }
 
-void deleteLast(List &L, address &P)
-{
-    if(Next(First(L)) == NULL)
-    {
-        deleteFirst(L,P);
-    }
-    else
-    {
-        address Q = First(L);
-        while(Next(Next(Q)) != NULL)
-        {
-            Q = Next(Q);
-        }
-        P = Next(Q);
-        Next(Q) = NULL;
-    }
+void deleteFirst(List &L, address &P) {
+    /**
+    * IS : List L mungkin kosong
+    * FS : elemen pertama di dalam List L dilepas dan disimpan/ditunjuk oleh P
+    */
+    //-------------your code here-------------
+
+	
+	
+    //----------------------------------------
 }
 
-void deleteAfter(List &L, address &P, address &Prec)
-{
-    P = Next(Prec);
-    Next(Prec) = Next(P);
-    Next(P) = NULL;
+void deleteLast(List &L, address &P) {
+    /**
+    * IS : List L mungkin kosong
+    * FS : elemen tarakhir di dalam List L dilepas dan disimpan/ditunjuk oleh P
+    */
+    //-------------your code here-------------
+
+	
+
+    //----------------------------------------
 }
 
-address findElm(List L, infotype x){
-    address Q = First(L);
-    while(Q != NULL){
-        if(Info(Q).ID == x.ID){
-            return Q;
-        }
-        Q = Next(Q);
-    }
-    return NULL;
+void insertAfter(address Prec, address P) {
+    /**
+    * IS : Prec dan P tidak NULL
+    * FS : elemen yang ditunjuk P menjadi elemen di belakang elemen yang
+    *      ditunjuk pointer Prec
+    */
+    //-------------your code here-------------
+
+	
+    //----------------------------------------
+
 }
+void deleteAfter(address Prec, address &P) {
+    /**
+    * IS : Prec tidak NULL
+    * FS : elemen yang berada di belakang elemen Prec dilepas
+    *      dan disimpan/ditunjuk oleh P
+    */
+    //-------------your code here-------------
+    
+	
+    //----------------------------------------
+}
+
