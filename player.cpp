@@ -144,11 +144,9 @@ void sortList(List &L, int condition){
             if (x.name > batass && condition == 2){
                 batasi = x.ID;
                 batass = x.name;
-                cout << x.name << endl;
             }
             P = P->next;
         }while(P!=L.first);
-        cout << "Batasi = " << batasi << endl;
         x.ID = batasi;
         x.name = batass;
         insertFirst(L2,alokasi(findElm(L,x)->info));
@@ -164,7 +162,6 @@ void sortList(List &L, int condition){
             if (x.name > maxmaxs && x.name < batass && condition == 2){
                 maxmax = x.ID;
                 maxmaxs = x.name;
-                cout << x.name << endl;
             }
             P = P->next;
         }while(P!=L.first);
