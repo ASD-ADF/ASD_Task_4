@@ -5,7 +5,7 @@ void inputNewSong(infotype &x){
 	* PR : meminta input user untuk mengisi nama dan lokasi file
 	* FS : infotype x terisi nama dan lokasi file
 	*/
-	
+
     cout<<"input name song (.wav) : ";
     cin>>x.name;
     cout<<"input song location "<<endl<<"(write - for default location) :";
@@ -18,15 +18,21 @@ void printInfo(List L){
 	/**
 	* PR : menampilkan informasi ID, nama, dan lokasi file
 	*/
-	
+
     address Q = First(L);
-    while(Q != NULL)
+    do
     {
+        if (Q != NULL){
         cout<<"name : "<<Info(Q).name<<endl
-            <<"ID: "<<Info(Q).ID<<endl;
-            <<"location: "<<Info(Q).location<<endl;
-        Q = Next(Q);
-    }
+        <<"ID: "<<Info(Q).ID<<endl;
+        cout<<"location: "<<Info(Q).location<<endl;
+        Q = next(Q);
+        }
+        else
+        {
+            cout << "list Kosong" << endl << endl;
+        }
+    }while(Q != First(L));
 }
 
 
@@ -34,11 +40,11 @@ void playSong(address P){
 	/**
 	* PR : memainkan lagu yang ditunjuk oleh pointer P
 	*/
-	
+
     string filename = Info(P).location+Info(P).name;
     cout<<"playing "<<filename<<endl;
     PlaySound(TEXT(filename.c_str()), NULL, SND_FILENAME);
-    _sleep(1000); //delay 1 second
+    _sleep(50); //delay 1 second
 }
 
 
@@ -52,16 +58,18 @@ void playNext(address &P){
 }
 
 
-void playPrev(address &P){	
+void playPrev(address &P){
 	/**
 	* PR : memainkan file lagu pada elemen sebelum P
 	* FS : P menunjuk prev lagu dan lagu dimainkan
 	*/
 	//-------------your code here-------------
 
+    P = Prev(P);
+    playSong(P);
 
     //----------------------------------------
-	
+
 }
 
 void shuffleList(List &L){
@@ -70,9 +78,9 @@ void shuffleList(List &L){
 	* FS : isi (elemen) dari list teracak
 	*/
 	//-------------your code here-------------
+    address P;
 
-
-    //----------------------------------------	
+    //----------------------------------------
 }
 
 void sortList(List &L, int condition){
@@ -83,33 +91,123 @@ void sortList(List &L, int condition){
 	*      jika kondisi = 2, sort by nama
 	*/
 	//-------------your code here-------------
+	address P,Q,batas;
+	infotype x;
+	int maxmax = 0;
+	string maxmaxs = "";
+    List L2;
+    createList(L2);
+   while(L.first!=NULL){
+        P = L.first;
+        if (P!=NULL){
+        do{
+                cout << "X";
+            x = P->info;
+            if (x.ID > maxmax && condition == 1){
+                maxmax=x.ID;
+                maxmaxs = x.name;
+            }
+            if (x.name > maxmaxs && condition == 2){
+                maxmaxs = x.name;
+                maxmax=x.ID;
+            }
+            P = P->next;
+        }while(P!=L.first);
+
+        cout << "Delete " << maxmaxs << endl;
+        deleteSong(L,maxmax,P);
+
+        if (P!=NULL){
+        insertLast(L2,alokasi(P->info));
+        cout << "Insert " << P->info.name << endl;
+        dealokasi(P);
+        }
+        else
+        cout << "NULL EUY" << endl;
+        maxmax = 0;
+        maxmaxs = "";
+    }
+   }
+
+ L = L2;
+    cout << "sorted" << endl;
 
 
-    //----------------------------------------	
-	
+    //----------------------------------------
+
 }
 
-void playRepeat(List &, int n){	
+void playRepeat(List &L, int n){
 	/**
-	* PR : memainkan seluruh lagu di dalam list 
+	* PR : memainkan seluruh lagu di dalam list
 	*      dari lagu pertama hingga terakhir sebanyak n kali
 	*/
 	//-------------your code here-------------
+	address P;
+	P = L.first;
+    for(int i = 0;i<n;i++){
+        do{
+            playSong(P);
+            P = P->next;
+        }
+        while(P != L.last);
+    }
 
-
-    //----------------------------------------	
+    //----------------------------------------
 }
 
-void deleteSong(List &L){
-	/**
-	* IS : list L mungkin kosong
-	* PR : menerima input user untuk ID lagu yang ingin dihapus
-	*      jika ID lagu ditemukan, hapus (dealokasi) lagu dari list
-	* FS : elemen dengan ID yang dicari didealokasi
-	*/
+
+void deleteSong(List &L,int isi, address &P)
+{
+    //-------------your code here-------------
+    infotype x;
+    x.ID = isi;
+
+    P = findElm(L,x);
+    if (P != NULL)
+    {
+        deleteAfter(L,P->prev,P);
+    }
+    else
+    {
+        cout << "Tidak ditemukan" << endl;
+    }
+    //----------------------------------------
+}
+
+
+
+/**
+contoh yang salah
+void sortList(List &L, int condition){
+
 	//-------------your code here-------------
+	address P;
+	infotype x;
+	int maxmax = 0;
+    List L2;
+	if (condition == 1){
+    createList(L2);
+    P = L.first;
+        do{
+        x = P->info;
+        if (x.ID > maxmax)
+            maxmax=x.ID;
+        P->next;
+        }while(P!=L.first);
+
+        cout << maxmax;
+        for(int i = maxmax;i>0;i--){
+        x.ID = i;
+        P = findElm(L,x);
+        if (P!=NULL)
+        insertFirst(L2,alokasi(findElm(L,x)->info));
+        }
+    L = L2;
+    }
 
 
-    //----------------------------------------	
-	
-}
+
+    //----------------------------------------
+
+}*/

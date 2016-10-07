@@ -31,9 +31,10 @@ void playRepeat(List &, int n);
 // play the song list from the first song
 // and repeat the list n times
 
-void deleteSong(List &);
+void deleteSong(List &L,int isi, address &P);
 // user input song ID
 // remove the song from the list
+void deleteSong(List &L,string isi, address &P);
 
 
 
