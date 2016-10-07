@@ -50,7 +50,7 @@ void menu() {
         displayMenu();
         cin>>pil;
         runMenu(pil);
-    } while (pil!=7);
+    } while (pil!=9);
 }
 
 
@@ -74,7 +74,9 @@ void displayMenu() {
         <<"4. play next "<<endl
         <<"5. play Prev "<<endl
         <<"6. sort List "<<endl
-        <<"7. exit"<<endl;
+        <<"7. shuffleList"<<endl
+        <<"8. play Repeat"<<endl
+        <<"9. exit"<<endl;
     cout<<"choose menu : ";
 
 
@@ -126,13 +128,18 @@ void runMenu(int menu) {
         sortList(L,sortby);
         break;
     case 7:
-        cout<<"thank you"<<endl;
+        shuffleList(L);
         break;
     case 8:
-        deleteFirst(L,P);
+        int n;
+        n = NULL;
+        cout << "Mau diulang berapa kali = ";
+        cin >> n;
+        playRepeat(L,n);
+        n = NULL;
         break;
     case 9:
-        deleteSong(L,1, P);
+        cout<<"thank you"<<endl;
         break;
     default :
         cout<<"wrong input"<<endl;

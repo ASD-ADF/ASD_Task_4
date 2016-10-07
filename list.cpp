@@ -110,6 +110,7 @@ address findElm(List L, infotype x)
 
     address P;
     //-------------your code here-------------
+    if (L.first != NULL){
     P = L.first;
     while(next(P) != L.first && info(P).ID != x.ID)
         P = next(P);
@@ -118,6 +119,11 @@ address findElm(List L, infotype x)
         return P;
     else
         return NULL;
+    }
+    else
+    {
+        return NULL;
+    }
 
     //----------------------------------------
 

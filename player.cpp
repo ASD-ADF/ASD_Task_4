@@ -78,7 +78,36 @@ void shuffleList(List &L){
 	* FS : isi (elemen) dari list teracak
 	*/
 	//-------------your code here-------------
-    address P;
+    address P,Q;
+    P = L.first;
+    int counter = 0;
+    do{
+        counter++;
+        P = P->next;
+    }while(P!=L.first);
+    List L2;
+    infotype x;
+    createList(L2);
+    for (int i = counter;i>0;i--){
+            x.ID = 0;
+            while(x.ID == 0)x.ID = rand() % counter;
+            Q = findElm(L,x);
+            if (findElm(L2,x) == NULL){
+                    cout << x.ID;
+                insertFirst(L2,alokasi(findElm(L,x)->info));
+            }
+    }
+    P = L.first;
+    do{
+        x = info(P);
+        Q = findElm(L2,x);
+        if (Q == NULL){
+            insertFirst(L2,alokasi(x));
+        }
+        P = P->next;
+    }while(P!=L.first);
+    L = L2;
+
 
     //----------------------------------------
 }
@@ -91,46 +120,66 @@ void sortList(List &L, int condition){
 	*      jika kondisi = 2, sort by nama
 	*/
 	//-------------your code here-------------
-	address P,Q,batas;
+	address P,Q;
 	infotype x;
-	int maxmax = 0;
-	string maxmaxs = "";
+	int maxmax,batasi = 0;
+	string maxmaxs,batass = "";
     List L2;
     createList(L2);
-   while(L.first!=NULL){
-        P = L.first;
-        if (P!=NULL){
+    P = L.first;
+    int counter = 0;
+    do{
+        counter++;
+        P = P->next;
+    }while(P!=L.first);
+
+    for (int i = counter;i!=0;i--){
+    if (batasi == 0 && batass == ""){
         do{
-                cout << "X";
             x = P->info;
-            if (x.ID > maxmax && condition == 1){
-                maxmax=x.ID;
+            if (x.ID > batasi && condition == 1){
+                batasi = x.ID;
+                batass = x.name;
+            }
+            if (x.name > batass && condition == 2){
+                batasi = x.ID;
+                batass = x.name;
+                cout << x.name << endl;
+            }
+            P = P->next;
+        }while(P!=L.first);
+        cout << "Batasi = " << batasi << endl;
+        x.ID = batasi;
+        x.name = batass;
+        insertFirst(L2,alokasi(findElm(L,x)->info));
+    }
+    else
+    {
+        do{
+            x = P->info;
+            if (x.ID > maxmax && x.ID < batasi && condition == 1){
+                maxmax = x.ID;
                 maxmaxs = x.name;
             }
-            if (x.name > maxmaxs && condition == 2){
+            if (x.name > maxmaxs && x.name < batass && condition == 2){
+                maxmax = x.ID;
                 maxmaxs = x.name;
-                maxmax=x.ID;
+                cout << x.name << endl;
             }
             P = P->next;
         }while(P!=L.first);
 
-        cout << "Delete " << maxmaxs << endl;
-        deleteSong(L,maxmax,P);
+        batasi = maxmax;
+        batass = maxmaxs;
+        x.ID = batasi;
+        if (batasi != 0)
+        insertFirst(L2,alokasi(findElm(L,x)->info));
 
-        if (P!=NULL){
-        insertLast(L2,alokasi(P->info));
-        cout << "Insert " << P->info.name << endl;
-        dealokasi(P);
-        }
-        else
-        cout << "NULL EUY" << endl;
         maxmax = 0;
-        maxmaxs = "";
     }
-   }
+    }
+    L = L2;
 
- L = L2;
-    cout << "sorted" << endl;
 
 
     //----------------------------------------
@@ -150,7 +199,7 @@ void playRepeat(List &L, int n){
             playSong(P);
             P = P->next;
         }
-        while(P != L.last);
+        while(P != L.first);
     }
 
     //----------------------------------------
@@ -206,6 +255,56 @@ void sortList(List &L, int condition){
     L = L2;
     }
 
+
+
+    //----------------------------------------
+
+}*/
+/**
+
+void sortList(List &L, int condition){
+
+	//-------------your code here-------------
+	address P,Q,batas;
+	infotype x;
+	int maxmax = 0;
+	string maxmaxs = "";
+    List L2;
+    createList(L2);
+   while(L.first!=NULL){
+        P = L.first;
+        if (P!=NULL){
+        do{
+                cout << "X";
+            x = P->info;
+            if (x.ID > maxmax && condition == 1){
+                maxmax=x.ID;
+                maxmaxs = x.name;
+            }
+            if (x.name > maxmaxs && condition == 2){
+                maxmaxs = x.name;
+                maxmax=x.ID;
+            }
+            P = P->next;
+        }while(P!=L.first);
+
+        cout << "Delete " << maxmaxs << endl;
+        deleteSong(L,maxmax,P);
+
+        if (P!=NULL){
+        insertLast(L2,alokasi(P->info));
+        cout << "Insert " << P->info.name << endl;
+        dealokasi(P);
+        }
+        else
+        cout << "NULL EUY" << endl;
+        maxmax = 0;
+        maxmaxs = "";
+    }
+   }
+
+ L = L2;
+    cout << "sorted" << endl;
 
 
     //----------------------------------------
