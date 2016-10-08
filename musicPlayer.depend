@@ -62,3 +62,20 @@
 	"list.h"
 	"player.h"
 
+1475942487 source:c:\users\ipat1\documents\codingan\asd_task_4\list.cpp
+	"list.h"
+
+1475942490 c:\users\ipat1\documents\codingan\asd_task_4\list.h
+	<string>
+	<windows.h>
+	<iostream>
+
+1475942574 source:c:\users\ipat1\documents\codingan\asd_task_4\main.cpp
+	"player.h"
+
+1475856879 c:\users\ipat1\documents\codingan\asd_task_4\player.h
+	"list.h"
+
+1475942484 source:c:\users\ipat1\documents\codingan\asd_task_4\player.cpp
+	"player.h"
+
