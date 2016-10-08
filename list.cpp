@@ -82,13 +82,11 @@ void insertLast(List &L, address P)
 
     if (First(L) == NULL && Last(L) == NULL)
     {
-        cout << "Pertama nich";
         insertFirst(L,P);
     }
     else
     {
 
-        cout << "ga pertama";
         prev(P) = prev(last(L));
         next(prev(Last(L))) = P;
         L.last = P;

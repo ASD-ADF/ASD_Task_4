@@ -30,6 +30,20 @@ int main() {
     P = alokasi(x);
     insertFirst(L,P);
 
+    index_ID++;
+    x.ID = index_ID;
+    x.location = "";
+    x.name = "Explode1.wav";
+    P = alokasi(x);
+    insertFirst(L,P);
+
+    index_ID++;
+    x.ID = index_ID;
+    x.location = "";
+    x.name = "Explode2.wav";
+    P = alokasi(x);
+    insertFirst(L,P);
+
 	//-----------------------------------------
 	// memanggil menu utama
 	//-----------------------------------------

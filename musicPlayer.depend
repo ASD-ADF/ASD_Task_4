@@ -62,7 +62,7 @@
 	"list.h"
 	"player.h"
 
-1475864614 source:c:\users\ipat1\documents\codingan\asd_task_4\list.cpp
+1475941816 source:c:\users\ipat1\documents\codingan\asd_task_4\list.cpp
 	"list.h"
 
 1475853757 c:\users\ipat1\documents\codingan\asd_task_4\list.h
@@ -70,12 +70,12 @@
 	<windows.h>
 	<iostream>
 
-1475866720 source:c:\users\ipat1\documents\codingan\asd_task_4\main.cpp
+1475941563 source:c:\users\ipat1\documents\codingan\asd_task_4\main.cpp
 	"player.h"
 
 1475856879 c:\users\ipat1\documents\codingan\asd_task_4\player.h
 	"list.h"
 
-1475865917 source:c:\users\ipat1\documents\codingan\asd_task_4\player.cpp
+1475941739 source:c:\users\ipat1\documents\codingan\asd_task_4\player.cpp
 	"player.h"
 

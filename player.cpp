@@ -93,7 +93,6 @@ void shuffleList(List &L){
             while(x.ID == 0)x.ID = rand() % counter;
             Q = findElm(L,x);
             if (findElm(L2,x) == NULL){
-                    cout << x.ID;
                 insertFirst(L2,alokasi(findElm(L,x)->info));
             }
     }
@@ -107,7 +106,6 @@ void shuffleList(List &L){
         P = P->next;
     }while(P!=L.first);
     L = L2;
-
 
     //----------------------------------------
 }
@@ -171,8 +169,8 @@ void sortList(List &L, int condition){
         x.ID = batasi;
         if (batasi != 0)
         insertFirst(L2,alokasi(findElm(L,x)->info));
-
         maxmax = 0;
+        maxmaxs = "";
     }
     }
     L = L2;
@@ -306,4 +304,40 @@ void sortList(List &L, int condition){
 
     //----------------------------------------
 
+}*/
+/**
+
+void shuffleList(List &L){
+	//-------------your code here-------------
+    address P,Q;
+    P = L.first;
+    int counter = 0;
+    do{
+        counter++;
+        P = P->next;
+    }while(P!=L.first);
+    List L2;
+    infotype x;
+    createList(L2);
+    for (int i = counter;i>0;i--){
+            x.ID = 0;
+            while(x.ID == 0)x.ID = rand() % counter;
+            Q = findElm(L,x);
+            if (findElm(L2,x) == NULL){
+                insertFirst(L2,alokasi(findElm(L,x)->info));
+            }
+    }
+    P = L.first;
+    do{
+        x = info(P);
+        Q = findElm(L2,x);
+        if (Q == NULL){
+            insertFirst(L2,alokasi(x));
+        }
+        P = P->next;
+    }while(P!=L.first);
+    L = L2;
+
+
+    //----------------------------------------
 }*/
