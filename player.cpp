@@ -1,45 +1,53 @@
 #include "player.h"
 
-void inputNewSong(infotype &x){
-	/**
-	* PR : meminta input user untuk mengisi nama dan lokasi file
-	* FS : infotype x terisi nama dan lokasi file
-	*/
+void inputNewSong(infotype &x)
+{
+    /**
+    * PR : meminta input user untuk mengisi nama dan lokasi file
+    * FS : infotype x terisi nama dan lokasi file
+    */
 
     cout<<"input name song (.wav) : ";
     cin>>x.name;
     cout<<"input song location "<<endl<<"(write - for default location) :";
     cin>>x.location;
-    if(x.location=="-"){x.location="";}
+    if(x.location=="-")
+    {
+        x.location="";
+    }
 }
 
 
-void printInfo(List L){
-	/**
-	* PR : menampilkan informasi ID, nama, dan lokasi file
-	*/
+void printInfo(List L)
+{
+    /**
+    * PR : menampilkan informasi ID, nama, dan lokasi file
+    */
 
     address Q = First(L);
     do
     {
-        if (Q != NULL){
-        cout<<"name : "<<Info(Q).name<<endl
-        <<"ID: "<<Info(Q).ID<<endl;
-        cout<<"location: "<<Info(Q).location<<endl;
-        Q = next(Q);
+        if (Q != NULL)
+        {
+            cout<<"name : "<<Info(Q).name<<endl
+                <<"ID: "<<Info(Q).ID<<endl;
+            cout<<"location: "<<Info(Q).location<<endl;
+            Q = next(Q);
         }
         else
         {
             cout << "list Kosong" << endl << endl;
         }
-    }while(Q != First(L));
+    }
+    while(Q != First(L));
 }
 
 
-void playSong(address P){
-	/**
-	* PR : memainkan lagu yang ditunjuk oleh pointer P
-	*/
+void playSong(address P)
+{
+    /**
+    * PR : memainkan lagu yang ditunjuk oleh pointer P
+    */
 
     string filename = Info(P).location+Info(P).name;
     cout<<"playing "<<filename<<endl;
@@ -48,22 +56,24 @@ void playSong(address P){
 }
 
 
-void playNext(address &P){
-	/**
-	* PR : memainkan file lagu pada elemen setelah P
-	* FS : P menunjuk next lagu dan lagu dimainkan
-	*/
+void playNext(address &P)
+{
+    /**
+    * PR : memainkan file lagu pada elemen setelah P
+    * FS : P menunjuk next lagu dan lagu dimainkan
+    */
     P = Next(P);
     playSong(P);
 }
 
 
-void playPrev(address &P){
-	/**
-	* PR : memainkan file lagu pada elemen sebelum P
-	* FS : P menunjuk prev lagu dan lagu dimainkan
-	*/
-	//-------------your code here-------------
+void playPrev(address &P)
+{
+    /**
+    * PR : memainkan file lagu pada elemen sebelum P
+    * FS : P menunjuk prev lagu dan lagu dimainkan
+    */
+    //-------------your code here-------------
 
     P = Prev(P);
     playSong(P);
@@ -72,106 +82,127 @@ void playPrev(address &P){
 
 }
 
-void shuffleList(List &L){
-	/**
-	* PR : mengacak isi (elemen) dari list L
-	* FS : isi (elemen) dari list teracak
-	*/
-	//-------------your code here-------------
+void shuffleList(List &L)
+{
+    /**
+    * PR : mengacak isi (elemen) dari list L
+    * FS : isi (elemen) dari list teracak
+    */
+    //-------------your code here-------------
     address P,Q;
     P = L.first;
     int counter = 0;
-    do{
+    do
+    {
         counter++;
         P = P->next;
-    }while(P!=L.first);
+    }
+    while(P!=L.first);
     List L2;
     infotype x;
     createList(L2);
-    for (int i = counter;i>0;i--){
-            x.ID = 0;
-            while(x.ID == 0)x.ID = rand() % counter;
-            Q = findElm(L,x);
-            if (findElm(L2,x) == NULL){
-                insertFirst(L2,alokasi(findElm(L,x)->info));
-            }
+    for (int i = counter; i>0; i--)
+    {
+        x.ID = 0;
+        while(x.ID == 0)x.ID = rand() % counter;
+        Q = findElm(L,x);
+        if (findElm(L2,x) == NULL)
+        {
+            insertFirst(L2,alokasi(findElm(L,x)->info));
+        }
     }
     P = L.first;
-    do{
+    do
+    {
         x = info(P);
         Q = findElm(L2,x);
-        if (Q == NULL){
+        if (Q == NULL)
+        {
             insertFirst(L2,alokasi(x));
         }
         P = P->next;
-    }while(P!=L.first);
+    }
+    while(P!=L.first);
     L = L2;
 
     //----------------------------------------
 }
 
-void sortList(List &L, int condition){
-	/**
-	* PR : mengurutkan isi (elemen) dari list L berdasarkan kondisi
-	* FS : isi (elemen) dari list L terurut
-	*      jika kondisi = 1, sort by ID
-	*      jika kondisi = 2, sort by nama
-	*/
-	//-------------your code here-------------
-	address P,Q;
-	infotype x;
-	int maxmax,batasi = 0;
-	string maxmaxs,batass = "";
+void sortList(List &L, int condition)
+{
+    /**
+    * PR : mengurutkan isi (elemen) dari list L berdasarkan kondisi
+    * FS : isi (elemen) dari list L terurut
+    *      jika kondisi = 1, sort by ID
+    *      jika kondisi = 2, sort by nama
+    */
+    //-------------your code here-------------
+    address P,Q;
+    infotype x;
+    int maxmax,batasi = 0;
+    string maxmaxs,batass = "";
     List L2;
     createList(L2);
     P = L.first;
     int counter = 0;
-    do{
+    do
+    {
         counter++;
         P = P->next;
-    }while(P!=L.first);
-
-    for (int i = counter;i!=0;i--){
-    if (batasi == 0 && batass == ""){
-        do{
-            x = P->info;
-            if (x.ID > batasi && condition == 1){
-                batasi = x.ID;
-                batass = x.name;
-            }
-            if (x.name > batass && condition == 2){
-                batasi = x.ID;
-                batass = x.name;
-            }
-            P = P->next;
-        }while(P!=L.first);
-        x.ID = batasi;
-        x.name = batass;
-        insertFirst(L2,alokasi(findElm(L,x)->info));
     }
-    else
+    while(P!=L.first);
+
+    for (int i = counter; i!=0; i--)
     {
-        do{
-            x = P->info;
-            if (x.ID > maxmax && x.ID < batasi && condition == 1){
-                maxmax = x.ID;
-                maxmaxs = x.name;
+        if (batasi == 0 && batass == "")
+        {
+            do
+            {
+                x = P->info;
+                if (x.ID > batasi && condition == 1)
+                {
+                    batasi = x.ID;
+                    batass = x.name;
+                }
+                if (x.name > batass && condition == 2)
+                {
+                    batasi = x.ID;
+                    batass = x.name;
+                }
+                P = P->next;
             }
-            if (x.name > maxmaxs && x.name < batass && condition == 2){
-                maxmax = x.ID;
-                maxmaxs = x.name;
+            while(P!=L.first);
+            x.ID = batasi;
+            x.name = batass;
+            insertFirst(L2,alokasi(findElm(L,x)->info));
+        }
+        else
+        {
+            do
+            {
+                x = P->info;
+                if (x.ID > maxmax && x.ID < batasi && condition == 1)
+                {
+                    maxmax = x.ID;
+                    maxmaxs = x.name;
+                }
+                if (x.name > maxmaxs && x.name < batass && condition == 2)
+                {
+                    maxmax = x.ID;
+                    maxmaxs = x.name;
+                }
+                P = P->next;
             }
-            P = P->next;
-        }while(P!=L.first);
+            while(P!=L.first);
 
-        batasi = maxmax;
-        batass = maxmaxs;
-        x.ID = batasi;
-        if (batasi != 0)
-        insertFirst(L2,alokasi(findElm(L,x)->info));
-        maxmax = 0;
-        maxmaxs = "";
-    }
+            batasi = maxmax;
+            batass = maxmaxs;
+            x.ID = batasi;
+            if (batasi != 0)
+                insertFirst(L2,alokasi(findElm(L,x)->info));
+            maxmax = 0;
+            maxmaxs = "";
+        }
     }
     L = L2;
 
@@ -181,16 +212,19 @@ void sortList(List &L, int condition){
 
 }
 
-void playRepeat(List &L, int n){
-	/**
-	* PR : memainkan seluruh lagu di dalam list
-	*      dari lagu pertama hingga terakhir sebanyak n kali
-	*/
-	//-------------your code here-------------
-	address P;
-	P = L.first;
-    for(int i = 0;i<n;i++){
-        do{
+void playRepeat(List &L, int n)
+{
+    /**
+    * PR : memainkan seluruh lagu di dalam list
+    *      dari lagu pertama hingga terakhir sebanyak n kali
+    */
+    //-------------your code here-------------
+    address P;
+    P = L.first;
+    for(int i = 0; i<n; i++)
+    {
+        do
+        {
             playSong(P);
             P = P->next;
         }

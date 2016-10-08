@@ -33,7 +33,8 @@ typedef struct elmlist *address;
 * IMPLEMENT CIRCULAR DOUBLE LINKED LIST
 */
 
-struct elmlist{
+struct elmlist
+{
     //------------- your code here -----------
     infotype info;
     address next;
@@ -43,7 +44,8 @@ struct elmlist{
     //----------------------------------------
 };
 
-struct List{
+struct List
+{
     //------------- your code here -----------
     address first,last;
 
@@ -57,7 +59,7 @@ void dealokasi(address &);
 
 void insertFirst(List &, address );
 void insertLast(List &, address );
-void insertAfter(List,address , address);
+void insertAfter(List,address, address);
 
 void deleteFirst(List &, address &);
 void deleteLast(List &, address &);

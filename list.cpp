@@ -62,7 +62,8 @@ void insertFirst(List &L, address P)
         L.last->next = L.first;
         next(last(L)) = P;
         L.first = P;
-        if (first(L)->next == Last(L)){
+        if (first(L)->next == Last(L))
+        {
             prev(last(L)) = P;
         }
         L.first = P;
@@ -108,15 +109,16 @@ address findElm(List L, infotype x)
 
     address P;
     //-------------your code here-------------
-    if (L.first != NULL){
-    P = L.first;
-    while(next(P) != L.first && info(P).ID != x.ID)
-        P = next(P);
+    if (L.first != NULL)
+    {
+        P = L.first;
+        while(next(P) != L.first && info(P).ID != x.ID)
+            P = next(P);
 
-    if (P->info.ID == x.ID)
-        return P;
-    else
-        return NULL;
+        if (P->info.ID == x.ID)
+            return P;
+        else
+            return NULL;
     }
     else
     {
@@ -200,12 +202,12 @@ void insertAfter(List &L,address Prec, address P)
         else
         {
 
-        Prec->next->prev = P;
-        P->next = Prec->next;
-        P->prev = Prec;
-        Prec->next = P;
-        P->next = NULL;
-        P->prev = NULL;
+            Prec->next->prev = P;
+            P->next = Prec->next;
+            P->prev = Prec;
+            Prec->next = P;
+            P->next = NULL;
+            P->prev = NULL;
         }
     }
 
@@ -223,19 +225,21 @@ void deleteAfter(List &L,address Prec, address &P)
     if (Prec != NULL)
     {
         P = next(Prec);
-        if (P == L.last){
+        if (P == L.last)
+        {
             deleteLast(L,P);
-            cout << "EUY";}
+            cout << "EUY";
+        }
         else if (P == L.first)
             deleteFirst(L,P);
 
-        }
-        else
-        {
-            cout << "euy";
-            next(Prec) = next(P);
-            prev(next(P)) = Prec;
-        }
+    }
+    else
+    {
+        cout << "euy";
+        next(Prec) = next(P);
+        prev(next(P)) = Prec;
+    }
 
     //----------------------------------------
 }
