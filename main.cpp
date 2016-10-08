@@ -155,11 +155,13 @@ void runMenu(int menu) {
     case 8:
         int n;
         cout << "Masukkan Nilai Repeat-an : ";cin>>n;
-        playRepeat(L,n);
+        playRepeat(L, n);
         break;
 
     case 9:
-        playNext(P);
+
+        cout << "Masukkan id musik yang ingin diputar : "; cin>>x.ID;
+        playSong(findElm(L, x));
         break;
 
     case 10:

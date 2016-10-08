@@ -85,14 +85,22 @@ address findElm(List L, infotype x) {
 
     address P;
     //-------------your code here-------------
-    address Q = First(L);
-    while(Q != NULL){
-        if(Info(Q).ID == x.ID){
-            return Q;
-        }
-        Q = Next(Q);
+    if (L.first != NULL)
+    {
+        P = L.first;
+        while(Next(P) != L.first && Info(P).ID != x.ID)
+            P = Next(P);
+
+        if (Info(P).ID == x.ID)
+            return P;
+        else
+            return NULL;
     }
-    return NULL;
+    else
+    {
+        return NULL;
+    }
+
     //----------------------------------------
     return P;
 }

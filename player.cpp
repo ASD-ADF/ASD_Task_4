@@ -85,59 +85,76 @@ void sortList(List &L, int condition){
 	*      jika kondisi = 2, sort by nama
 	*/
 	//-------------your code here-------------
-    infotype temp;
-    int i,j,k;
-    if (condition == 1)
+   address P,Q;
+    infotype x;
+    int maxmax,batasi = 0;
+    string maxmaxs,batass = "";
+    List L2;
+    createList(L2);
+    P = L.first;
+    int counter = 0;
+    do
     {
-        address P;
-        P = L.first;
-        for (i = 1; i <= countElm(L)-1; i++)
-        {
-            P = L.first;
-            for (j = 1 ; j <= (countElm(L) - i) ; j++)
-            {
-                if (P->info.ID > P->next->info.ID)
-                {
-                    temp = P->next->info;
-                    P->next->info = P->info;
-                    P->info = temp;
-                    P = P->next;
-                }
-                else
-                {
-                    P = P->next;
-                }
+        counter++;
+        P = P->next;
+    }
+    while(P!=L.first);
 
+    for (int i = counter; i!=0; i--)
+    {
+        if (batasi == 0 && batass == "")
+        {
+            do
+            {
+                x = P->info;
+                if (x.ID > batasi && condition == 1)
+                {
+                    batasi = x.ID;
+                    batass = x.name;
+                }
+                if (x.name > batass && condition == 2)
+                {
+                    batasi = x.ID;
+                    batass = x.name;
+                }
+                P = P->next;
             }
+            while(P!=L.first);
+            x.ID = batasi;
+            x.name = batass;
+            insertFirst(L2,alokasi(findElm(L,x)->info));
+        }
+        else
+        {
+            do
+            {
+                x = P->info;
+                if (x.ID > maxmax && x.ID < batasi && condition == 1)
+                {
+                    maxmax = x.ID;
+                    maxmaxs = x.name;
+                }
+                if (x.name > maxmaxs && x.name < batass && condition == 2)
+                {
+                    maxmax = x.ID;
+                    maxmaxs = x.name;
+                }
+                P = P->next;
+            }
+            while(P!=L.first);
+
+            batasi = maxmax;
+            batass = maxmaxs;
+            x.ID = batasi;
+            if (batasi != 0)
+                insertFirst(L2,alokasi(findElm(L,x)->info));
+            maxmax = 0;
+            maxmaxs = "";
         }
     }
-    else if (condition == 2)
-    {
-        address P;
-        P = L.first;
-        for (i = 1; i <= countElm(L)-1; i++)
-        {
-            P = L.first;
-            for (j = 1 ; j <= (countElm(L) - i) ; j++)
-            {
-                if (P->info.name > P->next->info.name)
-                {
-                    temp = P->next->info;
-                    P->next->info = P->info;
-                    P->info = temp;
-                    P = P->next;
-                }
-                else
-                {
-                    P = P->next;
-                }
-
-            }
-        }
-    }
+    L = L2;
 
     //----------------------------------------
-
 }
 
 void playRepeat(List &L, int n){
