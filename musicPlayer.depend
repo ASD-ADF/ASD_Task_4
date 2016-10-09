@@ -62,3 +62,20 @@
 	"list.h"
 	"player.h"
 
+1476015960 source:d:\asd\rian coba\asd_task_4-master\player.cpp
+	"player.h"
+
+1476015960 d:\asd\rian coba\asd_task_4-master\player.h
+	"list.h"
+
+1476015334 d:\asd\rian coba\asd_task_4-master\list.h
+	<string>
+	<windows.h>
+	<iostream>
+
+1476015368 source:d:\asd\rian coba\asd_task_4-master\list.cpp
+	"list.h"
+
+1476015334 source:d:\asd\rian coba\asd_task_4-master\main.cpp
+	"player.h"
+
