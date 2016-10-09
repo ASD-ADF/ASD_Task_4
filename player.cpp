@@ -5,7 +5,7 @@ void inputNewSong(infotype &x){
 	* PR : meminta input user untuk mengisi nama dan lokasi file
 	* FS : infotype x terisi nama dan lokasi file
 	*/
-	
+
     cout<<"input name song (.wav) : ";
     cin>>x.name;
     cout<<"input song location "<<endl<<"(write - for default location) :";
@@ -18,13 +18,13 @@ void printInfo(List L){
 	/**
 	* PR : menampilkan informasi ID, nama, dan lokasi file
 	*/
-	
+
     address Q = First(L);
     while(Q != NULL)
     {
-        cout<<"name : "<<Info(Q).name<<endl
-            <<"ID: "<<Info(Q).ID<<endl;
-            <<"location: "<<Info(Q).location<<endl;
+        cout<<"name : "<<Info(Q).name<<endl;
+        cout<<"ID: "<<Info(Q).ID<<endl;
+        cout<<"location: "<<Info(Q).location<<endl;
         Q = Next(Q);
     }
 }
@@ -34,7 +34,7 @@ void playSong(address P){
 	/**
 	* PR : memainkan lagu yang ditunjuk oleh pointer P
 	*/
-	
+
     string filename = Info(P).location+Info(P).name;
     cout<<"playing "<<filename<<endl;
     PlaySound(TEXT(filename.c_str()), NULL, SND_FILENAME);
@@ -52,16 +52,17 @@ void playNext(address &P){
 }
 
 
-void playPrev(address &P){	
+void playPrev(address &P){
 	/**
 	* PR : memainkan file lagu pada elemen sebelum P
 	* FS : P menunjuk prev lagu dan lagu dimainkan
 	*/
 	//-------------your code here-------------
-
+    P = Prev(P);
+    playSong(P);
 
     //----------------------------------------
-	
+
 }
 
 void shuffleList(List &L){
@@ -72,7 +73,7 @@ void shuffleList(List &L){
 	//-------------your code here-------------
 
 
-    //----------------------------------------	
+    //----------------------------------------
 }
 
 void sortList(List &L, int condition){
@@ -85,22 +86,30 @@ void sortList(List &L, int condition){
 	//-------------your code here-------------
 
 
-    //----------------------------------------	
-	
+    //----------------------------------------
+
 }
 
-void playRepeat(List &, int n){	
+void playRepeat(List &L, int n){
 	/**
-	* PR : memainkan seluruh lagu di dalam list 
+	* PR : memainkan seluruh lagu di dalam list
 	*      dari lagu pertama hingga terakhir sebanyak n kali
 	*/
 	//-------------your code here-------------
-
-
-    //----------------------------------------	
+    address P;
+    int i;
+    P = L.First;
+    for ( i = 0; i<n; i++){
+        do{
+            playSong(P);
+            P = P->Next;
+        }
+        while (P != NULL);
+    }
+    //----------------------------------------
 }
 
-void deleteSong(List &L){
+void deleteSong(List &L, address &P){
 	/**
 	* IS : list L mungkin kosong
 	* PR : menerima input user untuk ID lagu yang ingin dihapus
@@ -110,6 +119,8 @@ void deleteSong(List &L){
 	//-------------your code here-------------
 
 
-    //----------------------------------------	
-	
+
+
+    //----------------------------------------
+
 }
