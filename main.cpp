@@ -103,7 +103,7 @@ void runMenu(int menu) {
     case 1 :
         cout<<"input new song : "<<endl;
         inputNewSong(x);
-        x.ID = index_ID++;
+        x.ID = index_ID++ ;
         P = alokasi(x);
         insertFirst(L,P);
         break;
