@@ -5,11 +5,12 @@
 #include <windows.h>
 #include <iostream>
 
-#define First(L) L.first
-#define Last(L) L.last
-#define Next(P) P->next
-#define Prev(P) P->prev
-#define Info(P) P->info
+#define first(L) L.first
+#define last(L) L.last
+#define next(P) P->next
+#define prev(P) P->prev
+#define info(P) P->info
+#define Nil NULL
 
 using namespace std;
 
@@ -30,15 +31,17 @@ typedef struct elmlist *address;
 
 struct elmlist{
     //------------- your code here -----------
-    
-	
+
+	infotype info;
+    address next;
+    address prev;
     //----------------------------------------
 };
 
 struct List{
     //------------- your code here -----------
-    
-	
+     address first,last;
+
     //----------------------------------------
 };
 

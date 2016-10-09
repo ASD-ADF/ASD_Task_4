@@ -62,3 +62,20 @@
 	"list.h"
 	"player.h"
 
+1475991470 source:c:\users\rama aditya maulana\desktop\tasks\01 - strukdat\tugas\tugas4\main.cpp
+	"player.h"
+
+1475990461 c:\users\rama aditya maulana\desktop\tasks\01 - strukdat\tugas\tugas4\player.h
+	"list.h"
+
+1475990636 c:\users\rama aditya maulana\desktop\tasks\01 - strukdat\tugas\tugas4\list.h
+	<string>
+	<windows.h>
+	<iostream>
+
+1475990461 source:c:\users\rama aditya maulana\desktop\tasks\01 - strukdat\tugas\tugas4\player.cpp
+	"player.h"
+
+1475991462 source:c:\users\rama aditya maulana\desktop\tasks\01 - strukdat\tugas\tugas4\list.cpp
+	"list.h"
+
