@@ -67,9 +67,11 @@ void displayMenu() {
 
     //-------------your code here-------------
 
-    cout<<"1.  Input new"<<endl
+    cout<<endl
+        <<"=====<<Winamp CMD>>====="<<endl
+        <<"1.  Input"<<endl
         <<"2.  View list"<<endl
-        <<"3.  Play first song"<<endl
+        <<"3.  Play"<<endl
         <<"4.  Play next"<<endl
         <<"5.  Play previous"<<endl
         <<"6.  Repeat"<<endl
@@ -79,6 +81,7 @@ void displayMenu() {
         <<"10. Sort"<<endl
         <<"11. Exit"<<endl;
     cout<<"choose menu : ";
+    cout<<endl;
 
 
 
@@ -101,31 +104,31 @@ void runMenu(int menu) {
 
     switch(menu) {
     case 1 :
-        cout<<"input new song "<<endl;
+        cout<<"Input"<<endl;
         inputNewSong(x);
         x.ID = index_ID++;
         P = alokasi(x);
-        cout <<"Pilih Posisi    : 1. First"<<endl
+        cout <<"Position        : 1. First"<<endl
              <<"                  2. After"<<endl
              <<"                  3. Last"<<endl
-             <<"Masukkan Posisi : ";cin>>number;
+             <<"Select Position : ";cin>>number;
         if (number == 1) {
             insertFirst(L,P);
-            cout << "Lagu Berhasil Diinput";
+            cout << "Success";
         }
         else if (number == 2) {
             address R = new elmlist;
-            cout << "Masukkan ID Element Sebelum Element Baru Yang Akan Diinput : ";
+            cout << "Insert ID Element : ";
             cin >> R->info.ID;
             insertAfter(L,P,R);
-            cout << "Lagu Berhasil Diinput";
+            cout << "Success";
         }
         else if (number == 3) {
             insertLast(L,P);
-            cout << "Lagu Berhasil Diinput";
+            cout << "Success";
         }
         else {
-            cout << "Menu Salah"<<endl;
+            cout << "Error"<<endl;
         }
         break;
     case 2:
@@ -149,24 +152,24 @@ void runMenu(int menu) {
         break;
     case 8:
         int n;
-        cout << "Masukkan Nilai Repeat-an : ";cin>>n;
+        cout << "Repeat Times : ";cin>>n;
         playRepeat(L, n);
         break;
     case 9:
-        cout << "Masukkan id musik yang ingin diputar : "; cin>>x.ID;
+        cout << "Insert ID : "; cin>>x.ID;
         playSong(findElm(L, x));
         break;
     case 10:
-        cout << "Pilihan Sort : 1. Sort By ID"<<endl
+        cout << "Sort         : 1. Sort By ID"<<endl
              << "               2. Sort By Name"<<endl
-             << "Pilihan      : ";cin >> condition;
+             << "Option      : ";cin >> condition;
         sortList(L,condition);
         break;
    case 11:
-        cout<<"thank you"<<endl;
+        cout<<"Thanks for Using My Program"<<endl;
         break;
     default :
-        cout<<"wrong input"<<endl;
+        cout<<"Error"<<endl;
     }
 
 
