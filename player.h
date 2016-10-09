@@ -31,6 +31,11 @@ void playRepeat(List &, int n);
 // play the song list from the first song
 // and repeat the list n times
 
+//void deleteSong (List &L);
+// user input song ID
+// remove the song from the list
+
 
 
 #endif // PLAYER_H_INCLUDED
+

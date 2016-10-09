@@ -10,7 +10,7 @@ void createList(List &L)
 
 address alokasi(infotype x)
 {
-    address P = new elemenList;
+    address P = new elmlist;
     Info(P) = x;
     Next(P) = NULL;
     return P;

@@ -3,22 +3,28 @@
 
 #include <string>
 #include <windows.h>
+#include <iostream>
 
 #define First(L) L.first
+//#define Last(L) L.last
 #define Next(P) P->next
+//#define Prev(P) P->prev
 #define Info(P) P->info
+
 
 using namespace std;
 
-struct infotype
+struct music
 {
     int ID;
     string name;
     string location;
 };
 
-typedef struct elemenList *address;
-struct elemenList
+typedef music infotype;
+typedef struct elmlist *address;
+
+struct elmlist
 {
     infotype info;
     address next;

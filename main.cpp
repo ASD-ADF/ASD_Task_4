@@ -1,21 +1,20 @@
-#include <iostream>
-#include "list.h"
 #include "player.h"
-#include <conio.h>
 
 using namespace std;
 
 List L;
 address P;
 infotype x;
+int index_ID;
 
 void menu();
 void displayMenu();
 void runMenu(int menu);
 
-int main() {
-    cout << "Hello world!" << endl;
 
+int main() {
+
+    index_ID = 0;
     createList(L);
     // example of data initialization
     x.ID = 1;
@@ -77,3 +76,4 @@ void runMenu(int menu) {
         cout<<"wrong input"<<endl;
     }
 }
+
