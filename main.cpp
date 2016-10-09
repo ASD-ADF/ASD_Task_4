@@ -3,7 +3,7 @@
 List L;
 address P;
 infotype x;
-int index_ID;
+int index_ID, condition;
 
 void menu();
 void displayMenu();
@@ -46,9 +46,9 @@ void menu() {
     int pil;
     do {
         displayMenu();
-        cin>>pil;
+        cin>>pil; cin.ignore();
         runMenu(pil);
-    } while (pil!=5);
+    } while (pil!=11);
 }
 
 
@@ -70,7 +70,13 @@ void displayMenu() {
         <<"2. view list"<<endl
         <<"3. play first song"<<endl
         <<"4. play next "<<endl
-        <<"5. exit"<<endl;
+        <<"5. Search song"<<endl
+        <<"6. Play previous"<<endl
+        <<"7. Play again the last song played"<<endl
+        <<"8. Shuffle list"<<endl
+        <<"9. Sort the song"<<endl
+        <<"10. Play repeat all"<<endl
+        <<"11. exit"<<endl;
     cout<<"choose menu : ";
 
 
@@ -111,12 +117,34 @@ void runMenu(int menu) {
         playNext(P);
         break;
     case 5:
+        cout << "Masukkan id musik : "; cin>>x.ID;
+        playSong(findElm(L, x));
+        break;
+    case 6:
+        playPrev(P);
+        break;
+    case 7:
+        playPrev(P);
+        break;
+    case 8:
+        shuffleList(L);
+        break;
+    case 9:
+        cout << "Pilihan Sort : 1. Sort By ID"<<endl
+             << "               2. Sort By Name"<<endl
+             << "Pilihan      : ";cin >> condition;
+        sortList(L,condition);
+        break;
+    case 10:
+        int n;
+        cout << "Butuh berapa repeat : ";cin>>n;
+        playRepeat(L, n);
+        break;
+    case 11:
         cout<<"thank you"<<endl;
         break;
     default :
         cout<<"wrong input"<<endl;
     }
-
-
     //----------------------------------------
 }

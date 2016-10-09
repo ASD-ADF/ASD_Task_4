@@ -62,3 +62,20 @@
 	"list.h"
 	"player.h"
 
+1476000852 source:c:\users\devi\desktop\asd_task_4\list.cpp
+	"list.h"
+
+1476001949 c:\users\devi\desktop\asd_task_4\list.h
+	<string>
+	<windows.h>
+	<iostream>
+
+1476000948 source:c:\users\devi\desktop\asd_task_4\main.cpp
+	"player.h"
+
+1476001130 c:\users\devi\desktop\asd_task_4\player.h
+	"list.h"
+
+1476001014 source:c:\users\devi\desktop\asd_task_4\player.cpp
+	"player.h"
+
