@@ -28,7 +28,8 @@ typedef struct elmlist *address;
 * IMPLEMENT CIRCULAR DOUBLE LINKED LIST
 */
 
-struct elmlist{
+struct elmlist
+{
     //------------- your code here -----------
     infotype info;
     address next;
@@ -36,10 +37,11 @@ struct elmlist{
     //----------------------------------------
 };
 
-struct List{
+struct List
+{
     //------------- your code here -----------
-    address First;
-    address Last;
+    address first;
+    address last;
     //----------------------------------------
 };
 

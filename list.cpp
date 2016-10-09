@@ -1,6 +1,7 @@
 #include "list.h"
 
-void createList(List &L) {
+void createList(List &L)
+{
     /**
     * FS : first(L) diset Nil
     */
@@ -10,21 +11,23 @@ void createList(List &L) {
     //----------------------------------------
 }
 
-address alokasi(infotype x) {
+address alokasi(infotype x)
+{
     /**
     * FS : mengembalikan elemen list baru dengan info = x, next elemen = Nil
     */
 
     address P;
     //-------------your code here-------------
-    P = new elmlist
+    P = new elmlist;
     Info(P) = x;
     Next(P) = NULL;
     //----------------------------------------
     return P;
 }
 
-void dealokasi(address &P) {
+void dealokasi(address &P)
+{
     /**
     * FS : menghapus elemen yang ditunjuk oleh P (delete)
     */
@@ -34,32 +37,34 @@ void dealokasi(address &P) {
     //----------------------------------------
 }
 
-void insertFirst(List &L, address P) {
+void insertFirst(List &L, address P)
+{
     /**
     * IS : List L mungkin kosong
     * FS : elemen yang ditunjuk P menjadi elemen pertama pada List L
     */
     //-------------your code here-------------
-	if(First(L) == NULL)
+    if (L.first == NULL)
     {
-        First(L) = P;
-        Last(L) = P;
-        Next(P) = First(L);
-        Prev(P) = Last(L);
+        L.first = P;
+        L.last = P;
+        P->prev = L.last;
+        P->next = L.first;
     }
     else
     {
-        Next(P) = First(L);
-        Prev(First(L)) = P;
-        First(L) = P;
-        Prev(First(L)) = Last(L);
-        Next(Last(L)) = First(L);
+        P->next = L.first;
+        L.first->prev = P;
+        L.first = P;
+        L.first->prev = L.last;
+        L.last->next = L.first;
     }
 
     //----------------------------------------
 }
 
-void insertLast(List &L, address P) {
+void insertLast(List &L, address P)
+{
     /**
     * IS : List L mungkin kosong
     * FS : elemen yang ditunjuk P menjadi elemen terakhir pada List L
@@ -71,17 +76,17 @@ void insertLast(List &L, address P) {
     }
     else
     {
-        Next(Last(L)) = P;
-        Prev(P) = Last(L);
-        Last(L) = P;
-        Next(Last(L)) = First(L);
-        Prev(First(L)) = Last(L);
+        L.last->next = P;
+        P->prev = L.last;
+        L.last = P;
+        L.last->next = L.first;
+        L.first->prev = L.last;
     }
-
     //----------------------------------------
 }
 
-address findElm(List L, infotype x) {
+address findElm(List L, infotype x)
+{
     /**
     * IS : List L mungkin kosong
     * FS : mengembalikan elemen dengan info.ID = x.ID,
@@ -90,57 +95,161 @@ address findElm(List L, infotype x) {
 
     address P;
     //-------------your code here-------------
+    if (L.first != NULL)
+    {
+        P = L.first;
+        while(Next(P) != L.first && Info(P).ID != x.ID)
+            P = Next(P);
 
+        if (Info(P).ID == x.ID)
+            return P;
+        else
+            return NULL;
+    }
+    else
+    {
+        return NULL;
+    }
 
     //----------------------------------------
     return P;
 }
 
-void deleteFirst(List &L, address &P) {
+void deleteFirst(List &L, address &P)
+{
     /**
     * IS : List L mungkin kosong
     * FS : elemen pertama di dalam List L dilepas dan disimpan/ditunjuk oleh P
     */
     //-------------your code here-------------
-
+    if (L.first == NULL)
+    {
+        cout << "List Kosong" <<endl;
+    }
+    else if (L.first->next == NULL)
+    {
+        P = L.first;
+        P->prev = NULL;
+        P->next = NULL;
+        L.first = NULL;
+        L.last = NULL;
+        dealokasi(P);
+    }
+    else
+    {
+        P = L.first;
+        L.first = P->next;
+        L.last->next = L.first;
+        L.first->prev = L.last;
+        P->next = NULL;
+        P->prev = NULL;
+        dealokasi(P);
+    }
 
 
     //----------------------------------------
 }
 
-void deleteLast(List &L, address &P) {
+void deleteLast(List &L, address &P)
+{
     /**
     * IS : List L mungkin kosong
     * FS : elemen tarakhir di dalam List L dilepas dan disimpan/ditunjuk oleh P
     */
     //-------------your code here-------------
-
-
+    if (L.first == NULL)
+    {
+        cout << "List Kosong" <<endl;
+    }
+    else if (L.first->next == NULL)
+    {
+        P = L.first;
+        P->prev = NULL;
+        P->next = NULL;
+        L.first = NULL;
+        L.last = NULL;
+        dealokasi(P);
+    }
+    else
+    {
+        P = L.first;
+        L.first = P->next;
+        L.last->next = L.first;
+        L.first->prev = L.last;
+        P->next = NULL;
+        P->prev = NULL;
+        dealokasi(P);
+    }
 
     //----------------------------------------
 }
 
-void insertAfter(address Prec, address P) {
+void insertAfter(List &L, address Prec, address P)
+{
     /**
     * IS : Prec dan P tidak NULL
     * FS : elemen yang ditunjuk P menjadi elemen di belakang elemen yang
     *      ditunjuk pointer Prec
     */
     //-------------your code here-------------
+    address S = L.first;
+    for (int i = 1; i <= countElm(L); i++)
+    {
+        if (Prec->info.ID == S->info.ID)
+        {
+            break;
+        }
+        S = S->next;
+    }
+    Prec = S;
 
+    P->next = Prec->next;
+    P->prev = Prec;
 
+    P->next->prev = P;
+    Prec->next = P;
     //----------------------------------------
 
 }
-void deleteAfter(address Prec, address &P) {
+
+void deleteAfter(List &L, address Prec, address &P)
+{
     /**
     * IS : Prec tidak NULL
     * FS : elemen yang berada di belakang elemen Prec dilepas
     *      dan disimpan/ditunjuk oleh P
     */
     //-------------your code here-------------
+    address S = L.first;
+    for (int i = 1; i <= countElm(L); i++)
+    {
+        if (Prec->info.ID == S->info.ID)
+        {
+            break;
+        }
+        S = S->next;
+    }
+    Prec = S;
 
+    P = Prec->next;
+    Prec->next = P->next;
+    P->next = NULL;
+    P->prev = NULL;
+    dealokasi(P);
 
     //----------------------------------------
 }
 
+int countElm(List L)
+{
+    int num = 0;
+    if (L.first == NULL) return 0;
+    address Q = First(L);
+    do
+    {
+        num++;
+        Q = Next(Q);
+    }
+    while(Q != L.first);
+    return num;
+}
