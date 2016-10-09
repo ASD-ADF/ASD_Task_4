@@ -20,18 +20,22 @@ void playPrev(address &P);
 // play the previous song from element P
 
 void shuffleList(List &);
+void shuffleList(List &L);
 // shuffle the song list
 
 void sortList(List &, int condition);
+void sortList(List &L, int condition);
 // sort song List by some condition
 // example if condition = 1, then sort by ID
 //          if condition = 2, then sort by name
 
 void playRepeat(List &, int n);
+void playRepeat(List &L, int n);
 // play the song list from the first song
 // and repeat the list n times
 
 void deleteSong(List &);
+void deleteSong(List &L);
 // user input song ID
 // remove the song from the list
 
