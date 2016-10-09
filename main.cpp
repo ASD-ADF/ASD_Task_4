@@ -70,7 +70,14 @@ void displayMenu() {
         <<"2. view list"<<endl
         <<"3. play first song"<<endl
         <<"4. play next "<<endl
-        <<"5. exit"<<endl;
+        <<"5. play previous"<<endl
+        <<"6. search song"<<endl
+        <<"7. play again the last song played"<<endl
+        <<"8. shuffle list"<<endl
+        <<"9. sort the song"<<endl
+        <<"10. play repeat all"<<endl
+        <<"11. delete song"<<endl
+        <<"12. exit"<<endl;
     cout<<"choose menu : ";
 
 
@@ -111,6 +118,27 @@ void runMenu(int menu) {
         playNext(P);
         break;
     case 5:
+        playPrev(P);
+        break;
+    case 6:
+        findElm(L,x);
+        break;
+//    case 7:
+//        playAgain(P);
+//        break;
+//    case 8:
+//        shuffleList(P);
+//        break;
+//    case 9:
+//        sortList(P);
+//        break;
+//    case 10:
+//        playRepeat(P);
+//        break;
+    case 11:
+        deleteSong(L);
+        break;
+    case 12:
         cout<<"thank you"<<endl;
         break;
     default :

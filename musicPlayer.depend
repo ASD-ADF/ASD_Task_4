@@ -62,3 +62,24 @@
 	"list.h"
 	"player.h"
 
+1476029551 source:c:\users\aziza\documents\github\asd_task_4\list.cpp
+	"list.h"
+
+1476028648 c:\users\aziza\documents\github\asd_task_4\list.h
+	<string>
+	<windows.h>
+	<iostream>
+	<cstdlib>
+	<stdio.h>
+
+1476029780 source:c:\users\aziza\documents\github\asd_task_4\main.cpp
+	"player.h"
+
+1475156272 c:\users\aziza\documents\github\asd_task_4\player.h
+	"list.h"
+
+1476030255 source:c:\users\aziza\documents\github\asd_task_4\player.cpp
+	"player.h"
+	<string.h>
+	<cstdlib>
+
