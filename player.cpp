@@ -1,11 +1,15 @@
 #include "player.h"
+#include <string>
+#include <windows.h>
+#include "List.h"
+#include "player.h"
 
 void inputNewSong(infotype &x){
 	/**
 	* PR : meminta input user untuk mengisi nama dan lokasi file
 	* FS : infotype x terisi nama dan lokasi file
 	*/
-	
+
     cout<<"input name song (.wav) : ";
     cin>>x.name;
     cout<<"input song location "<<endl<<"(write - for default location) :";
@@ -18,7 +22,7 @@ void printInfo(List L){
 	/**
 	* PR : menampilkan informasi ID, nama, dan lokasi file
 	*/
-	
+
     address Q = First(L);
     while(Q != NULL)
     {
@@ -34,7 +38,7 @@ void playSong(address P){
 	/**
 	* PR : memainkan lagu yang ditunjuk oleh pointer P
 	*/
-	
+
     string filename = Info(P).location+Info(P).name;
     cout<<"playing "<<filename<<endl;
     PlaySound(TEXT(filename.c_str()), NULL, SND_FILENAME);
@@ -52,16 +56,17 @@ void playNext(address &P){
 }
 
 
-void playPrev(address &P){	
+void playPrev(address &P){
 	/**
 	* PR : memainkan file lagu pada elemen sebelum P
 	* FS : P menunjuk prev lagu dan lagu dimainkan
 	*/
 	//-------------your code here-------------
-
+     P = Prev(P);
+     playSong(P);
 
     //----------------------------------------
-	
+
 }
 
 void shuffleList(List &L){
@@ -71,8 +76,17 @@ void shuffleList(List &L){
 	*/
 	//-------------your code here-------------
 
+        address P = First(L);
+        int numRand = rand()% 10+1;
+        for (int i=1; i<=numRand; i++)
+        {
+            P=Next(P);
+        }
+        playSong(P);
 
-    //----------------------------------------	
+
+
+    //----------------------------------------
 }
 
 void sortList(List &L, int condition){
@@ -85,19 +99,25 @@ void sortList(List &L, int condition){
 	//-------------your code here-------------
 
 
-    //----------------------------------------	
-	
+    //----------------------------------------
+
 }
 
-void playRepeat(List &, int n){	
+void playRepeat(List &, int n){
 	/**
-	* PR : memainkan seluruh lagu di dalam list 
+	* PR : memainkan seluruh lagu di dalam list
 	*      dari lagu pertama hingga terakhir sebanyak n kali
 	*/
 	//-------------your code here-------------
+    address P = First(L);
+    int totData = countElm(L);
+    playSong(P);
+    for(int i=1; i < totData*n; i++)
+    {
+        playNext(P);
+    }
 
-
-    //----------------------------------------	
+    //----------------------------------------
 }
 
 void deleteSong(List &L){
@@ -108,8 +128,37 @@ void deleteSong(List &L){
 	* FS : elemen dengan ID yang dicari didealokasi
 	*/
 	//-------------your code here-------------
+    int number;
+    address P;
+    cout<<"pilih yang mau di hapus
+    cout <<"Pilih Posisi"<<endl;
+    <<"     1. First"<<endl
+    <<"     2. After"<<endl
+    <<"     3. Last"<<endl
+    <<"Masukkan Posisi : ";cin>>number;
+    if (number == 1)
+    {
+        deleteFirst(L,P);
+        cout << "Lagu Berhasil Dihapus";
+    }
+    else if (number == 2)
+    {
+        address N = new elmlist;
+        cout << "Masukkan ID Element Sebelum Element Yang Akan Dihapus : ";
+        cin >> N->info.ID;
+        deleteAfter(L,P,N);
+        cout << "Lagu Berhasil Dihapus";
+    }
+    else if (number == 3)
+    {
+        deleteLast(L,P);
+        cout << "Lagu Berhasil Dihapus";
+    }
+    else
+    {
+        cout <<"Menu Salah"<<endl;
+    }
 
+    //----------------------------------------
 
-    //----------------------------------------	
-	
 }
