@@ -4,6 +4,8 @@
 #include <string>
 #include <windows.h>
 #include <iostream>
+#include <cstdlib>
+#include <stdio.h>
 
 #define First(L) L.first
 #define Last(L) L.last
@@ -30,15 +32,16 @@ typedef struct elmlist *address;
 
 struct elmlist{
     //------------- your code here -----------
-    
-	
+    infotype info;
+	address next;
+	address prev;
     //----------------------------------------
 };
 
 struct List{
     //------------- your code here -----------
-    
-	
+    address first;
+
     //----------------------------------------
 };
 
