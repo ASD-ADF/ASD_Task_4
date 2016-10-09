@@ -91,7 +91,24 @@ void runMenu(int menu) {
 	*/
 
     //-------------your code here-------------
-
+    cout<<"1. Input New"<<endl;
+        <<"2. View List"<<endl;
+        <<"3. Play First Song"<<endl;
+        <<"4. Play Next"<<endl;
+        <<"5. Exit"<<endl;
+    cout<<"1. Input new"<<endl;
+        <<"2. View List"<<endl;
+        <<"3. Play first song"<<endl;
+        <<"4. Play next"<<endl;
+        <<"5. Play previous"<<endl;
+        <<"6. Play again the last song played"<<endl;
+        <<"7. Shuffle list"<<endl;
+        <<"8. Play repeat all"<<endl;
+        <<"9. Search song"<<endl;
+        <<"10. Sort the song"<<endl;
+        <<"11. Exit"<<endl;
+    cout<<"Choose Menu : ";
+        
     switch(menu) {
     case 1 :
         cout<<"input new song : "<<endl;
@@ -99,6 +116,30 @@ void runMenu(int menu) {
         x.ID = index_ID++;
         P = alokasi(x);
         insertFirst(L,P);
+        break;
+        insertFirst(L,P);
+        cout <<"Pilih Posisi    : 1. First"<<endl
+             <<"                  2. After"<<endl
+             <<"                  3. Last"<<endl
+             <<"Masukkan Posisi : ";cin>>number;
+        if (number == 1) {
+             insertFirst(L,P);
+             cout << "Lagu Berhasil Diinput";
+        }
+        else if (number == 2) {
+             address R = new elmlist;
+             cout << "Masukkan ID Element Sebelum Element Baru Yang Akan Diinput : ";
+             cin >> R->info.ID;
+             insertAfter(L,P,R);
+             cout << "Lagu Berhasil Diinput";
+        }
+        else if (number == 3) {
+             insertLast(L,P);
+             cout << "Lagu Berhasil Diinput";
+        }
+        else {
+             cout << "Menu Salah"<<endl;
+        }
         break;
     case 2:
         printInfo(L);
