@@ -62,3 +62,31 @@
 	"list.h"
 	"player.h"
 
+1475997987 source:d:\tugas_kulliah\asd new\asd_task_4\list.cpp
+	"list.h"
+
+1475997299 d:\tugas_kulliah\asd new\asd_task_4\list.h
+	<string>
+	<windows.h>
+	<iostream>
+
+1475998212 source:d:\tugas_kulliah\asd new\asd_task_4\main.cpp
+	"player.h"
+
+1475994662 d:\tugas_kulliah\asd new\asd_task_4\player.h
+	"list.h"
+
+1475997987 source:f:\asd_task_4 - copy\list.cpp
+	"list.h"
+
+1475997299 f:\asd_task_4 - copy\list.h
+	<string>
+	<windows.h>
+	<iostream>
+
+1475998212 source:f:\asd_task_4 - copy\main.cpp
+	"player.h"
+
+1475994662 f:\asd_task_4 - copy\player.h
+	"list.h"
+
