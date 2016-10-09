@@ -67,10 +67,16 @@ void displayMenu() {
     //-------------your code here-------------
 
     cout<<"1. input new "<<endl
-        <<"2. view list"<<endl
-        <<"3. play first song"<<endl
+        <<"2. view list "<<endl
+        <<"3. play first song "<<endl
         <<"4. play next "<<endl
-        <<"5. exit"<<endl;
+        <<"5. search song "<<endl
+        <<"6. play previous "<<endl
+        <<"7. play again the last song played "<<endl
+        <<"8. shuffle list "<<endl
+        <<"9. sort the song "<<endl
+        <<"10. play repeat all "<<endl
+        <<"11. exit"<<endl;
     cout<<"choose menu : ";
 
 
@@ -116,7 +122,5 @@ void runMenu(int menu) {
     default :
         cout<<"wrong input"<<endl;
     }
-
-
     //----------------------------------------
 }

@@ -35,6 +35,6 @@ void deleteSong(List &);
 // user input song ID
 // remove the song from the list
 
-
+int countElm(List L);
 
 #endif // PLAYER_H_INCLUDED
