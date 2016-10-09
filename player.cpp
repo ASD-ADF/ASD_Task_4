@@ -39,7 +39,7 @@ void playNext(address &P){
 
 void shuffleList(List &L)
 {
-    address P = L.first;
+    address P = First(L);
     int numRand = rand() % 10 + 1;
     for(int i=1; i <= numRand; i++)
     {
@@ -49,7 +49,7 @@ void shuffleList(List &L)
 }
 void playRepeat(List &L, int n)
 {
-    address P = L.first;
+    address P = First(L);
     int totData = countElm(L);
     playSong(P);
     for(int i=1; i < totData*n; i++)
