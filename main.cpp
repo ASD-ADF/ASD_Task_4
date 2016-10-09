@@ -4,6 +4,7 @@ List L;
 address P;
 infotype x;
 int index_ID;
+int number, condition;
 
 void menu();
 void displayMenu();
@@ -46,9 +47,9 @@ void menu() {
     int pil;
     do {
         displayMenu();
-        cin>>pil;
+        cin>>pil; cin.ignore();
         runMenu(pil);
-    } while (pil!=5);
+    } while (pil!=11);
 }
 
 
@@ -66,12 +67,21 @@ void displayMenu() {
 
     //-------------your code here-------------
 
-    cout<<"1. input new "<<endl
-        <<"2. view list"<<endl
-        <<"3. play first song"<<endl
-        <<"4. play next "<<endl
-        <<"5. exit"<<endl;
+    cout<<endl
+        <<"=====<<Winamp CMD>>====="<<endl
+        <<"1.  Input"<<endl
+        <<"2.  View list"<<endl
+        <<"3.  Play"<<endl
+        <<"4.  Play next"<<endl
+        <<"5.  Play previous"<<endl
+        <<"6.  Repeat"<<endl
+        <<"7.  Shuffle"<<endl
+        <<"8.  Repeat all"<<endl
+        <<"9.  Search"<<endl
+        <<"10. Sort"<<endl
+        <<"11. Exit"<<endl;
     cout<<"choose menu : ";
+    cout<<endl;
 
 
 
@@ -94,11 +104,32 @@ void runMenu(int menu) {
 
     switch(menu) {
     case 1 :
-        cout<<"input new song : "<<endl;
+        cout<<"Input"<<endl;
         inputNewSong(x);
         x.ID = index_ID++;
         P = alokasi(x);
-        insertFirst(L,P);
+        cout <<"Position        : 1. First"<<endl
+             <<"                  2. After"<<endl
+             <<"                  3. Last"<<endl
+             <<"Select Position : ";cin>>number;
+        if (number == 1) {
+            insertFirst(L,P);
+            cout << "Success";
+        }
+        else if (number == 2) {
+            address R = new elmlist;
+            cout << "Insert ID Element : ";
+            cin >> R->info.ID;
+            insertAfter(L,P,R);
+            cout << "Success";
+        }
+        else if (number == 3) {
+            insertLast(L,P);
+            cout << "Success";
+        }
+        else {
+            cout << "Error"<<endl;
+        }
         break;
     case 2:
         printInfo(L);
@@ -111,10 +142,34 @@ void runMenu(int menu) {
         playNext(P);
         break;
     case 5:
-        cout<<"thank you"<<endl;
+        playPrev(P);
+        break;
+    case 6:
+        playNext(P);
+        break;
+    case 7:
+        shuffleList(L);
+        break;
+    case 8:
+        int n;
+        cout << "Repeat Times : ";cin>>n;
+        playRepeat(L, n);
+        break;
+    case 9:
+        cout << "Insert ID : "; cin>>x.ID;
+        playSong(findElm(L, x));
+        break;
+    case 10:
+        cout << "Sort         : 1. Sort By ID"<<endl
+             << "               2. Sort By Name"<<endl
+             << "Option      : ";cin >> condition;
+        sortList(L,condition);
+        break;
+   case 11:
+        cout<<"Thanks for Using My Program"<<endl;
         break;
     default :
-        cout<<"wrong input"<<endl;
+        cout<<"Error"<<endl;
     }
 
 
