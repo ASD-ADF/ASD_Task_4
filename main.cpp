@@ -4,6 +4,7 @@ List L;
 address P;
 infotype x;
 int index_ID;
+int number, condition;
 
 void menu();
 void displayMenu();
@@ -46,9 +47,9 @@ void menu() {
     int pil;
     do {
         displayMenu();
-        cin>>pil;
+        cin>>pil; cin.ignore();
         runMenu(pil);
-    } while (pil!=5);
+    } while (pil!=11);
 }
 
 
@@ -66,11 +67,17 @@ void displayMenu() {
 
     //-------------your code here-------------
 
-    cout<<"1. input new "<<endl
-        <<"2. view list"<<endl
-        <<"3. play first song"<<endl
-        <<"4. play next "<<endl
-        <<"5. exit"<<endl;
+    cout<<"1.  Input new                         "<<endl
+        <<"2.  View list                         "<<endl
+        <<"3.  Play first song                   "<<endl
+        <<"4.  Play next                         "<<endl
+        <<"5.  Play previous                     "<<endl
+        <<"6.  Play again the last song played   "<<endl
+        <<"7.  Shuffle list                      "<<endl
+        <<"8.  Play repeat all                   "<<endl
+        <<"9.  Search song                       "<<endl
+        <<"10. Sort the song                    "<<endl
+        <<"11. Exit                             "<<endl;
     cout<<"choose menu : ";
 
 
@@ -92,7 +99,7 @@ void runMenu(int menu) {
 
     //-------------your code here-------------
 
-    switch(menu) {
+      switch(menu) {
     case 1 :
         cout<<"input new song : "<<endl;
         inputNewSong(x);
@@ -116,7 +123,5 @@ void runMenu(int menu) {
     default :
         cout<<"wrong input"<<endl;
     }
-
-
     //----------------------------------------
 }

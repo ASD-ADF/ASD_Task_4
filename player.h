@@ -3,7 +3,7 @@
 
 #include "list.h"
 
-void inputNewSong(infotype &);
+void inputNewSong(infotype &x);
 // user input for song name and location
 // procedure receive input from user
 
@@ -27,7 +27,7 @@ void sortList(List &, int condition);
 // example if condition = 1, then sort by ID
 //          if condition = 2, then sort by name
 
-void playRepeat(List &, int n);
+void playRepeat(List &L, int n);
 // play the song list from the first song
 // and repeat the list n times
 
