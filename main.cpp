@@ -104,7 +104,7 @@ void runMenu(int menu) {
         printInfo(L);
         break;
     case 3 :
-        P = First(L);
+        P = first(L);
         playSong(P);
         break;
     case 4:

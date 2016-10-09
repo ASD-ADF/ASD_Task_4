@@ -5,7 +5,7 @@ void inputNewSong(infotype &x){
 	* PR : meminta input user untuk mengisi nama dan lokasi file
 	* FS : infotype x terisi nama dan lokasi file
 	*/
-	
+
     cout<<"input name song (.wav) : ";
     cin>>x.name;
     cout<<"input song location "<<endl<<"(write - for default location) :";
@@ -18,24 +18,33 @@ void printInfo(List L){
 	/**
 	* PR : menampilkan informasi ID, nama, dan lokasi file
 	*/
-	
-    address Q = First(L);
-    while(Q != NULL)
+
+    address Q = first(L);
+    do
     {
-        cout<<"name : "<<Info(Q).name<<endl
-            <<"ID: "<<Info(Q).ID<<endl;
-            <<"location: "<<Info(Q).location<<endl;
-        Q = Next(Q);
+        if (Q != Nil)
+        {
+            cout<<"name : "<<info(Q).name<<endl
+                <<"ID: "<<info(Q).ID<<endl;
+            cout<<"location: "<<info(Q).location<<endl;
+            Q = next(Q);
+        }
+        else
+        {
+            cout << "list Kosong" << endl << endl;
+        }
     }
+    while(Q != first(L));
 }
+
 
 
 void playSong(address P){
 	/**
 	* PR : memainkan lagu yang ditunjuk oleh pointer P
 	*/
-	
-    string filename = Info(P).location+Info(P).name;
+
+    string filename = info(P).location+info(P).name;
     cout<<"playing "<<filename<<endl;
     PlaySound(TEXT(filename.c_str()), NULL, SND_FILENAME);
     _sleep(1000); //delay 1 second
@@ -52,16 +61,17 @@ void playNext(address &P){
 }
 
 
-void playPrev(address &P){	
+void playPrev(address &P){
 	/**
 	* PR : memainkan file lagu pada elemen sebelum P
 	* FS : P menunjuk prev lagu dan lagu dimainkan
 	*/
 	//-------------your code here-------------
-
+    P = Prev(P);
+    playSong(P);
 
     //----------------------------------------
-	
+
 }
 
 void shuffleList(List &L){
@@ -70,9 +80,44 @@ void shuffleList(List &L){
 	* FS : isi (elemen) dari list teracak
 	*/
 	//-------------your code here-------------
+    address P,Q;
+    P = L.first;
+    int counter = 0;
+    do
+    {
+        counter++;
+        P = P->next;
+    }
+    while(P!=L.first);
+    List L2;
+    infotype x;
+    createList(L2);
+    for (int i = counter; i>0; i--)
+    {
+        x.ID = 0;
+        while(x.ID == 0)x.ID = rand() % counter;
+        Q = findElm(L,x);
+        if (findElm(L2,x) == NULL)
+        {
+            insertFirst(L2,alokasi(findElm(L,x)->info));
+        }
+    }
+    P = L.first;
+    do
+    {
+        x = info(P);
+        Q = findElm(L2,x);
+        if (Q == NULL)
+        {
+            insertFirst(L2,alokasi(x));
+        }
+        P = P->next;
+    }
+    while(P!=L.first);
+    L = L2;
 
 
-    //----------------------------------------	
+    //----------------------------------------
 }
 
 void sortList(List &L, int condition){
@@ -85,19 +130,19 @@ void sortList(List &L, int condition){
 	//-------------your code here-------------
 
 
-    //----------------------------------------	
-	
+    //----------------------------------------
+
 }
 
-void playRepeat(List &, int n){	
+void playRepeat(List &, int n){
 	/**
-	* PR : memainkan seluruh lagu di dalam list 
+	* PR : memainkan seluruh lagu di dalam list
 	*      dari lagu pertama hingga terakhir sebanyak n kali
 	*/
 	//-------------your code here-------------
 
 
-    //----------------------------------------	
+    //----------------------------------------
 }
 
 void deleteSong(List &L){
@@ -110,6 +155,6 @@ void deleteSong(List &L){
 	//-------------your code here-------------
 
 
-    //----------------------------------------	
-	
+    //----------------------------------------
+
 }
