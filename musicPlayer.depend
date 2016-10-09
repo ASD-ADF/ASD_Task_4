@@ -62,3 +62,20 @@
 	"list.h"
 	"player.h"
 
+1475995469 source:e:\dedep\kuliah\tingkat 2\semester 3\struktur data\task 4\asd_task_4\list.cpp
+	"list.h"
+
+1475995455 e:\dedep\kuliah\tingkat 2\semester 3\struktur data\task 4\asd_task_4\list.h
+	<string>
+	<windows.h>
+	<iostream>
+
+1475995517 source:e:\dedep\kuliah\tingkat 2\semester 3\struktur data\task 4\asd_task_4\main.cpp
+	"player.h"
+
+1475995501 e:\dedep\kuliah\tingkat 2\semester 3\struktur data\task 4\asd_task_4\player.h
+	"list.h"
+
+1475995580 source:e:\dedep\kuliah\tingkat 2\semester 3\struktur data\task 4\asd_task_4\player.cpp
+	"player.h"
+
