@@ -30,15 +30,18 @@ typedef struct elmlist *address;
 
 struct elmlist{
     //------------- your code here -----------
-    
-	
+     infotype info;
+     address next;
+     address prev;
+
     //----------------------------------------
 };
 
 struct List{
     //------------- your code here -----------
-    
-	
+    address first;
+    address last;
+
     //----------------------------------------
 };
 
@@ -47,13 +50,15 @@ void createList(List &);
 address alokasi(infotype );
 void dealokasi(address &);
 
-void insertFirst(List &, address );
+void insertFirst(List &, address  );
 void insertLast(List &, address );
-void insertAfter(address , address);
+void insertAfter(address Prec , address P);
+
 
 void deleteFirst(List &, address &);
 void deleteLast(List &, address &);
-void deleteAfter(address, address &);
+void deleteAfter(address Prec, address &P);
+
 
 address findElm(List, infotype );
 

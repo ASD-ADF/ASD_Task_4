@@ -19,8 +19,8 @@ void playNext(address &P);
 void playPrev(address &P);
 // play the previous song from element P
 
-void shuffleList(List &);
-// shuffle the song list
+void shuffleList(List &L);
+//  shuffle the song list
 
 void sortList(List &, int condition);
 // sort song List by some condition
