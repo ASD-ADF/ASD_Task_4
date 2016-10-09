@@ -62,3 +62,20 @@
 	"list.h"
 	"player.h"
 
+1476009559 source:e:\sekolah\telkom\asd\asd_task_4\list.cpp
+	"list.h"
+
+1476006811 e:\sekolah\telkom\asd\asd_task_4\list.h
+	<string>
+	<windows.h>
+	<iostream>
+
+1476016576 source:e:\sekolah\telkom\asd\asd_task_4\main.cpp
+	"player.h"
+
+1476008324 e:\sekolah\telkom\asd\asd_task_4\player.h
+	"list.h"
+
+1476016771 source:e:\sekolah\telkom\asd\asd_task_4\player.cpp
+	"player.h"
+
