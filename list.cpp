@@ -4,7 +4,8 @@ void createList(List &L) {
     /**
     * FS : first(L) diset Nil
     */
-    first(L) = Nil;
+    First(L) = Nil;
+    Last(L) = Nil;
 }
 
 address alokasi(infotype x) {
@@ -14,10 +15,11 @@ address alokasi(infotype x) {
 
     address P;
     P = new ElmList;
-    info(P) = x;
-    next(P) = Nil;
+    Info(P) = x;
+    Next(P) = Nil;
+    Prev(P) = Nil;
     return P;
-    return P;
+    
 }
 
 void dealokasi(address &P) {
@@ -33,20 +35,20 @@ void insertFirst(List &L, address P) {
     * FS : elemen yang ditunjuk P menjadi elemen pertama pada List L
     */
     address Q;
-    if (first(L) == Nil)
+    if (First(L) == Nil)
     {
-        first(L) = P;
-        next(P) = first(L);
+        First(L) = P;
+        Next(P) = P;
+        Last(L) = P;
+        Prev(P) = P;
     }
     else
     {
-        while (next(Q) != first(L))
-        {
-            Q = Q->next;
-        }
-        next(P) = first(L);
-        Q->next = P;
-        first(L) = P;
+        Next(P) = First(L);
+        Prev(First(L)) = P;
+        Next(Last(L)) = P;
+        Prev(P) = Last(L);
+        First(L) = P;
     }
 }
 
@@ -56,20 +58,20 @@ void insertLast(List &L, address P) {
     * FS : elemen yang ditunjuk P menjadi elemen terakhir pada List L
     */
     address Q;
-    if (first(L) == Nil)
+    if (First(L) == Nil)
     {
-        first(L) = P;
-        next(P) = first(L);
+        First(L) = P;
+        Next(P) = P;
+        Last(L) = P;
+        Prev(P) = P;
     }
     else
     {
-        Q = first(L);
-        while (Q->next != first(L))
-        {
-            Q = Q->next;
-        }
-        next(P) = first(L);
-        Q->next = P;
+        Prev(P) = Last(L);
+        Next(last(L)) = P;
+        (Next(L)) = P;
+        Next(P) = First(L);
+        Last(L) = P;
     }
 }
 
@@ -79,23 +81,21 @@ address findElm(List L, infotype x) {
     * FS : mengembalikan elemen dengan info.ID = x.ID,
            mengembalikan Nil jika tidak ditemukan
     */
-    address Q;
-    if (first(L) == Nil)
+    do
     {
-        first(L) = P;
-        next(P) = first(L);
-    }
-    else
-    {
-        Q = first(L);
-        while (Q->next != first(L))
+        if (Info(P).name == x.name)
         {
-            Q = Q->next;
+            return P;
         }
-        next(P) = first(L);
-        Q->next = P;
+        if (Info(P).ID == x.ID)
+        {
+            return P;
+        }
+        P = Next(P);
     }
-    return P;
+    while (P != First(L));
+
+    return NULL;
 }
 
 void deleteFirst(List &L, address &P) {
@@ -107,19 +107,16 @@ void deleteFirst(List &L, address &P) {
     P = first(L);
     if (next(P) == first(L))
     {
-        P = first(L);
-        next(P) = Nil;
+        last(L) = Nil;
         first(L) = Nil;
     }
     else
     {
-        while (next(Q)!=first(L))
-        {
-            Q = next(Q);
-        }
-        next(Q)=next(P);
-        first(L)=next(P);
-        next(P)=Nil;
+        First(L) = Next(P);
+        Last(L) = First(L);
+        Prev(First(L)) = Last(L);
+        Next(P) = NULL;
+        Prev(P) = NULL;
     }
 }
 
@@ -128,12 +125,12 @@ void deleteLast(List &L, address &P) {
     * IS : List L mungkin kosong
     * FS : elemen tarakhir di dalam List L dilepas dan disimpan/ditunjuk oleh P
     */
-    address Q = first(L);
-    if (next(first(L)) == Nil)
+    address Q = First(L);
+    P = First(L);
+    if (Next(First(L)) == Nil)
     {
-        P = first(L);
-        next(P) = Nil;
-        first(L) = Nil;
+        Last(L) = Nil;
+        First(L) = Nil;
     }
     else
     {
@@ -141,10 +138,12 @@ void deleteLast(List &L, address &P) {
         {
             Q=next(Q);
         }
-
+    
         next(Q) = first(L);
+        prev(first(L)) = Q;
+        last(L0 = Q;
         next(P) = Nil;
-
+        prev(P) = Nil;
     }
 }
 
@@ -154,7 +153,9 @@ void insertAfter(address Prec, address P) {
     * FS : elemen yang ditunjuk P menjadi elemen di belakang elemen yang
     *      ditunjuk pointer Prec
     */
+    prev(P) = Prec;
     next(P) = next(Prec);
+    prev(next(P)) = Prec;
     next(Prec) = P;
 
 }
@@ -166,16 +167,21 @@ void deleteAfter(address Prec, address &P) {
     */
     if (next(Prec)==first(L))
     {
-        P=first(L);
-        first(L)=next(P);
-        next(Prec)=first(L);
-        P=Nil;
+        P = Next(Prec);
+        Next(Prec) = Next(P);
+        Prev(Next(P)) = Prec;
+        First(L) = Next(P);
+        Prev(P) = NULL;
+        Next(P) = NULL;
     }
     else
     {
-        P = next(Prec);
-        next(Prec) = next(P);
-        next(P) = Nil;
+        P = Next(Prec);
+        Last(L) = Prec;
+        Next(Prec) = Next(P);
+        Prev(Next(P)) = Prec;
+        Prev(P) = NULL;
+        Next(P) = NULL;
     }
 }
 
