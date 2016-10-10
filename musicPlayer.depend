@@ -62,3 +62,20 @@
 	"list.h"
 	"player.h"
 
+1474952398 source:e:\download\compressed\asd_task_4-master\asd_task_4-master\list.cpp
+	"list.h"
+
+1474952398 e:\download\compressed\asd_task_4-master\asd_task_4-master\list.h
+	<string>
+	<windows.h>
+	<iostream>
+
+1474952398 source:e:\download\compressed\asd_task_4-master\asd_task_4-master\main.cpp
+	"player.h"
+
+1474952398 e:\download\compressed\asd_task_4-master\asd_task_4-master\player.h
+	"list.h"
+
+1474952398 source:e:\download\compressed\asd_task_4-master\asd_task_4-master\player.cpp
+	"player.h"
+
