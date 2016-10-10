@@ -62,3 +62,24 @@
 	"list.h"
 	"player.h"
 
+1476056557 source:c:\users\gians\google drive\tel-u\semester 3\struktur data (asd)\asd_task_4-master\list.cpp
+	"list.h"
+
+1476056557 c:\users\gians\google drive\tel-u\semester 3\struktur data (asd)\asd_task_4-master\list.h
+	<string>
+	<windows.h>
+	<conio.h>
+	<iostream>
+	<stdlib.h>
+	<stdio.h>
+	<time.h>
+
+1476056557 source:c:\users\gians\google drive\tel-u\semester 3\struktur data (asd)\asd_task_4-master\player.cpp
+	"player.h"
+
+1475973442 c:\users\gians\google drive\tel-u\semester 3\struktur data (asd)\asd_task_4-master\player.h
+	"list.h"
+
+1476054411 source:c:\users\gians\google drive\tel-u\semester 3\struktur data (asd)\asd_task_4-master\main.cpp
+	"player.h"
+
