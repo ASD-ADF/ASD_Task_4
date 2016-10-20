@@ -10,7 +10,6 @@
 #define Next(P) P->next
 #define Prev(P) P->prev
 #define Info(P) P->info
-
 using namespace std;
 
 struct music
@@ -30,15 +29,17 @@ typedef struct elmlist *address;
 
 struct elmlist{
     //------------- your code here -----------
-    
-	
+    infotype info;
+    address next;
+    address prev;
+
     //----------------------------------------
 };
 
 struct List{
     //------------- your code here -----------
-    
-	
+
+	address first,last;
     //----------------------------------------
 };
 
@@ -49,11 +50,11 @@ void dealokasi(address &);
 
 void insertFirst(List &, address );
 void insertLast(List &, address );
-void insertAfter(address , address);
+void insertAfter(List,address , address);
 
 void deleteFirst(List &, address &);
 void deleteLast(List &, address &);
-void deleteAfter(address, address &);
+void deleteAfter(List &,address, address &);
 
 address findElm(List, infotype );
 
