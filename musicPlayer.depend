@@ -62,3 +62,20 @@
 	"list.h"
 	"player.h"
 
+1475117653 source:e:\tugas\kampu\strukdat\asd_task_4\main.cpp
+	"player.h"
+
+1475117653 e:\tugas\kampu\strukdat\asd_task_4\player.h
+	"list.h"
+
+1475118339 e:\tugas\kampu\strukdat\asd_task_4\list.h
+	<string>
+	<windows.h>
+	<iostream>
+
+1477209304 source:e:\tugas\kampu\strukdat\asd_task_4\player.cpp
+	"player.h"
+
+1477209068 source:e:\tugas\kampu\strukdat\asd_task_4\list.cpp
+	"list.h"
+
