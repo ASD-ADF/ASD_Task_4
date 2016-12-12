@@ -62,3 +62,66 @@
 	"list.h"
 	"player.h"
 
+1476056557 source:c:\users\gians\google drive\tel-u\semester 3\struktur data (asd)\asd_task_4-master\list.cpp
+	"list.h"
+
+1476056557 c:\users\gians\google drive\tel-u\semester 3\struktur data (asd)\asd_task_4-master\list.h
+	<string>
+	<windows.h>
+	<conio.h>
+	<iostream>
+	<stdlib.h>
+	<stdio.h>
+	<time.h>
+
+1476056557 source:c:\users\gians\google drive\tel-u\semester 3\struktur data (asd)\asd_task_4-master\player.cpp
+	"player.h"
+
+1475973442 c:\users\gians\google drive\tel-u\semester 3\struktur data (asd)\asd_task_4-master\player.h
+	"list.h"
+
+1476054411 source:c:\users\gians\google drive\tel-u\semester 3\struktur data (asd)\asd_task_4-master\main.cpp
+	"player.h"
+
+1476073970 source:e:\asd_task_4-master\list.cpp
+	"list.h"
+
+1476071829 e:\asd_task_4-master\list.h
+	<string>
+	<windows.h>
+	<conio.h>
+	<iostream>
+	<stdlib.h>
+	<stdio.h>
+	<time.h>
+
+1476071532 source:e:\asd_task_4-master\main.cpp
+	"player.h"
+
+1476007428 e:\asd_task_4-master\player.h
+	"list.h"
+
+1476072221 source:e:\asd_task_4-master\player.cpp
+	"player.h"
+
+1481572589 source:c:\users\hafidz tea\documents\github\asd_task_4\list.cpp
+	"list.h"
+
+1481572606 c:\users\hafidz tea\documents\github\asd_task_4\list.h
+	<string>
+	<windows.h>
+	<conio.h>
+	<iostream>
+	<stdlib.h>
+	<stdio.h>
+	<time.h>
+
+1481572614 source:c:\users\hafidz tea\documents\github\asd_task_4\main.cpp
+	"player.h"
+
+1481572592 c:\users\hafidz tea\documents\github\asd_task_4\player.h
+	"list.h"
+
+1481572590 source:c:\users\hafidz tea\documents\github\asd_task_4\player.cpp
+	"player.h"
+

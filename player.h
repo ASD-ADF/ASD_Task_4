@@ -1,5 +1,6 @@
 #ifndef PLAYER_H_INCLUDED
 #define PLAYER_H_INCLUDED
+/* nim : 1301140057 */
 
 #include "list.h"
 
