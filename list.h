@@ -3,7 +3,11 @@
 
 #include <string>
 #include <windows.h>
+#include <conio.h>
 #include <iostream>
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
 
 #define First(L) L.first
 #define Last(L) L.last
@@ -12,6 +16,8 @@
 #define Info(P) P->info
 
 using namespace std;
+
+/* nim : 1301140057 */
 
 struct music
 {
@@ -28,34 +34,36 @@ typedef struct elmlist *address;
 * IMPLEMENT CIRCULAR DOUBLE LINKED LIST
 */
 
-struct elmlist{
+struct elmlist
+{
     //------------- your code here -----------
-    
-	
+    infotype info;
+    address next;
+    address prev;
     //----------------------------------------
 };
 
-struct List{
+struct List
+{
     //------------- your code here -----------
-    
-	
+    address first;
+    address last;
     //----------------------------------------
 };
 
-void createList(List &);
+void createList(List &L);
 
-address alokasi(infotype );
-void dealokasi(address &);
+address alokasi(infotype x);
+void dealokasi(address &P);
 
-void insertFirst(List &, address );
-void insertLast(List &, address );
-void insertAfter(address , address);
+void insertFirst(List &L, address P);
+void insertLast(List &L, address P);
+void insertAfter(List &L, address Prec, address P);
 
-void deleteFirst(List &, address &);
-void deleteLast(List &, address &);
-void deleteAfter(address, address &);
+void deleteFirst(List &L, address &P);
+void deleteLast(List &L, address &P);
+void deleteAfter(List &L, address Prec, address &P);
 
-address findElm(List, infotype );
-
+address findElm(List L, infotype x);
 
 #endif // LIST_H_INCLUDED
