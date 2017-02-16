@@ -5,16 +5,15 @@
 #include <windows.h>
 #include <iostream>
 
-#define First(L) L.first
-#define Last(L) L.last
-#define Next(P) P->next
-#define Prev(P) P->prev
-#define Info(P) P->info
+#define first(L) L.first
+#define last(L) L.last
+#define next(P) P->next
+#define prev(P) P->prev
+#define info(P) P->info
 
 using namespace std;
 
-struct music
-{
+struct music {
     int ID;
     string name;
     string location;
@@ -28,17 +27,15 @@ typedef struct elmlist *address;
 * IMPLEMENT CIRCULAR DOUBLE LINKED LIST
 */
 
-struct elmlist{
+struct elmlist {
     //------------- your code here -----------
-    
-	
+
     //----------------------------------------
 };
 
-struct List{
+struct List {
     //------------- your code here -----------
-    
-	
+
     //----------------------------------------
 };
 
@@ -49,13 +46,14 @@ void dealokasi(address &);
 
 void insertFirst(List &, address );
 void insertLast(List &, address );
-void insertAfter(address , address);
+void insertAfter(List &, address &, address);
 
 void deleteFirst(List &, address &);
 void deleteLast(List &, address &);
-void deleteAfter(address, address &);
+void deleteAfter(List &, address &, address &);
 
-address findElm(List, infotype );
+address findElmByID(List, infotype );
+address findElmByName(List, infotype );
 
 
 #endif // LIST_H_INCLUDED
