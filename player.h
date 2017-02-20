@@ -3,6 +3,9 @@
 
 #include "list.h"
 
+int randomInt(int);
+// helper random for shuffle
+
 void printInfo(List);
 // output the songs in the list
 

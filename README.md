@@ -21,26 +21,37 @@ modify each function to fit the data structure
 to implement Double Circular Linked List mechanism
 	
 ##player.cpp
-create function according to the header defined in player.h
-* function to play the previous song on the list <br>
-  ``` void playPrev(address &P);```
-* function to shuffle the song list <br>
-  ``` void shuffleList(List &);```
-* function to sort the song list by some condition <br>
-  ``` void sortList(List &, int condition); ```
-  ```// example: if condition = 1, then sort by ID ``` <br>
-  ```//          if condition = 2, then sort by name ```  <br>
-* function to play the song list from the first song and repeat the list n times  <br>
+<i>these function are already defined:
+* function to produce random integer
+  ```int randomInt(int  max_int);```
+* function to print music list inserted
+  ```void printInfo(List L);```
+* function to play current music pointed by P
+  ```void playMusic(address P);```  
+</i>
+TODO : 
+create function according to the header defined in player.h<br>
+* function to shuffle the music list <br>
+  ``` void shuffleList(List &);```<br>
+  simple logic example: <br>
+  ```
+	loop n times
+		P <- first
+		x = randomInt
+		for i to x, 
+			move P to next element
+		delete after P
+		insert first P
+  ```
+* function to sort the music list by ID <br>
+  ``` void sortListByID(List &L); ```
+* function to play the music list from the first music and repeat the list n times  <br>
   ```void playRepeat(List &, int n);```
+* function to delete any music defined by its ID<br>
+  ```void deleteMusicByID(List &L, infotype x);```
 	
 		
 ##main.cpp
-modify the main prorgam, add these menus into the main program
-* menu to search song by name and play it <br>
-	( you can create a new function to search or modify the findElm function )
-* menu play the previous song on the list
-* menu play again this song (the last played song)
-* menu shuffle the song list
-* menu sort the song list
-* menu play repeat all songs
+* modify the main menu progam
+* run the application
 	

@@ -1,5 +1,10 @@
 #include "player.h"
+#include <ctime>
 
+int randomInt(int  max_int) {
+    srand(time(NULL));
+    return (rand() % max_int) + 1;
+}
 
 void printInfo(List L) {
     /**
@@ -7,12 +12,12 @@ void printInfo(List L) {
     */
 
     address Q = first(L);
-    do{
+    do {
         cout<<"name    : "<<info(Q).name<<endl
             <<"ID      : "<<info(Q).ID<<endl
             <<"location: "<<info(Q).location<<endl;
         Q = next(Q);
-    }while(Q!=first(L));
+    } while(Q!=first(L));
     cout<<"==============================================="<<endl;
 }
 
@@ -25,7 +30,7 @@ void playMusic(address P) {
     string filename = info(P).location+"/"+info(P).name;
     cout<<"playing "<<filename<<endl;
     PlaySound(TEXT(filename.c_str()), NULL, SND_FILENAME);
-    _sleep(1000); //delay 1 second
+    _sleep(500); //delay 0.5 second
 }
 
 
@@ -36,6 +41,7 @@ void shuffleList(List &L) {
     */
     //-------------your code here-------------
 
+        cout<<"UNDER MAIN TENIS"<<endl;
 
     //----------------------------------------
 }
@@ -47,18 +53,20 @@ void sortListByID(List &L) {
     */
     //-------------your code here-------------
 
+        cout<<"UNDER MAIN TENIS"<<endl;
 
     //----------------------------------------
 
 }
 
-void playRepeat(List &, int n) {
+void playRepeat(List &L, int n) {
     /**
     * PR : memainkan seluruh lagu di dalam list
     *      dari lagu pertama hingga terakhir sebanyak n kali
     */
     //-------------your code here-------------
 
+        cout<<"UNDER MAIN TENIS"<<endl;
 
     //----------------------------------------
 }
@@ -72,6 +80,7 @@ void deleteMusicByID(List &L, infotype x) {
     */
     //-------------your code here-------------
 
+        cout<<"UNDER MAIN TENIS"<<endl;
 
     //----------------------------------------
 

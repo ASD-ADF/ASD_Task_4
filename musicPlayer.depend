@@ -62,21 +62,22 @@
 	"list.h"
 	"player.h"
 
-1487231458 source:c:\users\anditya arifianto\documents\github\asd_task_4\list.cpp
+1487232569 source:c:\users\anditya arifianto\documents\github\asd_task_4\list.cpp
 	"list.h"
 
-1487228854 c:\users\anditya arifianto\documents\github\asd_task_4\list.h
+1487232572 c:\users\anditya arifianto\documents\github\asd_task_4\list.h
 	<string>
 	<windows.h>
 	<iostream>
 
-1487231798 source:c:\users\anditya arifianto\documents\github\asd_task_4\main.cpp
+1487568971 source:c:\users\anditya arifianto\documents\github\asd_task_4\main.cpp
 	"player.h"
 	<conio.h>
 
-1487228669 c:\users\anditya arifianto\documents\github\asd_task_4\player.h
+1487233427 c:\users\anditya arifianto\documents\github\asd_task_4\player.h
 	"list.h"
 
-1487231654 source:c:\users\anditya arifianto\documents\github\asd_task_4\player.cpp
+1487568940 source:c:\users\anditya arifianto\documents\github\asd_task_4\player.cpp
 	"player.h"
+	<ctime>
 
