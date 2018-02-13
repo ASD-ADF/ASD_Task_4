@@ -27,3 +27,37 @@
 	"operation.h"
 	"my_data.h"
 
+1518525716 source:d:\telkom university\semester 2 - struktur data\task 4 - double linked list\main.cpp
+	<iostream>
+	"doublelist.h"
+	"operation.h"
+	"my_data.h"
+
+1518526330 d:\telkom university\semester 2 - struktur data\task 4 - double linked list\doublelist.h
+	<iostream>
+	"my_data2.h"
+
+1518521636 d:\telkom university\semester 2 - struktur data\task 4 - double linked list\my_data.h
+	<iostream>
+
+1518517478 d:\telkom university\semester 2 - struktur data\task 4 - double linked list\operation.h
+	"doublelist.h"
+
+1518526022 source:d:\telkom university\semester 2 - struktur data\task 4 - double linked list\doublelist.cpp
+	"doublelist.h"
+	"my_data.h"
+
+1518524983 source:d:\telkom university\semester 2 - struktur data\task 4 - double linked list\my_data.cpp
+	"my_data.h"
+
+1518525925 source:d:\telkom university\semester 2 - struktur data\task 4 - double linked list\my_data2.cpp
+	"my_data2.h"
+
+1518525072 d:\telkom university\semester 2 - struktur data\task 4 - double linked list\my_data2.h
+	<iostream>
+
+1518525588 source:d:\telkom university\semester 2 - struktur data\task 4 - double linked list\operation.cpp
+	"doublelist.h"
+	"operation.h"
+	"my_data.h"
+

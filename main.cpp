@@ -10,9 +10,7 @@ List L;
 
 int main() {
     createList(L);
-
     mainMenu();
-
     return 0;
 }
 
@@ -39,13 +37,96 @@ void mainMenu() {
         cout<<"4. find and edit"<<endl;
         cout<<"5. find and delete"<<endl;
         cout<<"0. exit"<<endl;
-        cout<<"input choice: ";
+        cout<<"Pilihan: ";
         cin>>choice;
+        cout<<endl;
         switch(choice) {
         case 1:
-            X = create_data();
+            //for mytype, use X = create_data();
+            //for mytype2, use X = create_data_team();
+            X = create_data_team();
             P = allocate(X);
-            insertFirst(L,P);
+            insertAndSort(L,P);
+            cout<<endl;
+            break;
+        case 2:
+            if(first(L)!=NULL){
+                printInfo(L);
+            }
+            else{
+                cout<<"List kosong."<<endl<<endl;
+            }
+            break;
+        case 3:
+            if(first(L) != NULL){
+                cout<<"Find and View"<<endl;
+                cout<<"Input ID: ";
+                //for mytype, use player_id
+                //for mytype2, use team_id
+                cin>>X.team_id;
+                P = findElm(L,X);
+                if(P!=NULL){
+                    cout<<endl<<"Data ditemukan."<<endl;
+                    //for mytype, use view_data
+                    //for mytyoe2, use view_data_team
+                    view_data_team(info(P));
+                }
+                else{
+                    cout<<"Data tidak ditemukan."<<endl<<endl;
+                }
+            }
+            else{
+                cout<<"List kosong."<<endl<<endl;
+            }
+            break;
+        case 4:
+            if(first(L) != NULL){
+                cout<<"Find and Edit"<<endl;
+                cout<<"Input ID: ";
+                cin>>X.team_id;
+                P = findElm(L,X);
+                if(P!=NULL){
+                    //for mytyoe, use player_id
+                    //for mytype2, use team_id
+                    cout<<endl<<"Edit Data ID: "<<X.team_id<<endl;
+                    //for mytyoe, use edit_data
+                    //for mytype2, use edit_data_team
+                    edit_data_team(info(P));
+                    cout<<"Data telah diedit."<<endl<<endl;
+                }
+                else{
+                    cout<<"Data tidak ditemukan."<<endl<<endl;
+                }
+            }
+            else{
+                cout<<"List kosong."<<endl<<endl;
+            }
+            break;
+        case 5:
+            if(first(L) != NULL){
+                cout<<"Find and Delete"<<endl;
+                cout<<"Input ID: ";
+                //for mytyoe, use player_id
+                //for mytype2, use team_id
+                cin>>X.team_id;
+                P = findElm(L,X);
+                if(P!=NULL){
+                    deletebyID(L,X);
+                    cout<<"Data deleted."<<endl<<endl;
+                }
+                else{
+                    cout<<"Data tidak ditemukan."<<endl<<endl;
+                }
+            }
+            else{
+                cout<<"List kosong."<<endl<<endl;
+            }
+            break;
+        case 0:
+            return;
+            break;
+        default:
+            cout<<"Tidak ada pilihan "<<choice<<" di menu."<<endl<<endl;
             break;
         }
     } while(true);

@@ -2,7 +2,8 @@
 #define DOUBLELIST_H_INCLUDED
 
 #include <iostream>
-#include "my_data.h"
+#include "my_data2.h"
+//change to my_data.h if you want to use the first type.
 
 #define first(L) L.first
 #define last(L) L.last
@@ -11,7 +12,6 @@
 #define info(P) P->info
 
 using namespace std;
-
 
 /**
 * Type infotype : mytype
@@ -30,25 +30,23 @@ using namespace std;
 *
 **/
 
-
-
-typedef mytype infotype;
+typedef mytype2 infotype; //change to mytype if you want to use the first type.
 typedef struct elmlist *address;
 
 struct elmlist{
     //------------- your code here -----------
-
+    infotype info;
+    address next;
+    address prev;
     //----------------------------------------
 };
 
 struct List{
     //------------- your code here -----------
-
-
+    address first;
+    address last;
     //----------------------------------------
 };
-
-
 
 // define a function and a procedure to allocate and deallocate an element list
 void createList(List &L);

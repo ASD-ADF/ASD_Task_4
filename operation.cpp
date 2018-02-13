@@ -13,9 +13,37 @@ void insertAndSort(List &L, address P) {
     */
 
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
+    address Q, Prec, duplicate;
+    duplicate = NULL;
 
+    duplicate = findElm(L,info(P));
 
+    if(duplicate != NULL){
+        cout<<endl<<"WARNING: Can't input same ID!"<<endl;
+    }
+    else{
+        if(first(L) != NULL){
+            Q = first(L);
+            while(next(Q) != NULL){
+                Q = next(Q);
+            }
+        }
+        //for mytype, use player_id
+        //for mytype2, use team_id
+        if((first(L) == NULL) || (info(P).team_id < info(first(L)).team_id)){
+            insertFirst(L,P);
+        }
+        else if(info(P).team_id > info(Q).team_id){
+            insertLast(L,P);
+        }
+        else{
+            Prec = first(L);
+            while(info(next(Prec)).team_id <= info(P).team_id){
+                Prec = next(Prec);
+            }
+            insertAfter(L,Prec,P);
+        }
+    }
     //----------------------------------------
 }
 
@@ -28,8 +56,19 @@ void deletebyID(List &L, infotype x) {
 
     address Prec, P;
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
+    P = findElm(L,x);
+    if(P == first(L)){
+        deleteFirst(L,P);
+    }
+    else if(next(P) == NULL){
+        deleteLast(L,P);
+    }
+    else{
+        Prec = first(L);
+        while(next(Prec) != P){
+            Prec = next(Prec);
+        }
+        deleteAfter(L,Prec,P);
+    }
     //----------------------------------------
 }
