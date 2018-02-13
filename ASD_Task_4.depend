@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1518491321 source:c:\users\andityaarifianto\documents\github\asd_task_4\doublelist.cpp
+	"doublelist.h"
+	"my_data.h"
+
+1518491310 c:\users\andityaarifianto\documents\github\asd_task_4\doublelist.h
+	<iostream>
+	"my_data.h"
+
+1518067745 c:\users\andityaarifianto\documents\github\asd_task_4\my_data.h
+	<iostream>
+
+1518491328 source:c:\users\andityaarifianto\documents\github\asd_task_4\main.cpp
+	<iostream>
+	"doublelist.h"
+	"operation.h"
+	"my_data.h"
+
+1518491234 c:\users\andityaarifianto\documents\github\asd_task_4\operation.h
+	"doublelist.h"
+
+1518067674 source:c:\users\andityaarifianto\documents\github\asd_task_4\my_data.cpp
+	"my_data.h"
+
+1518491337 source:c:\users\andityaarifianto\documents\github\asd_task_4\operation.cpp
+	"doublelist.h"
+	"operation.h"
+	"my_data.h"
+
