@@ -19,22 +19,23 @@ Task 4 : Double Linked List Introduction
 Create a program to store and manage a data using Double linear linked list
 
 
-## TO DO  [SHOULD YOU HAVE ALREADY DONE TASK 3, THEN YOU JUST HAVE TO  COPY-PASTE YOUR CODES AND MODIFY SOME OF THEM ]
+## TO DO  
+## [SHOULD YOU HAVE ALREADY DONE TASK 3, THEN YOU JUST HAVE TO  COPY-PASTE YOUR CODES AND MODIFY SOME OF THEM ]
 
 
-### my_data.h **(From Previous Task_2)**
+### my_data.h *(From Previous Task_2)*
 TODO:  create a new Data type with specification:
 		- an integer variable acted as an ID
 		- two other variables
 		- a float variable
 		
-### my_data2.h 	*[NEW]*
+### my_data2.h 	***[NEW]***
 TODO:  create a new Data type, DIFFERENT FROM THE FIRST ONE with specification:
 		- an integer variable acted as an ID
 		- two other variables
 
 
-### my_data.cpp **(From Previous Task_2)**
+### my_data.cpp *(From Previous Task_2)*
 * `mytype create_data()`<br>
 	TODO: receive input from user and assign the value of new data
 * `view_data(mytype d)`<br>
@@ -43,7 +44,7 @@ TODO:  create a new Data type, DIFFERENT FROM THE FIRST ONE with specification:
 	TODO:  edit the value of data d, the ID must not be modified
 
 	
-### my_data2.cpp 	*[NEW]*
+### my_data2.cpp 	***[NEW]***
 * `mytype2 create_data()`<br>
 	TODO: receive input from user and assign the value of new data
 * `view_data(mytype2 d)`<br>
@@ -55,7 +56,7 @@ TODO:  create a new Data type, DIFFERENT FROM THE FIRST ONE with specification:
 You may just copy your previous result
 
 
-### doublelist.h	*[NEW]*
+### doublelist.h	***[NEW]***
 Create ADT of single linked list
 * define a function and a procedure to allocate and deallocate an element list
   * `function allocate(in: x : infotype) : address`
@@ -74,7 +75,7 @@ Create ADT of single linked list
   * `procedure viewList( i: L : List )`
   
 
-### operation.h **(From Previous Task_3)**
+### operation.h *(From Previous Task_3)*
 * define insertion procedure
   * `procedure insertionSort( i: L : List )`<br>
 	TODO: insert an element pointed by P into an already sorted-by-ID List L, <br>
@@ -84,14 +85,14 @@ Create ADT of single linked list
   * `procedure deletebyID( i/o : L : List, x : infotype )`
 
   
-### doublelist.cpp	*[NEW]*
+### doublelist.cpp	***[NEW]***
 Implement function and procedure defined in `list.h`
 
 
-### operation.cpp **(From Previous Task_3)**
+### operation.cpp *(From Previous Task_3)*
 Implement function and procedure defined in `operation.h`
 
-### main.cpp **(From Previous Task_3)**
+### main.cpp *(From Previous Task_3)*
 Create a main menu to run your application <br>
 Menu Application:
    1. insert new data
