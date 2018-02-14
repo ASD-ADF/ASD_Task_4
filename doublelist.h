@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "my_data.h"
+#include "my_data2.h"
 
 #define first(L) L.first
 #define last(L) L.last

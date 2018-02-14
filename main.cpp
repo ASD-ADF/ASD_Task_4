@@ -2,6 +2,7 @@
 #include "doublelist.h"
 #include "operation.h"
 #include "my_data.h"
+#include "my_data2.h"
 
 using namespace std;
 

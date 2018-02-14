@@ -7,7 +7,7 @@
     STUDENT ID :
 **/
 
-mytype create_data() {
+mytype create_data(mytype x) {
     /**
      TODO:  receive input from user
             and assign the value of new data

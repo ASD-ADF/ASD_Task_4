@@ -26,7 +26,7 @@ struct mytype {
 };
 
 
-mytype create_data();
+mytype create_data(mytype x);
 void view_data(mytype d);
 void edit_data(mytype &d);
 
