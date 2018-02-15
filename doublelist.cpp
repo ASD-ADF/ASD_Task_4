@@ -192,7 +192,7 @@ void printInfo(List L)
     }
     else
     {
-        cout << "List kosong." << endl;
+        cout << "[Kosong]" << endl;
     }
     //----------------------------------------
 }
