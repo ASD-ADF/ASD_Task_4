@@ -13,10 +13,70 @@ void insertAndSort(List &L, address P) {
     */
 
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
+//    if (first(L) == NULL)
+//    {
+//        insertFirst(L, P);
+//        return;
+//    }
+//
+//    address X = findElm(L, info(P));
+//
+//    if (X == NULL)
+//    {
+//        address Q = first(L);
+//        address Prec = first(L);
+//        while (next(Q) != NULL)
+//        {
+//            Q = next(Q);
+//        }
+//        if (info(P).id < info(first(L)).id)
+//        {
+//            insertFirst(L,P);
+//        }
+//        else if (info(P).id > info(Q).id)
+//        {
+//            insertLast(L,P);
+//        }
+//        else
+//        {
+//            while (info(next(Prec)).id < info(P).id)
+//            {
+//                Prec = next(Prec);
+//            }
+//            cout<<info(Prec).id<<endl;
+//            insertAfter(L, Prec, P);
+//        }
+//    }
+//    else
+//    {
+//        cout<<" ID Sudah Terdaftar "<<endl;
+//    }
+//-------------------------------------------------
 
+    if (first(L) == NULL)
+    {
+        insertFirst(L, P);
+        return;
+    }
 
-    //----------------------------------------
+    address X = findElm(L, info(P));
+
+    if (X == NULL)
+    {
+        cout<<"sapi"<<endl;
+        if (info(P).id <= info(first(L)).id)
+            {
+                insertFirst(L, P);
+            }
+        else if (info(P).id >= info(last(L)).id)
+            {
+                insertLast(L, P);
+            }
+    }
+    else
+    {
+        cout<<"ID already registered"<<endl;
+    }
 }
 
 
@@ -28,7 +88,6 @@ void deletebyID(List &L, infotype x) {
 
     address Prec, P;
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
 
 
     //----------------------------------------
