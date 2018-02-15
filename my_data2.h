@@ -5,12 +5,13 @@
 using namespace std;
 
 /**
-    CLASS      :
-    NAME       :
-    STUDENT ID :
+    CLASS      : IF-41-08
+    NAME       : Muhammad Mukhtar Dwi Putra
+    STUDENT ID : 1301170278
 **/
 
-struct mytype2 {
+struct mytype2
+{
     /**
      TODO:  create a new Data type with specification:
             - an integer variable acted as an ID
@@ -18,13 +19,14 @@ struct mytype2 {
     */
     //=================================================
     // YOUR CODE STARTS HERE
-
-
+    int id;
+    string fakultas;
+    string jurusan;
     // YOUR CODE ENDS HERE
     //=================================================
 };
 
-mytype2 create_data(mytype2 x);
+mytype2 create_data(mytype2 &d);
 void view_data(mytype2 d);
 void edit_data(mytype2 &d);
 
