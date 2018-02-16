@@ -42,6 +42,7 @@ void insertFirst(List &L, address P) {
     if (first(L) == NULL)
     {
         first(L) = P;
+        last(L) = P;
     }
     else
     {
@@ -96,6 +97,7 @@ address findElm(List L, infotype x) {
             P = next(P);
         }
     }
+    cout<<"ID not found"<<endl;
     return NULL;
     //----------------------------------------
 }

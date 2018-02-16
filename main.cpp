@@ -55,18 +55,28 @@ void mainMenu() {
             cout<<"ID to find : ";
             cin>>X.id;
             P = findElm(L,X);
-            view_data(info(P));
+            if (P != NULL)
+            {
+                view_data(info(P));
+            }
             break;
         case 4:
             cout<<"ID to find : ";
             cin>>X.id;
             P = findElm(L,X);
-            edit_data(info(P));
+            if (P != NULL)
+            {
+                edit_data(info(P));
+            }
             break;
         case 5:
             cout<<"ID to delete : ";
             cin>>X.id;
-            deletebyID(L, X);
+            P = findElm(L,X);
+            if (P != NULL)
+            {
+                deletebyID(L, X);
+            }
             break;
         }
     } while(choice != 0);

@@ -63,7 +63,6 @@ void insertAndSort(List &L, address P) {
 
     if (X == NULL)
     {
-        cout<<"sapi"<<endl;
         if (info(P).id <= info(first(L)).id)
             {
                 insertFirst(L, P);
@@ -71,6 +70,15 @@ void insertAndSort(List &L, address P) {
         else if (info(P).id >= info(last(L)).id)
             {
                 insertLast(L, P);
+            }
+        else
+            {
+                address Prec = first(L);
+                while (info(next(Prec)).id < info(P).id)
+                    {
+                        Prec = next(Prec);
+                    }
+                insertAfter(L, Prec, P);
             }
     }
     else
@@ -88,7 +96,25 @@ void deletebyID(List &L, infotype x) {
 
     address Prec, P;
     //-------------your code here-------------
+    P = findElm(L,x);
+    Prec = first(L);
 
+    if (next(P) == NULL)
+    {
+        deleteLast(L,P);
+    }
+    else if(P == first(L))
+    {
+        deleteFirst(L,P);
+    }
+    else
+    {
+        while (next(Prec) != P)
+        {
+            Prec = next(Prec);
+        }
+        deleteAfter(L,Prec,P);
+    }
 
     //----------------------------------------
 }
