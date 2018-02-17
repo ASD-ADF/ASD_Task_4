@@ -15,11 +15,10 @@ mytype create_data(mytype x) {
     mytype d;
     // ===========================
     // YOUR CODE HERE
-    cout<<"your code here"<<endl;
-
-
-
-
+    cout<<"ID       : "<<d.id<<endl;
+    cout<<"Name     : "<<d.name<<endl;
+    cout<<"Genre    : "<<d.genre<<endl;
+    cout<<"Price    : Rp."<<d.price<<endl;
     // ===========================
     return d;
 }
@@ -31,11 +30,10 @@ void view_data(mytype d) {
 
     // ===========================
     // YOUR CODE HERE
-    cout<<"your code here"<<endl;
-
-
-
-
+    cin.get();
+    cout<<"Enter new Name  : "; cin.getline(d.name, 30);
+    cout<<"Enter new Genre : "; cin.getline(d.genre, 30);
+    cout<<"Enter new Price : "; cin>>d.price;
     // ===========================
 }
 

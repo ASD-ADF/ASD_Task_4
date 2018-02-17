@@ -42,13 +42,71 @@ void mainMenu() {
         cout<<"0. exit"<<endl;
         cout<<"input choice: ";
         cin>>choice;
+        cout<<endl<<endl;
+
         switch(choice) {
         case 1:
-            X = create_data();
+            X = create_data(X);
             P = allocate(X);
-            insertFirst(L,P);
+            insertAndSort(L,P);
+            break;
+        case 2:
+            if (first(L) == NULL) {
+                cout<< "List empty" <<endl;
+            }
+            else {
+                printInfo(L);
+            }
+            cout<<endl;
+            break;
+        case 3:
+            if (first(L) == NULL) {
+                cout<< "List empty" <<endl;
+                break;
+            }
+            cout<< "Enter ID to find : "; cin>>X.id;
+            P = findElm(L, X);
+            if (P == NULL) {
+                cout<< "ID not found"<<endl;
+            }
+            else {
+                view_data(info(P));
+                cout<<endl;
+            }
+            break;
+        case 4:
+            if (first(L) == NULL) {
+                cout<< "List empty" <<endl;
+                break;
+            }
+            cout<< "Enter ID to edit : "; cin>>X.id;
+            P = findElm(L, X);
+            if (P == NULL) {
+                cout<< "ID not found"<<endl;
+            }
+            else {
+                edit_data(info(P));
+                cout<<endl;
+            }
+            break;
+        case 5:
+            if (first(L) == NULL) {
+                cout<< "List empty" <<endl;
+                break;
+            }
+            cout<< "Enter ID to delete : "; cin>>X.id;
+            deletebyID(L,X);
+            break;
+        case 0:
+            cout<<"Thank You"<<endl;
+            return;
             break;
         }
+        cout<<endl;
+        cout<<endl<<"press enter to continue"<<endl;
+        cin.get();
+        cin.get();
+        cout<<endl<<endl;
     } while(true);
 
     //----------------------------------------
