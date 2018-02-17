@@ -7,7 +7,7 @@
     STUDENT ID : 1301174228
 **/
 
-mytype2 create_data() {
+mytype create_data() {
     /**
      TODO:  receive input from user
             and assign the value of new data
@@ -30,7 +30,7 @@ mytype2 create_data() {
     return d;
 }
 
-void view_data(mytype2 d) {
+void view_data(mytype d) {
     /**
      TODO:  view the content of data d
     */
@@ -49,7 +49,7 @@ void view_data(mytype2 d) {
 }
 
 
-void edit_data(mytype2 &d) {
+void edit_data(mytype &d) {
     /**
      TODO:  edit the value of data d,
             the ID must not be modified
