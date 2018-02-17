@@ -49,14 +49,14 @@ void mainMenu() {
             //insertLast(L,P);      //berhasil!!!
             //insertAndSort(L,P);   //berhasill!!!
             break;}
-        case 2:
+        case 2: //berhasil!!
             {P=first(L);
             while(P!=NULL){
                 view_data(info(P));
                 P=next(P);
             }
             break;}
-        case 3:
+        case 3:   //berhasil!!!!
             {infotype x;
             cout<<"Masukkan id yang ingin dicari = ";
             cin>>x.ID;
@@ -67,7 +67,7 @@ void mainMenu() {
             }else{
                 view_data(info(w));
             }break;}
-        case 4:
+        case 4:   //berhasill!!!!
         	{infotype x;
             cout<<"Masukkan id yang ingin diubah = ";
             cin>>x.ID;
@@ -79,7 +79,7 @@ void mainMenu() {
                 edit_data(info(m));
             }break;}
         case 5:
-			{infotype x;
+		{infotype x;
             cout<<"Masukkan id yang ingin dihapus = ";
             cin>>x.ID;
             deletebyID(L,x);
