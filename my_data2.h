@@ -18,6 +18,9 @@ struct mytype2 {
     */
     //=================================================
     // YOUR CODE STARTS HERE
+    int id_lec;
+    string name_lec;
+    string clas_lec;
 
 
     // YOUR CODE ENDS HERE

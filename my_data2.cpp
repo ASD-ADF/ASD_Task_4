@@ -15,8 +15,11 @@ mytype2 create_data(mytype2 x) {
     mytype2 d;
     // ===========================
     // YOUR CODE HERE
-    cout<<"your code here"<<endl;
 
+    cout<<"===LECTURER==="<<endl;
+    cout<<"input id      : ";cin>>d.id_lec;
+    cout<<"input name    : ";cin>>d.name_lec;
+    cout<<"input Subject : ";cin>>d.clas_lec;
 
 
 
@@ -31,7 +34,11 @@ void view_data(mytype2 d) {
 
     // ===========================
     // YOUR CODE HERE
-    cout<<"your code here"<<endl;
+    cout<<"===LECTURER==="<<endl;
+    cout<<"Id     : "<<d.id_lec<<endl;
+    cout<<"Name   : "<<d.name_lec<<endl;
+    cout<<"Subject: "<<d.clas_lec<<endl;
+
 
 
 
@@ -40,7 +47,7 @@ void view_data(mytype2 d) {
 }
 
 
-void edit_data(mytype &d) {
+void edit_data(mytype2 &d) {
     /**
      TODO:  edit the value of data d,
             the ID must not be modified
@@ -48,7 +55,14 @@ void edit_data(mytype &d) {
 
     // ===========================
     // YOUR CODE HERE
-        cout<<"your code here"<<endl;
+        string beforeUpdateName = d.name_lec;
+        cout<<"===LECTURER==="<<endl;
+        cout<<"Input new name    : ";
+        cin>>d.name_lec;
+        cout<<"Input new Subject : ";
+        cin>>d.clas_lec;
+        cout<<beforeUpdateName<<" Updated become "<<d.name_lec<<endl;
+        cout<<endl;
 
 
 

@@ -15,7 +15,11 @@ mytype create_data(mytype x) {
     mytype d;
     // ===========================
     // YOUR CODE HERE
-    cout<<"your code here"<<endl;
+    cout<<"==MAHASISWA=="<<endl;
+    cout<<"input id    : ";cin>>d.id;
+    cout<<"input name  : ";cin>>d.name;
+    cout<<"input class : ";cin>>d.clas;
+    cout<<"input score : ";cin>>d.score;
 
 
 
@@ -31,7 +35,11 @@ void view_data(mytype d) {
 
     // ===========================
     // YOUR CODE HERE
-    cout<<"your code here"<<endl;
+    cout<<"====================="<<endl;
+    cout<<"Id   : "<<d.id<<endl;
+    cout<<"Name : "<<d.name<<endl;
+    cout<<"Class: "<<d.clas<<endl;
+    cout<<"Mark : "<<d.score<<endl;
 
 
 
@@ -48,8 +56,16 @@ void edit_data(mytype &d) {
 
     // ===========================
     // YOUR CODE HERE
-        cout<<"your code here"<<endl;
-
+        string beforeUpdateName = d.name;
+        cout<<"===STUDENT==="<<endl;
+        cout<<"Input new name : ";
+        cin>>d.name;
+        cout<<"Input new Class : ";
+        cin>>d.clas;
+        cout<<"Input new Mark : ";
+        cin>>d.score;
+        cout<<beforeUpdateName<<" Updated become "<<d.name<<endl;
+        cout<<endl;
 
 
 
