@@ -1,7 +1,7 @@
 #include <iostream>
 #include "doublelist.h"
 #include "operation.h"
-#include "my_data.h"
+#include "my_data2.h"
 
 using namespace std;
 
@@ -43,12 +43,70 @@ void mainMenu() {
         cin>>choice;
         switch(choice) {
         case 1:
-            X = create_data();
+            {X = create_data();
             P = allocate(X);
             insertFirst(L,P);
-            break;
+            //insertLast(L,P);      //berhasil!!!
+            //insertAndSort(L,P);   //berhasill!!!
+            break;}
+        case 2:
+            {P=first(L);
+            while(P!=NULL){
+                view_data(info(P));
+                P=next(P);
+            }
+            break;}
+        case 3:
+            {infotype x;
+            cout<<"Masukkan id yang ingin dicari = ";
+            cin>>x.ID;
+
+            address w=findElm(L,x);
+            if(w==NULL){
+                cout<<"Data tidak ditemukan"<<endl;
+            }else{
+                view_data(info(w));
+            }break;}
+        case 4:
+        	{infotype x;
+            cout<<"Masukkan id yang ingin diubah = ";
+            cin>>x.ID;
+
+            address m=findElm(L,x);
+            if(m==NULL){
+                cout<<"Data tidak ditemukan"<<endl;
+            }else{
+                edit_data(info(m));
+            }break;}
+        case 5:
+			{infotype x;
+            cout<<"Masukkan id yang ingin dihapus = ";
+            cin>>x.ID;
+            deletebyID(L,x);
+            break;}
         }
-    } while(true);
+    } while(choice!=0);
 
     //----------------------------------------
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

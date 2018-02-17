@@ -27,3 +27,36 @@
 	"operation.h"
 	"my_data.h"
 
+1518784088 source:e:\dokumen & tugas\tugas\semester 2\struktur data\pelajaran\task adf\asd_task_4\main.cpp
+	<iostream>
+	"doublelist.h"
+	"operation.h"
+	"my_data2.h"
+
+1518783640 e:\dokumen & tugas\tugas\semester 2\struktur data\pelajaran\task adf\asd_task_4\doublelist.h
+	<iostream>
+	"my_data2.h"
+
+1518588572 e:\dokumen & tugas\tugas\semester 2\struktur data\pelajaran\task adf\asd_task_4\my_data.h
+	<iostream>
+
+1518527090 e:\dokumen & tugas\tugas\semester 2\struktur data\pelajaran\task adf\asd_task_4\operation.h
+	"doublelist.h"
+
+1518783979 source:e:\dokumen & tugas\tugas\semester 2\struktur data\pelajaran\task adf\asd_task_4\my_data.cpp
+
+1518881696 source:e:\dokumen & tugas\tugas\semester 2\struktur data\pelajaran\task adf\asd_task_4\operation.cpp
+	"doublelist.h"
+	"operation.h"
+	"my_data2.h"
+
+1518881596 source:e:\dokumen & tugas\tugas\semester 2\struktur data\pelajaran\task adf\asd_task_4\doublelist.cpp
+	"doublelist.h"
+	"my_data2.h"
+
+1518783582 source:e:\dokumen & tugas\tugas\semester 2\struktur data\pelajaran\task adf\asd_task_4\my_data2.cpp
+	"my_data2.h"
+
+1518783979 e:\dokumen & tugas\tugas\semester 2\struktur data\pelajaran\task adf\asd_task_4\my_data2.h
+	<iostream>
+
