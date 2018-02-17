@@ -2,9 +2,9 @@
 #include "my_data.h"
 
 /**
-    CLASS      :
-    NAME       :
-    STUDENT ID :
+    CLASS      : IF-41-08
+    NAME       : IRIYANTO
+    STUDENT ID : 1301174295
 **/
 
 mytype create_data(mytype x) {
@@ -15,11 +15,11 @@ mytype create_data(mytype x) {
     mytype d;
     // ===========================
     // YOUR CODE HERE
-    cout<<"your code here"<<endl;
-
-
-
-
+    cout<<"Enter game ID    : "; cin>>d.id;
+    cin.get();
+    cout<<"Enter game Name  : "; cin.getline(d.name, 30);
+    cout<<"Enter game Genre : "; cin.getline(d.genre, 30);
+    cout<<"Enter game Price : "; cin>>d.price;
     // ===========================
     return d;
 }
@@ -31,11 +31,10 @@ void view_data(mytype d) {
 
     // ===========================
     // YOUR CODE HERE
-    cout<<"your code here"<<endl;
-
-
-
-
+    cout<<"ID       : "<<d.id<<endl;
+    cout<<"Name     : "<<d.name<<endl;
+    cout<<"Genre    : "<<d.genre<<endl;
+    cout<<"Price    : Rp."<<d.price<<endl;
     // ===========================
 }
 
@@ -48,11 +47,10 @@ void edit_data(mytype &d) {
 
     // ===========================
     // YOUR CODE HERE
-        cout<<"your code here"<<endl;
-
-
-
-
+    cin.get();
+    cout<<"Enter new Name  : "; cin.getline(d.name, 30);
+    cout<<"Enter new Genre : "; cin.getline(d.genre, 30);
+    cout<<"Enter new Price : "; cin>>d.price;
     // ===========================
 }
 

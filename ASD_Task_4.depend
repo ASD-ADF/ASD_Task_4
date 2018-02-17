@@ -27,3 +27,41 @@
 	"operation.h"
 	"my_data.h"
 
+1518836810 source:e:\telkom university\github\asd_task_4\doublelist.cpp
+	"doublelist.h"
+	"my_data.h"
+	"my_data2.h"
+
+1518837911 e:\telkom university\github\asd_task_4\doublelist.h
+	<iostream>
+	"my_data.h"
+	"my_data2.h"
+
+1518834735 e:\telkom university\github\asd_task_4\my_data.h
+	<iostream>
+
+1518834782 e:\telkom university\github\asd_task_4\my_data2.h
+	<iostream>
+
+1518837855 source:e:\telkom university\github\asd_task_4\main.cpp
+	<iostream>
+	"doublelist.h"
+	"operation.h"
+	"my_data.h"
+	"my_data2.h"
+
+1518787313 e:\telkom university\github\asd_task_4\operation.h
+	"doublelist.h"
+
+1518837712 source:e:\telkom university\github\asd_task_4\operation.cpp
+	"doublelist.h"
+	"operation.h"
+	"my_data.h"
+	"my_data2.h"
+
+1518835016 source:e:\telkom university\github\asd_task_4\my_data.cpp
+	"my_data.h"
+
+1518835892 source:e:\telkom university\github\asd_task_4\my_data2.cpp
+	"my_data2.h"
+
