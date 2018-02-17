@@ -1,7 +1,7 @@
 #include <iostream>
 #include "doublelist.h"
 #include "operation.h"
-#include "my_data2.h"
+#include "my_data2.h"  //pakai my_data.h dan my_data2.h bisa semua pak
 
 using namespace std;
 
