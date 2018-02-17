@@ -27,3 +27,42 @@
 	"operation.h"
 	"my_data.h"
 
+1518891218 source:c:\users\user\documents\github\asd_task_4\main.cpp
+	<iostream>
+	"doublelist.h"
+	"operation.h"
+	"my_data.h"
+	"my_data2.h"
+
+1518890012 c:\users\user\documents\github\asd_task_4\doublelist.h
+	<iostream>
+	"my_data.h"
+	"my_data2.h"
+
+1518889722 c:\users\user\documents\github\asd_task_4\my_data.h
+	<iostream>
+
+1518538169 c:\users\user\documents\github\asd_task_4\operation.h
+	"doublelist.h"
+
+1518881323 source:c:\users\user\documents\github\asd_task_4\operation.cpp
+	"doublelist.h"
+	"operation.h"
+	"my_data.h"
+	"my_data2.h"
+
+1518890426 source:c:\users\user\documents\github\asd_task_4\doublelist.cpp
+	"doublelist.h"
+	"my_data.h"
+	"my_data2.h"
+	<iostream>
+
+1518891649 source:c:\users\user\documents\github\asd_task_4\my_data.cpp
+	"my_data.h"
+
+1518886270 source:c:\users\user\documents\github\asd_task_4\my_data2.cpp
+	"my_data2.h"
+
+1518889742 c:\users\user\documents\github\asd_task_4\my_data2.h
+	<iostream>
+
