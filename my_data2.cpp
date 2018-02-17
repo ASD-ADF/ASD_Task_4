@@ -15,10 +15,10 @@ mytype2 create_data(mytype2 x) {
     mytype2 d;
     // ===========================
     // YOUR CODE HERE
-    cout<<"Enter game ID            : "; cin>>d.id;
+    cout<<"Enter Film ID            : "; cin>>d.id;
     cin.get();
-    cout<<"Enter game Name          : "; cin.getline(d.name, 30);
-    cout<<"Enter game Rating (1-10) : "; cin>>d.rating;
+    cout<<"Enter Film Name          : "; cin>>d.name;
+    cout<<"Enter Film Rating (1-10) : "; cin>>d.rating;
     // ===========================
     return d;
 }
@@ -46,7 +46,7 @@ void edit_data(mytype2 &d) {
     // ===========================
     // YOUR CODE HERE
     cin.get();
-    cout<<"Enter new Name   : "; cin.getline(d.name, 30);
+    cout<<"Enter new Name   : "; cin>>d.name;
     cout<<"Enter new Rating : "; cin>>d.rating;
     // ===========================
 }

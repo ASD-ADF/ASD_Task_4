@@ -20,7 +20,7 @@ struct mytype {
     //=================================================
     // YOUR CODE STARTS HERE
     int id;
-    char name[30], genre[30];
+    char name[30], type[30];
     float price;
     // YOUR CODE ENDS HERE
     //=================================================
