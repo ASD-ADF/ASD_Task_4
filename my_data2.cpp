@@ -7,12 +7,12 @@
     STUDENT ID : 1301174228
 **/
 
-mytype create_data() {
+mytype2 create_data() {
     /**
      TODO:  receive input from user
             and assign the value of new data
     */
-    mytype d;
+    mytype2 d;
     // ===========================
     // YOUR CODE HERE
     cout<<"your code here"<<endl;
@@ -30,7 +30,7 @@ mytype create_data() {
     return d;
 }
 
-void view_data(mytype d) {
+void view_data(mytype2 d) {
     /**
      TODO:  view the content of data d
     */
@@ -49,7 +49,7 @@ void view_data(mytype d) {
 }
 
 
-void edit_data(mytype &d) {
+void edit_data(mytype2 &d) {
     /**
      TODO:  edit the value of data d,
             the ID must not be modified
