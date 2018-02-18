@@ -2,6 +2,7 @@
 #include "doublelist.h"
 #include "operation.h"
 #include "my_data.h"
+#include "my_data2.h"
 
 using namespace std;
 
@@ -41,13 +42,71 @@ void mainMenu() {
         cout<<"0. exit"<<endl;
         cout<<"input choice: ";
         cin>>choice;
+        cout<<endl<<endl;
+
         switch(choice) {
         case 1:
-            X = create_data();
+            X = create_data(X);
             P = allocate(X);
-            insertFirst(L,P);
+            insertAndSort(L,P);
+            break;
+        case 2:
+            if (first(L) == NULL) {
+                cout<< "List Kosong" <<endl;
+            }
+            else {
+                printInfo(L);
+            }
+            cout<<endl;
+            break;
+        case 3:
+            if (first(L) == NULL) {
+                cout<< "List Kosong" <<endl;
+                break;
+            }
+            cout<< "Masukan kode untuk mencari : "; cin>>X.id;
+            P = findElm(L, X);
+            if (P == NULL) {
+                cout<< "kode tidak ditemukan"<<endl;
+            }
+            else {
+                view_data(info(P));
+                cout<<endl;
+            }
+            break;
+        case 4:
+            if (first(L) == NULL) {
+                cout<< "List kosong" <<endl;
+                break;
+            }
+            cout<< "Masukan kode untuk mengubah : "; cin>>X.id;
+            P = findElm(L, X);
+            if (P == NULL) {
+                cout<< "kode tidak ditemukan"<<endl;
+            }
+            else {
+                edit_data(info(P));
+                cout<<endl;
+            }
+            break;
+        case 5:
+            if (first(L) == NULL) {
+                cout<< "List kosong" <<endl;
+                break;
+            }
+            cout<< "masukan kode untuk dihapus : "; cin>>X.id;
+            deletebyID(L,X);
+            break;
+        case 0:
+            cout<<"Terima kasih"<<endl;
+            return;
             break;
         }
+        cout<<endl;
+        cout<<endl<<"Tekan Enter Untuk melanjutkan perintah"<<endl;
+        cin.get();
+        cin.get();
+        cout<<endl<<endl;
     } while(true);
 
     //----------------------------------------
