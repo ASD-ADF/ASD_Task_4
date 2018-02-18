@@ -20,6 +20,7 @@ int main() {
 void mainMenu() {
     address P;
     infotype X;
+    infotype d;
     /**
     * IS : List has been created
     * PR : prints menu to user
@@ -31,7 +32,7 @@ void mainMenu() {
     *       0. exit
     */
     //-------------your code here-------------
-    int choice;
+    int choice,x;
     do {
         cout<<"Menu"<<endl;
         cout<<"1. insert"<<endl;
@@ -44,9 +45,60 @@ void mainMenu() {
         cin>>choice;
         switch(choice) {
         case 1:
-            X = create_data();
+            X = create_data(X);
             P = allocate(X);
             insertFirst(L,P);
+            break;
+        case 2:
+            if (first(L) == NULL) {
+                cout<< "List empty" <<endl;
+            }
+            else {
+                printInfo(L);
+            }
+            cout<<endl;
+            break;
+        case 3:
+            if (first(L) == NULL) {
+                cout<< "List empty" <<endl;
+                break;
+            }
+            cout<< "Enter ID to find : "; cin>>X.id;
+            P = findElm(L, X);
+            if (P == NULL) {
+                cout<< "ID not found"<<endl;
+            }
+            else {
+                view_data(info(P));
+                cout<<endl;
+            }
+            break;
+        case 4:
+            if (first(L) == NULL) {
+                cout<< "List empty" <<endl;
+                break;
+            }
+            cout<< "Enter ID to edit : "; cin>>X.id;
+            P = findElm(L, X);
+            if (P == NULL) {
+                cout<< "ID not found"<<endl;
+            }
+            else {
+                edit_data(info(P));
+                cout<<endl;
+            }
+            break;
+        case 5:
+            if (first(L) == NULL) {
+                cout<< "List empty" <<endl;
+                break;
+            }
+            cout<< "Enter ID to delete : "; cin>>X.id;
+            deletebyID(L,X);
+            break;
+        case 0:
+            cout<<"Thank You"<<endl;
+            return;
             break;
         }
     } while(true);

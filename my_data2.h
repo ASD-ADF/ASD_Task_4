@@ -5,11 +5,10 @@
 using namespace std;
 
 /**
-    CLASS      :
-    NAME       :
-    STUDENT ID :
+    CLASS      :IF-40-INT
+    NAME       :gede b. wiswa pranata
+    STUDENT ID :1301160413
 **/
-
 struct mytype2 {
     /**
      TODO:  create a new Data type with specification:
@@ -18,7 +17,9 @@ struct mytype2 {
     */
     //=================================================
     // YOUR CODE STARTS HERE
-
+    int id;
+    string NOphone;
+    string study;
 
     // YOUR CODE ENDS HERE
     //=================================================
