@@ -14,9 +14,32 @@ void insertAndSort(List &L, address P) {
     */
 
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
+    infotype info = create_data();
+	P = allocate(info);
+	if (L.first == NULL)
+    {
+		insertFirst(L, P);
+	}
+	else
+    {
+		bool duplicate = false;
+		address addr = L.first;
+		while (addr != NULL && !duplicate)
+		{
+			if (addr->info.id == info.id)
+				duplicate = true;
+			addr = addr->next;
+		}
+		if (!duplicate)
+		{
+			addr = L.first;
+			while (addr != NULL && addr->info.id != info.id)
+			{
+				if (addr->info.id < info.id && addr->next->info.id > info.id)
+					insertAfter(L, addr, P);
+			}
+		}
+	}
     //----------------------------------------
 }
 
@@ -29,8 +52,8 @@ void deletebyID(List &L, infotype x) {
 
     address Prec, P;
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
+    address Prec, P;
+    P = findElm(L,x);
+    deleteAfter(L,Prec,P);
     //----------------------------------------
 }

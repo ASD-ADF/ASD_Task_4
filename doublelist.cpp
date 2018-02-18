@@ -7,9 +7,7 @@ void createList(List &L) {
     * FS : set first(L) with Null
     */
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
+    L.first = NULL;
     //----------------------------------------
 }
 
@@ -20,9 +18,9 @@ address allocate(infotype x) {
 
     address P;
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
+    P = new elmlist;
+    info(P) = x;
+    next(P) = NULL;
     //----------------------------------------
     return P;
 }
@@ -32,9 +30,7 @@ void deallocate(address &P) {
     * FS : delete element pointed by P
     */
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
+    delete(P);
     //----------------------------------------
 }
 
@@ -44,9 +40,9 @@ void insertFirst(List &L, address P) {
     * FS : element pointed by P became the first element in List L
     */
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
+    next(P) = first(L);
+    first(L) = P;
+    prev(first(L)) = P;
     //----------------------------------------
 }
 
@@ -56,9 +52,12 @@ void insertLast(List &L, address P) {
     * FS : element pointed by P became the last element in List L
     */
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
+    if (L.first != NULL)
+    {
+		P->prev = L.last;
+		L.last->next = P;
+		L.last = P;
+	}
     //----------------------------------------
 }
 
@@ -71,9 +70,17 @@ address findElm(List L, infotype x) {
 
     address P;
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
+    bool found = false;
+	if (L.first != NULL)
+    {
+		P = L.first;
+		while (P != L.last->next && !found) {
+			if (P->info.id == x.id)
+				found = true;
+			else
+				P = P->next;
+		}
+	}
     //----------------------------------------
     return P;
 }
@@ -84,10 +91,13 @@ void deleteFirst(List &L, address &P) {
     * FS : first element in List L is removed and is pointed by P
     */
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
-
+    if(first(L) != NULL)
+    {
+        P = first(L);
+        first(L) = next(P);
+        next(P) = NULL;
+        prev(first(L)) = NULL;
+    }
     //----------------------------------------
 }
 
@@ -97,10 +107,12 @@ void deleteLast(List &L, address &P) {
     * FS : last element in List L is removed and is pointed by P
     */
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
-
+    if (L.first != NULL)
+    {
+		P = L.last;
+		L.last = L.last->prev;
+		L.last->next = NULL;
+	}
     //----------------------------------------
 }
 
@@ -110,9 +122,14 @@ void printInfo(List L) {
     *      call the view_data function from my_data.h to print the info
     */
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
+    address P;
+    P = first(L);
+    while (P != NULL)
+    {
+        view_data (info(P));
+        cout<<endl;
+        P = next(P);
+    }
     //----------------------------------------
 }
 
@@ -124,8 +141,13 @@ void insertAfter(List &L, address Prec, address P) {
     *      pointed by pointer Prec
     */
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
+    if (L.first != NULL && Prec != NULL)
+    {
+		P->prev = Prec;
+		P->next = Prec->next;
+		Prec->next->prev = P;
+		Prec->next = P;
+	}
     //----------------------------------------
 
 }
@@ -136,9 +158,20 @@ void deleteAfter(List &L, address Prec, address &P) {
     *      is removed and pointed by pointer P
     */
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
+    P = first(L);
+    if ((prev(P)==NULL)&&(next(P)!=NULL))
+    {
+        deleteFirst(L,P);
+    }else if ((prev(P)!=NULL)&&(next(P)==NULL))
+    {
+        deleteLast(L,P);
+    }else
+    {
+        prev(Prec) = next(next(Prec));
+        prev(next(P)) = Prec;
+        prev(P) = NULL;
+        next(P) = NULL;
+    }
     //----------------------------------------
 }
 
