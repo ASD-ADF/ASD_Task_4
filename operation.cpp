@@ -36,7 +36,7 @@ if(first(L) == NULL){
                 Prec=next(Prec);
             }
             cout<<info(Prec).nim<<endl;
-            insertAfter(Prec, P);
+            insertAfter(L, Prec, P);
         }
     }else{
         cout<<"ID sudah ditemukkan"<<endl;
@@ -63,7 +63,7 @@ void deletebyID(List &L, infotype x) {
         while(next(Prec)!=P){
             Prec = next(Prec);
         }
-        deleteAfter(Prec, P);
+        deleteAfter(L, Prec, P);
     }
 
 

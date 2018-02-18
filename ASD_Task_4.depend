@@ -37,7 +37,7 @@
 	<iostream>
 	"my_data.h"
 
-1518918979 c:\users\asus\documents\github repositories\asd_task_4\my_data.h
+1518949116 c:\users\asus\documents\github repositories\asd_task_4\my_data.h
 	<iostream>
 
 1518762198 c:\users\asus\documents\github repositories\asd_task_4\operation.h
@@ -46,10 +46,19 @@
 1518919243 source:c:\users\asus\documents\github repositories\asd_task_4\my_data.cpp
 	"my_data.h"
 
-1518918778 source:c:\users\asus\documents\github repositories\asd_task_4\operation.cpp
+1518949157 source:c:\users\asus\documents\github repositories\asd_task_4\operation.cpp
 	"doublelist.h"
 	"operation.h"
 	"my_data.h"
 
-1518762198 source:c:\users\asus\documents\github repositories\asd_task_4\my_data2.cpp
+1518949114 source:c:\users\asus\documents\github repositories\asd_task_4\my_data2.cpp
+	<iostream>
+	"my_data2.h"
+
+1518948428 c:\users\asus\documents\github repositories\asd_task_4\my_data2.h
+	<iostream>
+
+1518949422 source:c:\users\asus\documents\github repositories\asd_task_4\doublelist.cpp
+	"doublelist.h"
+	"my_data.h"
 

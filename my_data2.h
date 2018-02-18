@@ -25,7 +25,7 @@ struct mytype2 {
     int nim;
     string nama;
     string kelas;
-    float gpa;
+
 
 
     // YOUR CODE ENDS HERE
@@ -33,7 +33,7 @@ struct mytype2 {
 };
 
 
-mytype2 create_data();
+mytype2 create_data(mytype2 x);
 void view_data(mytype2 d);
 void edit_data(mytype2 &d);
 

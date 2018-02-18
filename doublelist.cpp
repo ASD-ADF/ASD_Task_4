@@ -89,16 +89,16 @@ address findElm(List L, infotype x) {
     address P;
     //-------------your code here-------------
 
-    if(first(L) == NULL){
-        return NULL;
-    }else{
-        address P = first(L);
-        while(P!= NULL && info(P)!= x){
-            P = next(P);
-        }
-        if( P == NULL){
-            return NULL;
-        }
+    if(first(L) !=NULL){
+        P = first(L);
+        while(P!= NULL){
+            if(info(P).nim == x.nim){
+                return P;
+            }
+            else{
+                P= next(P);
+            }
+        };
     }
     //----------------------------------------
     return P;
@@ -113,7 +113,7 @@ void deleteFirst(List &L, address &P) {
 
     if(first(L) == NULL){
         cout<<"List kosong"<<endl;
-    }else if(First(L) == First(L)){
+    }else if(first(L) == first(L)){
         address P = first(L);
 
         first(L) = NULL;
@@ -138,7 +138,7 @@ void deleteLast(List &L, address &P) {
     */
     //-------------your code here-------------
     if(first(L) != NULL){
-        if(next(last(L) = NULL){
+        if(next(last(L)) == NULL){
            deleteFirst(L, P);
            }else{
             P = last(L);
@@ -160,13 +160,14 @@ void printInfo(List L) {
     */
     //-------------your code here-------------
 
-    address P = first(L);
-    cout<<info(P)<<endl;
-
-    while(next(P)!=NULL){
-        cout<<info(P)<<endl;
+    address P;
+    P = first(L);
+    while(P!= NULL){
+        view_data(info(P));
+        cout<<endl;
         P = next(P);
     }
+
 
 
     //----------------------------------------
@@ -205,11 +206,17 @@ void deleteAfter(List &L, address Prec, address &P) {
 
     if(first(L) != NULL && Prec!= NULL){
         if(next(Prec)!= NULL){
-            if(next(next()))
+            if(next(next(Prec))==last(L)){
+                deleteLast(L, P);
+            }else{
+                P = next(Prec);
+                next(Prec) = next(P);
+                prev(next(P)) = Prec;
+                next(P) = NULL;
+                prev(P) = NULL;
+            }
         }
     }
-
-
     //----------------------------------------
 }
 
