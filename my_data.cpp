@@ -2,12 +2,12 @@
 #include "my_data.h"
 
 /**
-    CLASS      :
-    NAME       :
-    STUDENT ID :
+    CLASS      : IF- 41- 08
+    NAME       : Aanisah Rifda Rusjdy
+    STUDENT ID : 1301174057
 **/
 
-mytype create_data() {
+mytype create_data(mytype x) {
     /**
      TODO:  receive input from user
             and assign the value of new data
@@ -15,11 +15,14 @@ mytype create_data() {
     mytype d;
     // ===========================
     // YOUR CODE HERE
-    cout<<"your code here"<<endl;
-
-
-
-
+    cout<<"Insert ID   : ";
+    cin>>d.id;
+    cout<<"Insert Name : ";
+    cin>>d.nama;
+    cout<<"Insert Class: ";
+    cin>>d.kelas;
+    cout<<"Insert Score: ";
+    cin>>d.nilai;
     // ===========================
     return d;
 }
@@ -31,14 +34,12 @@ void view_data(mytype d) {
 
     // ===========================
     // YOUR CODE HERE
-    cout<<"your code here"<<endl;
-
-
-
-
+    cout<<"ID     : "<<d.id<<" "<<endl;
+    cout<<"Name   : "<<d.nama<<" "<<endl;
+    cout<<"Class  : "<<d.kelas<<" "<<endl;
+    cout<<"Score  : "<<d.nilai<<" "<<endl;
     // ===========================
 }
-
 
 void edit_data(mytype &d) {
     /**
@@ -48,11 +49,11 @@ void edit_data(mytype &d) {
 
     // ===========================
     // YOUR CODE HERE
-        cout<<"your code here"<<endl;
-
-
-
-
+        cout<<"Insert Name  : ";
+        cin>>d.nama;
+        cout<<"Insert Class : ";
+        cin>>d.kelas;
+        cout<<"Insert Score : ";
+        cin>>d.nilai;
     // ===========================
 }
-
