@@ -13,13 +13,14 @@ mytype2 create_data(mytype2 x) {
             and assign the value of new data
     */
     mytype2 d;
-    // ===========================
-    // YOUR CODE HERE
-    cout<<"Enter Film ID            : "; cin>>d.id;
-    cin.get();
-    cout<<"Enter Film Name          : "; cin>>d.name;
-    cout<<"Enter Film Rating (1-10) : "; cin>>d.rating;
-    // ===========================
+    cout<<"ID: ";
+    cin>>d.id;
+    cout<<"Name: ";
+    cin>>d.name;
+    cout<<"NIM: ";
+    cin>>d.nim;
+    cout<<"Score: ";
+    cin>>d.score;
     return d;
 }
 
@@ -28,12 +29,10 @@ void view_data(mytype2 d) {
      TODO:  view the content of data d
     */
 
-    // ===========================
-    // YOUR CODE HERE
-    cout<<"ID       : "<<d.id<<endl;
-    cout<<"Name     : "<<d.name<<endl;
-    cout<<"Rating   : "<<d.rating<<endl;
-    // ===========================
+    cout<<"ID: "<<d.id<<endl;
+    cout<<"Name: "<<d.name<<endl;
+    cout<<"NIM: "<<d.nim<<endl;
+    cout<<"Score: "<<d.score<<endl;
 }
 
 
@@ -43,11 +42,11 @@ void edit_data(mytype2 &d) {
             the ID must not be modified
     */
 
-    // ===========================
-    // YOUR CODE HERE
-    cin.get();
-    cout<<"Enter new Name   : "; cin>>d.name;
-    cout<<"Enter new Rating : "; cin>>d.rating;
-    // ===========================
+    cout<<"Name  : ";
+    cin>>d.name;
+    cout<<"NIM: ";
+    cin>>d.nim;
+    cout<<"Score   : ";
+    cin>>d.score;
 }
 

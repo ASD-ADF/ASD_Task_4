@@ -15,18 +15,20 @@ struct mytype2 {
      TODO:  create a new Data type with specification:
             - an integer variable acted as an ID
             - two other variables
+            - a float variable
     */
     //=================================================
     // YOUR CODE STARTS HERE
     int id;
-    char name[30];
-    float rating;
+    string name;
+    string nim;
+    float score;
     // YOUR CODE ENDS HERE
     //=================================================
 };
 
-mytype2 create_data(mytype2 x);
+
+mytype2 create_data2();
 void view_data(mytype2 d);
 void edit_data(mytype2 &d);
-
 #endif // MY_DATA2_H_INCLUDED

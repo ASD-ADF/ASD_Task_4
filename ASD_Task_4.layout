@@ -4,22 +4,7 @@
 	<ActiveTarget name="Debug" />
 	<File name="doublelist.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="379" topLine="162" />
-		</Cursor>
-	</File>
-	<File name="my_data2.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="854" topLine="25" />
-		</Cursor>
-	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1035" topLine="31" />
-		</Cursor>
-	</File>
-	<File name="my_data.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="543" topLine="6" />
+			<Cursor1 position="2207" topLine="82" />
 		</Cursor>
 	</File>
 	<File name="doublelist.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -27,12 +12,27 @@
 			<Cursor1 position="659" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="my_data.cpp" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1103" topLine="30" />
+			<Cursor1 position="1035" topLine="31" />
 		</Cursor>
 	</File>
-	<File name="my_data2.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="my_data.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="829" topLine="4" />
+		</Cursor>
+	</File>
+	<File name="my_data.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="413" topLine="6" />
+		</Cursor>
+	</File>
+	<File name="my_data2.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="854" topLine="25" />
+		</Cursor>
+	</File>
+	<File name="my_data2.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="503" topLine="4" />
 		</Cursor>
@@ -42,7 +42,7 @@
 			<Cursor1 position="592" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="operation.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="operation.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="207" topLine="0" />
 		</Cursor>

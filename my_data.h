@@ -20,15 +20,15 @@ struct mytype {
     //=================================================
     // YOUR CODE STARTS HERE
     int id;
-    char name[30], type[30];
-    float price;
+    string name;
+    string nim;
+    float score;
     // YOUR CODE ENDS HERE
     //=================================================
 };
 
 
-mytype create_data(mytype x);
+mytype create_data();
 void view_data(mytype d);
 void edit_data(mytype &d);
-
 #endif // MY_DATA_H_INCLUDED

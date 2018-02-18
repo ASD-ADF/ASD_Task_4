@@ -20,6 +20,7 @@ int main() {
 void mainMenu() {
     address P;
     infotype X;
+    bool exit;
     /**
     * IS : List has been created
     * PR : prints menu to user
@@ -30,7 +31,6 @@ void mainMenu() {
     *       5. delete data by ID
     *       0. exit
     */
-    //-------------your code here-------------
     int choice;
     do {
         cout<<"Menu"<<endl;
@@ -42,72 +42,37 @@ void mainMenu() {
         cout<<"0. exit"<<endl;
         cout<<"input choice: ";
         cin>>choice;
-        cout<<endl<<endl;
-
+        cout<<endl;
         switch(choice) {
         case 1:
-            X = create_data(X);
+            X = create_data();
             P = allocate(X);
-            insertAndSort(L,P);
+            insertFirst(L,P);
             break;
         case 2:
-            if (first(L) == NULL) {
-                cout<< "List empty" <<endl;
-            }
-            else {
-                printInfo(L);
-            }
-            cout<<endl;
+            printInfo(L);
             break;
         case 3:
-            if (first(L) == NULL) {
-                cout<< "List empty" <<endl;
-                break;
-            }
-            cout<< "Enter ID to find : "; cin>>X.id;
-            P = findElm(L, X);
-            if (P == NULL) {
-                cout<< "ID not found"<<endl;
-            }
-            else {
-                view_data(info(P));
-                cout<<endl;
-            }
+            cout << "Input Student ID : ";
+			cin >> X.id;
+			P = findElm(L, X);
+			view_data(info(P));
             break;
         case 4:
-            if (first(L) == NULL) {
-                cout<< "List empty" <<endl;
-                break;
-            }
-            cout<< "Enter ID to edit : "; cin>>X.id;
-            P = findElm(L, X);
-            if (P == NULL) {
-                cout<< "ID not found"<<endl;
-            }
-            else {
-                edit_data(info(P));
-                cout<<endl;
-            }
+           cout << "Input Student ID : ";
+			cin >> X.id;
+			P = findElm(L, X);
+			edit_data(info(P));
             break;
         case 5:
-            if (first(L) == NULL) {
-                cout<< "List empty" <<endl;
-                break;
-            }
-            cout<< "Enter ID to delete : "; cin>>X.id;
-            deletebyID(L,X);
+            cout << "Input Student ID :";
+			cin >> X.id;
+			deletebyID(L, X);
             break;
         case 0:
-            cout<<"Thank You"<<endl;
-            return;
+            exit = true;
             break;
         }
-        cout<<endl;
-        cout<<endl<<"press enter to continue"<<endl;
-        cin.get();
-        cin.get();
-        cout<<endl<<endl;
-    } while(true);
 
-    //----------------------------------------
+    } while(!exit);
 }

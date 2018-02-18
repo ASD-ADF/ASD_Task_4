@@ -13,34 +13,35 @@ void insertAndSort(List &L, address P) {
     * FS : elements in List L sorted by ID, P is inside List L
     */
 
-    //-------------your code here-------------
-    if (first(L) == NULL && last(L) == NULL) {
-        first(L) = P;
-        last(L) = P;
-        return;
+    address Prec = first(L);
+    address Q = first(L);
+    if (first(L)== NULL)
+    {
+        insertFirst(L,P);
     }
-
-    address Q = findElm(L,info(P));
-
-    if (Q != NULL) {
-        cout<< "ID is already exists (No Duplicate ID)"<<endl;
-    }
-    else {
-        if (info(P).id <= info(first(L)).id) {
+    else if (first(L) != NULL)
+    {
+        while (next(Q) != NULL)
+        {
+            Q = next (Q);
+        }
+        if (info(P).id < info(first(L)).id)
+        {
             insertFirst(L,P);
         }
-        else if (info(P).id >= info(last(L)).id) {
+        else if (info(P).id > info(Q).id)
+        {
             insertLast(L,P);
         }
-        else {
-            address R = first(L);
-            while (info(next(R)).id < info(P).id) {
-                R = next(R);
+        else
+        {
+            while(info(Prec).id <= info(P).id)
+            {
+                Prec = next(Prec);
             }
-            insertAfter(L,R,P);
-            }
+            insertAfter(L,Prec,P);
+        }
     }
-    //----------------------------------------
 }
 
 
@@ -51,27 +52,21 @@ void deletebyID(List &L, infotype x) {
     */
 
     address Prec, P;
-    //-------------your code here-------------
     P = findElm(L,x);
-    if (P == NULL) {
-        cout<< "ID not found"<<endl;
-        return;
-    }
-
-    if (first(L) == P) {
+    if( P = first(L))
+    {
         deleteFirst(L,P);
     }
-    else if (last(L) == P) {
+    else if(next(P) == NULL)
+    {
         deleteLast(L,P);
     }
-    else {
-        Prec = first(L);
-        while (next(Prec) != P) {
+    else
+    {
+        while(next(Prec) != P)
+        {
             Prec = next(Prec);
         }
-        deleteAfter(L,Prec,P);
     }
-    deallocate(P);
-    cout<< "Delete succeed"<<endl;
-    //----------------------------------------
+    deleteAfter(L,Prec,P);
 }
