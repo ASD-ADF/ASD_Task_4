@@ -20,7 +20,58 @@ void mainMenu() {
     address P;
     infotype X;
     /**
-    * IS : List has been created
+    * IS : List has been creatcout<<"Menu"<<endl;
+        cout<<"1. insert"<<endl;
+        cout<<"2. view data"<<endl;
+        cout<<"3. find and view"<<endl;
+        cout<<"4. find and edit"<<endl;
+        cout<<"5. find and delete"<<endl;
+        cout<<"0. exit"<<endl;
+        cout<<"input choice: ";
+        cin>>choice;
+        switch(choice)
+        {
+        case 1:
+            X = create_data();
+            P = allocate(X);
+            insertAndSort(L, P);
+            break;
+        case 2:
+            printInfo(L);
+            break;
+        case 3:
+            int idtofind;
+            cout<<"ID to find : ";
+            cin>>X.id;
+            P = findElm(L,X);
+            if (P != NULL)
+            {
+                view_data(info(P));
+            }
+            break;
+        case 4:
+            cout<<"ID to find : ";
+            cin>>X.id;
+            P = findElm(L,X);
+            if (P != NULL)
+            {
+                edit_data(info(P));
+            }
+            break;
+        case 5:
+            cout<<"ID to delete : ";
+            cin>>X.id;
+            P = findElm(L,X);
+            if (P != NULL)
+            {
+                deletebyID(L, X);
+            }
+            break;
+        }
+    }
+    while(choice != 0);
+    cout<<endl;
+    cout<<"Terima Kasih"<<endl;ed
     * PR : prints menu to user
     *       1. insert new data
     *       2. print all data
@@ -31,7 +82,8 @@ void mainMenu() {
     */
     //-------------your code here-------------
     int choice;
-    do {
+    do
+    {
         cout<<"Menu"<<endl;
         cout<<"1. insert"<<endl;
         cout<<"2. view data"<<endl;
@@ -41,14 +93,49 @@ void mainMenu() {
         cout<<"0. exit"<<endl;
         cout<<"input choice: ";
         cin>>choice;
-        switch(choice) {
+        switch(choice)
+        {
         case 1:
             X = create_data();
             P = allocate(X);
-            insertFirst(L,P);
+            insertAndSort(L, P);
+            break;
+        case 2:
+            cout<<endl;
+            printInfo(L);
+            break;
+        case 3:
+            int idtofind;
+            cout<<"ID to find : ";
+            cin>>X.id;
+            P = findElm(L,X);
+            if (P != NULL)
+            {
+                view_data(info(P));
+            }
+            break;
+        case 4:
+            cout<<"ID to find : ";
+            cin>>X.id;
+            P = findElm(L,X);
+            if (P != NULL)
+            {
+                edit_data(info(P));
+            }
+            break;
+        case 5:
+            cout<<"ID to delete : ";
+            cin>>X.id;
+            P = findElm(L,X);
+            if (P != NULL)
+            {
+                deletebyID(L, X);
+            }
             break;
         }
-    } while(true);
-
+    }
+    while(choice != 0);
+    cout<<endl;
+    cout<<"Terima Kasih"<<endl;
     //----------------------------------------
 }
