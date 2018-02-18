@@ -2,9 +2,9 @@
 #include "my_data.h"
 
 /**
-    CLASS      :
-    NAME       :
-    STUDENT ID :
+    CLASS      : IF 40 INT
+    NAME       : RANDY KUSTIWA KOESMA
+    STUDENT ID : 1301162472
 **/
 
 mytype create_data(mytype x) {
@@ -16,7 +16,11 @@ mytype create_data(mytype x) {
     // ===========================
     // YOUR CODE HERE
     cout<<"your code here"<<endl;
-
+    cout<<"==**STUDENT**=="<<endl;
+    cout<<"Input ID    : ";cin>>d.id;
+    cout<<"Input Name  : ";cin>>d.name;
+    cout<<"Input Class : ";cin>>d.clas;
+    cout<<"input Score : ";cin>>d.score;
 
 
 
@@ -32,7 +36,11 @@ void view_data(mytype d) {
     // ===========================
     // YOUR CODE HERE
     cout<<"your code here"<<endl;
-
+    cout<<"========** DATA **========"<<endl;
+    cout<<"ID    : "<<d.id<<endl;
+    cout<<"Name  : "<<d.name<<endl;
+    cout<<"Class : "<<d.clas<<endl;
+    cout<<"Score : "<<d.score<<endl;
 
 
 
@@ -49,7 +57,16 @@ void edit_data(mytype &d) {
     // ===========================
     // YOUR CODE HERE
         cout<<"your code here"<<endl;
-
+        string beforeUpdateName = d.name;
+        cout<<"===** STUDENT **==="<<endl;
+        cout<<"Input New Name : ";
+        cin>>d.name;
+        cout<<"Input New Class : ";
+        cin>>d.clas;
+        cout<<"Input New Score : ";
+        cin>>d.score;
+        cout<<beforeUpdateName<<" Updated become : "<<d.name<<endl;
+        cout<<endl;
 
 
 
