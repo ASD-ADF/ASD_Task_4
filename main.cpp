@@ -30,8 +30,9 @@ void mainMenu() {
     *       0. exit
     */
     //-------------your code here-------------
-    int choice;
-    do {
+     int choice;
+    do
+    {
         cout<<"Menu"<<endl;
         cout<<"1. insert"<<endl;
         cout<<"2. view data"<<endl;
@@ -41,14 +42,92 @@ void mainMenu() {
         cout<<"0. exit"<<endl;
         cout<<"input choice: ";
         cin>>choice;
-        switch(choice) {
+        cout<<endl;
+        switch(choice)
+        {
         case 1:
             X = create_data();
             P = allocate(X);
             insertFirst(L,P);
             break;
-        }
-    } while(true);
 
+            insertAndSort(L,P);
+            break;
+        case 2:
+            if(first(L)!=NULL)
+            {
+                printInfo(L);
+            }
+            else
+            {
+                cout<<"Empty list"<<endl;
+            }
+            break;
+        case 3:
+            if(first(L) != NULL)
+            {
+                cout<<"Student's ID/ NIM: ";
+                cin>>X.nim;
+                cout<<endl;
+                address P = findElm(L,X);
+                if(P!=NULL)
+                {
+                    cout<<"Data found"<<endl;
+                    view_data(info(P));
+                }
+                else
+                {
+                    cout<<"Data not Found";
+                }
+            }
+            else
+            {
+                cout<<"Empty list";
+            }
+            break;
+        case 4:
+            if(first(L)!=NULL)
+            {
+                cout<<"Student's ID/ NIM :";
+                cin>>X.nim;
+                cout<<endl;
+                address P = findElm(L,X);
+                if (P!=NULL)
+                {
+                    cout<<"Data found"<<endl;
+                    edit_data(info(P));
+                }
+                else
+                {
+                    cout<<"Data not found";
+                }
+            }
+            else
+            {
+                cout<<"Empty list";
+            }
+            break;
+        case 5:
+            if(first(L)!=NULL)
+            {
+                cout<<"Student's ID/ NIM : ";
+                cin>>X.nim;
+                cout<<endl;
+                deletebyID(L,X);
+                cout<<"Deleting data";
+            }
+            else
+            {
+                cout<<"Empty list";
+            }
+            break;
+        case 0:
+            return;
+            break;
+        }
+        cout<<endl;
+
+    }
+    while(true);
     //----------------------------------------
 }
