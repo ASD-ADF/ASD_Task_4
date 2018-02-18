@@ -7,9 +7,8 @@ void createList(List &L) {
     * FS : set first(L) with Null
     */
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
+    first(L) = NULL;
+    last(L) = NULL;
     //----------------------------------------
 }
 
@@ -18,11 +17,11 @@ address allocate(infotype x) {
     * FS : return new list element with info = x and next element is Null
     */
 
-    address P;
+    address P = new elmlist;
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
+   info(P) = x;
+   next (P) = NULL;
+   prev (P) = NULL;
     //----------------------------------------
     return P;
 }
@@ -32,9 +31,7 @@ void deallocate(address &P) {
     * FS : delete element pointed by P
     */
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
+    delete P;
     //----------------------------------------
 }
 
@@ -44,9 +41,17 @@ void insertFirst(List &L, address P) {
     * FS : element pointed by P became the first element in List L
     */
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
+    if (first(L) != NULL)
+    {
+        address Q = first(L);
+        next(P) = Q;
+        prev(Q) = P;
+        first(L) = P;
+    }
+    else{
+        first(L) = P;
+        last(L) = P;
+    }
     //----------------------------------------
 }
 
@@ -56,8 +61,17 @@ void insertLast(List &L, address P) {
     * FS : element pointed by P became the last element in List L
     */
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
+    if (first(L) == NULL)
+    {
+        insertFirst(L, P);
+    }
+    else {
+        address Q = new elmlist;
+        Q = last(L);
+        next(Q) = P;
+        prev(P) = Q;
+        last(L) = P;
+    }
 
     //----------------------------------------
 }
@@ -69,13 +83,30 @@ address findElm(List L, infotype x) {
            return Null if such ID is not found
     */
 
-    address P;
+    address Q = new elmlist;
+    bool ketemu = false;
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
+    if (first(L) != NULL)
+    {
+        Q = first(L);
+        while (Q!=NULL && !ketemu)
+        {
+            if (info(Q).id == x.id)
+            {
+                return Q;
+                ketemu = true;
+            }
+            Q = next(Q);
+
+        }
+    }
+    else if (first(L)==NULL || !ketemu)
+    {
+        return NULL;
+    }
 
 
     //----------------------------------------
-    return P;
 }
 
 void deleteFirst(List &L, address &P) {
@@ -84,8 +115,25 @@ void deleteFirst(List &L, address &P) {
     * FS : first element in List L is removed and is pointed by P
     */
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
+    if (first(L) != NULL)
+    {
+        if (first(L) == last(L))
+            {
+                P = first(L);
+                first(L) = NULL;
+                last(L) = NULL;
+            }
+        else{
+            P = first(L);
+            prev(next(P)) = NULL;
+            first(L) = next(P);
+            next(P) = NULL;
+        }
+    }
+    else
+    {
+        cout<<"List kosong!"<<endl;
+    }
 
 
     //----------------------------------------
@@ -97,10 +145,25 @@ void deleteLast(List &L, address &P) {
     * FS : last element in List L is removed and is pointed by P
     */
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
-
+    if (first(L) != NULL)
+    {
+        if (first(L) == last(L))
+        {
+            deleteFirst(L, P);
+        }
+        else
+        {
+            address Q = prev(last(L));
+            P = last(L);
+            prev(last(L)) = NULL;
+            next(Q) = NULL;
+            last(L) = Q;
+        }
+    }
+    else
+    {
+        cout<<"List kosong!"<<endl;
+    }
     //----------------------------------------
 }
 
@@ -110,9 +173,20 @@ void printInfo(List L) {
     *      call the view_data function from my_data.h to print the info
     */
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
+    address P = new elmlist;
+    if (first(L) != NULL)
+    {
+        P = first(L);
+        do
+        {
+            view_data(info(P));
+            P = next(P);
+        }
+        while (P!=NULL);
+    }
+    else{
+        cout<<"List kosong!"<<endl;
+    }
     //----------------------------------------
 }
 
@@ -124,8 +198,21 @@ void insertAfter(List &L, address Prec, address P) {
     *      pointed by pointer Prec
     */
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
+    if (Prec!=NULL && P!=NULL)
+    {
+        if (next(Prec) != NULL)
+        {
+            address Q = next(Prec);
+            next(P)=Q;
+            prev(Q)=P;
+            next(Prec) = P;
+            prev(P) = Prec;
+        }
+        else
+        {
+            insertLast(L, P);
+        }
+    }
     //----------------------------------------
 
 }
@@ -136,9 +223,22 @@ void deleteAfter(List &L, address Prec, address &P) {
     *      is removed and pointed by pointer P
     */
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
+    if (Prec != NULL)
+    {
+        if (next(next(Prec)) != NULL)
+        {
+            P = next(Prec);
+            address Q = next(P);
+            next(Prec) = Q;
+            prev(Q) = Prec;
+            next(P) = NULL;
+            prev(P) = NULL;
+        }
+        else
+        {
+            deleteLast(L, P);
+        }
+    }
     //----------------------------------------
 }
 
