@@ -19,6 +19,7 @@ int main() {
 
 void mainMenu() {
     address P;
+    infotype (d);
     infotype X;
     /**
     * IS : List has been created
@@ -31,7 +32,7 @@ void mainMenu() {
     *       0. exit
     */
     //-------------your code here-------------
-    int choice;
+    int choice, x;
     do {
         cout<<"Menu"<<endl;
         cout<<"1. insert"<<endl;
@@ -44,12 +45,38 @@ void mainMenu() {
         cin>>choice;
         switch(choice) {
         case 1:
-            X = create_data();
+            X = create_data(d);
             P = allocate(X);
             insertFirst(L,P);
             break;
+        case 2:
+            printInfo(L);
+            break;
+        case 3 :
+            cout << "Masukkan ID yang ingin dicari : ";
+            cin >>x;
+            d.id = x;
+            P = findElm(L, d);
+            view_data(info(P));
+            break;
+        case 4 :
+            cout << "Masukkan ID yang ingin dicari : ";
+            cin >> x;
+            d.id = x;
+            P = findElm(L, d);
+            edit_data(info(P));
+            break;
+        case 5 :
+            mytype D;
+            cout << "Masukkan ID yang ingin dicari : ";
+            cin >> x;
+            d.id = x;
+            deletebyID(L, d);
+            break;
+
         }
-    } while(true);
+    }
+    while(choice != 0);
 
     //----------------------------------------
 }

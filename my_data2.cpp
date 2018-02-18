@@ -2,9 +2,9 @@
 #include "my_data2.h"
 
 /**
-    CLASS      :
-    NAME       :
-    STUDENT ID :
+    CLASS      : IF-41-08
+    NAME       : M. fadhil ihsan
+    STUDENT ID : 1301170505
 **/
 
 mytype2 create_data(mytype2 x) {
@@ -15,7 +15,12 @@ mytype2 create_data(mytype2 x) {
     mytype2 d;
     // ===========================
     // YOUR CODE HERE
-    cout<<"your code here"<<endl;
+    cout << "Masukkan ID : "<<endl;
+    cin >> d.id;
+    cout << "Fakultas: "<<endl;
+    cin >> d.fakultas;
+    cout << "Jurusan : "<<endl;
+    cin >> d.jurusan;
 
 
 
@@ -31,7 +36,9 @@ void view_data(mytype2 d) {
 
     // ===========================
     // YOUR CODE HERE
-    cout<<"your code here"<<endl;
+    cout << "ID  : " << d.id << endl;;
+    cout << "Fakultas : " << d.fakultas << endl;
+    cout << "Jurusan : " << d.jurusan << endl;
 
 
 
@@ -40,7 +47,7 @@ void view_data(mytype2 d) {
 }
 
 
-void edit_data(mytype &d) {
+void edit_data(mytype2 &d) {
     /**
      TODO:  edit the value of data d,
             the ID must not be modified
@@ -48,7 +55,22 @@ void edit_data(mytype &d) {
 
     // ===========================
     // YOUR CODE HERE
-        cout<<"your code here"<<endl;
+    char jawaban;
+    cout<<"Ingin mengedit Jurusan anda?: ";
+    cin>>jawaban;
+    if (jawaban == 'y')
+    {
+        cout<<"Masukkan Jurusan anda: "<<endl;
+        cin>>d.jurusan;
+    }
+    cout<<"Maaf ID tidak bisa diubah: "<<endl;
+    cout<<"Ingin mengedit Fakultas anda?: ";
+    cin>>jawaban;
+    if (jawaban == 'y')
+    {
+        cout<<"Masukkan Fakultas anda: "<<endl;
+        cin>>d.fakultas;
+    }
 
 
 

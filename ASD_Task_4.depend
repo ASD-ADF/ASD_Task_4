@@ -27,3 +27,41 @@
 	"operation.h"
 	"my_data.h"
 
+1518972469 source:c:\users\helmi.ruslan\documents\strukdat\task\asd_task_4\main.cpp
+	<iostream>
+	"doublelist.h"
+	"operation.h"
+	"my_data.h"
+	"my_data2.h"
+
+1518971403 c:\users\helmi.ruslan\documents\strukdat\task\asd_task_4\doublelist.h
+	<iostream>
+	"my_data.h"
+	"my_data2.h"
+
+1518972136 c:\users\helmi.ruslan\documents\strukdat\task\asd_task_4\my_data.h
+	<iostream>
+
+1518971717 c:\users\helmi.ruslan\documents\strukdat\task\asd_task_4\my_data2.h
+	<iostream>
+
+1518969939 c:\users\helmi.ruslan\documents\strukdat\task\asd_task_4\operation.h
+	"doublelist.h"
+
+1518971443 source:c:\users\helmi.ruslan\documents\strukdat\task\asd_task_4\my_data.cpp
+	"my_data.h"
+
+1518972136 source:c:\users\helmi.ruslan\documents\strukdat\task\asd_task_4\operation.cpp
+	"doublelist.h"
+	"operation.h"
+	"my_data.h"
+	"my_data2.h"
+
+1518972290 source:c:\users\helmi.ruslan\documents\strukdat\task\asd_task_4\doublelist.cpp
+	"doublelist.h"
+	"my_data.h"
+	"my_data2.h"
+
+1518972533 source:c:\users\helmi.ruslan\documents\strukdat\task\asd_task_4\my_data2.cpp
+	"my_data2.h"
+
