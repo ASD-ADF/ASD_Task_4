@@ -15,14 +15,10 @@ mytype2 create_data(mytype2 x) {
     mytype2 d;
     // ===========================
     // YOUR CODE HERE
-
     cout<<"===LECTURER==="<<endl;
     cout<<"input your id      : ";cin>>d.id_lec;
     cout<<"input your name    : ";cin>>d.name_lec;
     cout<<"input your Subject : ";cin>>d.clas_lec;
-
-
-
     // ===========================
     return d;
 }
@@ -39,15 +35,12 @@ void view_data(mytype2 d) {
     cout<<"Name   : "<<d.name_lec<<endl;
     cout<<"Subject: "<<d.clas_lec<<endl;
 
-
-
-
-
     // ===========================
 }
 
 
 void edit_data(mytype2 &d) {
+
     /**
      TODO:  edit the value of data d,
             the ID must not be modified

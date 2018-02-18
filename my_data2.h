@@ -5,6 +5,7 @@
 using namespace std;
 
 /**
+
     CLASS      :IF - 40 - INT
     NAME       :Muhammad Rizky Anugrah Sakti
     STUDENT ID :1301164489
@@ -21,8 +22,6 @@ struct mytype2 {
     int id_lec;
     string name_lec;
     string clas_lec;
-
-
     // YOUR CODE ENDS HERE
     //=================================================
 };
