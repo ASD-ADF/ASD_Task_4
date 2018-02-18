@@ -15,7 +15,7 @@ using namespace std;
 
 
 /**
-* Type infotype : mytype
+* Type infotype : mytype2
 * Type address  : pointer to ElmList
 *
 * Type ElmList <
@@ -33,18 +33,19 @@ using namespace std;
 
 
 
-typedef mytype infotype;
+typedef mytype2 infotype;
 typedef struct elmlist *address;
 
 struct elmlist{
     //------------- your code here -----------
-
+    infotype info;
+	address next;
     //----------------------------------------
 };
 
 struct List{
     //------------- your code here -----------
-
+    address first;
 
     //----------------------------------------
 };

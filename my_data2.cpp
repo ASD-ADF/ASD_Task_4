@@ -2,9 +2,9 @@
 #include "my_data2.h"
 
 /**
-    CLASS      :
-    NAME       :
-    STUDENT ID :
+    CLASS      :if-40-int
+    NAME       :muhamad rikbal ikhsani
+    STUDENT ID :1301163598
 **/
 
 mytype2 create_data(mytype2 x) {
@@ -15,7 +15,14 @@ mytype2 create_data(mytype2 x) {
     mytype2 d;
     // ===========================
     // YOUR CODE HERE
-    cout<<"your code here"<<endl;
+   cout<<"Inputan Data Of Users 2"<<endl;
+
+    cout<<"Input your ID : ";
+    cin>>d.yid2;
+    cout<<"Input your address : ";
+    cin>>d.yaddr;
+    cout<<"Input your blood type : ";
+    cin>>d.yblood;
 
 
 
@@ -31,7 +38,12 @@ void view_data(mytype2 d) {
 
     // ===========================
     // YOUR CODE HERE
-    cout<<"your code here"<<endl;
+   cout<<"Data Of Users 2"<<endl;
+
+   cout<<"ID of user is : "<<d.yid2<<endl;
+   cout<<"address user is : "<<d.yaddr<<endl;
+   cout<<"blood user is : "<<d.yblood<<endl;
+
 
 
 
@@ -40,7 +52,7 @@ void view_data(mytype2 d) {
 }
 
 
-void edit_data(mytype &d) {
+void edit_data(mytype2 &d) {
     /**
      TODO:  edit the value of data d,
             the ID must not be modified
@@ -48,9 +60,12 @@ void edit_data(mytype &d) {
 
     // ===========================
     // YOUR CODE HERE
-        cout<<"your code here"<<endl;
+        cout<<"Data 2 Change"<<endl;
 
-
+        cout<<"Input your new data of address : ";
+        cin>>d.yaddr;
+        cout<<"Input your new data of Blood type: ";
+        cin>>d.yblood;
 
 
     // ===========================

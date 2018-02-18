@@ -44,10 +44,56 @@ void mainMenu() {
         cin>>choice;
         switch(choice) {
         case 1:
-            X = create_data();
+            X = create_data(X);
             P = allocate(X);
             insertFirst(L,P);
             break;
+        case 2:
+            printInfo(L);
+            break;
+        case 3:{
+            infotype v;
+            cout<<"++++++++"<<endl;
+            cout<<"View ur data by your id : ";
+            cin>>v.yid2;
+            address F ;
+            F = findElm(L,v);
+            if(F!=NULL){
+                cout<<"Data of user 2"<<endl;
+                cout<<"your address here : "<<F->info.yaddr<<endl;
+                cout<<"your id here   : "<<F->info.yid2<<endl;
+                cout<<"your blood here : "<<F->info.yblood<<endl;
+
+            }else{
+                cout<<"xxxxxxxxx"<<endl;
+                cout<<"can't find your id"<<endl;
+                cout<<endl;
+            }}
+            break;
+
+        case 4:{
+            infotype u;
+            cout<<"+++++++++"<<endl;
+            cout<<"View ur data by your id : ";
+            cin>>u.yid2;
+            address F;
+            F = findElm(L,u);
+            if(F!=NULL){
+                edit_data(info(P));
+            }else{
+                cout<<"can't find your id"<<endl;
+                }
+            }
+            break;
+        case 5: {
+            infotype x;
+            cout<<"++++++++++"<<endl;
+            cout<<"View ur data by your id"<<endl;
+            cin>>x.yid2;
+            address F ;
+            deletebyID(L,x);
+            cout<<P->info.yid2<<endl;
+            }
         }
     } while(true);
 
