@@ -14,7 +14,33 @@ void insertAndSort(List &L, address P) {
     */
 
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
+    bool check=true;
+    int x=info(P).ID;
+    address R=first(L);
+    while (R!=NULL) {
+        if(info(R).ID==x) {
+            check=false;
+            cout<<"ID sama, Input Ulang"<<endl;
+        }
+        R=next(R);
+    }
+
+    while (check==true) {
+        if (first(L)==NULL) {
+            insertFirst(L,P);
+        } else if (info(P).ID<=info(first(L)).ID) {
+            insertFirst(L,P);
+        } else if (info(P).ID>=info(last(L)).ID) {
+            insertLast(L,P);
+        } else {
+            address Q=first(L);
+            while (info(P).ID>info(next(Q)).ID) {
+                Q=next(Q);
+            }
+            insertAfter(L,Q,P);
+        }
+        check=false;
+    }
 
 
     //----------------------------------------
@@ -29,7 +55,24 @@ void deletebyID(List &L, infotype x) {
 
     address Prec, P;
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
+    if(first(L)!=NULL) {
+        P=findElm(L,x);
+    }
+    if (P==NULL) {
+        cout<<"ID tidak ditemukan"<<endl;
+    }
+    address last = first(L);
+    if (first(L)==P) {
+        deleteFirst(L,P);
+    } else if (P==last(L)) {
+        deleteLast(L,P);
+    } else {
+        Prec=first(L);
+        while (next(Prec)!=P) {
+            Prec=next(Prec);
+        }
+        deleteAfter(L,Prec,P);
+    }
 
 
     //----------------------------------------

@@ -44,10 +44,51 @@ void mainMenu() {
         cin>>choice;
         switch(choice) {
         case 1:
-            X = create_data();
+            X = create_data2();
             P = allocate(X);
             insertFirst(L,P);
             break;
+        case 2:
+            printInfo(L);
+            break;
+        case 3:
+            if (first(L)==NULL) {
+                cout<<"list kosong"<<endl;
+                break;
+            }
+            mytype2 x;
+            cout<<"ID yang Dicari : ";
+            cin>>x.ID;
+            cout<<endl;
+            P=findElm(L,x);
+            view_data2(info(P));
+            break;
+        case 4:
+            if (first(L)==NULL) {
+                cout<<"list kosong"<<endl;
+                break;
+            }
+            cout<<"ID yang ingin di edit : ";
+            cin>>X.ID;
+            P=findElm(L,X);
+            if (P==NULL) {
+                cout<<"ID tidak ditemukan"<<endl;
+            } else {
+                edit_data2(info(P));
+                cout<<endl;
+            }
+            break;
+        case 5:
+            if (first(L)==NULL) {
+                cout<<"list kosong"<<endl;
+                break;
+            }
+            cout<<"ID yang ingin di hapus : ";
+            cin>>X.ID;
+            deletebyID(L,X);
+            break;
+        case 0:
+            return;
         }
     } while(true);
 
