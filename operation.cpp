@@ -12,47 +12,6 @@ void insertAndSort(List &L, address P) {
     * FS : elements in List L sorted by ID, P is inside List L
     */
 
-    //-------------your code here-------------
-//    if (first(L) == NULL)
-//    {
-//        insertFirst(L, P);
-//        return;
-//    }
-//
-//    address X = findElm(L, info(P));
-//
-//    if (X == NULL)
-//    {
-//        address Q = first(L);
-//        address Prec = first(L);
-//        while (next(Q) != NULL)
-//        {
-//            Q = next(Q);
-//        }
-//        if (info(P).id < info(first(L)).id)
-//        {
-//            insertFirst(L,P);
-//        }
-//        else if (info(P).id > info(Q).id)
-//        {
-//            insertLast(L,P);
-//        }
-//        else
-//        {
-//            while (info(next(Prec)).id < info(P).id)
-//            {
-//                Prec = next(Prec);
-//            }
-//            cout<<info(Prec).id<<endl;
-//            insertAfter(L, Prec, P);
-//        }
-//    }
-//    else
-//    {
-//        cout<<" ID Sudah Terdaftar "<<endl;
-//    }
-//-------------------------------------------------
-
     if (first(L) == NULL)
     {
         insertFirst(L, P);
