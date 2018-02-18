@@ -27,3 +27,41 @@
 	"operation.h"
 	"my_data.h"
 
+1518963848 source:e:\study\semester 4\std\asd_task_4\main.cpp
+	<iostream>
+	"doublelist.h"
+	"operation.h"
+	"my_data.h"
+	"my_data2.h"
+
+1518769193 e:\study\semester 4\std\asd_task_4\doublelist.h
+	<iostream>
+	"my_data.h"
+	"my_data2.h"
+
+1518963099 e:\study\semester 4\std\asd_task_4\my_data.h
+	<iostream>
+
+1518770523 e:\study\semester 4\std\asd_task_4\my_data2.h
+	<iostream>
+
+1518962640 e:\study\semester 4\std\asd_task_4\operation.h
+	"doublelist.h"
+
+1518614818 source:e:\study\semester 4\std\asd_task_4\my_data.cpp
+	"my_data.h"
+
+1518964048 source:e:\study\semester 4\std\asd_task_4\operation.cpp
+	"doublelist.h"
+	"operation.h"
+	"my_data.h"
+	"my_data2.h"
+
+1518964146 source:e:\study\semester 4\std\asd_task_4\my_data2.cpp
+	"my_data2.h"
+
+1518963377 source:e:\study\semester 4\std\asd_task_4\doublelist.cpp
+	"doublelist.h"
+	"my_data.h"
+	"my_data2.h"
+

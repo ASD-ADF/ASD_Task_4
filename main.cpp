@@ -18,8 +18,8 @@ int main() {
 }
 
 void mainMenu() {
-    address P;
-    infotype X;
+    address P, Q;
+    infotype x, b;
     /**
     * IS : List has been created
     * PR : prints menu to user
@@ -44,9 +44,37 @@ void mainMenu() {
         cin>>choice;
         switch(choice) {
         case 1:
-            X = create_data();
-            P = allocate(X);
+            x = create_data(x);
+            P = allocate(x);
             insertFirst(L,P);
+            insertAndSort(L,P);
+            break;
+        case 2:
+            printInfo(L);
+            break;
+        case 3:
+            cout<<"ID   : ";
+            cin>>x.id;
+            P = findElm(L, x);
+            b = P->info;
+            view_data(b);
+        case 4:
+            cout<<"ID   : ";
+            cin>>x.id;
+            P = findElm(L, x);
+            cout<<"Name     : ";
+            cin>>P->info.name;
+            cout<<"Class   : ";
+            cin>>P->info.Class;
+            cout<<"Score   : ";
+            cin>>P->info.score;
+        case 5:
+            if (first(L) == NULL) {
+                cout<< "List empty" <<endl;
+                break;
+            }
+            cout<< "ID : "; cin>>x.id;
+            deletebyID(L,x);
             break;
         }
     } while(true);
