@@ -13,7 +13,7 @@ mytype2 create_data()
     cin>>d.usia;
     cout<<endl;
 
-    return d2;
+    return d;
 }
 
 
@@ -29,8 +29,8 @@ void edit_data(mytype2 &d)
 {
     cout<<"ID  : "<<d2.id<<endl;
     cout<<"Edit Nama : ";
-    cin>>d2.nama;
+    cin>>d.nama;
     cout<<"Edit Usia : ";
-    cin>>d2.usia;
+    cin>>d.usia;
     cout<<endl;
 }
