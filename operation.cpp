@@ -38,7 +38,7 @@ void insertAndSort(List &L, address P) {
             {
                 Prec = next(Prec);
             }
-            insertAfter(Prec,P);
+            insertAfter(L,Prec,P);
         }
     }
 }
@@ -70,5 +70,5 @@ void deletebyID(List &L, infotype x) {
             Q = next(Q);
         }
     }
-    deleteAfter(Q,P);
+    deleteAfter(L,Q,P);
 }

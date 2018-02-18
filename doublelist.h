@@ -38,10 +38,12 @@ typedef struct elmlist *address;
 struct elmlist{
     infotype info;
     address next;
+    address prev;
 };
 
 struct List{
     address first;
+    address last;
 };
 
 

@@ -10,16 +10,22 @@ using namespace std;
     STUDENT ID : 1301153625
 **/
 
-mytype create_data() {
+struct mytype {
     /**
-     TODO:  receive input from user
-            and assign the value of new data
+     TODO:  create a new Data type with specification:
+            - an integer variable acted as an ID
+            - two other variables
+            - a float variable
     */
+    //=================================================
+    // YOUR CODE STARTS HERE
     int id;
     string name;
     string nim;
     float score;
-}
+    // YOUR CODE ENDS HERE
+    //=================================================
+};
 
 
 mytype create_data();
