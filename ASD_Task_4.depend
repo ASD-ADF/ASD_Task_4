@@ -27,3 +27,34 @@
 	"operation.h"
 	"my_data.h"
 
+1518951005 source:d:\kuliah stuff\asd_task_2\asd_task_4\my_data.cpp
+	"my_data.h"
+
+1518956781 d:\kuliah stuff\asd_task_2\asd_task_4\my_data.h
+	<iostream>
+
+1518956862 source:d:\kuliah stuff\asd_task_2\asd_task_4\main.cpp
+	<iostream>
+	"doublelist.h"
+	"operation.h"
+	"my_data.h"
+
+1518950771 d:\kuliah stuff\asd_task_2\asd_task_4\doublelist.h
+	<iostream>
+	"my_data.h"
+	"my_data2.h"
+
+1518950154 d:\kuliah stuff\asd_task_2\asd_task_4\my_data2.h
+	<iostream>
+
+1518870560 d:\kuliah stuff\asd_task_2\asd_task_4\operation.h
+	"doublelist.h"
+
+1518952852 source:d:\kuliah stuff\asd_task_2\asd_task_4\my_data2.cpp
+	"my_data2.h"
+
+1518956435 source:d:\kuliah stuff\asd_task_2\asd_task_4\doublelist.cpp
+	"doublelist.h"
+	"my_data.h"
+	"my_data2.h"
+
