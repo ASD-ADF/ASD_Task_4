@@ -48,6 +48,54 @@ void mainMenu() {
             P = allocate(X);
             insertFirst(L,P);
             break;
+        case 2 :
+            if (first(L) == NULL ) {
+                cout << "empty" << endl;
+            } else {
+                printInfo(L);
+            }
+            cout << endl;
+            break;
+        case 3 :
+            if (first(L) == NULL ) {
+                cout << "empty" << endl;
+            }
+            cout << "find ID : " ;
+            cin >> x.id;
+            P = findElm(L,X);
+            if (P == NULL ) {
+                cout << "ID not found"<< endl;
+            } else {
+                view_data(info(P));
+                cout << endl;
+            }
+            break;
+        case 4 :
+            if (first(L) == NULL ) {
+                cout << "empty" << endl;
+            }
+            cout << "edit ID : " ;
+            cin >> x.id;
+            P = findElm(L,X);
+            if (P == NULL ) {
+                cout << "ID not found"<< endl;
+            } else {
+                edit_data(info(P));
+                cout << endl;
+            }
+            break;
+        case 5 :
+            if (first(L) == NULL ) {
+                cout << "empty" << endl;
+            }
+            cout << "delete ID : " ;
+            cin >> x.id;
+            deletebyID(L,X);
+            break;
+        case 0 :
+            cout << "Thank You " << endl;
+            return;
+            break;
         }
     } while(true);
 
