@@ -27,3 +27,41 @@
 	"operation.h"
 	"my_data.h"
 
+1518962735 source:c:\users\yogi\documents\struktur data\asd_task_4\my_data.cpp
+	"my_data.h"
+
+1518962721 c:\users\yogi\documents\struktur data\asd_task_4\my_data.h
+	<iostream>
+
+1518964325 source:c:\users\yogi\documents\struktur data\asd_task_4\doublelist.cpp
+	"doublelist.h"
+	"my_data.h"
+	"my_data2.h"
+
+1518964442 c:\users\yogi\documents\struktur data\asd_task_4\doublelist.h
+	<iostream>
+	"my_data.h"
+	"my_data2.h"
+
+1518962721 c:\users\yogi\documents\struktur data\asd_task_4\my_data2.h
+	<iostream>
+
+1518962728 source:c:\users\yogi\documents\struktur data\asd_task_4\main.cpp
+	<iostream>
+	"doublelist.h"
+	"operation.h"
+	"my_data.h"
+	"my_data2.h"
+
+1518951962 c:\users\yogi\documents\struktur data\asd_task_4\operation.h
+	"doublelist.h"
+
+1518962740 source:c:\users\yogi\documents\struktur data\asd_task_4\my_data2.cpp
+	"my_data2.h"
+
+1518963169 source:c:\users\yogi\documents\struktur data\asd_task_4\operation.cpp
+	"doublelist.h"
+	"operation.h"
+	"my_data.h"
+	"my_data2.h"
+

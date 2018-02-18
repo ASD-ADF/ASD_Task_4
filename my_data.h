@@ -19,14 +19,15 @@ struct mytype {
     */
     //=================================================
     // YOUR CODE STARTS HERE
-
+    int id,harga;
+    string judul,penerbit;
 
     // YOUR CODE ENDS HERE
     //=================================================
 };
 
 
-mytype create_data(mytype x);
+mytype create_data(mytype d);
 void view_data(mytype d);
 void edit_data(mytype &d);
 
