@@ -27,7 +27,7 @@ void view_data(mytype2 d)
 
 void edit_data(mytype2 &d)
 {
-    cout<<"ID  : "<<d2.id<<endl;
+    cout<<"ID  : "<<d.id<<endl;
     cout<<"Edit Nama : ";
     cin>>d.nama;
     cout<<"Edit Usia : ";
