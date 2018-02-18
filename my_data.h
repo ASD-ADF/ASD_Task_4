@@ -5,25 +5,21 @@
 using namespace std;
 
 /**
-    CLASS      :
-    NAME       :
-    STUDENT ID :
+    CLASS      : IF-39-INT
+    NAME       : GUMILAR SULISTIAN
+    STUDENT ID : 1301153625
 **/
 
-struct mytype {
+mytype create_data() {
     /**
-     TODO:  create a new Data type with specification:
-            - an integer variable acted as an ID
-            - two other variables
-            - a float variable
+     TODO:  receive input from user
+            and assign the value of new data
     */
-    //=================================================
-    // YOUR CODE STARTS HERE
-
-
-    // YOUR CODE ENDS HERE
-    //=================================================
-};
+    int id;
+    string name;
+    string nim;
+    float score;
+}
 
 
 mytype create_data();

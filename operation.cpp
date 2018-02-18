@@ -12,11 +12,35 @@ void insertAndSort(List &L, address P) {
     * FS : elements in List L sorted by ID, P is inside List L
     */
 
-    //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
-    //----------------------------------------
+    address Prec = first(L);
+    address Q = first(L);
+    if (first(L)== NULL)
+    {
+        insertFirst(L,P);
+    }
+    else if (first(L) != NULL)
+    {
+        while (next(Q) != NULL)
+        {
+            Q = next (Q);
+        }
+        if (info(P).id < info(first(L)).id)
+        {
+            insertFirst(L,P);
+        }
+        else if (info(P).id > info(Q).id)
+        {
+            insertLast(L,P);
+        }
+        else
+        {
+            while(info(Prec).id <= info(P).id)
+            {
+                Prec = next(Prec);
+            }
+            insertAfter(Prec,P);
+        }
+    }
 }
 
 
@@ -27,9 +51,24 @@ void deletebyID(List &L, infotype x) {
     */
 
     address Prec, P;
-    //-------------your code here-------------
-    cout<<"your code here"<<endl;
+    address Q;
+    P = findElm(L,x);
+    if( P = first(L))
+    {
+        deleteFirst(L,P);
+    }
+    else if(next(P) == NULL)
+    {
+        deleteLast(L,P);
+    }
+    else
+    {
 
 
-    //----------------------------------------
+        while(next(Q) != P)
+        {
+            Q = next(Q);
+        }
+    }
+    deleteAfter(Q,P);
 }
