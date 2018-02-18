@@ -27,3 +27,79 @@
 	"operation.h"
 	"my_data.h"
 
+1518883311 source:d:\program\github\asd_task_4\doublelist.cpp
+	"doublelist.h"
+	"my_data.h"
+	"my_data2.h"
+
+1518863412 d:\program\github\asd_task_4\doublelist.h
+	<iostream>
+	"my_data.h"
+	"my_data2.h"
+
+1518698369 d:\program\github\asd_task_4\my_data.h
+	<iostream>
+
+1518698369 d:\program\github\asd_task_4\my_data2.h
+	<iostream>
+
+1518883311 source:d:\program\github\asd_task_4\main.cpp
+	<iostream>
+	"doublelist.h"
+	"operation.h"
+	"my_data.h"
+	"my_data2.h"
+
+1518697560 d:\program\github\asd_task_4\operation.h
+	"doublelist.h"
+
+1518861895 source:d:\program\github\asd_task_4\my_data.cpp
+	"my_data.h"
+
+1518883311 source:d:\program\github\asd_task_4\operation.cpp
+	"doublelist.h"
+	"operation.h"
+	"my_data.h"
+	"my_data2.h"
+
+1518863807 source:d:\program\github\asd_task_4\my_data2.cpp
+	"my_data2.h"
+
+1518883311 source:e:\github\asd_task1\asd_task_4\doublelist.cpp
+	"doublelist.h"
+	"my_data.h"
+	"my_data2.h"
+
+1518863412 e:\github\asd_task1\asd_task_4\doublelist.h
+	<iostream>
+	"my_data.h"
+	"my_data2.h"
+
+1518942606 e:\github\asd_task1\asd_task_4\my_data.h
+	<iostream>
+
+1518942449 e:\github\asd_task1\asd_task_4\my_data2.h
+	<iostream>
+
+1518883311 source:e:\github\asd_task1\asd_task_4\main.cpp
+	<iostream>
+	"doublelist.h"
+	"operation.h"
+	"my_data.h"
+	"my_data2.h"
+
+1518697560 e:\github\asd_task1\asd_task_4\operation.h
+	"doublelist.h"
+
+1518942598 source:e:\github\asd_task1\asd_task_4\my_data.cpp
+	"my_data.h"
+
+1518942606 source:e:\github\asd_task1\asd_task_4\my_data2.cpp
+	"my_data2.h"
+
+1518883311 source:e:\github\asd_task1\asd_task_4\operation.cpp
+	"doublelist.h"
+	"operation.h"
+	"my_data.h"
+	"my_data2.h"
+
