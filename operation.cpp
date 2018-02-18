@@ -3,7 +3,8 @@
 #include "my_data.h"
 
 
-void insertAndSort(List &L, address P) {
+void insertAndSort(List &L, address P)
+{
     /**
     * IS : List may be empty
     * PR : insert an element pointed by P into an already sorted-by-ID List L
@@ -12,15 +13,43 @@ void insertAndSort(List &L, address P) {
     * FS : elements in List L sorted by ID, P is inside List L
     */
 
-    //-------------your code here-------------
-    cout<<"your code here"<<endl;
+    if (first(L) == NULL)
+    {
+        insertFirst(L, P);
+        return;
+    }
 
+    address X = findElm(L, info(P));
 
-    //----------------------------------------
+    if (X == NULL)
+    {
+        if (info(P).id <= info(first(L)).id)
+        {
+            insertFirst(L, P);
+        }
+        else if (info(P).id >= info(last(L)).id)
+        {
+            insertLast(L, P);
+        }
+        else
+        {
+            address Prec = first(L);
+            while (info(next(Prec)).id < info(P).id)
+            {
+                Prec = next(Prec);
+            }
+            insertAfter(L, Prec, P);
+        }
+    }
+    else
+    {
+        cout<<"ID already registered"<<endl;
+    }
 }
 
 
-void deletebyID(List &L, infotype x) {
+void deletebyID(List &L, infotype x)
+{
     /**
     * IS : List L may be empty
     * FS : an element with ID info = x.id is deleted from List L (deallocate)
@@ -28,8 +57,25 @@ void deletebyID(List &L, infotype x) {
 
     address Prec, P;
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
+    P = findElm(L,x);
+    Prec = first(L);
 
+    if (next(P) == NULL)
+    {
+        deleteLast(L,P);
+    }
+    else if(P == first(L))
+    {
+        deleteFirst(L,P);
+    }
+    else
+    {
+        while (next(Prec) != P)
+        {
+            Prec = next(Prec);
+        }
+        deleteAfter(L,Prec,P);
+    }
 
     //----------------------------------------
 }
