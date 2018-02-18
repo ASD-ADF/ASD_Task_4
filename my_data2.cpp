@@ -1,58 +1,34 @@
-
 #include "my_data2.h"
 
-/**
-    CLASS      :
-    NAME       :
-    STUDENT ID :
-**/
-
-mytype2 create_data(mytype2 x) {
-    /**
-     TODO:  receive input from user
-            and assign the value of new data
-    */
+mytype2 create_data2()
+{
     mytype2 d;
-    // ===========================
-    // YOUR CODE HERE
-    cout<<"your code here"<<endl;
 
+    cout<<"Insert ID: ";
+    cin>>d.id;
+    cout<<"Insert Faculty: ";
+    cin>>d.fct;
+    cout<<"Insert Majoring: ";
+    cin>>d.mjr;
+    cout<<endl;
 
-
-
-    // ===========================
     return d;
 }
 
-void view_data(mytype2 d) {
-    /**
-     TODO:  view the content of data d
-    */
-
-    // ===========================
-    // YOUR CODE HERE
-    cout<<"your code here"<<endl;
-
-
-
-
-    // ===========================
+void view_data(mytype2 d)
+{
+    cout<<"ID         : "<<d.id<<endl;
+    cout<<"Faculty    : "<<d.fct<<endl;
+    cout<<"Majoring   : "<<d.mjr<<endl;
+    cout<<endl;
 }
 
-
-void edit_data(mytype &d) {
-    /**
-     TODO:  edit the value of data d,
-            the ID must not be modified
-    */
-
-    // ===========================
-    // YOUR CODE HERE
-        cout<<"your code here"<<endl;
-
-
-
-
-    // ===========================
+void edit_data(mytype2 &d)
+{
+    cout<<"ID         : "<<d.id<<endl;
+    cout<<"Faculty    : ";
+    cin>>d.fct;
+    cout<<"Majoring   : ";
+    cin>>d.mjr;
+    cout<<endl;
 }
-

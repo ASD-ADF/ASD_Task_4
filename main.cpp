@@ -2,14 +2,14 @@
 #include "doublelist.h"
 #include "operation.h"
 #include "my_data.h"
-#include "my_data2.h"
 
 using namespace std;
 
 void mainMenu();
 List L;
 
-int main() {
+int main()
+{
     createList(L);
 
     mainMenu();
@@ -17,7 +17,8 @@ int main() {
     return 0;
 }
 
-void mainMenu() {
+void mainMenu()
+{
     address P;
     infotype X;
     /**
@@ -32,7 +33,8 @@ void mainMenu() {
     */
     //-------------your code here-------------
     int choice;
-    do {
+    do
+    {
         cout<<"Menu"<<endl;
         cout<<"1. insert"<<endl;
         cout<<"2. view data"<<endl;
@@ -42,14 +44,48 @@ void mainMenu() {
         cout<<"0. exit"<<endl;
         cout<<"input choice: ";
         cin>>choice;
-        switch(choice) {
+        switch(choice)
+        {
         case 1:
             X = create_data();
             P = allocate(X);
-            insertFirst(L,P);
+            insertAndSort(L, P);
+            break;
+        case 2:
+            printInfo(L);
+            break;
+        case 3:
+            int idtofind;
+            cout<<"ID to find : ";
+            cin>>X.id;
+            P = findElm(L,X);
+            if (P != NULL)
+            {
+                view_data(info(P));
+            }
+            break;
+        case 4:
+            cout<<"ID to find : ";
+            cin>>X.id;
+            P = findElm(L,X);
+            if (P != NULL)
+            {
+                edit_data(info(P));
+            }
+            break;
+        case 5:
+            cout<<"ID to delete : ";
+            cin>>X.id;
+            P = findElm(L,X);
+            if (P != NULL)
+            {
+                deletebyID(L, X);
+            }
             break;
         }
-    } while(true);
-
+    }
+    while(choice != 0);
+    cout<<endl;
+    cout<<"Terima Kasih"<<endl;
     //----------------------------------------
 }
