@@ -149,10 +149,17 @@ void deleteAfter(List &L, address Prec, address &P) {
     * FS : element which was before behind an element pointed by Prec
     *      is removed and pointed by pointer P
     */
-    P = next(Prec);
-    prev(Prec) = next(next(Prec));
-    prev(next(P)) = Prec;
-    prev(P) = NULL;
-    next(P) = NULL;
+    P = first(L);
+    if ((prev(P)==NULL)&&(next(P)!=NULL)){
+        deleteFirst(L,P);
+    }else if ((prev(P)!=NULL)&&(next(P)==NULL)){
+        deleteLast(L,P);
+    }else{
+        prev(Prec) = next(next(Prec));
+        prev(next(P)) = Prec;
+        prev(P) = NULL;
+        next(P) = NULL;
+    }
+
 }
 

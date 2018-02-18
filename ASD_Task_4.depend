@@ -30,7 +30,7 @@
 1518953603 source:c:\users\gumz69\documents\github\asd_task_4\my_data2.cpp
 	"my_data2.h"
 
-1518953699 source:c:\users\gumz69\documents\github\asd_task_4\doublelist.cpp
+1518955102 source:c:\users\gumz69\documents\github\asd_task_4\doublelist.cpp
 	"doublelist.h"
 	"my_data.h"
 
@@ -56,7 +56,7 @@
 1518953603 c:\users\gumz69\documents\github\asd_task_4\my_data2.h
 	<iostream>
 
-1518953983 source:c:\users\gumz69\documents\github\asd_task_4\operation.cpp
+1518954948 source:c:\users\gumz69\documents\github\asd_task_4\operation.cpp
 	"doublelist.h"
 	"operation.h"
 	"my_data.h"
