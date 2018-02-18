@@ -2,9 +2,9 @@
 #include "my_data2.h"
 
 /**
-    CLASS      :
-    NAME       :
-    STUDENT ID :
+    CLASS      : IF-40-INT
+    NAME       : Aditya Ramadhan Moesya
+    STUDENT ID : 1301160471
 **/
 
 mytype2 create_data(mytype2 x) {
@@ -15,11 +15,10 @@ mytype2 create_data(mytype2 x) {
     mytype2 d;
     // ===========================
     // YOUR CODE HERE
-    cout<<"your code here"<<endl;
-
-
-
-
+    cout<<"LECTURER"<<endl;
+    cout<<"ID       : ";cin>>d.id_lec;
+    cout<<"NAME     : ";cin>>d.name_lec;
+    cout<<"SUBJECT  : ";cin>>d.sub;
     // ===========================
     return d;
 }
@@ -31,16 +30,15 @@ void view_data(mytype2 d) {
 
     // ===========================
     // YOUR CODE HERE
-    cout<<"your code here"<<endl;
-
-
-
-
+    cout<<"LECTURER"<<endl;
+    cout<<"ID     : "<<d.id_lec<<endl;
+    cout<<"NAME   : "<<d.name_lec<<endl;
+    cout<<"SUBJECT: "<<d.sub<<endl;
     // ===========================
 }
 
 
-void edit_data(mytype &d) {
+void edit_data(mytype2 &d) {
     /**
      TODO:  edit the value of data d,
             the ID must not be modified
@@ -48,11 +46,14 @@ void edit_data(mytype &d) {
 
     // ===========================
     // YOUR CODE HERE
-        cout<<"your code here"<<endl;
-
-
-
-
+    string beforeUpdateName = d.name_lec;
+    cout<<"===LECTURER==="<<endl;
+    cout<<"NAME    : ";
+    cin>>d.name_lec;
+    cout<<"Input new Subject : ";
+    cin>>d.sub;
+    cout<<beforeUpdateName<<" Updated become "<<d.name_lec<<endl;
+    cout<<endl;
     // ===========================
 }
 

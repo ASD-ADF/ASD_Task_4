@@ -14,9 +14,30 @@ void insertAndSort(List &L, address P) {
     */
 
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
+    address Fo = findElm(L,info(P));
+    if(Fo==NULL){
+        if(first(L)==NULL){
+            insertFirst(L,P);
+        }else if(L.first->info.id >= P->info.id){
+            insertFirst(L,P);
+        }else if(L.first->info.id <= P->info.id){
+            address Q = first(L);
+            address F = Q;
+            if(first(L)==last(L)){
+                insertLast(L,P);
+            }else{
+                while(Q!=NULL){
+                    if(Q->info.id <= P->info.id){
+                        F = Q;
+                    }
+                    Q = next(Q);
+                }
+                insertAfter(L,F,P);
+            }
+        }
+    }else{
+      cout<<"Id is taken"<<endl;
+    }
     //----------------------------------------
 }
 
@@ -29,8 +50,20 @@ void deletebyID(List &L, infotype x) {
 
     address Prec, P;
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
+    if(first(L)!=NULL){
+        Prec = findElm(L,x);
+        if(Prec==first(L)){
+            deleteFirst(L,P);
+            cout<<"DATA ID : "<<P->info.id<<" DELETED "<<endl;
+        }else if(Prec==last(L)){
+            deleteLast(L,P);
+            cout<<"DATA ID : "<<P->info.id<<" DELETED "<<endl;
+        }else{
+            deleteAfter(L,prev(Prec),P);
+            cout<<"DATA ID : "<<P->prev->info.id<<" DELETED "<<endl;
+        }
+    }else{
+        cout<<"EMPTY LIST"<<endl;
+    }
     //----------------------------------------
 }
