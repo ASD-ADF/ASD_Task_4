@@ -27,36 +27,36 @@
 	"operation.h"
 	"my_data.h"
 
-1518952091 source:c:\users\gumz69\documents\github\asd_task_4\my_data2.cpp
+1518953603 source:c:\users\gumz69\documents\github\asd_task_4\my_data2.cpp
 	"my_data2.h"
 
-1518949679 source:c:\users\gumz69\documents\github\asd_task_4\doublelist.cpp
+1518953699 source:c:\users\gumz69\documents\github\asd_task_4\doublelist.cpp
 	"doublelist.h"
 	"my_data.h"
 
-1518949710 c:\users\gumz69\documents\github\asd_task_4\doublelist.h
+1518953603 c:\users\gumz69\documents\github\asd_task_4\doublelist.h
 	<iostream>
 	"my_data.h"
 
-1518952039 c:\users\gumz69\documents\github\asd_task_4\my_data.h
+1518953603 c:\users\gumz69\documents\github\asd_task_4\my_data.h
 	<iostream>
 
-1518948038 source:c:\users\gumz69\documents\github\asd_task_4\main.cpp
+1518953603 source:c:\users\gumz69\documents\github\asd_task_4\main.cpp
 	<iostream>
 	"doublelist.h"
 	"operation.h"
 	"my_data.h"
 
-1518523916 c:\users\gumz69\documents\github\asd_task_4\operation.h
+1518953603 c:\users\gumz69\documents\github\asd_task_4\operation.h
 	"doublelist.h"
 
-1518948268 source:c:\users\gumz69\documents\github\asd_task_4\my_data.cpp
+1518953603 source:c:\users\gumz69\documents\github\asd_task_4\my_data.cpp
 	"my_data.h"
 
-1518952195 c:\users\gumz69\documents\github\asd_task_4\my_data2.h
+1518953603 c:\users\gumz69\documents\github\asd_task_4\my_data2.h
 	<iostream>
 
-1518952385 source:c:\users\gumz69\documents\github\asd_task_4\operation.cpp
+1518953983 source:c:\users\gumz69\documents\github\asd_task_4\operation.cpp
 	"doublelist.h"
 	"operation.h"
 	"my_data.h"

@@ -51,7 +51,6 @@ void deletebyID(List &L, infotype x) {
     */
 
     address Prec, P;
-    address Q;
     P = findElm(L,x);
     if( P = first(L))
     {
@@ -63,12 +62,10 @@ void deletebyID(List &L, infotype x) {
     }
     else
     {
-
-
-        while(next(Q) != P)
+        while(next(Prec) != P)
         {
-            Q = next(Q);
+            Prec = next(Prec);
         }
     }
-    deleteAfter(L,Q,P);
+    deleteAfter(L,Prec,P);
 }
