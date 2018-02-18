@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "my_data.h"
+#include "my_data2.h"
 
 #define first(L) L.first
 #define last(L) L.last
@@ -32,7 +33,7 @@ using namespace std;
 
 
 
-typedef mytype infotype;
+typedef mytypeII infotype;
 typedef struct elmlist *address;
 
 struct elmlist{

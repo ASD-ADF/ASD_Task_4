@@ -162,11 +162,7 @@ void printInfo(List L) {
     address P;
     while (P!=NULL)
     {
-        cout<<"ID : "<<info(P).id<<endl;
-        cout<<" : "<<info(P).<<endl;
-        cout<<" : "<<info(P).<<endl;
-        cout<<" : "<<info(P).<<endl;
-        cout<<endl;
+        view_data(info(P));
     }
 
 
@@ -181,7 +177,20 @@ void insertAfter(List &L, address Prec, address P) {
     *      pointed by pointer Prec
     */
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
+    if (Prec!=NULL)
+    {
+        if (first(L)==NULL)
+        {
+
+        }
+        else
+        {
+            next(P)=next(Prec);
+            prev(P)=Prec;
+            prev(next(next(P)))=P;
+            next(Prec)=P;
+        }
+    }
 
     //----------------------------------------
 
@@ -193,7 +202,20 @@ void deleteAfter(List &L, address Prec, address &P) {
     *      is removed and pointed by pointer P
     */
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
+    if (Prec!=NULL)
+    {
+        if (Prec==last(L))
+        {
+            deleteLast(L,P);
+        }
+        else
+        {
+        P=next(Prec);
+        next(Prec)=next(P);
+        prev(next(P))=Prec;
+        deallocate(P);
+        }
+    }
 
 
     //----------------------------------------

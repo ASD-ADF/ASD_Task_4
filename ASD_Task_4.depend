@@ -27,3 +27,28 @@
 	"operation.h"
 	"my_data.h"
 
+1518962847 source:c:\users\gl553vd\downloads\documents\dap\strukdat\asd task_1\asd_task_4\my_data.cpp
+	"my_data.h"
+
+1518965001 c:\users\gl553vd\downloads\documents\dap\strukdat\asd task_1\asd_task_4\my_data.h
+	<iostream>
+
+1518966914 source:c:\users\gl553vd\downloads\documents\dap\strukdat\asd task_1\asd_task_4\my_data2.cpp
+	"my_data2.h"
+
+1518972585 c:\users\gl553vd\downloads\documents\dap\strukdat\asd task_1\asd_task_4\my_data2.h
+	<iostream>
+
+1518963564 source:c:\users\gl553vd\downloads\documents\dap\strukdat\asd task_1\asd_task_4\operation.cpp
+	"doublelist.h"
+	"operation.h"
+	"my_data.h"
+
+1518972593 c:\users\gl553vd\downloads\documents\dap\strukdat\asd task_1\asd_task_4\doublelist.h
+	<iostream>
+	"my_data.h"
+	"my_data2.h"
+
+1518514395 c:\users\gl553vd\downloads\documents\dap\strukdat\asd task_1\asd_task_4\operation.h
+	"doublelist.h"
+
