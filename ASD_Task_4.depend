@@ -38,7 +38,7 @@
 	"my_data.h"
 	"my_data2.h"
 
-1518964442 c:\users\yogi\documents\struktur data\asd_task_4\doublelist.h
+1518965577 c:\users\yogi\documents\struktur data\asd_task_4\doublelist.h
 	<iostream>
 	"my_data.h"
 	"my_data2.h"
@@ -46,7 +46,7 @@
 1518962721 c:\users\yogi\documents\struktur data\asd_task_4\my_data2.h
 	<iostream>
 
-1518962728 source:c:\users\yogi\documents\struktur data\asd_task_4\main.cpp
+1518964623 source:c:\users\yogi\documents\struktur data\asd_task_4\main.cpp
 	<iostream>
 	"doublelist.h"
 	"operation.h"
