@@ -30,6 +30,35 @@
 1518602874 source:e:\asd_task_4\my_data.cpp
 	"my_data.h"
 
-1518602874 e:\asd_task_4\my_data.h
+1525238204 e:\asd_task_4\my_data.h
 	<iostream>
+
+1525236095 source:e:\asd_task_4\doublelist.cpp
+	"doublelist.h"
+	"my_data.h"
+	"my_data2.h"
+
+1525236095 e:\asd_task_4\doublelist.h
+	<iostream>
+	"my_data.h"
+	"my_data2.h"
+
+1525238204 e:\asd_task_4\my_data2.h
+	<iostream>
+
+1525236004 source:e:\asd_task_4\main.cpp
+	<iostream>
+	"doublelist.h"
+	"operation.h"
+	"my_data.h"
+	"my_data2.h"
+
+1525238204 e:\asd_task_4\operation.h
+	"doublelist.h"
+
+1518970931 source:e:\asd_task_4\operation.cpp
+	"doublelist.h"
+	"operation.h"
+	"my_data.h"
+	"my_data2.h"
 

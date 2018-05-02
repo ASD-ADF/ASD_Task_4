@@ -2,9 +2,9 @@
 #include "my_data2.h"
 
 /**
-    CLASS      :
-    NAME       :
-    STUDENT ID :
+    CLASS      : IF-40-INT
+    NAME       : Hasna Fadhilah Hasya
+    STUDENT ID : 1301164594
 **/
 
 mytype2 create_data(mytype2 x) {
@@ -15,11 +15,11 @@ mytype2 create_data(mytype2 x) {
     mytype2 d;
     // ===========================
     // YOUR CODE HERE
-    cout<<"your code here"<<endl;
-
-
-
-
+    cout << "==input student info==" << endl;
+    cout << "input ID   : ";cin >> d.id_lec;
+    cout << "input Name : ";cin >> d.name_lec;
+    cout << "input Class: ";cin >> d.Class_lec;
+    cout << "input Score: ";cin >> d.score_lec;
     // ===========================
     return d;
 }
@@ -31,11 +31,11 @@ void view_data(mytype2 d) {
 
     // ===========================
     // YOUR CODE HERE
-    cout<<"your code here"<<endl;
-
-
-
-
+    cout<<"==Student data=="<<endl;
+    cout<<"ID   : "<<d.id_lec<<endl;
+    cout<<"Name : "<<d.name_lec<<endl;
+    cout<<"Class: "<<d.Class_lec<<endl;
+    cout<<"Score: "<d.score_lec<endl;
     // ===========================
 }
 
@@ -48,11 +48,18 @@ void edit_data(mytype &d) {
 
     // ===========================
     // YOUR CODE HERE
-        cout<<"your code here"<<endl;
-
-
-
-
+    string beforeUpdateName = d.name;
+    cout<<" == Student New info == "<<endl;
+    cout<<"Input ID   : ";
+    cin>>d.id_lec;
+    cout<<"Input Name : ";
+    cin>>d.name_lec;
+    cout<<"Input Class: ";
+    cin>>d.Class_lec;
+    cout<<"Input Score: ";
+    cin>>d.score_lec;
+    cout<<beforeUpdateName<<" == Edited to =="<<d.name<<endl;
+    cout<<endl;
     // ===========================
 }
 

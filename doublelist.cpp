@@ -94,7 +94,7 @@ address findElm(List L, infotype x) {
                 if (P->info.id == x.id) {
                     return P;
                 } else {
-                    p = next(P);
+                    P = next(P);
                 }
             }
     }

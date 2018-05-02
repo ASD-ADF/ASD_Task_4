@@ -35,8 +35,6 @@ void insertAndSort(List &L, address P) {
             insertAfter(L,P,Z);
         }
     }
-
-
     //----------------------------------------
 }
 
@@ -66,7 +64,5 @@ void deletebyID(List &L, infotype x) {
         deleteAfter(L,T,Prec);
     }
     deallocate(T);
-
-
     //----------------------------------------
 }
