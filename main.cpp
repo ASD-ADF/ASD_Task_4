@@ -7,13 +7,13 @@
 using namespace std;
 
 void mainMenu();
-List L;
+    List L;
+    infotype x;
+    infotype2 x2;
 
 int main() {
     createList(L);
-
     mainMenu();
-
     return 0;
 }
 
@@ -45,8 +45,10 @@ void mainMenu() {
         switch(choice) {
         case 1:
             X = create_data();
+            X2 = create_data(X2);
             P = allocate(X);
             insertFirst(L,P);
+            insertAndSort(L,P);
             break;
         case 2 :
             if (first(L) == NULL ) {
@@ -57,40 +59,42 @@ void mainMenu() {
             cout << endl;
             break;
         case 3 :
-            if (first(L) == NULL ) {
-                cout << "empty" << endl;
-            }
-            cout << "find ID : " ;
-            cin >> x.id;
-            P = findElm(L,X);
-            if (P == NULL ) {
-                cout << "ID not found"<< endl;
-            } else {
-                view_data(info(P));
-                cout << endl;
-            }
-            break;
+            infotype in;
+            cout<<"Input ID : ";
+            cin>>ifo.id;
+            address fo = findElm(L,in);
+            if(fo != NULL){
+                cout<<"=STUDENT="<<endl;
+                cout<<"ID    : ";cout<<fo->info.id<<endl;
+                cout<<"Nama  : ";cout<<fo->info.name<<endl;
+                cout<<"Kelas : ";cout<<fo->info.clas<<endl;
+                cout<<"Score : ";cout<<fo->info.score<<endl;
+                cout<<"=Lecturer="<<endl;
+                cout<<"ID      : ";cout<<fo->info2.id_lec<<endl;
+                cout<<"Name    : ";cout<<fo->info2.name_lec<<endl;
+                cout<<"Subject : ";cout<<fo->info2.clas_lec<<endl;
+                cout<<"--------------"<<endl;
+                }else{
+                    cout<<"ID Not found/exist"<<endl;
+                }
+                break;
         case 4 :
-            if (first(L) == NULL ) {
-                cout << "empty" << endl;
-            }
-            cout << "edit ID : " ;
-            cin >> x.id;
-            P = findElm(L,X);
-            if (P == NULL ) {
-                cout << "ID not found"<< endl;
-            } else {
-                edit_data(info(P));
-                cout << endl;
+            infotype in;
+            cout<<"Input ID : ";
+            cin>>ifo.id;
+            address fo = findElm(L,in);
+            if(fo != NULL){
+                edit_data(info(fo));
+                edit_data(info2(fo));
+            }else{
+                cout<<"ID Not found/exist"<<endl;
             }
             break;
         case 5 :
-            if (first(L) == NULL ) {
-                cout << "empty" << endl;
-            }
-            cout << "delete ID : " ;
-            cin >> x.id;
-            deletebyID(L,X);
+            infotype in;
+            cout<<"Input ID : ";
+            cin>>in.id;
+            deletebyID(L,in);
             break;
         case 0 :
             cout << "Thank You " << endl;

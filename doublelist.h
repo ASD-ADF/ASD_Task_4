@@ -10,6 +10,7 @@
 #define next(P) P->next
 #define prev(P) P->prev
 #define info(P) P->info
+#define info2(P) P->info2
 
 using namespace std;
 
@@ -34,11 +35,13 @@ using namespace std;
 
 
 typedef mytype infotype;
+typedef mytype infotype2;
 typedef struct elmlist *address;
 
 struct elmlist{
     //------------- your code here -----------
     infotype info;
+    infotype2 info2;
     address next;
     address prev;
     //----------------------------------------
@@ -57,6 +60,7 @@ struct List{
 // define a function and a procedure to allocate and deallocate an element list
 void createList(List &L);
 address allocate(infotype x);
+address allocate(infotype x,infotype2 x2);
 void deallocate(address &P);
 
 // define insert and delete procedure

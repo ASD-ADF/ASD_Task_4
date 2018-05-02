@@ -9,8 +9,6 @@ void createList(List &L) {
     //-------------your code here-------------
     first(L) = NULL;
     last(L) = NULL;
-
-
     //----------------------------------------
 }
 
@@ -25,20 +23,24 @@ address allocate(infotype x) {
     info(P) = x;
     next(P) = NULL;
     prev(P) = NULL;
-
-
     //----------------------------------------
     return P;
 }
 
+address allocate(infotype x,infotype2 x2) {
+    address P;
+    P = new elmlist;
+    info(P) = x;
+    info2(P) = x2;
+    next(P) = NULL;
+    prev(P) = NULL;
+}
 void deallocate(address &P) {
     /**
     * FS : delete element pointed by P
     */
     //-------------your code here-------------
     delete P;
-
-
     //----------------------------------------
 }
 
@@ -56,8 +58,6 @@ void insertFirst(List &L, address P) {
         prev(first(L)) = P;
         first(L) = P;
     }
-
-
     //----------------------------------------
 }
 
@@ -76,8 +76,6 @@ void insertLast(List &L, address P) {
         next(last(L)) = P;
         last(L) = P;
     }
-
-
     //----------------------------------------
 }
 
@@ -89,23 +87,17 @@ address findElm(List L, infotype x) {
     */
 
     address P;
-    bool found = false;
     //-------------your code here-------------
     P = first(L);
     if (first(L)!= NULL ) {
-            while (P!=NULL && !found) {
-                if (P->info.id != x.id) {
+            while (P!=NULL && P->info.id != x.id) {
+                if (P->info.id == x.id) {
                     return P;
-                    found = true;
                 } else {
                     p = next(P);
                 }
             }
-    }else if (first(L)==NULL || !found){
-        return NULL;
     }
-
-
     //----------------------------------------
     return P;
 }
@@ -129,9 +121,6 @@ void deleteFirst(List &L, address &P) {
             next(P) = NULL;
         }
     }
-
-
-
     //----------------------------------------
 }
 
@@ -152,9 +141,6 @@ void deleteLast(List &L, address &P) {
             next(last(L)) = NULL;
         }
     }
-
-
-
     //----------------------------------------
 }
 
@@ -218,8 +204,6 @@ void deleteAfter(List &L, address Prec, address &P) {
             deleteLast(L,P);
         }
     }
-
-
     //----------------------------------------
 }
 
