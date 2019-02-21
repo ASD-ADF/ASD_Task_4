@@ -25,20 +25,20 @@ Create a music player application to implement the double circular linked list d
 4. type `winmm`
 5. click OK
 
-##list.h
+## list.h
 modify the elemenList and List structure to implement Double Circular linked list
-* use only one head
+* use only **one head**
 	
-##list.cpp
+## list.cpp
 modify each function to fit the data structure
-* createList
-* allocate, deallocate
-* insertFirst, insertLast, insertAfter
-* deleteFirst, deleteLast, deleteAfter
-* findElmByID, findElmByName
+* `createList`
+* `allocate`, `deallocate`
+* `insertFirst`, `insertLast`, `insertAfter`
+* `deleteFirst`, `deleteLast`, `deleteAfter`
+* `findElmByID`, `findElmByName`<br>
 to implement Double Circular Linked List mechanism
 	
-##player.cpp
+## player.cpp
 <i>these function are already defined:
 * `int randomInt(int  max_int);` <br>function to produce random integer<br> 
 * `void printInfo(List L);` <br>function to print music list inserted to List L<br>
@@ -54,18 +54,20 @@ create function according to the header defined in player.h
 
 * function to shuffle the order of the music list<br> `void shuffleList(List &);`<br>simple logic example: <br> 
 
-```	loop n times
-		P <- first
-		x = randomInt
-		for i to x, 
-			move P to next element
-		delete after P
-		insert first P
-  ```<br>
-  you can define another mechanism to shuffle the order
+```
+   repeat n times
+      P <- first
+      x = randomInt
+      for i to x, 
+          move P to next element
+      delete after P
+      insert first P
+   end repeat
+  ```
+  <br>  you can define another mechanism to shuffle the order
   
 		
-##main.cpp
+## main.cpp
 * modify the main menu progam
 * run the application
 	
