@@ -1,29 +1,21 @@
 # depslib dependency file v1.0
-1518491321 source:c:\users\andityaarifianto\documents\github\asd_task_4\doublelist.cpp
-	"doublelist.h"
-	"my_data.h"
+1550773562 source:c:\users\andityaarifianto\documents\cpp\asd_task_4\list.cpp
+	"list.h"
 
-1518491310 c:\users\andityaarifianto\documents\github\asd_task_4\doublelist.h
-	<iostream>
-	"my_data.h"
-
-1518067745 c:\users\andityaarifianto\documents\github\asd_task_4\my_data.h
+1550774057 c:\users\andityaarifianto\documents\cpp\asd_task_4\list.h
+	<string>
+	<windows.h>
 	<iostream>
 
-1518491328 source:c:\users\andityaarifianto\documents\github\asd_task_4\main.cpp
-	<iostream>
-	"doublelist.h"
-	"operation.h"
-	"my_data.h"
+1550774023 source:c:\users\andityaarifianto\documents\cpp\asd_task_4\main.cpp
+	"player.h"
+	"list.h"
+	<conio.h>
 
-1518491234 c:\users\andityaarifianto\documents\github\asd_task_4\operation.h
-	"doublelist.h"
+1550773562 c:\users\andityaarifianto\documents\cpp\asd_task_4\player.h
+	"list.h"
 
-1518067674 source:c:\users\andityaarifianto\documents\github\asd_task_4\my_data.cpp
-	"my_data.h"
-
-1518491337 source:c:\users\andityaarifianto\documents\github\asd_task_4\operation.cpp
-	"doublelist.h"
-	"operation.h"
-	"my_data.h"
+1550773562 source:c:\users\andityaarifianto\documents\cpp\asd_task_4\player.cpp
+	"player.h"
+	<ctime>
 

@@ -1,7 +1,7 @@
-# Task_4 [2017/2018-II]
-Task 4 : Double Linked List Introduction
+# Task_4 2019
+Task 4 : Circular Double Linked List
 
-# DEADLINE = FEBRUARY 18TH, 2018 - 23:59
+# DEADLINE = MARCH 4TH, 2019 - 23:59
 
 ## Reading Material
 * [git cheat sheet](https://education.github.com/git-cheat-sheet-education.pdf)
@@ -15,94 +15,57 @@ Task 4 : Double Linked List Introduction
 5. COMMIT and PUSH your project to your account
 6. create a Pull Request
 
+Introduction to Double Circular Linked List  <br>
+Create a music player application to implement the double circular linked list data structure
 
-Create a program to store and manage a data using Double linear linked list
+## [IMPORTANT] library integration
+1. on Code::Blocks, go into menu project->Build Option
+2. go to Linker Settings tab
+3. click `Add` to add new lib function
+4. type `winmm`
+5. click OK
 
+##list.h
+modify the elemenList and List structure to implement Double Circular linked list
+* use only one head
+	
+##list.cpp
+modify each function to fit the data structure
+* createList
+* allocate, deallocate
+* insertFirst, insertLast, insertAfter
+* deleteFirst, deleteLast, deleteAfter
+* findElmByID, findElmByName
+to implement Double Circular Linked List mechanism
+	
+##player.cpp
+<i>these function are already defined:
+* `int randomInt(int  max_int);` <br>function to produce random integer<br> 
+* `void printInfo(List L);` <br>function to print music list inserted to List L<br>
+* `void playMusic(address P);` <br>function to play current music pointed by P<br> 
+</i>
+TODO : 
+create function according to the header defined in player.h
+  
+* function to play the music list from the first music and repeat the list n times  <br>`void playRepeat(List &, int n);` <br>
+  
+* function to delete any music defined by its ID<br>
+  ```void deleteMusicByID(List &L, infotype x);```
 
-## TO DO  
-## [SHOULD YOU HAVE ALREADY DONE TASK 3, THEN YOU JUST HAVE TO  COPY-PASTE YOUR CODES AND MODIFY SOME OF THEM ]
+* function to shuffle the order of the music list<br> `void shuffleList(List &);`<br>simple logic example: <br> 
 
-
-### my_data.h *(From Previous Task_2)*
-TODO:  create a new Data type with specification:
-		- an integer variable acted as an ID
-		- two other variables
-		- a float variable
+```	loop n times
+		P <- first
+		x = randomInt
+		for i to x, 
+			move P to next element
+		delete after P
+		insert first P
+  ```<br>
+  you can define another mechanism to shuffle the order
+  
 		
-### my_data2.h 	***[NEW]***
-TODO:  create a new Data type, DIFFERENT FROM THE FIRST ONE with specification:
-		- an integer variable acted as an ID
-		- two other variables
-
-
-### my_data.cpp *(From Previous Task_2)*
-* `mytype create_data()`<br>
-	TODO: receive input from user and assign the value of new data
-* `view_data(mytype d)`<br>
-	TODO:  view the content of data d
-* `edit_data(mytype &d)`<br>
-	TODO:  edit the value of data d, the ID must not be modified
-
+##main.cpp
+* modify the main menu progam
+* run the application
 	
-### my_data2.cpp 	***[NEW]***
-* `mytype2 create_data()`<br>
-	TODO: receive input from user and assign the value of new data
-* `view_data(mytype2 d)`<br>
-	TODO:  view the content of data d
-* `edit_data(mytype2 &d)`<br>
-	TODO:  edit the value of data d, the ID must not be modified
-
-	
-You may just copy your previous result
-
-
-### doublelist.h	***[NEW]***
-Create ADT of single linked list
-* define a function and a procedure to allocate and deallocate an element list
-  * `function allocate(in: x : infotype) : address`
-  * `procedure deallocate( i/o: P : address )`
-  
-* define insert and delete procedure
-  * `procedure insertFirst( i/o: L : List, i: P : address )`
-  * `procedure insertLast( i/o: L : List, i: P : address )`
-  * `procedure insertAfter( i/o: L : List,i: Prec : address, P : address )`
-  * `procedure deleteFirst( i/o: L : List, i/o: P : address )`
-  * `procedure deleteLast( i/o: L : List, i/o: P : address )`
-  * `procedure deleteAfter( i/o: L : List,i: Prec : address, i/o: P : address )`
-
-* define search-by-ID function and view procedure
-  * `function findElm( i: L : List, x : infotype ) : address`
-  * `procedure viewList( i: L : List )`
-  
-
-### operation.h *(From Previous Task_3)*
-* define insertion procedure
-  * `procedure insertionSort( i: L : List )`<br>
-	TODO: insert an element pointed by P into an already sorted-by-ID List L, <br>
-	so that the elements inside List L is still sorted by ID<br>
-	procedure must also check if such ID is already exists (No Duplicate ID)
-* define deletebyID function
-  * `procedure deletebyID( i/o : L : List, x : infotype )`
-
-  
-### doublelist.cpp	***[NEW]***
-Implement function and procedure defined in `list.h`
-
-
-### operation.cpp *(From Previous Task_3)*
-Implement function and procedure defined in `operation.h`
-
-### main.cpp *(From Previous Task_3)*
-Create a main menu to run your application <br>
-Menu Application:
-   1. insert new data
-   2. print all data
-   3. find and print a data by ID
-   4. edit data by ID
-   5. delete data by ID
-   0. exit
-  
-   
-### CRITERIA
-* ID is unique, check whether ID is already exsits when inserting new element
-* try to change the infotype in `doublelist.h` from `mytype` into `mytype2`
