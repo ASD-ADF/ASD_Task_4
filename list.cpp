@@ -5,7 +5,7 @@ void createList(List &L) {
     * FS : first(L) diset Nil
     */
     //------------- YOUR CODE HERE -------------
-
+    first(L) = NULL;
     //----------------------------------------
 }
 
@@ -17,7 +17,10 @@ address allocate(infotype x) {
 
     address P = NULL;
     //------------- YOUR CODE HERE -------------
-
+    P = new elmlist;
+    info(P) = x;
+    next(P) = NULL;
+    prev(P) = NULL;
     //----------------------------------------
     return P;
 }
@@ -27,7 +30,7 @@ void deallocate(address &P) {
     * FS : menghapus elemen yang ditunjuk oleh P (delete)
     */
     //------------- YOUR CODE HERE -------------
-
+    delete P;
     //----------------------------------------
 }
 
@@ -37,7 +40,18 @@ void insertFirst(List &L, address P) {
     * FS : elemen yang ditunjuk P menjadi elemen pertama pada List L
     */
     //------------- YOUR CODE HERE -------------
-
+    if(first(L)!=NULL){
+        next(P) = first(L);
+        prev(P) = prev(first(L));
+        next(prev(first(L))) = P;
+        prev(first(L)) = P;
+        first(L) = P;
+    }
+    else{
+        first(L) = P;
+        next(P) = P;
+        prev(P) = P;
+    }
     //----------------------------------------
 }
 
@@ -47,7 +61,14 @@ void insertLast(List &L, address P) {
     * FS : elemen yang ditunjuk P menjadi elemen terakhir pada List L
     */
     //------------- YOUR CODE HERE -------------
-
+    if (first(L)!=NULL){
+        next(P) = first(L);
+        prev(P) = prev(first(L));
+        next(prev(first(L))) = P;
+        prev(first(L)) = P;
+    }else{
+        insertFirst(L,P);
+    }
     //----------------------------------------
 }
 
@@ -60,9 +81,18 @@ address findElmByID(List L, infotype x) {
 
     address P = NULL;
     //------------- YOUR CODE HERE -------------
-
+    P = first(L);
+    if  (first(L)!=NULL){
+        while ((next(P)!=NULL) && (info(P).ID!=x.ID)){
+            P = next(P);
+        }
+        if (info(P).ID != x.ID){
+            return NULL;
+    }else{
     //----------------------------------------
     return P;
+    }
+}
 }
 
 address findElmByName(List L, infotype x) {
