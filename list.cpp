@@ -94,9 +94,6 @@ address findElmByID(List L, infotype x) {
         P = next(P);
     }
     if (info(P).ID != x.ID) {
-        P = next(P);
-    }
-    if (info(P).ID != x.ID) {
         return NULL;
     }
     //----------------------------------------
@@ -114,9 +111,6 @@ address findElmByName(List L, infotype x) {
     //------------- YOUR CODE HERE -------------
     P = first(L);
     while (next(P) != first(L) && info(P).name != x.name) {
-        P = next(P);
-    }
-    if (info(P).name != x.name) {
         P = next(P);
     }
     if (info(P).name != x.name) {
@@ -189,6 +183,7 @@ void insertAfter(List &L, address &Prec, address P) {
     //----------------------------------------
 
 }
+
 void deleteAfter(List &L, address &Prec, address &P) {
     /**
     * IS : Prec tidak NULL
@@ -196,7 +191,17 @@ void deleteAfter(List &L, address &Prec, address &P) {
     *      dan disimpan/ditunjuk oleh P
     */
     //------------- YOUR CODE HERE -------------
-
+    P = next(Prec);
+    if (P == first(L)) {
+        deleteFirst(L,P);
+    } else if (next(P) == first(L)) {
+        deleteLast(L,P);
+    } else {
+        next(Prec) = next(P);
+        prev(next(P)) = Prec;
+        next(P) = NULL;
+        prev(P) = NULL;
+    }
     //----------------------------------------
 }
 

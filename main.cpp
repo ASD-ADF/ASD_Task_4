@@ -122,10 +122,8 @@ void runMenu(int menu) {
     case 2:
         // insert last music
         //------------- YOUR CODE HERE -------------
-        cout<<"UNDER MAIN TENIS"<<endl;
-        //input music
-        //insertLast()
-
+        P = inputMusic();
+        insertLast(L,P);
         //----------------------------------------
         cout<<"press enter";getche();
         break;
@@ -142,8 +140,8 @@ void runMenu(int menu) {
     case 5:
         // play last music
         //------------- YOUR CODE HERE -------------
-        cout<<"UNDER MAIN TENIS"<<endl;
-
+        P = prev(first(L));
+        playMusic(P);
         //----------------------------------------
         break;
     case 6:
@@ -154,6 +152,8 @@ void runMenu(int menu) {
         P = findElmByName(L, x);
         if(P != NULL){
             cout<<"music found"<<endl;
+        } else {
+            cout<<"music not found"<<endl;
         }
         //----------------------------------------
         cout<<"press enter";getche();
@@ -161,14 +161,23 @@ void runMenu(int menu) {
     case 7:
         // search music by ID
         //------------- YOUR CODE HERE -------------
-        cout<<"UNDER MAIN TENIS"<<endl;
-
+        cout<<"input music ID: ";
+        cin>>x.ID;
+        P = findElmByID(L,x);
+        if (P != NULL) {
+            cout<<"music found"<<endl;
+        } else {
+            cout<<"music not found"<<endl;
+        }
         //----------------------------------------
         cout<<"press enter";getche();
         break;
     case 8:
         // play current music
         if(P!=NULL) {
+            playMusic(P);
+        } else {
+            P = first(L);
             playMusic(P);
         }
         break;
@@ -177,13 +186,21 @@ void runMenu(int menu) {
         if(P!=NULL) {
             P = next(P);
             playMusic(P);
+        } else {
+            P = first(L);
+            playMusic(P);
         }
         break;
     case 10:
         // play previous music
         //------------- YOUR CODE HERE -------------
-        cout<<"UNDER MAIN TENIS"<<endl;
-
+        if (P!=NULL) {
+            P = prev(P);
+            playMusic(P);
+        } else {
+            P = first(L);
+            playMusic(P);
+        }
         //----------------------------------------
         break;
     case 11:
