@@ -43,7 +43,20 @@ void shuffleList(List &L) {
     * FS : isi (elemen) dari list teracak
     */
     //------------- YOUR CODE HERE -------------
-    cout<<"UNDER CONSTRUCTION"<<endl;
+    List L2;
+    createList(L2);
+    address P = NULL;
+    while (first(L) != NULL) {
+        deleteFirst(L,P);
+        int x = randomInt(15);
+        cout<<x<<endl;
+        if (x > 5) {
+            insertFirst(L2,P);
+        } else {
+            insertLast(L2,P);
+        }
+    }
+    L = L2;
     //----------------------------------------
 }
 

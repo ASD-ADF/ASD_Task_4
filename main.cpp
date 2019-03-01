@@ -165,7 +165,7 @@ void runMenu(int menu) {
         cin>>x.ID;
         P = findElmByID(L,x);
         if (P != NULL) {
-            cout<<"music found"<<endl;
+            cout<<"music found (ID: "<<info(P).ID<<")"<<endl;
         } else {
             cout<<"music not found"<<endl;
         }
