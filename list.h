@@ -5,6 +5,7 @@
 #include <windows.h>
 #include <iostream>
 
+#define Nil NULL
 #define first(L) L.first
 #define next(P) P->next
 #define prev(P) P->prev
@@ -22,6 +23,7 @@ struct music {
 typedef music infotype;
 typedef struct elmlist *address;
 
+
 /**
 * IMPLEMENT CIRCULAR DOUBLE LINKED LIST
 * USE ONLY ONE HEAD (FIRST)
@@ -29,15 +31,16 @@ typedef struct elmlist *address;
 
 struct elmlist {
     //-------------  YOUR CODE HERE  -----------
-
+    infotype info;
+    address next;
+    address prev;
 
     //----------------------------------------
 };
 
 struct List {
     //-------------  YOUR CODE HERE  -----------
-
-
+    address first;
     //----------------------------------------
 };
 
@@ -45,21 +48,21 @@ struct List {
 
 /** YOU DON'T NEED TO MODIFY THIS */
 
-void createList(List &);
+void createList(List &L);
 
-address allocate(infotype );
-void deallocate(address &);
+address allocate(infotype x );
+void deallocate(address &P);
 
-void insertFirst(List &, address );
-void insertLast(List &, address );
-void insertAfter(List &, address &, address);
+void insertFirst(List &L, address P);
+void insertLast(List &L, address P);
+void insertAfter(List &L, address &Prec, address P);
 
-void deleteFirst(List &, address &);
-void deleteLast(List &, address &);
-void deleteAfter(List &, address &, address &);
+void deleteFirst(List &L, address &P);
+void deleteLast(List &L, address &P);
+void deleteAfter(List &L, address &Prec, address &P);
 
-address findElmByID(List, infotype );
-address findElmByName(List, infotype );
+address findElmByID(List L, infotype x );
+address findElmByName(List L, infotype x );
 
 
 #endif // LIST_H_INCLUDED

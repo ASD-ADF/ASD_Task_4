@@ -37,27 +37,40 @@ void playMusic(address P) {
 }
 
 
-void shuffleList(List &L) {
+void shuffleList(List &L, int index_ID) {
     /**
     * PR : mengacak isi (elemen) dari list L
     * FS : isi (elemen) dari list teracak
     */
-    //------------- YOUR CODE HERE -------------
+    //------------- YOUR CODE HERE -----------
+        int n = randomInt(index_ID);
+        int i,j;
+        address P = first(L);
 
-        cout<<"UNDER MAIN TENIS"<<endl;
+        for (i=0;i<n;i++){
+            swap(info(P).name , info(next(P)).name);
+            swap(info(P).ID , info(next(P)).ID);
+            P=next(P);
+        }
 
     //----------------------------------------
 }
 
-void playRepeat(List &L, int n) {
+void playRepeat(List &L, int n, int index_ID) {
     /**
     * PR : memainkan seluruh lagu di dalam list
     *      dari lagu pertama hingga terakhir sebanyak n kali
     */
     //------------- YOUR CODE HERE -------------
+        int i,j;
 
-        cout<<"UNDER MAIN TENIS"<<endl;
-
+        address P = first(L);
+        for (i=0;i<n;i++){
+            for (j=0;j<index_ID;j++){
+                playMusic(P);
+                P = next(P);
+            }
+        }
     //----------------------------------------
 }
 
@@ -70,8 +83,18 @@ void deleteMusicByID(List &L, infotype x) {
     */
     //------------- YOUR CODE HERE -------------
 
-        cout<<"UNDER MAIN TENIS"<<endl;
-
-    //----------------------------------------
+    address Prec, P;
+    P = findElmByID(L,x);
+    if(P==first(L)){
+        deleteFirst(L,P);
+    }else if (next(P)==NULL){
+        deleteLast(L,P);
+    }else if (info(P).ID == x.ID){
+        Prec = first(L);
+        while(next(Prec)!= P){
+            Prec=next(Prec);
+        }
+        deleteAfter(L,Prec,P);
+    }
 
 }

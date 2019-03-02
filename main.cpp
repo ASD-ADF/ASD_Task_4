@@ -1,6 +1,7 @@
 #include "player.h"
 #include "list.h"
 #include <conio.h>
+#include <windows.h>
 
 List L;
 address P;
@@ -12,13 +13,22 @@ void displayMenu();
 void runMenu(int menu);
 
 int main() {
+    address P;
+    infotype x;
+    List L;
+    int index_ID;
+
 
     index_ID = 1;
     createList(L);
 
+    menu();
+    /*
+
     //-----------------------------------------
     // example of data initialization
     //-----------------------------------------
+    //displayMenu();
     x.ID = index_ID++;
     x.location = "asset";
     x.name = "do.wav";
@@ -46,9 +56,7 @@ int main() {
     //-----------------------------------------
     // call main menu
     //-----------------------------------------
-    menu();
-
-
+    */
     return 0;
 }
 
@@ -114,35 +122,51 @@ void runMenu(int menu) {
 
     switch(menu) {
     case 1:
-        // insert first music
+        cout<<"==============================================="<<endl;
         P = inputMusic();
         insertFirst(L,P);
+        cout<<"==============================================="<<endl;
         cout<<"press enter";getche();
+        system ("CLS");
         break;
     case 2:
         // insert last music
         //------------- YOUR CODE HERE -------------
-        cout<<"UNDER MAIN TENIS"<<endl;
-        //input music
-        //insertLast()
-
+        cout<<"==============================================="<<endl;
+        P = inputMusic();
+        insertLast(L,P);
+        cout<<"==============================================="<<endl;
         //----------------------------------------
         cout<<"press enter";getche();
+        system ("CLS");
         break;
     case 3:
-        // view music list
-        printInfo(L);
+        cout<<"==============================================="<<endl;
+        cout<<"             DAFTAR MUSIK DALAM LIST           "<<endl;
+        cout<<"==============================================="<<endl;
+        if (first(L) != NULL){
+                printInfo(L);
+        }else{
+            cout << "Belum Ada Lagu di Dalam List"<<endl;
+            cout << "Silahkan Masukkan Terlebih Dahulu Lagu ke Dalam List"<<endl;
+        }
+
+        cout<<"==============================================="<<endl;
         cout<<"press enter";getche();
+        system ("CLS");
         break;
     case 4:
         // play first music
         P = first(L);
         playMusic(P);
+        system ("CLS");
         break;
     case 5:
         // play last music
         //------------- YOUR CODE HERE -------------
-        cout<<"UNDER MAIN TENIS"<<endl;
+        P = prev(first(L));
+        playMusic(P);
+        system ("CLS");
 
         //----------------------------------------
         break;
@@ -152,25 +176,37 @@ void runMenu(int menu) {
         cout<<"input music filename (.wav) : ";
         cin>>x.name;
         P = findElmByName(L, x);
-        if(P != NULL){
-            cout<<"music found"<<endl;
+        if ((P != NULL) && (info(P).name == x.name)){
+            cout<<"music '"<<x.name << "' found"<<endl;
+        }else{
+            cout << "Lagu Tidak Terdaftar di Dalam List"<<endl;
         }
         //----------------------------------------
         cout<<"press enter";getche();
+        system ("CLS");
         break;
     case 7:
         // search music by ID
         //------------- YOUR CODE HERE -------------
-        cout<<"UNDER MAIN TENIS"<<endl;
+        cout<<"input music ID : ";
+        cin>>x.ID;
+        P = findElmByID(L, x);
+        if ((P != NULL) &&(info(P).ID == x.ID)){
+            cout<<"music with ID "<<x.ID<<" found : "<<info(P).name<<endl;
+        }else{
+            cout << "ID Tidak Ada Dalam List"<<endl;
+        }
 
         //----------------------------------------
         cout<<"press enter";getche();
+        system ("CLS");
         break;
     case 8:
         // play current music
         if(P!=NULL) {
             playMusic(P);
         }
+        system ("CLS");
         break;
     case 9:
         // play next music
@@ -178,33 +214,45 @@ void runMenu(int menu) {
             P = next(P);
             playMusic(P);
         }
+        system ("CLS");
         break;
     case 10:
         // play previous music
         //------------- YOUR CODE HERE -------------
-        cout<<"UNDER MAIN TENIS"<<endl;
-
+        if (P != NULL){
+            P = prev(P);
+            playMusic(P);
+        }
+        system ("CLS");
         //----------------------------------------
         break;
     case 11:
         // shuffle list
-        shuffleList(L);
+        shuffleList(L,index_ID);
         cout<<"press enter";getche();
+        system ("CLS");
         break;
     case 12:
         // play repeat all music
         int n;
         cout<<"input repeat times : ";
         cin>>n;
-        playRepeat(L,n);
+        playRepeat(L,n,index_ID);
+        cout<<"==LAGU SELESAI=="<<endl;
         cout<<"press enter";getche();
+        system ("CLS");
         break;
     case 13:
         // delete music by ID
-        cout<<"input music ID : ";
-        cin>>x.name;
-        deleteMusicByID(L, x);
+        if (first(L)==NULL){
+            cout << "File Yang Ingin Dihapus Tidak Terdapat Di Dalam List"<<endl;
+        }else{
+            cout<<"input music ID : ";
+            cin>>x.ID;
+            deleteMusicByID(L, x);
+        }
         cout<<"press enter";getche();
+        system ("CLS");
         break;
     case 0:
         cout<<"thank you"<<endl;
