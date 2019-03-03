@@ -19,3 +19,23 @@
 	"player.h"
 	<ctime>
 
+1551617179 source:c:\users\made\documents\github\asd_task_4\main.cpp
+	"player.h"
+	"list.h"
+	<conio.h>
+
+1551534309 c:\users\made\documents\github\asd_task_4\player.h
+	"list.h"
+
+1551534842 c:\users\made\documents\github\asd_task_4\list.h
+	<string>
+	<windows.h>
+	<iostream>
+
+1551618495 source:c:\users\made\documents\github\asd_task_4\player.cpp
+	"player.h"
+	<ctime>
+
+1551618085 source:c:\users\made\documents\github\asd_task_4\list.cpp
+	"list.h"
+
