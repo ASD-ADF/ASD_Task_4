@@ -12,7 +12,8 @@
 
 using namespace std;
 
-struct music {
+struct music
+{
     int ID;
     string name;
     string location;
@@ -27,17 +28,19 @@ typedef struct elmlist *address;
 * USE ONLY ONE HEAD (FIRST)
 */
 
-struct elmlist {
+struct elmlist
+{
     //-------------  YOUR CODE HERE  -----------
-
-
+    infotype info;
+    address next;
+    address prev;
     //----------------------------------------
 };
 
-struct List {
+struct List
+{
     //-------------  YOUR CODE HERE  -----------
-
-
+    address first;
     //----------------------------------------
 };
 
@@ -47,19 +50,19 @@ struct List {
 
 void createList(List &);
 
-address allocate(infotype );
-void deallocate(address &);
+address allocate(infotype x);
+void deallocate(address &P);
 
-void insertFirst(List &, address );
-void insertLast(List &, address );
-void insertAfter(List &, address &, address);
+void insertFirst(List &L, address P);
+void insertLast(List &L, address P);
+void insertAfter(List &L, address &Prec, address P);
 
-void deleteFirst(List &, address &);
-void deleteLast(List &, address &);
-void deleteAfter(List &, address &, address &);
+void deleteFirst(List &L, address &P);
+void deleteLast(List &L, address &P);
+void deleteAfter(List &L, address &Prec, address &P);
 
-address findElmByID(List, infotype );
-address findElmByName(List, infotype );
+address findElmByID(List L, infotype x);
+address findElmByName(List L, infotype x);
 
 
 #endif // LIST_H_INCLUDED

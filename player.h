@@ -14,14 +14,14 @@ void printInfo(List);
 void playMusic(address P);
 // play song from element P
 
-void shuffleList(List &);
+void shuffleList(List &L, int index_ID);
 // shuffle the song list
 
-void playRepeat(List &, int n);
+void playRepeat(List &L, int n, int index_ID);
 // play the song list from the first song
 // and repeat the list n times
 
-void deleteMusicByID(List &, infotype);
+void deleteMusicByID(List &L, infotype x);
 // user input song ID
 // remove the song from the list
 
