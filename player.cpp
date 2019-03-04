@@ -44,8 +44,16 @@ void shuffleList(List &L) {
     */
     //------------- YOUR CODE HERE -------------
 
-        cout<<"UNDER MAIN TENIS"<<endl;
-
+    cout<<"UNDER MAIN TENIS"<<endl;
+    int r = randomInt(14);
+    int i,j;
+    address P = first(L);
+    for(i=0; i < r; i++)
+    {
+        swap(info(P).name, info(next(P)).name);
+        swap(info(P).ID, info(next(P)).ID);
+        P = next(P);
+    };
     //----------------------------------------
 }
 
@@ -56,8 +64,20 @@ void playRepeat(List &L, int n) {
     */
     //------------- YOUR CODE HERE -------------
 
-        cout<<"UNDER MAIN TENIS"<<endl;
-
+    cout<<"UNDER MAIN TENIS"<<endl;
+    address P = first(L);
+    int i = 0;
+    while (i < n)
+    {
+        playMusic(P);
+        P = next(P);
+        while (P != first(L))
+        {
+            playMusic(P);
+            P = next(P);
+        }
+        i++;
+    }
     //----------------------------------------
 }
 
@@ -70,7 +90,22 @@ void deleteMusicByID(List &L, infotype x) {
     */
     //------------- YOUR CODE HERE -------------
 
-        cout<<"UNDER MAIN TENIS"<<endl;
+    cout<<"UNDER MAIN TENIS"<<endl;
+    address P = first(L);
+    if (x.ID != info(P).ID)
+    {
+        P = next(P);
+    }
+    while (x.ID != info(P).ID && P != first(L))
+    {
+        P = next(P);
+    }
+    if (x.ID == info(P).ID)
+    {
+        next(prev(P)) = next(P);
+        prev(next(P)) = prev(P);
+        deallocate(P);
+    }
 
     //----------------------------------------
 
