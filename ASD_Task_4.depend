@@ -19,3 +19,23 @@
 	"player.h"
 	<ctime>
 
+1551693214 source:e:\kuliah\semester 2\strukdat\asd_task_4\main.cpp
+	"player.h"
+	"list.h"
+	<conio.h>
+
+1551601781 e:\kuliah\semester 2\strukdat\asd_task_4\player.h
+	"list.h"
+
+1551611282 e:\kuliah\semester 2\strukdat\asd_task_4\list.h
+	<string>
+	<windows.h>
+	<iostream>
+
+1551692931 source:e:\kuliah\semester 2\strukdat\asd_task_4\player.cpp
+	"player.h"
+	<ctime>
+
+1551692632 source:e:\kuliah\semester 2\strukdat\asd_task_4\list.cpp
+	"list.h"
+

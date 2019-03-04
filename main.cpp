@@ -2,10 +2,10 @@
 #include "list.h"
 #include <conio.h>
 
-List L;
+List L, L1;
 address P;
 infotype x;
-int index_ID;
+int index_ID, i;
 
 void menu();
 void displayMenu();
@@ -15,33 +15,7 @@ int main() {
 
     index_ID = 1;
     createList(L);
-
-    //-----------------------------------------
-    // example of data initialization
-    //-----------------------------------------
-    x.ID = index_ID++;
-    x.location = "asset";
-    x.name = "do.wav";
-    P = allocate(x);
-    insertFirst(L,P);
-
-    x.ID = index_ID++;
-    x.location = "asset";
-    x.name = "re.wav";
-    P = allocate(x);
-    insertLast(L,P);
-
-    x.ID = index_ID++;
-    x.location = "asset";
-    x.name = "mi.wav";
-    P = allocate(x);
-    insertLast(L,P);
-
-    //-----------------------------------------
-    // view data
-    //-----------------------------------------
-    printInfo(L);
-
+    createList(L1);
 
     //-----------------------------------------
     // call main menu
@@ -120,13 +94,8 @@ void runMenu(int menu) {
         cout<<"press enter";getche();
         break;
     case 2:
-        // insert last music
-        //------------- YOUR CODE HERE -------------
-        cout<<"UNDER MAIN TENIS"<<endl;
-        //input music
-        //insertLast()
-
-        //----------------------------------------
+        P = inputMusic();
+        insertLast(L, P);
         cout<<"press enter";getche();
         break;
     case 3:
@@ -140,11 +109,8 @@ void runMenu(int menu) {
         playMusic(P);
         break;
     case 5:
-        // play last music
-        //------------- YOUR CODE HERE -------------
-        cout<<"UNDER MAIN TENIS"<<endl;
-
-        //----------------------------------------
+        P = prev(first(L));
+        playMusic(P);
         break;
     case 6:
         // search music by name
@@ -155,14 +121,24 @@ void runMenu(int menu) {
         if(P != NULL){
             cout<<"music found"<<endl;
         }
+        else{
+            cout<<"music not found \n";
+        }
         //----------------------------------------
         cout<<"press enter";getche();
         break;
     case 7:
         // search music by ID
-        //------------- YOUR CODE HERE -------------
-        cout<<"UNDER MAIN TENIS"<<endl;
-
+        //------------- YOUR CODE HERE
+        cout<<"input music id : ";
+        cin>>x.ID;
+        P = findElmByID(L, x);
+        if(P != NULL){
+            cout<<"music found"<<endl;
+        }
+        else{
+            cout<<"music not found \n";
+        }
         //----------------------------------------
         cout<<"press enter";getche();
         break;
@@ -181,10 +157,10 @@ void runMenu(int menu) {
         break;
     case 10:
         // play previous music
-        //------------- YOUR CODE HERE -------------
-        cout<<"UNDER MAIN TENIS"<<endl;
-
-        //----------------------------------------
+        if (P != NULL){
+            P = prev(P);
+            playMusic(P);
+        }
         break;
     case 11:
         // shuffle list
@@ -202,7 +178,7 @@ void runMenu(int menu) {
     case 13:
         // delete music by ID
         cout<<"input music ID : ";
-        cin>>x.name;
+        cin>>x.ID;
         deleteMusicByID(L, x);
         cout<<"press enter";getche();
         break;
