@@ -19,3 +19,23 @@
 	"player.h"
 	<ctime>
 
+1551691955 source:c:\users\ajeung\downloads\asd_task_4\main.cpp
+	"player.h"
+	"list.h"
+	<conio.h>
+
+1551689272 c:\users\ajeung\downloads\asd_task_4\player.h
+	"list.h"
+
+1551690079 c:\users\ajeung\downloads\asd_task_4\list.h
+	<string>
+	<windows.h>
+	<iostream>
+
+1551709835 source:c:\users\ajeung\downloads\asd_task_4\player.cpp
+	"player.h"
+	<ctime>
+
+1551708807 source:c:\users\ajeung\downloads\asd_task_4\list.cpp
+	"list.h"
+
