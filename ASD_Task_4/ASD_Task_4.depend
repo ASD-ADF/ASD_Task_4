@@ -1,0 +1,41 @@
+# depslib dependency file v1.0
+1550773562 source:c:\users\andityaarifianto\documents\cpp\asd_task_4\list.cpp
+	"list.h"
+
+1550774057 c:\users\andityaarifianto\documents\cpp\asd_task_4\list.h
+	<string>
+	<windows.h>
+	<iostream>
+
+1550774023 source:c:\users\andityaarifianto\documents\cpp\asd_task_4\main.cpp
+	"player.h"
+	"list.h"
+	<conio.h>
+
+1550773562 c:\users\andityaarifianto\documents\cpp\asd_task_4\player.h
+	"list.h"
+
+1550773562 source:c:\users\andityaarifianto\documents\cpp\asd_task_4\player.cpp
+	"player.h"
+	<ctime>
+
+1551703316 source:e:\tugas c++\asd_task_4\main.cpp
+	"player.h"
+	"list.h"
+	<conio.h>
+
+1551698326 e:\tugas c++\asd_task_4\player.h
+	"list.h"
+
+1551698731 e:\tugas c++\asd_task_4\list.h
+	<string>
+	<windows.h>
+	<iostream>
+
+1551703316 source:e:\tugas c++\asd_task_4\player.cpp
+	"player.h"
+	<ctime>
+
+1551699367 source:e:\tugas c++\asd_task_4\list.cpp
+	"list.h"
+
