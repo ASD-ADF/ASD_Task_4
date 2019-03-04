@@ -122,9 +122,8 @@ void runMenu(int menu) {
     case 2:
         // insert last music
         //------------- YOUR CODE HERE -------------
-        cout<<"UNDER MAIN TENIS"<<endl;
-        //input music
-        //insertLast()
+        P = inputMusic();
+        insertLast(L,P);
 
         //----------------------------------------
         cout<<"press enter";getche();
@@ -142,7 +141,14 @@ void runMenu(int menu) {
     case 5:
         // play last music
         //------------- YOUR CODE HERE -------------
-        cout<<"UNDER MAIN TENIS"<<endl;
+        if(first(L) != NULL){
+            P = prev(first(L));
+            playMusic(P);
+        } else{
+            cout<<"< Empty >"<<endl;
+            cout<<"press enter";
+            getche();
+        }
 
         //----------------------------------------
         break;
