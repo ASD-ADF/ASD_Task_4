@@ -49,7 +49,6 @@ void shuffleList(List &L) {
     while (first(L) != NULL) {
         deleteFirst(L,P);
         int x = randomInt(15);
-        cout<<x<<endl;
         if (x > 5) {
             insertFirst(L2,P);
         } else {
@@ -57,6 +56,7 @@ void shuffleList(List &L) {
         }
     }
     L = L2;
+    cout<<"Shuffle complete"<<endl;
     //----------------------------------------
 }
 
@@ -90,7 +90,6 @@ void deleteMusicByID(List &L, infotype x) {
     //------------- YOUR CODE HERE -------------
     if (first(L) != NULL) {
         address P = findElmByID(L,x);
-        cout<<info(P).ID<<endl;
         if (P != NULL) {
             if (P == first(L)) {
                 deleteFirst(L,P);

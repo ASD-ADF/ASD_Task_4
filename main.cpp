@@ -219,7 +219,7 @@ void runMenu(int menu) {
     case 13:
         // delete music by ID
         cout<<"input music ID : ";
-        cin>>x.name;
+        cin>>x.ID;
         deleteMusicByID(L, x);
         cout<<"press enter";getche();
         break;
