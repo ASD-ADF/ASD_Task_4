@@ -104,18 +104,36 @@ address findElmByName(List L, infotype x) {
 
     address P = NULL;
     //------------- YOUR CODE HERE -------------
-
+     P = first(L);
+    if  (first(L)!=NULL){
+        while ((next(P)!=NULL) && (info(P).name!=x.name)){
+            P = next(P);
+        }
+        if (info(P).name != x.name){
+            return NULL;
+    }else{
     //----------------------------------------
     return P;
+        }
+    }
 }
-
 void deleteFirst(List &L, address &P) {
     /**
     * IS : List L mungkin kosong
     * FS : elemen pertama di dalam List L dilepas dan disimpan/ditunjuk oleh P
     */
     //------------- YOUR CODE HERE -------------
-
+    P = first(L);
+    if (first(L)!=NULL){
+        first(L) = next(P);
+        next(prev(P)) = next(P);
+        prev(next(P)) = prev(P);
+        next(P) = NULL;
+        prev(P) = NULL;
+    }else
+    {
+        first(L) = NULL;
+    }
     //----------------------------------------
 }
 
@@ -125,6 +143,12 @@ void deleteLast(List &L, address &P) {
     * FS : elemen tarakhir di dalam List L dilepas dan disimpan/ditunjuk oleh P
     */
     //------------- YOUR CODE HERE -------------
+    P = prev(first(L));
+    address Q = prev(P);
+    prev(first(L)) = Q;
+    next(Q) = first(L);
+    next(P) = NULL;
+    prev(P) = NULL;
 
     //----------------------------------------
 }
@@ -136,7 +160,14 @@ void insertAfter(List &L, address &Prec, address P) {
     *      ditunjuk pointer Prec
     */
     //------------- YOUR CODE HERE -------------
-
+    if (first(L)!=NULL){
+        next(P) = Prec;
+        prev(Prec) = P;
+        next(Prec)= next(P);
+        prev(next(P)) = Prec;
+    }else{
+        insertFirst(L,P);
+    }
     //----------------------------------------
 
 }
@@ -147,7 +178,14 @@ void deleteAfter(List &L, address &Prec, address &P) {
     *      dan disimpan/ditunjuk oleh P
     */
     //------------- YOUR CODE HERE -------------
-
+    if (first(L)!=NULL){
+        Prec = prev(P);
+        next(Prec) = next(P);
+        prev(next(P)) = Prec;
+        next(P) = NULL;
+        prev(P) = NULL;
+    } else{
+        deleteFirst(L,P);
+    }
     //----------------------------------------
 }
-
