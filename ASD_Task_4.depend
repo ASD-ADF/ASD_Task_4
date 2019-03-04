@@ -19,3 +19,23 @@
 	"player.h"
 	<ctime>
 
+1551698845 source:c:\users\okama\documents\kuliah\github\asd_task_4\asd_task_4\list.cpp
+	"list.h"
+
+1551707079 c:\users\okama\documents\kuliah\github\asd_task_4\asd_task_4\list.h
+	<string>
+	<windows.h>
+	<iostream>
+
+1551707355 source:c:\users\okama\documents\kuliah\github\asd_task_4\asd_task_4\main.cpp
+	"player.h"
+	"list.h"
+	<conio.h>
+
+1551538641 c:\users\okama\documents\kuliah\github\asd_task_4\asd_task_4\player.h
+	"list.h"
+
+1551707529 source:c:\users\okama\documents\kuliah\github\asd_task_4\asd_task_4\player.cpp
+	"player.h"
+	<ctime>
+

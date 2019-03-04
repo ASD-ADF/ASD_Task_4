@@ -12,7 +12,8 @@
 
 using namespace std;
 
-struct music {
+struct music
+{
     int ID;
     string name;
     string location;
@@ -27,17 +28,19 @@ typedef struct elmlist *address;
 * USE ONLY ONE HEAD (FIRST)
 */
 
-struct elmlist {
+struct elmlist
+{
     //-------------  YOUR CODE HERE  -----------
-
-
+    infotype info;
+    address prev;
+    address next;
     //----------------------------------------
 };
 
-struct List {
+struct List
+{
     //-------------  YOUR CODE HERE  -----------
-
-
+    address first;
     //----------------------------------------
 };
 
