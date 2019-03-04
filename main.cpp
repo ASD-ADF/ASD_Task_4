@@ -167,7 +167,7 @@ void runMenu(int menu) {
         shuffleList(L);
         cout<<"press enter";getche();
         break;
-    /*case 12:
+    case 12:
         // play repeat all music
         int n;
         cout<<"input repeat times : ";
@@ -181,7 +181,7 @@ void runMenu(int menu) {
         cin>>x.name;
         deleteMusicByID(L, x);
         cout<<"press enter";getche();
-        break;*/
+        break;
     case 0:
         cout<<"thank you"<<endl;
         break;
