@@ -19,3 +19,23 @@
 	"player.h"
 	<ctime>
 
+1551713318 source:d:\std-tasya\asd_task_4\main.cpp
+	"player.h"
+	"list.h"
+	<conio.h>
+
+1551702040 d:\std-tasya\asd_task_4\player.h
+	"list.h"
+
+1551711109 d:\std-tasya\asd_task_4\list.h
+	<string>
+	<windows.h>
+	<iostream>
+
+1551711126 source:d:\std-tasya\asd_task_4\list.cpp
+	"list.h"
+
+1551711143 source:d:\std-tasya\asd_task_4\player.cpp
+	"player.h"
+	<ctime>
+
