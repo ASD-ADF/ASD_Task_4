@@ -43,6 +43,8 @@ void insertFirst(List &L, address P) {
     if (first(L) == NULL)
     {
         first(L) = P;
+        next(first(L)) = P;
+        prev(first(L)) = P;
     }
     else if (next(first(L)) == NULL)
     {

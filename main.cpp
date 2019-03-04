@@ -164,7 +164,12 @@ void runMenu(int menu) {
     case 7:
         // search music by ID
         //------------- YOUR CODE HERE -------------
-        cout<<"UNDER MAIN TENIS"<<endl;
+        cout<<"input music ID : ";
+        cin>>x.ID;
+        P = findElmByID(L, x);
+        if (P != NULL) {
+            cout << "music found" << endl;
+        }
 
         //----------------------------------------
         cout<<"press enter";getche();
@@ -185,7 +190,8 @@ void runMenu(int menu) {
     case 10:
         // play previous music
         //------------- YOUR CODE HERE -------------
-        cout<<"UNDER MAIN TENIS"<<endl;
+        P = prev(P);
+        playMusic(P);
 
         //----------------------------------------
         break;

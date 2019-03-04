@@ -28,6 +28,7 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add library="winmm" />
 				</Linker>
 			</Target>
 		</Build>
@@ -35,6 +36,9 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Linker>
+			<Add library="winmm" />
+		</Linker>
 		<Unit filename="list.cpp" />
 		<Unit filename="list.h" />
 		<Unit filename="main.cpp" />

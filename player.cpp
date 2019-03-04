@@ -33,7 +33,7 @@ void playMusic(address P) {
     string filename = info(P).location+"/"+info(P).name;
     cout<<"playing "<<filename<<endl;
     PlaySound(TEXT(filename.c_str()), NULL, SND_FILENAME);
-    _sleep(500); //delay 0.5 second
+    //_sleep(500); //delay 0.5 second
 }
 
 
@@ -43,17 +43,15 @@ void shuffleList(List &L) {
     * FS : isi (elemen) dari list teracak
     */
     //------------- YOUR CODE HERE -------------
+    int r = randomInt(20);
+    int i,j;
     address P = first(L);
-    int max_int;
-    int x = randomInt(max_int);
-    for (int i=0; i < x; i++);
+    for(i=0; i < r; i++)
     {
+        swap(info(P).name, info(next(P)).name);
+        swap(info(P).ID, info(next(P)).ID);
         P = next(P);
-    }
-    address Prec = prev(P);
-    deleteAfter(L,Prec,P);
-    insertFirst(L,P);
-
+    };
     //----------------------------------------
 }
 
@@ -69,10 +67,12 @@ void playRepeat(List &L, int n) {
     {
         playMusic(P);
         P = next(P);
-        if (P = first(L))
+        while (P != first(L))
         {
-            i++;
+            playMusic(P);
+            P = next(P);
         }
+        i++;
     }
     //----------------------------------------
 }
@@ -96,6 +96,8 @@ void deleteMusicByID(List &L, infotype x) {
     }
     if (x.ID == info(P).ID)
     {
+        next(prev(P)) = next(P);
+        prev(next(P)) = prev(P);
         deallocate(P);
     }
     //----------------------------------------
