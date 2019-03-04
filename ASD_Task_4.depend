@@ -19,3 +19,23 @@
 	"player.h"
 	<ctime>
 
+1551710387 source:d:\std\asd_task_4\main.cpp
+	"player.h"
+	"list.h"
+	<conio.h>
+
+1551594450 d:\std\asd_task_4\player.h
+	"list.h"
+
+1551710387 d:\std\asd_task_4\list.h
+	<string>
+	<windows.h>
+	<iostream>
+
+1551710443 source:d:\std\asd_task_4\list.cpp
+	"list.h"
+
+1551711044 source:d:\std\asd_task_4\player.cpp
+	"player.h"
+	<ctime>
+
