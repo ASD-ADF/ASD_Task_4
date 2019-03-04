@@ -18,7 +18,6 @@ struct music {
     string location;
 };
 
-
 typedef music infotype;
 typedef struct elmlist *address;
 
@@ -29,19 +28,17 @@ typedef struct elmlist *address;
 
 struct elmlist {
     //-------------  YOUR CODE HERE  -----------
-
-
+    infotype info;
+    address next;
+    address prev;
     //----------------------------------------
 };
 
 struct List {
     //-------------  YOUR CODE HERE  -----------
-
-
+    address first;
     //----------------------------------------
 };
-
-
 
 /** YOU DON'T NEED TO MODIFY THIS */
 
