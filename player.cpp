@@ -44,8 +44,28 @@ void shuffleList(List &L) {
     */
     //------------- YOUR CODE HERE -------------
 
-        cout<<"UNDER MAIN TENIS"<<endl;
+    if (first(L) != NULL)
+    {
+        int n = 1;
+        address N = first(L);
+        while (next(N) != first(L)) {
+            N = next(N);
+            n++;
+        }
 
+        int x,y;
+        x = randomInt(n);
+        address Prec,P;
+        for (int i = 0; i < n; i++) {
+            Prec = first(L);
+            y = randomInt(i+1);
+            for (int j = 0; j < y; j++) {
+                Prec = next(Prec);
+            }
+            deleteAfter(L,Prec,P);
+            insertFirst(L,P);
+        }
+    }
     //----------------------------------------
 }
 
@@ -56,7 +76,20 @@ void playRepeat(List &L, int n) {
     */
     //------------- YOUR CODE HERE -------------
 
-        cout<<"UNDER MAIN TENIS"<<endl;
+    address P;
+    int i = 1;
+    while (i < n+1)
+    {
+        P = first(L);
+        playMusic(P);
+        P = next(P);
+        while (P != first(L))
+        {
+            playMusic(P);
+            P = next(P);
+        }
+        i++;
+    }
 
     //----------------------------------------
 }
@@ -69,9 +102,21 @@ void deleteMusicByID(List &L, infotype x) {
     * FS : elemen dengan ID yang dicari dideallocate
     */
     //------------- YOUR CODE HERE -------------
+    address P = findElmByID(L,x);
 
-        cout<<"UNDER MAIN TENIS"<<endl;
-
+    if (P == first(L))
+    {
+        deleteFirst(L,P);
+    }
+    else if (next(P) == first(L))
+    {
+        deleteLast(L,P);
+    }
+    else if (next(P) != P)
+    {
+        address Prec = next(P);
+        deleteAfter(L,Prec,P);
+    }
     //----------------------------------------
 
 }
