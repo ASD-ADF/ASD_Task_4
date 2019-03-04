@@ -44,7 +44,15 @@ void shuffleList(List &L) {
     */
     //------------- YOUR CODE HERE -------------
 
-        cout<<"UNDER MAIN TENIS"<<endl;
+    address P = first(L);
+    int x = randomInt(10);
+    for(int i=0;i<=x;i++){
+        P = next(P);
+    }
+    address Prec = prev(P);
+    deleteAfter(L,Prec,P);
+    insertFirst(L,P);
+    cout<<"Music List Shuffled."<<endl;
 
     //----------------------------------------
 }
@@ -56,7 +64,15 @@ void playRepeat(List &L, int n) {
     */
     //------------- YOUR CODE HERE -------------
 
-        cout<<"UNDER MAIN TENIS"<<endl;
+    int i;
+    address P;
+    for(i=1;i<=n;i++){
+        P = first(L);
+        do{
+            playMusic(P);
+            P=next(P);
+        }while(P!=first(L));
+    }
 
     //----------------------------------------
 }
@@ -70,7 +86,18 @@ void deleteMusicByID(List &L, infotype x) {
     */
     //------------- YOUR CODE HERE -------------
 
-        cout<<"UNDER MAIN TENIS"<<endl;
+    if(first(L) != NULL){
+        address P = findElmByID(L,x);
+        if(P!=NULL){
+            address Prec = prev(P);
+            deleteAfter(L,Prec,P);
+            deallocate(P);
+            cout<<"Music with ID "<<x.ID<<" deleted."<<endl;
+        }
+        else{
+            cout<<"ERROR: Music with ID "<<x.ID<<" not found!"<<endl;
+        }
+    }
 
     //----------------------------------------
 
