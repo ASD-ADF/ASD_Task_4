@@ -21,13 +21,13 @@ int main() {
     //-----------------------------------------
     x.ID = index_ID++;
     x.location = "asset";
-    x.name = "do.wav";
+    x.name = "[Fuwaost]Ayaka Ohashi - Daisuki.wav";
     P = allocate(x);
     insertFirst(L,P);
 
     x.ID = index_ID++;
     x.location = "asset";
-    x.name = "re.wav";
+    x.name = "01. Sincerely.wav";
     P = allocate(x);
     insertLast(L,P);
 
@@ -96,7 +96,8 @@ address inputMusic() {
     * YOU DON'T NEED TO MODIFY THIS
     */
     cout<<"input music filename (.wav) : ";
-    cin>>x.name;
+    cin.get();
+    getline(cin, x.name);
     cout<<"input music location "<<endl<<"(write - for default /asset location) :";
     cin>>x.location;
     if(x.location=="-") {
@@ -123,6 +124,8 @@ void runMenu(int menu) {
         // insert last music
         //------------- YOUR CODE HERE -------------
         cout<<"UNDER MAIN TENIS"<<endl;
+        P = inputMusic();
+        insertLast(L, P);
         //input music
         //insertLast()
 
@@ -143,7 +146,8 @@ void runMenu(int menu) {
         // play last music
         //------------- YOUR CODE HERE -------------
         cout<<"UNDER MAIN TENIS"<<endl;
-
+        P = L.first -> prev;
+        playMusic(P);
         //----------------------------------------
         break;
     case 6:
@@ -162,7 +166,8 @@ void runMenu(int menu) {
         // search music by ID
         //------------- YOUR CODE HERE -------------
         cout<<"UNDER MAIN TENIS"<<endl;
-
+        cin >> x.ID;
+        findElmByID(L, x);
         //----------------------------------------
         cout<<"press enter";getche();
         break;
@@ -183,7 +188,10 @@ void runMenu(int menu) {
         // play previous music
         //------------- YOUR CODE HERE -------------
         cout<<"UNDER MAIN TENIS"<<endl;
-
+        if (P != NULL) {
+            P = P -> prev;
+            playMusic(P);
+        }
         //----------------------------------------
         break;
     case 11:
