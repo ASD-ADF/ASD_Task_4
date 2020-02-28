@@ -19,7 +19,7 @@
 	"player.h"
 	<ctime>
 
-1582642008 source:c:\mingw\c++ program\asd_task_4\list.cpp
+1582872441 source:c:\mingw\c++ program\asd_task_4\list.cpp
 	"list.h"
 
 1582637383 c:\mingw\c++ program\asd_task_4\list.h
@@ -27,7 +27,7 @@
 	<windows.h>
 	<iostream>
 
-1582638201 source:c:\mingw\c++ program\asd_task_4\main.cpp
+1582871510 source:c:\mingw\c++ program\asd_task_4\main.cpp
 	"player.h"
 	"list.h"
 	<conio.h>
@@ -35,7 +35,7 @@
 1582628103 c:\mingw\c++ program\asd_task_4\player.h
 	"list.h"
 
-1582641571 source:c:\mingw\c++ program\asd_task_4\player.cpp
+1582872225 source:c:\mingw\c++ program\asd_task_4\player.cpp
 	"player.h"
 	<ctime>
 

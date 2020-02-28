@@ -21,13 +21,13 @@ int main() {
     //-----------------------------------------
     x.ID = index_ID++;
     x.location = "asset";
-    x.name = "[Fuwaost]Ayaka Ohashi - Daisuki.wav";
+    x.name = "do.wav";
     P = allocate(x);
     insertFirst(L,P);
 
     x.ID = index_ID++;
     x.location = "asset";
-    x.name = "01. Sincerely.wav";
+    x.name = "do'.wav";
     P = allocate(x);
     insertLast(L,P);
 
@@ -158,6 +158,8 @@ void runMenu(int menu) {
         P = findElmByName(L, x);
         if(P != NULL){
             cout<<"music found"<<endl;
+        } else {
+            cout<<"music NOT found"<<endl;
         }
         //----------------------------------------
         cout<<"press enter";getche();
@@ -165,9 +167,14 @@ void runMenu(int menu) {
     case 7:
         // search music by ID
         //------------- YOUR CODE HERE -------------
-        cout<<"UNDER MAIN TENIS"<<endl;
+        cout<<"input music ID : ";
         cin >> x.ID;
-        findElmByID(L, x);
+        P = findElmByID(L, x);
+        if(P != NULL){
+            cout<<"music found"<<endl;
+        } else {
+            cout<<"music NOT found"<<endl;
+        }
         //----------------------------------------
         cout<<"press enter";getche();
         break;
@@ -210,7 +217,7 @@ void runMenu(int menu) {
     case 13:
         // delete music by ID
         cout<<"input music ID : ";
-        cin>>x.name;
+        cin>>x.ID;
         deleteMusicByID(L, x);
         cout<<"press enter";getche();
         break;

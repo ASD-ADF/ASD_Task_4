@@ -178,11 +178,15 @@ void deleteAfter(List &L, address &Prec, address &P) {
     *      dan disimpan/ditunjuk oleh P
     */
     //------------- YOUR CODE HERE -------------
-    P = Prec -> next;
-    Prec -> next = P -> next;
-    P -> next -> prev = Prec;
-    P -> next = NULL;
-    P -> prev = NULL;
+    if (Prec -> next == L.first) {
+        deleteFirst(L, P);
+    } else {
+        P = Prec -> next;
+        P -> next -> prev = Prec;
+        Prec -> next = P -> next;
+        P -> next = NULL;
+        P -> prev = NULL;
+    }
     //----------------------------------------
 }
 
