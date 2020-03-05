@@ -108,12 +108,12 @@ address findElmByName(List L, infotype x) {
     //------------- YOUR CODE HERE -------------
     do
     {
-        if (info(P).name == x.name)
+        P = next(P);
+    } while (P != first(L)&& info(P).name != x.name);
+    if (info(P).name == x.name)
         {
             return P;
         }
-        P = next(P);
-    } while (P != first(L));
     //----------------------------------------
     return NULL;
 }

@@ -102,13 +102,16 @@ void deleteMusicByID(List &L, infotype x) {
 
     address R;
     address ElmygDicari=findElmByID(L,x);
-    cout<<info(ElmygDicari).ID<<endl;
-    if (ElmygDicari == first(L)){
+    if(ElmygDicari==NULL){
+        cout<<"music not found"<<endl;
+    }else if (ElmygDicari == first(L)){
         deleteFirst(L, R);
         deallocate(R);
-    }else if(ElmygDicari!=NULL){
+        cout<<"delete succes"<<endl;
+    }else if (ElmygDicari!=NULL){
         deleteAfter(L, prev(ElmygDicari), R);
         deallocate(R);
+        cout<<"delete succes"<<endl;
     }
     //----------------------------------------
 

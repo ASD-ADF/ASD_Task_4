@@ -19,7 +19,7 @@
 	"player.h"
 	<ctime>
 
-1583390062 source:d:\kuliah\semester 2\asd_task_4\player.cpp
+1583390485 source:d:\kuliah\semester 2\asd_task_4\player.cpp
 	"player.h"
 	<ctime>
 
@@ -31,10 +31,10 @@
 	<windows.h>
 	<iostream>
 
-1583388714 source:d:\kuliah\semester 2\asd_task_4\list.cpp
+1583390998 source:d:\kuliah\semester 2\asd_task_4\list.cpp
 	"list.h"
 
-1583336077 source:d:\kuliah\semester 2\asd_task_4\main.cpp
+1583391176 source:d:\kuliah\semester 2\asd_task_4\main.cpp
 	"player.h"
 	"list.h"
 	<conio.h>

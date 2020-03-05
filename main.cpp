@@ -163,6 +163,8 @@ void runMenu(int menu) {
         P = findElmByName(L, x);
         if(P != NULL){
             cout<<"music found"<<endl;
+        }else{
+            cout<<"music not found"<<endl;
         }
         cout << "press enter";
         getche();
@@ -177,8 +179,8 @@ void runMenu(int menu) {
         P = findElmByID(L, x);
         if(P != NULL){
             cout<<"music found"<<endl;
-        }if(P != NULL){
-            cout<<"music found"<<endl;
+        }else{
+            cout<<"music not found"<<endl;
         }
         //----------------------------------------
         cout<<"press enter";getche();
