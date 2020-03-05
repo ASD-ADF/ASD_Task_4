@@ -14,12 +14,16 @@ void printInfo(List L) {
     */
 
     address Q = first(L);
-    do {
-        cout<<"name    : "<<info(Q).name<<endl
-            <<"ID      : "<<info(Q).ID<<endl
-            <<"location: "<<info(Q).location<<endl;
-        Q = next(Q);
-    } while(Q!=first(L));
+    if(first(L)!=NULL){
+        do {
+            cout<<"name    : "<<info(Q).name<<endl
+                <<"ID      : "<<info(Q).ID<<endl
+                <<"location: "<<info(Q).location<<endl;
+            Q = next(Q);
+        } while(Q!=first(L));
+    }else{
+        cout<<"List Kosong"<<endl;
+    }
     cout<<"==============================================="<<endl;
 }
 
@@ -44,8 +48,28 @@ void shuffleList(List &L) {
     */
     //------------- YOUR CODE HERE -------------
 
-        cout<<"UNDER MAIN TENIS"<<endl;
+    cout<<"UNDER MAIN TENIS"<<endl;
+    address P=first(L);
+    int i =0;
+    do{
+        P=next(P);
+        i++;
+    }while(P!=first(L));
 
+    address Q,R;
+    for(int j=1; j<=i ; j++){
+        int acak = randomInt(j);
+        int k = 1;
+        Q = first(L);
+        do{
+            Q = next(Q);
+            k++;
+
+        }while (Q != first(L) && k < acak);
+        deleteAfter(L,prev(Q),R);
+        insertFirst(L,R);
+    }
+    cout<<"Random Done"<<endl;
     //----------------------------------------
 }
 
@@ -56,8 +80,14 @@ void playRepeat(List &L, int n) {
     */
     //------------- YOUR CODE HERE -------------
 
-        cout<<"UNDER MAIN TENIS"<<endl;
-
+    cout<<"UNDER MAIN TENIS"<<endl;
+    for(int i=0; i<n; i++){
+        address P = first(L);
+        do{
+            playMusic(P);
+            P=next(P);
+        }while(P!=first(L));
+    }
     //----------------------------------------
 }
 
@@ -70,8 +100,19 @@ void deleteMusicByID(List &L, infotype x) {
     */
     //------------- YOUR CODE HERE -------------
 
-        cout<<"UNDER MAIN TENIS"<<endl;
-
+    address R;
+    address ElmygDicari=findElmByID(L,x);
+    if(ElmygDicari==NULL){
+        cout<<"music not found"<<endl;
+    }else if (ElmygDicari == first(L)){
+        deleteFirst(L, R);
+        deallocate(R);
+        cout<<"delete succes"<<endl;
+    }else if (ElmygDicari!=NULL){
+        deleteAfter(L, prev(ElmygDicari), R);
+        deallocate(R);
+        cout<<"delete succes"<<endl;
+    }
     //----------------------------------------
 
 }

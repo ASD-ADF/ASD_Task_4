@@ -29,15 +29,15 @@ typedef struct elmlist *address;
 
 struct elmlist {
     //-------------  YOUR CODE HERE  -----------
-
-
+    infotype info;
+    address next;
+    address prev;
     //----------------------------------------
 };
 
 struct List {
     //-------------  YOUR CODE HERE  -----------
-
-
+    address first;
     //----------------------------------------
 };
 

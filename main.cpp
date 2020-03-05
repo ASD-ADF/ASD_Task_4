@@ -117,13 +117,17 @@ void runMenu(int menu) {
         // insert first music
         P = inputMusic();
         insertFirst(L,P);
-        cout<<"press enter";getche();
+        cout<<"press enter";
+        getche();
         break;
     case 2:
         // insert last music
         //------------- YOUR CODE HERE -------------
         cout<<"UNDER MAIN TENIS"<<endl;
-        //input music
+        P=inputMusic();
+        insertLast(L,P);
+        cout << "press enter";
+        getche();
         //insertLast()
 
         //----------------------------------------
@@ -138,12 +142,17 @@ void runMenu(int menu) {
         // play first music
         P = first(L);
         playMusic(P);
+        cout << "press enter";
+        getche();
         break;
     case 5:
         // play last music
         //------------- YOUR CODE HERE -------------
         cout<<"UNDER MAIN TENIS"<<endl;
-
+        P=prev(first(L));
+        playMusic(P);
+        cout << "press enter";
+        getche();
         //----------------------------------------
         break;
     case 6:
@@ -154,7 +163,11 @@ void runMenu(int menu) {
         P = findElmByName(L, x);
         if(P != NULL){
             cout<<"music found"<<endl;
+        }else{
+            cout<<"music not found"<<endl;
         }
+        cout << "press enter";
+        getche();
         //----------------------------------------
         cout<<"press enter";getche();
         break;
@@ -162,7 +175,13 @@ void runMenu(int menu) {
         // search music by ID
         //------------- YOUR CODE HERE -------------
         cout<<"UNDER MAIN TENIS"<<endl;
-
+        cin>>x.ID;
+        P = findElmByID(L, x);
+        if(P != NULL){
+            cout<<"music found"<<endl;
+        }else{
+            cout<<"music not found"<<endl;
+        }
         //----------------------------------------
         cout<<"press enter";getche();
         break;
@@ -171,6 +190,8 @@ void runMenu(int menu) {
         if(P!=NULL) {
             playMusic(P);
         }
+        cout << "press enter";
+        getche();
         break;
     case 9:
         // play next music
@@ -178,18 +199,26 @@ void runMenu(int menu) {
             P = next(P);
             playMusic(P);
         }
+        cout << "press enter";
+        getche();
         break;
     case 10:
         // play previous music
         //------------- YOUR CODE HERE -------------
         cout<<"UNDER MAIN TENIS"<<endl;
-
+        if (P!=NULL){
+            P = prev(P);
+            playMusic(P);
+        }
+        cout << "press enter";
+        getche();
         //----------------------------------------
         break;
     case 11:
         // shuffle list
         shuffleList(L);
-        cout<<"press enter";getche();
+        cout << "press enter";
+        getche();
         break;
     case 12:
         // play repeat all music
@@ -202,7 +231,7 @@ void runMenu(int menu) {
     case 13:
         // delete music by ID
         cout<<"input music ID : ";
-        cin>>x.name;
+        cin>>x.ID;
         deleteMusicByID(L, x);
         cout<<"press enter";getche();
         break;
