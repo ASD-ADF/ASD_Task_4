@@ -19,3 +19,23 @@
 	"player.h"
 	<ctime>
 
+1583422943 source:c:\latihan coding\asd_task_4\list.cpp
+	"list.h"
+
+1582973393 c:\latihan coding\asd_task_4\list.h
+	<string>
+	<windows.h>
+	<iostream>
+
+1583422826 source:c:\latihan coding\asd_task_4\main.cpp
+	"player.h"
+	"list.h"
+	<conio.h>
+
+1582871284 c:\latihan coding\asd_task_4\player.h
+	"list.h"
+
+1583421257 source:c:\latihan coding\asd_task_4\player.cpp
+	"player.h"
+	<ctime>
+
