@@ -9,6 +9,7 @@
 #define next(P) P->next
 #define prev(P) P->prev
 #define info(P) P->info
+#define NIL NULL
 
 using namespace std;
 
@@ -29,15 +30,15 @@ typedef struct elmlist *address;
 
 struct elmlist {
     //-------------  YOUR CODE HERE  -----------
-
-
+    infotype info;
+    address next;
+    address prev;
     //----------------------------------------
 };
 
 struct List {
     //-------------  YOUR CODE HERE  -----------
-
-
+    address first;
     //----------------------------------------
 };
 
@@ -61,5 +62,6 @@ void deleteAfter(List &, address &, address &);
 address findElmByID(List, infotype );
 address findElmByName(List, infotype );
 
+void insertAndSort(List &, infotype );
 
 #endif // LIST_H_INCLUDED
