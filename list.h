@@ -29,15 +29,15 @@ typedef struct elmlist *address;
 
 struct elmlist {
     //-------------  YOUR CODE HERE  -----------
-
-
+    infotype info;
+    address prev;
+    address next;
     //----------------------------------------
 };
 
 struct List {
     //-------------  YOUR CODE HERE  -----------
-
-
+    address first;
     //----------------------------------------
 };
 
@@ -60,6 +60,4 @@ void deleteAfter(List &, address &, address &);
 
 address findElmByID(List, infotype );
 address findElmByName(List, infotype );
-
-
 #endif // LIST_H_INCLUDED
