@@ -1,7 +1,7 @@
 #include "player.h"
 #include <ctime>
 
-int randomInt(int  max_int) {
+int randomInt(int max_int) {
     /** YOU DON'T NEED TO MODIFY THIS */
     srand(time(NULL));
     return (rand() % max_int) + 1;
@@ -43,8 +43,25 @@ void shuffleList(List &L) {
     * FS : isi (elemen) dari list teracak
     */
     //------------- YOUR CODE HERE -------------
-
-        cout<<"UNDER MAIN TENIS"<<endl;
+    address P = first(L);
+    int total = 0;
+    do {
+        P = next(P);
+        total++;
+    } while (P != first(L));
+    while (total > 0) {
+        P = first(L);
+        int i = randomInt(total);
+        while (i != 0){
+            P = next(P);
+            i--;
+        }
+        address Q = P;
+        deleteAfter(L,prev(P),Q);
+        insertFirst(L,Q);
+        total--;
+    }
+    cout<<"UNDER MAIN TENIS"<<endl;
 
     //----------------------------------------
 }
@@ -55,7 +72,13 @@ void playRepeat(List &L, int n) {
     *      dari lagu pertama hingga terakhir sebanyak n kali
     */
     //------------- YOUR CODE HERE -------------
-
+    address P = first(L);
+    for (int i = 0; i < n; i++){
+        do{
+            playMusic(P);
+            P = next(P);
+        } while (P != first(L));
+    }
         cout<<"UNDER MAIN TENIS"<<endl;
 
     //----------------------------------------
@@ -69,7 +92,13 @@ void deleteMusicByID(List &L, infotype x) {
     * FS : elemen dengan ID yang dicari dideallocate
     */
     //------------- YOUR CODE HERE -------------
-
+    address P;
+    if (first(L) != NULL){
+        if (findElmByID(L,x) != NULL){
+            deleteAfter(L,prev(findElmByID(L,x)),P);
+            deallocate(P);
+        }
+    }
         cout<<"UNDER MAIN TENIS"<<endl;
 
     //----------------------------------------
