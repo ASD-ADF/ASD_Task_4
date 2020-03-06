@@ -5,7 +5,7 @@ void createList(List &L) {
     * FS : first(L) diset Nil
     */
     //------------- YOUR CODE HERE -------------
-
+    first(L) = NULL;
     //----------------------------------------
 }
 
@@ -17,7 +17,11 @@ address allocate(infotype x) {
 
     address P = NULL;
     //------------- YOUR CODE HERE -------------
-
+    info(P).ID = x.ID;
+    info(P).name = x.name;
+    info(P).location = x.location;
+    next(P) = NULL;
+    prev(P) = NULL;
     //----------------------------------------
     return P;
 }
@@ -27,7 +31,7 @@ void deallocate(address &P) {
     * FS : menghapus elemen yang ditunjuk oleh P (delete)
     */
     //------------- YOUR CODE HERE -------------
-
+    delete P;
     //----------------------------------------
 }
 
@@ -37,7 +41,16 @@ void insertFirst(List &L, address P) {
     * FS : elemen yang ditunjuk P menjadi elemen pertama pada List L
     */
     //------------- YOUR CODE HERE -------------
-
+    if (first(L) != NULL){
+        next(P) = first(L);
+        prev(P) = prev(first(L));
+        next(prev(first(L))) = P;
+        prev(first(L)) = P;
+        first(L) = P;
+    } else {
+        first(L) = P;
+        next(P) = first(L);
+        prev(P) = P;
     //----------------------------------------
 }
 
@@ -47,7 +60,14 @@ void insertLast(List &L, address P) {
     * FS : elemen yang ditunjuk P menjadi elemen terakhir pada List L
     */
     //------------- YOUR CODE HERE -------------
-
+    if (first(L)==NULL){
+        insertFirst(L,P);
+    }else{
+        next(P) = first(L);
+        prev(P) = prev(first(L));
+        next(prev(first(L))) = P;
+        prev(first(L)) = P;
+    }
     //----------------------------------------
 }
 
@@ -60,7 +80,10 @@ address findElmByID(List L, infotype x) {
 
     address P = NULL;
     //------------- YOUR CODE HERE -------------
+    P = first(L);
+    do {
 
+    } while (P != first(L) )
     //----------------------------------------
     return P;
 }

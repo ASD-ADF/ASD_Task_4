@@ -70,8 +70,6 @@ void deleteMusicByID(List &L, infotype x) {
     */
     //------------- YOUR CODE HERE -------------
 
-        cout<<"UNDER MAIN TENIS"<<endl;
-
     //----------------------------------------
 
 }
