@@ -43,8 +43,29 @@ void shuffleList(List &L) {
     * FS : isi (elemen) dari list teracak
     */
     //------------- YOUR CODE HERE -------------
+    address P = first(L);
+    int i = 0;
+    do
+    {
+        P = next(P);
+        i++;
+    }
+    while (P != first(L));
+    while ( i > 0)
+    {
+        P = first(L);
+        int j = randomInt(i);
+        while( j != 0)
+        {
+            P = next(P);
+            j--;
+        }
+        address Q = P;
+        deleteAfter(L, prev(P), Q);
+        insertFirst(L, Q);
+        i--;
+    }
 
-        cout<<"UNDER MAIN TENIS"<<endl;
 
     //----------------------------------------
 }
@@ -55,8 +76,20 @@ void playRepeat(List &L, int n) {
     *      dari lagu pertama hingga terakhir sebanyak n kali
     */
     //------------- YOUR CODE HERE -------------
-
-        cout<<"UNDER MAIN TENIS"<<endl;
+    address P;
+    int i;
+    i = 0;
+    P = first(L);
+    while (i < n )
+    {
+        do
+        {
+            playMusic(P);
+            P = next(P);
+        }
+        while (P != first(L));
+        i++;
+    }
 
     //----------------------------------------
 }
@@ -69,9 +102,17 @@ void deleteMusicByID(List &L, infotype x) {
     * FS : elemen dengan ID yang dicari dideallocate
     */
     //------------- YOUR CODE HERE -------------
-
-        cout<<"UNDER MAIN TENIS"<<endl;
-
+    address P,Q;
+    P = prev(P);
+    if (next(P) == first(L))
+    {
+        deleteFirst(L,P);
+    }
+    else if (info(next(P)).ID == x.ID )
+    {
+        deleteAfter(L,P,Q);
+        deallocate(Q);
+    }
     //----------------------------------------
 
 }
