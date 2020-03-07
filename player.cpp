@@ -12,7 +12,6 @@ void printInfo(List L) {
     * PR : menampilkan informasi ID, nama, dan lokasi file
     * YOU DON'T NEED TO MODIFY THIS
     */
-
     address Q = first(L);
     do {
         cout<<"name    : "<<info(Q).name<<endl
