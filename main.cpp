@@ -123,8 +123,9 @@ void runMenu(int menu) {
         // insert last music
         //------------- YOUR CODE HERE -------------
         cout<<"UNDER MAIN TENIS"<<endl;
-        //input music
-        //insertLast()
+        P = inputMusic();
+        insertLast(L, P);
+        cout << "press enter";getche();
 
         //----------------------------------------
         cout<<"press enter";getche();
@@ -143,7 +144,9 @@ void runMenu(int menu) {
         // play last music
         //------------- YOUR CODE HERE -------------
         cout<<"UNDER MAIN TENIS"<<endl;
-
+        P = prev(first(L));
+        playMusic(P);
+        cout << "press enter";getche();
         //----------------------------------------
         break;
     case 6:
@@ -162,7 +165,13 @@ void runMenu(int menu) {
         // search music by ID
         //------------- YOUR CODE HERE -------------
         cout<<"UNDER MAIN TENIS"<<endl;
-
+        cin >> x.ID;
+        P = findElmByID(L, x);
+        if(P != NULL){
+            cout << "Musik Ditemukan" << endl;
+        }else{
+            cout << "Musik Tidak Ditemukan" << endl;
+        }
         //----------------------------------------
         cout<<"press enter";getche();
         break;
@@ -183,7 +192,11 @@ void runMenu(int menu) {
         // play previous music
         //------------- YOUR CODE HERE -------------
         cout<<"UNDER MAIN TENIS"<<endl;
-
+        if(P != NULL){
+            P = prev(P);
+            playMusic(P);
+        }
+        cout << "press enter";getche();
         //----------------------------------------
         break;
     case 11:
