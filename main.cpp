@@ -21,19 +21,25 @@ int main() {
     //-----------------------------------------
     x.ID = index_ID++;
     x.location = "asset";
-    x.name = "do.wav";
-    P = allocate(x);
-    insertFirst(L,P);
-
-    x.ID = index_ID++;
-    x.location = "asset";
-    x.name = "re.wav";
+    x.name = "bruh.wav";
     P = allocate(x);
     insertLast(L,P);
 
     x.ID = index_ID++;
     x.location = "asset";
-    x.name = "mi.wav";
+    x.name = "sans.wav";
+    P = allocate(x);
+    insertLast(L,P);
+
+    x.ID = index_ID++;
+    x.location = "asset";
+    x.name = "oof.wav";
+    P = allocate(x);
+    insertLast(L,P);
+
+    x.ID = index_ID++;
+    x.location = "asset";
+    x.name = "mission_failed.wav";
     P = allocate(x);
     insertLast(L,P);
 
