@@ -14,17 +14,14 @@ void printInfo(List L) {
     */
 
     address Q = first(L);
-    if(first(L) == NULL){
-        cout<<"List Kosong"<<endl;
-    }else{
-        do {
-            cout<<"name    : "<<info(Q).name<<endl
-                <<"ID      : "<<info(Q).ID<<endl
-                <<"location: "<<info(Q).location<<endl;
-            Q = next(Q);
-        } while(Q!=first(L));
-        cout<<"==============================================="<<endl;
-    }
+    do {
+        cout<<"name    : "<<info(Q).name<<endl
+            <<"ID      : "<<info(Q).ID<<endl
+            <<"location: "<<info(Q).location<<endl;
+        Q = next(Q);
+    } while(Q!=first(L));
+    cout<<"==============================================="<<endl;
+    
 }
 
 
