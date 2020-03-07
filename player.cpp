@@ -14,12 +14,20 @@ void printInfo(List L) {
     */
 
     address Q = first(L);
-    do {
-        cout<<"name    : "<<info(Q).name<<endl
-            <<"ID      : "<<info(Q).ID<<endl
-            <<"location: "<<info(Q).location<<endl;
-        Q = next(Q);
-    } while(Q!=first(L));
+    if (first(L) != NULL)
+    {
+
+        do {
+            cout<<"name    : "<<info(Q).name<<endl
+                <<"ID      : "<<info(Q).ID<<endl
+                <<"location: "<<info(Q).location<<endl;
+            Q = next(Q);
+        } while(Q!=first(L) && first(L) != NULL);
+    }
+    else
+    {
+        cout<<"List kosong"<<endl ;
+    }
     cout<<"==============================================="<<endl;
 }
 
@@ -43,9 +51,30 @@ void shuffleList(List &L) {
     * FS : isi (elemen) dari list teracak
     */
     //------------- YOUR CODE HERE -------------
-
-        cout<<"UNDER MAIN TENIS"<<endl;
-
+    address P,Q ;
+    int i,k ;
+    i = 0 ;
+    P = first(L) ;
+    do
+    {
+        P = next(P) ;
+        i++ ;
+    }
+    while (P != first(L)) ;
+    while (i > 0)
+    {
+        P = first(L) ;
+        k = randomInt(i) ;
+        while (k != 0)
+        {
+            P = next(P) ;
+            k-- ;
+        }
+        Q = P ;
+        deleteAfter(L,prev(P),Q) ;
+        insertFirst(L,Q) ;
+        i-- ;
+    }
     //----------------------------------------
 }
 
@@ -55,8 +84,20 @@ void playRepeat(List &L, int n) {
     *      dari lagu pertama hingga terakhir sebanyak n kali
     */
     //------------- YOUR CODE HERE -------------
-
-        cout<<"UNDER MAIN TENIS"<<endl;
+    address P ;
+    int i ;
+    i = 0 ;
+    P = first(L) ;
+    while (i<n)
+    {
+        do
+        {
+            playMusic(P) ;
+            P = next(P) ;
+        }
+        while (P != first(L)) ;
+        i++ ;
+    }
 
     //----------------------------------------
 }
@@ -69,9 +110,17 @@ void deleteMusicByID(List &L, infotype x) {
     * FS : elemen dengan ID yang dicari dideallocate
     */
     //------------- YOUR CODE HERE -------------
-
-        cout<<"UNDER MAIN TENIS"<<endl;
-
+    address P,Q ;
+    P = findElmByID(L,x) ;
+    P = prev(P) ;
+    if (next(P) == first(L))
+    {
+        deleteFirst(L,P) ;
+    }
+    else if (info(next(P)).ID == x.ID)
+    {
+        deleteAfter(L,P,Q) ;
+        deallocate(Q) ;
+    }
     //----------------------------------------
-
 }
