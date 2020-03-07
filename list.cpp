@@ -18,9 +18,8 @@ address allocate(infotype x) {
 
     address P = NULL;
     //------------- YOUR CODE HERE -------------
-    P->info.ID=x.ID;
-    P->info.name=x.name;
-    P->info.location=x.location;
+    P=new elmlist;
+    P->info=x;
     P->next=NULL;
     P->prev=NULL;
 
@@ -107,6 +106,7 @@ address findElmByName(List L, infotype x) {
 
     address P = NULL;
     //------------- YOUR CODE HERE -------------
+    P=L.first;
     if(L.first!=NULL){
         P=L.first;
         while(P!=NULL && P->info.name!=x.name){
@@ -123,11 +123,11 @@ void deleteFirst(List &L, address &P) {
     * FS : elemen pertama di dalam List L dilepas dan disimpan/ditunjuk oleh P
     */
     //------------- YOUR CODE HERE -------------
+    P=L.first;
     if (L.first==L.first->next){
-        P=L.first;
-        L.first=NULL;
+        P->next=NULL;
+        P->prev=NULL;
     }else if (L.first!=NULL){
-        P=L.first;
         L.first=L.first->next;
         P->prev->next=L.first;
         L.first->prev=P->prev;
@@ -143,9 +143,10 @@ void deleteLast(List &L, address &P) {
     * FS : elemen tarakhir di dalam List L dilepas dan disimpan/ditunjuk oleh P
     */
     //------------- YOUR CODE HERE -------------
-     if (L.first==L.first->next){
+     if (P->next==L.first){
         P=L.first;
-        L.first=NULL;
+        P->next=NULL;
+        P->prev=NULL;
     }else if (L.first!=NULL){
         P=L.first->prev;
         P->prev->next=L.first;
@@ -163,10 +164,14 @@ void insertAfter(List &L, address &Prec, address P) {
     *      ditunjuk pointer Prec
     */
     //------------- YOUR CODE HERE -------------
+    if (L.first == NULL){
+        insertFirst(L,P);
+    }else {
     P->next=Prec->next;
     P->prev=Prec;
     Prec->next->prev=P;
     Prec->next=P;
+    }
 
     //----------------------------------------
 
@@ -178,11 +183,18 @@ void deleteAfter(List &L, address &Prec, address &P) {
     *      dan disimpan/ditunjuk oleh P
     */
     //------------- YOUR CODE HERE -------------
+
     P=Prec->next;
+    if (Prec->next != L.first){
     Prec->next=P->next;
     P->next->prev=Prec;
     P->next=NULL;
     P->prev=NULL;
+    } else {
+        P->next=NULL;
+        P->prev=NULL;
+        P=NULL;
+    }
 
     //----------------------------------------
 }
