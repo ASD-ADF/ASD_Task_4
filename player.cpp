@@ -14,12 +14,16 @@ void printInfo(List L) {
     */
 
     address Q = first(L);
-    do {
+    if(first(L) != NULL){
+        do {
         cout<<"name    : "<<info(Q).name<<endl
             <<"ID      : "<<info(Q).ID<<endl
             <<"location: "<<info(Q).location<<endl;
         Q = next(Q);
-    } while(Q!=first(L));
+        } while(Q != first(L) && first(L) != NULL);
+    } else {
+        cout<<"Tidak Ada Lagu"<<endl;
+    }
     cout<<"==============================================="<<endl;
 }
 
@@ -43,9 +47,24 @@ void shuffleList(List &L) {
     * FS : isi (elemen) dari list teracak
     */
     //------------- YOUR CODE HERE -------------
-
-        cout<<"UNDER MAIN TENIS"<<endl;
-
+    address P = first(L);
+    address Q;
+    int lenList = 0;
+    do{
+        lenList = lenList + 1;
+        P = next(P);
+    } while(P != first(L));
+    while(lenList > 0){
+        P = first(L);
+        int random = randomInt(lenList);
+        while(random != 0){
+            P = next(P);
+            random = random - 1;
+        }
+        deleteAfter(L, prev(P), Q);
+        insertFirst(L, Q);
+        lenList = lenList - 1;
+    }
     //----------------------------------------
 }
 
@@ -55,9 +74,16 @@ void playRepeat(List &L, int n) {
     *      dari lagu pertama hingga terakhir sebanyak n kali
     */
     //------------- YOUR CODE HERE -------------
-
-        cout<<"UNDER MAIN TENIS"<<endl;
-
+    address P = first(L);
+    int i = 1;
+    while(i <= n){
+        do{
+            cout<<"Sedang memutar lagu: "<<info(P).name<<endl;
+            playMusic(P);
+            P = next(P);
+        }while(P != first(L));
+        i = i + 1;
+    }
     //----------------------------------------
 }
 
@@ -69,9 +95,15 @@ void deleteMusicByID(List &L, infotype x) {
     * FS : elemen dengan ID yang dicari dideallocate
     */
     //------------- YOUR CODE HERE -------------
-
-        cout<<"UNDER MAIN TENIS"<<endl;
-
+    address P, Q;
+    P = findElmByID(L, x);
+    P = prev(P);
+    if(next(P) == first(L)){
+        deleteFirst(L, P);
+    } else if(info(next(P)).ID == x.ID){
+        deleteAfter(L, P, Q);
+        deallocate(Q);
+    }
     //----------------------------------------
 
 }
