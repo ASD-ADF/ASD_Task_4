@@ -19,3 +19,23 @@
 	"player.h"
 	<ctime>
 
+1583430474 source:d:\telkom university\informatika\semester 2\struktur data\latihan_1301190328-master\asd_task_4\main.cpp
+	"player.h"
+	"list.h"
+	<conio.h>
+
+1583047827 d:\telkom university\informatika\semester 2\struktur data\latihan_1301190328-master\asd_task_4\player.h
+	"list.h"
+
+1583428841 d:\telkom university\informatika\semester 2\struktur data\latihan_1301190328-master\asd_task_4\list.h
+	<string>
+	<windows.h>
+	<iostream>
+
+1583481607 source:d:\telkom university\informatika\semester 2\struktur data\latihan_1301190328-master\asd_task_4\list.cpp
+	"list.h"
+
+1583481416 source:d:\telkom university\informatika\semester 2\struktur data\latihan_1301190328-master\asd_task_4\player.cpp
+	"player.h"
+	<ctime>
+
