@@ -121,12 +121,8 @@ void runMenu(int menu) {
         break;
     case 2:
         // insert last music
-        //------------- YOUR CODE HERE -------------
-        cout<<"UNDER MAIN TENIS"<<endl;
-        //input music
-        //insertLast()
-
-        //----------------------------------------
+        P=inputMusic();
+        insertLast(L, P);
         cout<<"press enter";getche();
         break;
     case 3:
@@ -141,29 +137,31 @@ void runMenu(int menu) {
         break;
     case 5:
         // play last music
-        //------------- YOUR CODE HERE -------------
-        cout<<"UNDER MAIN TENIS"<<endl;
-
-        //----------------------------------------
+        P=prev(first(L));
+        playMusic(P);
         break;
     case 6:
         // search music by name
-        //------------- YOUR CODE HERE -------------
         cout<<"input music filename (.wav) : ";
         cin>>x.name;
         P = findElmByName(L, x);
         if(P != NULL){
             cout<<"music found"<<endl;
+        }else{
+            cout<<"music not found";
         }
-        //----------------------------------------
         cout<<"press enter";getche();
         break;
     case 7:
         // search music by ID
-        //------------- YOUR CODE HERE -------------
-        cout<<"UNDER MAIN TENIS"<<endl;
-
-        //----------------------------------------
+        cout<<"input music ID: ";
+        cin>>x.ID;
+        P=findElmByID(L, x);
+        if(P!=NULL){
+            cout<<"music found"<<endl;
+        }else{
+            cout<<"music not found";
+        }
         cout<<"press enter";getche();
         break;
     case 8:
@@ -181,10 +179,10 @@ void runMenu(int menu) {
         break;
     case 10:
         // play previous music
-        //------------- YOUR CODE HERE -------------
-        cout<<"UNDER MAIN TENIS"<<endl;
-
-        //----------------------------------------
+        if (P!=NULL){
+            P=prev(P);
+            playMusic(P);
+        }
         break;
     case 11:
         // shuffle list
@@ -202,7 +200,7 @@ void runMenu(int menu) {
     case 13:
         // delete music by ID
         cout<<"input music ID : ";
-        cin>>x.name;
+        cin>>x.ID;
         deleteMusicByID(L, x);
         cout<<"press enter";getche();
         break;
