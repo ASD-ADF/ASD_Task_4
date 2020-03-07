@@ -5,7 +5,7 @@ void createList(List &L) {
     * FS : first(L) diset Nil
     */
     //------------- YOUR CODE HERE -------------
-
+    first(L) = NULL;
     //----------------------------------------
 }
 
@@ -17,7 +17,10 @@ address allocate(infotype x) {
 
     address P = NULL;
     //------------- YOUR CODE HERE -------------
-
+    P = new elmlist;
+    info(P) = x;
+    next(P) = NULL;
+    prev(P) = NULL;
     //----------------------------------------
     return P;
 }
@@ -27,7 +30,7 @@ void deallocate(address &P) {
     * FS : menghapus elemen yang ditunjuk oleh P (delete)
     */
     //------------- YOUR CODE HERE -------------
-
+    delete P;
     //----------------------------------------
 }
 
@@ -37,7 +40,17 @@ void insertFirst(List &L, address P) {
     * FS : elemen yang ditunjuk P menjadi elemen pertama pada List L
     */
     //------------- YOUR CODE HERE -------------
-
+    if (first(L) == NULL){
+        first(L) = P;
+        next(P) = P;
+        prev(P) = P;
+    }else {
+        next(P) = first(L);
+        prev(P) = prev(first(L));
+        next(prev(first(L))) = P;
+        prev(first(L)) = P;
+        first(L) = P;
+    }
     //----------------------------------------
 }
 
@@ -47,7 +60,16 @@ void insertLast(List &L, address P) {
     * FS : elemen yang ditunjuk P menjadi elemen terakhir pada List L
     */
     //------------- YOUR CODE HERE -------------
-
+    if (first(L) == NULL){
+        first(L) = P;
+        next(first(L)) = P;
+        prev(first(L)) = P;
+    }else {
+        next(P) = first(L);
+        prev(P) = prev(first(L));
+        next(prev(first(L))) = P;
+        prev(first(L)) = P;
+    }
     //----------------------------------------
 }
 
@@ -58,11 +80,16 @@ address findElmByID(List L, infotype x) {
            mengembalikan Nil jika tidak ditemukan
     */
 
-    address P = NULL;
+    address P = first(L);
     //------------- YOUR CODE HERE -------------
-
+    do{
+        if(info(P).ID == x.ID){
+            return P;
+        }
+        P = next(P);
+    }while(P != first(L) && first(L) != NULL);
     //----------------------------------------
-    return P;
+    return NULL;
 }
 
 address findElmByName(List L, infotype x) {
@@ -72,11 +99,16 @@ address findElmByName(List L, infotype x) {
            mengembalikan Nil jika tidak ditemukan
     */
 
-    address P = NULL;
+    address P = first(L);
     //------------- YOUR CODE HERE -------------
-
+    do {
+        if(info(P).name == x.name){
+            return P;
+        }
+        P = next(P);
+    }while(P != first(L));
     //----------------------------------------
-    return P;
+    return NULL;
 }
 
 void deleteFirst(List &L, address &P) {
@@ -85,7 +117,19 @@ void deleteFirst(List &L, address &P) {
     * FS : elemen pertama di dalam List L dilepas dan disimpan/ditunjuk oleh P
     */
     //------------- YOUR CODE HERE -------------
-
+    if(next(first(L)) == first(L)){
+        P = first(L);
+        first(L) = NULL;
+        next(P) = NULL;
+        prev(P) = NULL;
+    }else {
+        P = first(L);
+        first(L) = next(first(L));
+        next(prev(P)) = first(L);
+        prev(first(L)) = prev(P);
+        next(P) = NULL;
+        prev(P) = NULL;
+    }
     //----------------------------------------
 }
 
@@ -95,7 +139,16 @@ void deleteLast(List &L, address &P) {
     * FS : elemen tarakhir di dalam List L dilepas dan disimpan/ditunjuk oleh P
     */
     //------------- YOUR CODE HERE -------------
-
+    if(next(P) == first(L)){
+        P = first(L);
+        first(L) = NULL;
+    }else{
+        P = prev(first(L));
+        next(prev(P)) = first(L);
+        prev(first(L)) = prev(P);
+        next(P) = NULL;
+        prev(P) = NULL;
+    }
     //----------------------------------------
 }
 
@@ -106,7 +159,10 @@ void insertAfter(List &L, address &Prec, address P) {
     *      ditunjuk pointer Prec
     */
     //------------- YOUR CODE HERE -------------
-
+    next(P) = next(Prec);
+    prev(P) = Prec;
+    prev(next(Prec)) = P;
+    next(Prec) = P;
     //----------------------------------------
 
 }
@@ -117,7 +173,47 @@ void deleteAfter(List &L, address &Prec, address &P) {
     *      dan disimpan/ditunjuk oleh P
     */
     //------------- YOUR CODE HERE -------------
+    P = next(Prec);
+    if(next(next(Prec)) == Prec){
+        next(P) = NULL;
+        prev(P) = NULL;
+        next(Prec) = Prec;
+        prev(Prec) = Prec;
+    }else{
+        next(Prec) = next(P);
+        prev(next(P)) = Prec;
+        next(P) = NULL;
+        prev(P) = NULL;
+    }
+    //----------------------------------------
+}
 
+void insertAndSort(List &L, infotype x) {
+    /**
+    * IS : List may be empty
+    * PR : insert a new element into an already sorted-by-ID List L
+    *      so that the elements inside List L is still sorted by ID.
+    *      procedure must also check if such ID is already exists (No Duplicate ID).
+    *      If new data has duplicate ID, new data is rejected.
+    * FS : elements in List L sorted by ID, P is inside List L
+    */
+
+    //-------------your code here-------------
+    address P,Q ;
+    P = first(L) ;
+    if ((P == NULL) || (info(P).ID > x.ID))
+    {
+        insertFirst(L,allocate(x)) ;
+    }
+    else if (findElmByID(L,x) == NULL)
+    {
+        while ((P != NULL) && (info(P).ID < x.ID))
+        {
+            Q = P ;
+            P = next(P) ;
+        }
+        insertAfter(L,Q,allocate(x));
+    }
     //----------------------------------------
 }
 
