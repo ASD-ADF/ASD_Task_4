@@ -44,8 +44,27 @@ void shuffleList(List &L) {
     */
     //------------- YOUR CODE HERE -------------
 
-        cout<<"UNDER MAIN TENIS"<<endl;
-
+    address P = L.first,Q ;
+    int i,k ;
+    i = 0 ;
+    do{
+        P = P->next ;
+        i++ ;
+    }
+    while (P != first(L)) ;
+    while (i > 0){
+        P = L.first ;
+        k = randomInt(i) ;
+        while (k != 0)
+        {
+            P = P->next ;
+            k-- ;
+        }
+        Q = P ;
+        deleteAfter(L,P->prev,Q) ;
+        insertFirst(L,Q) ;
+        i-- ;
+    }
     //----------------------------------------
 }
 
@@ -55,8 +74,16 @@ void playRepeat(List &L, int n) {
     *      dari lagu pertama hingga terakhir sebanyak n kali
     */
     //------------- YOUR CODE HERE -------------
-
-        cout<<"UNDER MAIN TENIS"<<endl;
+    address P=L.first;
+    int i=0;
+    while (i<n){
+        do{
+            playMusic(P);
+            P= P->next;
+        }
+        while(P != L.first);
+        i++;
+    }
 
     //----------------------------------------
 }
@@ -70,7 +97,19 @@ void deleteMusicByID(List &L, infotype x) {
     */
     //------------- YOUR CODE HERE -------------
 
-        cout<<"UNDER MAIN TENIS"<<endl;
+    address P,Q;
+    P=findElmByID(L,x);
+    if (P == L.first){
+        deleteFirst(L,P);
+        deallocate(P);
+    }else if (P == L.first->prev){
+        deleteLast(L,P);
+        deallocate(P);
+    }else if (P!=NULL){
+        Q=P->prev;
+        deleteAfter(L,Q,P);
+        deallocate(P);
+    }
 
     //----------------------------------------
 
