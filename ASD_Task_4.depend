@@ -19,3 +19,18 @@
 	"player.h"
 	<ctime>
 
+1583570365 source:d:\strukdat\asd_task_4\list.cpp
+	"list.h"
+
+1583570365 d:\strukdat\asd_task_4\list.h
+	<string>
+	<windows.h>
+	<iostream>
+
+1583570365 source:d:\strukdat\asd_task_4\player.cpp
+	"player.h"
+	<ctime>
+
+1583570365 d:\strukdat\asd_task_4\player.h
+	"list.h"
+
