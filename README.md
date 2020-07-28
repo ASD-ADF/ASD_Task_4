@@ -1,7 +1,7 @@
-# Task_4 2019
+# Task_4 2020
 Task 4 : Circular Double Linked List
 
-# DEADLINE = MARCH 4TH, 2019 - 23:59
+# DEADLINE = MARCH 7TH, 2020 - 23:59
 
 ## Reading Material
 * [git cheat sheet](https://education.github.com/git-cheat-sheet-education.pdf)
